@@ -1,5 +1,6 @@
 
 #include "ThreatsObject.h"
+#include "MainObject.h"
 #include <SDL_image.h>
 
 
@@ -73,7 +74,16 @@ void ThreatsObject::ShowQui(SDL_Renderer*des)// in ra man hinh
 
         SDL_Rect*currentClip=&frame_clips[frame_];
         SDL_Rect quad = {rect_.x, rect_.y, width_frame_, height_frame_};
-        SDL_RenderCopy( des, mTexture, currentClip, &quad);
+
+        if(trang_thai_qui.sang_phai==1)
+        {
+            SDL_RenderCopy( des, tat_ca_anh_qui[diphai].GetTexture(), currentClip, &quad);
+        }
+        else
+        {
+            SDL_RenderCopy( des, tat_ca_anh_qui[ditrai].GetTexture(), currentClip, &quad);
+        }
+        // SDL_RenderCopy( des, mTexture, currentClip, &quad);
     }
 }
 
@@ -231,32 +241,51 @@ void ThreatsObject::Di_chuyen_trong_pham_vi( SDL_Renderer* screen, MAP&map_data 
 {
     if(tren_mat_dat==true)
     {
-        if(x_qui_pos > gioihan_phai||va_bando==cham_phai)
+        if(x_qui_pos > gioihan_phai)
         {
             trang_thai_qui.sang_phai=0;
             trang_thai_qui.sang_trai=1;
             set_trang_thai_trai(1);
-            LoadImage("IMG/quai_di_trai.png",screen);
+            // LoadImage("IMG/quai_di_trai.png",screen);
         }
-        if(x_qui_pos < gioihan_trai||va_bando==cham_trai)
+        if(x_qui_pos < gioihan_trai)
         {
             trang_thai_qui.sang_phai=1;
             trang_thai_qui.sang_trai=0;
             set_trang_thai_trai(0);
-            LoadImage("IMG/quai_di_phai.png",screen);
+            //LoadImage("IMG/quai_di_phai.png",screen);
         }
-    }
-    else
-    {
-        if(trang_thai_qui.sang_trai == 1)
+
+        if(x_qui_pos <gioihan_phai &&va_bando==cham_phai)
         {
+            trang_thai_qui.sang_phai=0;
+            trang_thai_qui.sang_trai=1;
+            set_trang_thai_trai(1);
+        }
+        if(x_qui_pos>gioihan_trai&&va_bando==cham_trai)
+        {
+            trang_thai_qui.sang_phai=1;
+            trang_thai_qui.sang_trai=0;
+            set_trang_thai_trai(0);
 
         }
     }
+//    else
+//    {
+//        if(trang_thai_qui.sang_trai == 1)
+//        {
+//
+//        }
+//    }
 }
 
 
-
+// void ThreatsObject::load_tat_ca_qui(SDL_Renderer* des)
+// {
+//     tat_ca_anh_qui[ditrai].LoadImage("IMG/quai_di_trai.png",des);
+//     tat_ca_anh_qui[diphai].LoadImage("IMG/quai_di_phai.png",des);
+//
+// }
 
 
 
@@ -309,3 +338,6 @@ void ThreatsObject::Di_chuyen_trong_pham_vi( SDL_Renderer* screen, MAP&map_data 
 //    return va_bando;
 //
 //}
+
+
+

@@ -488,19 +488,21 @@
 	"commonfunction.h"
 	"BaseObject.h"
 
-1711738335 source:e:\bat_dau_game - sao chép (2)\baseobject.cpp
+1711908958 source:e:\bat_dau_game - sao chép (2)\baseobject.cpp
 	"BaseObject.h"
 
-1711737377 e:\bat_dau_game - sao chép (2)\baseobject.h
+1711910386 e:\bat_dau_game - sao chép (2)\baseobject.h
 	"commonfunction.h"
+	<bits/stdc++.h>
 
-1711464140 e:\bat_dau_game - sao chép (2)\commonfunction.h
+1711910367 e:\bat_dau_game - sao chép (2)\commonfunction.h
 	<bits/stdc++.h>
 	<SDL.h>
 	<SDL_image.h>
 	<windows.h>
 	<SDL_mixer.h>
 	<SDL_ttf.h>
+	"BaseObject.h"
 
 1711627446 source:e:\bat_dau_game - sao chép (2)\bulletobject.cpp
 	"BulletObject.h"
@@ -527,11 +529,11 @@
 
 1710332501 e:\bat_dau_game - sao chép (2)\imptimer.h
 
-1711803315 source:e:\bat_dau_game - sao chép (2)\mainobject.cpp
+1711910525 source:e:\bat_dau_game - sao chép (2)\mainobject.cpp
 	"MainObject.h"
 	"BulletObject.h"
 
-1711805767 e:\bat_dau_game - sao chép (2)\mainobject.h
+1711910453 e:\bat_dau_game - sao chép (2)\mainobject.h
 	<bits/stdc++.h>
 	"commonfunction.h"
 	"BaseObject.h"
@@ -542,15 +544,16 @@
 	<SDL_ttf.h>
 	"BulletObject.h"
 
-1711807791 source:e:\bat_dau_game - sao chép (2)\threatsobject.cpp
+1711910425 source:e:\bat_dau_game - sao chép (2)\threatsobject.cpp
 	"ThreatsObject.h"
+	"MainObject.h"
 	<SDL_image.h>
 
-1711908958 e:\bat_dau_game - sao chép (2)\threatsobject.h
+1711910169 e:\bat_dau_game - sao chép (2)\threatsobject.h
 	"commonfunction.h"
 	"BaseObject.h"
 
-1711809827 source:e:\bat_dau_game - sao chép (2)\main.cpp
+1711910453 source:e:\bat_dau_game - sao chép (2)\main.cpp
 	<bits/stdc++.h>
 	<windows.h>
 	<SDL.h>

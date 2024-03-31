@@ -113,7 +113,14 @@ private:
 };
 
 
+enum anh_qui
+{
+    ditrai,
+    diphai,
+    dem
+};
 
+extern BaseObject tat_ca_anh_qui[2];
 
 #endif // MAIN_OBJECT_H_
 

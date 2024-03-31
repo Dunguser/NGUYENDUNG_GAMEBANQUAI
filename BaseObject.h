@@ -3,8 +3,9 @@
 #define BASE_OBJECT_H_
 
 #include "commonfunction.h"
+#include<bits/stdc++.h>
 
-
+using namespace std;
 // cai p_object_ trong bai cua thay la mTexture cua minh
 class BaseObject
 {

@@ -8,6 +8,7 @@
 #include<windows.h>
 #include<SDL_mixer.h>
 #include<SDL_ttf.h>
+#include "BaseObject.h"
 
 
 using namespace std;
@@ -59,6 +60,5 @@ struct TRANG_THAI_NHAN_VAT
     int bay_;
     int can_chien_;
 };
-
 
 #endif // COMMON_FUNCTION_H_

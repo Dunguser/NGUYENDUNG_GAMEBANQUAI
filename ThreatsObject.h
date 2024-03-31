@@ -74,8 +74,16 @@ public:
     //===
     int quay_dau_lam_bo( MAP & map_data );
 
-
-//private:
+//    enum anh_qui
+//    {
+//        ditrai,
+//        diphai,
+//        dem
+//    };
+//
+//    BaseObject tat_ca_anh_qui[2];
+//    void load_tat_ca_qui(SDL_Renderer* des);
+private:
     int frame_; // so luong hinh anh trong cai anh qui
     int width_frame_; // chieu dai 1 frame
     int height_frame_;

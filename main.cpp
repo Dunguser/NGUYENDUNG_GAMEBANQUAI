@@ -30,6 +30,9 @@ GAMEMAP game_map;
 MainObject player_nvc;
 
 
+
+void load_tat_ca_qui(SDL_Renderer* des);
+
 //tạo lập lớp threart object // lớp quỉ
 vector<ThreatsObject*>Make_Threat_List()
 {
@@ -77,7 +80,10 @@ vector<ThreatsObject*>Make_Threat_List()
 int main(int messi,char*kaka[])
 {
     //kiem tra khoi tao
-    if(!Init()||!LoadMedia()){return -1000;}
+    if(!Init()||!LoadMedia())
+    {
+        return -1000;
+    }
 
     //xu li ban do: map
     game_map.LoadMap("MAP/map02.dat");
@@ -89,7 +95,7 @@ int main(int messi,char*kaka[])
 
     // khai bao 1 dong quai vat
     vector<ThreatsObject*>threats_list = Make_Threat_List();
-
+    load_tat_ca_qui(gRenderer);
     // vong lap chinh
     bool quit=false;
     while(!quit)
@@ -137,7 +143,7 @@ int main(int messi,char*kaka[])
             if(p_qui!=nullptr)
             {
                 p_qui->SetMapXY( map_data.start_x_, map_data.start_y_ );
-                p_qui->Di_chuyen_trong_pham_vi( gRenderer , map_data );
+                p_qui->Di_chuyen_trong_pham_vi( gRenderer, map_data );
                 p_qui->DICHUYEN_QUI( map_data );
 
                 p_qui->ShowQui( gRenderer );
@@ -180,6 +186,13 @@ int main(int messi,char*kaka[])
 
     return 0;
 }
+
+ void load_tat_ca_qui(SDL_Renderer* des)
+ {
+     tat_ca_anh_qui[ditrai].LoadImage("IMG/quai_di_trai.png",des);
+     tat_ca_anh_qui[diphai].LoadImage("IMG/quai_di_phai.png",des);
+
+ }
 
 
 bool Init()
@@ -252,7 +265,7 @@ void close()
     SDL_Quit();
     IMG_Quit();
 }
-      //roi xuong ho chet luon
+//roi xuong ho chet luon
 //        if(player_nvc.get_roi_xuong_vuc()==true)
 //        {
 //            //chat gpt
