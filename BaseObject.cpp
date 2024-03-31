@@ -15,33 +15,37 @@ BaseObject::~BaseObject()
     free();
 }
 
-
-bool BaseObject:: LoadImage(const string&path,SDL_Renderer*screen)
+bool BaseObject :: LoadImage( const string& path, SDL_Renderer* screen )
 {
-    SDL_Texture*cuoicung=NULL;
-    SDL_Surface* kaka=IMG_Load(path.c_str());
+    SDL_Texture* cuoicung = NULL;
+    SDL_Surface* kaka = IMG_Load (path.c_str());
     if(kaka==NULL)
     {
-        cout<<"failed to load image";
-        return 0;
+        cout<<"failed to load image " << path.c_str()<<"  "<< IMG_GetError() << endl;
+        return false;
     }
-    SDL_SetColorKey(kaka,SDL_TRUE,SDL_MapRGB(kaka->format,255,255,255));
-    cuoicung=SDL_CreateTextureFromSurface(screen,kaka);
-    if(cuoicung==NULL)
+
+    const Uint32 colorKey = SDL_MapRGB ( kaka->format, 255, 255, 255);
+    SDL_SetColorKey ( kaka, SDL_TRUE, colorKey );
+    cuoicung = SDL_CreateTextureFromSurface (screen,kaka);
+
+    if(cuoicung == NULL)
     {
-        cout<<"failed";
-        return 0;
+        cout <<"failed to create Texture from surface (baseobject) "<< path.c_str()<<"  "<<SDL_GetError()<< endl;
+        SDL_FreeSurface(kaka);
+        return false;
     }
+
     rect_.w=kaka->w;
     rect_.h=kaka->h;
 
     SDL_FreeSurface(kaka);
-    mTexture=cuoicung;
+    mTexture =   cuoicung;
     return mTexture!=NULL;
 }
 void BaseObject::Render(SDL_Renderer*des,SDL_Rect*clip)// in anh ra o dau, kiach thuoc bao nhieu
 {
-    SDL_Rect quad={rect_.x,rect_.y,rect_.w,rect_.h};
+    SDL_Rect quad= {rect_.x,rect_.y,rect_.w,rect_.h};
     SDL_RenderCopy(des,mTexture,clip,&quad);
 }
 

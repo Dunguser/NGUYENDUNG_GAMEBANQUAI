@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1710857921 source:e:\bat_dau_game\main.cpp
+1711807877 source:e:\bat_dau_game\main.cpp
 	<bits/stdc++.h>
 	<windows.h>
 	<SDL.h>
@@ -11,6 +11,7 @@
 	"GAMEMAP.h"
 	"MainObject.h"
 	"ImpTimer.h"
+	"ThreatsObject.h"
 
 1709133042 d:\sdl2-devel-2.30.0-mingw\sdl2-2.30.0\x86_64-w64-mingw32\include\sdl2\sdl.h
 	"SDL_main.h"
@@ -411,7 +412,7 @@
 	"begin_code.h"
 	"close_code.h"
 
-1710342587 source:e:\bat_dau_game\baseobject.cpp
+1711738335 source:e:\bat_dau_game\baseobject.cpp
 	"BaseObject.h"
 
 1710264400 source:e:\bat_dau_game\commonfunction.cpp
@@ -439,7 +440,7 @@
 	"begin_code.h"
 	"close_code.h"
 
-1710320139 e:\bat_dau_game\baseobject.h
+1711737377 e:\bat_dau_game\baseobject.h
 	"commonfunction.h"
 
 1710856714 source:e:\bat_dau_game\gamemap.cpp
@@ -450,11 +451,11 @@
 	"BaseObject.h"
 	<bits/stdc++.h>
 
-1711559452 source:e:\bat_dau_game\mainobject.cpp
+1711803315 source:e:\bat_dau_game\mainobject.cpp
 	"MainObject.h"
 	"BulletObject.h"
 
-1710900466 e:\bat_dau_game\mainobject.h
+1711805767 e:\bat_dau_game\mainobject.h
 	<bits/stdc++.h>
 	"commonfunction.h"
 	"BaseObject.h"
@@ -472,17 +473,94 @@
 
 1710332501 e:\bat_dau_game\imptimer.h
 
-1710917661 source:e:\bat_dau_game\bulletobject.cpp
+1711627446 source:e:\bat_dau_game\bulletobject.cpp
 	"BulletObject.h"
 
-1710906109 e:\bat_dau_game\bulletobject.h
+1711720881 e:\bat_dau_game\bulletobject.h
 	"BaseObject.h"
 	"commonfunction.h"
 
-1710780042 source:e:\bat_dau_game\threatsobject.cpp
+1711807791 source:e:\bat_dau_game\threatsobject.cpp
 	"ThreatsObject.h"
+	<SDL_image.h>
 
-1710733816 e:\bat_dau_game\threatsobject.h
+1711807718 e:\bat_dau_game\threatsobject.h
 	"commonfunction.h"
 	"BaseObject.h"
+
+1711738335 source:e:\bat_dau_game - sao chép (2)\baseobject.cpp
+	"BaseObject.h"
+
+1711737377 e:\bat_dau_game - sao chép (2)\baseobject.h
+	"commonfunction.h"
+
+1711464140 e:\bat_dau_game - sao chép (2)\commonfunction.h
+	<bits/stdc++.h>
+	<SDL.h>
+	<SDL_image.h>
+	<windows.h>
+	<SDL_mixer.h>
+	<SDL_ttf.h>
+
+1711627446 source:e:\bat_dau_game - sao chép (2)\bulletobject.cpp
+	"BulletObject.h"
+
+1711720881 e:\bat_dau_game - sao chép (2)\bulletobject.h
+	"BaseObject.h"
+	"commonfunction.h"
+
+1710264400 source:e:\bat_dau_game - sao chép (2)\commonfunction.cpp
+	"commonfunction.h"
+
+1710856714 source:e:\bat_dau_game - sao chép (2)\gamemap.cpp
+	"GAMEMAP.h"
+
+1710391114 e:\bat_dau_game - sao chép (2)\gamemap.h
+	"commonfunction.h"
+	"BaseObject.h"
+	<bits/stdc++.h>
+
+1710332501 source:e:\bat_dau_game - sao chép (2)\imptimer.cpp
+	<iostream>
+	"ImpTimer.h"
+	"commonfunction.h"
+
+1710332501 e:\bat_dau_game - sao chép (2)\imptimer.h
+
+1711803315 source:e:\bat_dau_game - sao chép (2)\mainobject.cpp
+	"MainObject.h"
+	"BulletObject.h"
+
+1711805767 e:\bat_dau_game - sao chép (2)\mainobject.h
+	<bits/stdc++.h>
+	"commonfunction.h"
+	"BaseObject.h"
+	"GAMEMAP.h"
+	<SDL.h>
+	<SDL_image.h>
+	<SDL_mixer.h>
+	<SDL_ttf.h>
+	"BulletObject.h"
+
+1711807791 source:e:\bat_dau_game - sao chép (2)\threatsobject.cpp
+	"ThreatsObject.h"
+	<SDL_image.h>
+
+1711908958 e:\bat_dau_game - sao chép (2)\threatsobject.h
+	"commonfunction.h"
+	"BaseObject.h"
+
+1711809827 source:e:\bat_dau_game - sao chép (2)\main.cpp
+	<bits/stdc++.h>
+	<windows.h>
+	<SDL.h>
+	<SDL_image.h>
+	<SDL_mixer.h>
+	<SDL_ttf.h>
+	"commonfunction.h"
+	"BaseObject.h"
+	"GAMEMAP.h"
+	"MainObject.h"
+	"ImpTimer.h"
+	"ThreatsObject.h"
 

@@ -12,28 +12,28 @@ public:
     BaseObject();
     ~BaseObject();
 
-    void SetRect(const int &x,const int &y)
+    void SetRect( const int &x, const int &y)
     // chon vi tri tren man hinh de in  mTexture o protect// toa do(x,y)
     {
         rect_.x=x;
         rect_.y=y;
     }
-    SDL_Rect GetRect()const // lay ra kich thuoc cua rect_
+    SDL_Rect GetRect() const // lay ra kich thuoc cua rect_
     {
         return rect_;
     }
-    SDL_Texture* GetTexture()const
+    SDL_Texture* GetTexture() const
     {
         return mTexture;
     }
     void free();// giai phong
-    virtual bool LoadImage(const string&path,SDL_Renderer*screen);//tai anh
+    virtual bool LoadImage( const string& path, SDL_Renderer*screen);//tai anh
     void Render(SDL_Renderer*des,SDL_Rect*clip=NULL);// in anh ra o dau, kich thuoc bao nhieu
 
 
 
 protected:
-    SDL_Texture*mTexture;
+    SDL_Texture* mTexture;
     SDL_Rect rect_;
 };
 

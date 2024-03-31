@@ -7,7 +7,7 @@
 using namespace std;
 
 #define O_TRONG 0
-#define TOCDO_DAN 30
+#define TOCDO_DAN 40
 
 
 class BulletObject:public BaseObject
@@ -31,57 +31,34 @@ public:
         DAN3=52,
         DAN4=53
     };
-
-    void set_x_biendoi(const int&xBiendoi) // cai dat gia tri cho x_bien doi
-    {
-        x_biendoi=xBiendoi;
-    }
-    void set_y_biendoi(const int &yBiendoi)
-    {
-        y_biendoi=yBiendoi;
-    }
+    // cai dat gia tri cho x_bien doi
+    void set_x_biendoi(const int&xBiendoi) { x_biendoi = xBiendoi ;}
+    void set_y_biendoi(const int &yBiendoi) { y_biendoi = yBiendoi ;}
 
     // lay gia tri x_biendoi
-    float get_x_biendoi()const
-    {
-        return x_biendoi;
-    }
-    float get_y_biendoi()const
-    {
-        return y_biendoi;
-    }
+    float get_x_biendoi() const { return x_biendoi ;}
+    float get_y_biendoi() const { return y_biendoi ;}
+
     // trong man hinh lam tuong tu
-    void settrongmanhinh(const bool&trong)
-    {
-        trong_man_hinh=trong;
-    }
-    bool gettrongmanhinh()
-    {
-        return trong_man_hinh;
-    }
+    void settrongmanhinh(const bool&trong) { trong_man_hinh = trong;}
+    bool gettrongmanhinh( ) { return trong_man_hinh ;}
 
 
     //xet gioi han hien thi vien dan bay, vi du vuot qua man hinh thi ko in ra nua
     void pham_vi_dan_bay(const int&x_gioihan,const int &y_gioihan,int dotang_x,int dotang_y,MAP&map_data);
 
     // xet huong cho dan
-    void set_huongdan(const unsigned int&huong)
-    {
-        huong_cua_dan=huong;
-    }
-    unsigned int get_huongdan()// lay ra huong cua dan
-    {
-        return huong_cua_dan;
-    }
+    void set_huongdan(const unsigned int&huong){huong_cua_dan=huong;}
 
-    void set_loai_dan(const unsigned int&lieu)// cai dat loai dan
-    {
-        loai_dan_=lieu;
-    }
-    unsigned int get_loai_dan()//lay loai dan ra
-    {
-        return loai_dan_;
-    }
+    // lay ra huong cua dan
+    unsigned int get_huongdan(){ return huong_cua_dan;}
+
+    // cai dat loai dan
+    void set_loai_dan(const unsigned int&lieu){loai_dan_=lieu;}
+
+    //lay loai dan ra
+    unsigned int get_loai_dan(){return loai_dan_;}
+
     // tai cac loai dan
     bool TAI_ANH_DAN(SDL_Renderer*des);
 
