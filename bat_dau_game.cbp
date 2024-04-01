@@ -57,6 +57,8 @@
 		<Unit filename="MainObject.h" />
 		<Unit filename="ThreatsObject.cpp" />
 		<Unit filename="ThreatsObject.h" />
+		<Unit filename="all_anh_qui.cpp" />
+		<Unit filename="all_anh_qui.h" />
 		<Unit filename="commonfunction.cpp" />
 		<Unit filename="commonfunction.h" />
 		<Unit filename="main.cpp" />

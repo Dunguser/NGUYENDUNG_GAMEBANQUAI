@@ -706,4 +706,3 @@ void MainObject::an_tien()
     tien_an_duoc++;
 }
 
-BaseObject tat_ca_anh_qui[2];

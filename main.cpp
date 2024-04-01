@@ -10,6 +10,7 @@
 #include "MainObject.h"
 #include "ImpTimer.h"
 #include "ThreatsObject.h"
+#include "all_anh_qui.h"
 
 
 using namespace std;
@@ -19,8 +20,8 @@ bool Init();
 bool LoadMedia();
 void close();
 //window
-SDL_Window* gWindow=NULL;
-SDL_Renderer* gRenderer=NULL;
+SDL_Window* gWindow=nullptr;
+SDL_Renderer* gRenderer=nullptr;
 SDL_Event gEvent;
 // khai bao 1 em background
 BaseObject gBackground;
@@ -31,10 +32,10 @@ MainObject player_nvc;
 
 
 
-void load_tat_ca_qui(SDL_Renderer* des);
+void load_tat_ca_qui(SDL_Renderer* des);// load tat ca cac anh cua qui
 
 //tạo lập lớp threart object // lớp quỉ
-vector<ThreatsObject*>Make_Threat_List()
+vector<ThreatsObject*> Make_Threat_List()
 {
     vector<ThreatsObject*> list_threats;
     ThreatsObject* qui_tuan_tra = new ThreatsObject[30];
@@ -49,12 +50,12 @@ vector<ThreatsObject*>Make_Threat_List()
             // cai dat vi tri xuat hien
             if(i<10)
             {
-                p_qui->set_x_quipos(350+i*200);
+                p_qui->set_x_quipos(350+i*150);
                 p_qui->set_y_quipos(100) ;
             }
             else if(i>=10&&i<20)
             {
-                p_qui->set_x_quipos(600+i*200);
+                p_qui->set_x_quipos(600+i*180);
                 p_qui->set_y_quipos(500) ;
             }
             else
@@ -64,8 +65,8 @@ vector<ThreatsObject*>Make_Threat_List()
             }
 
             // gioi han trai,phai
-            int gioi_han_trai = p_qui->get_x_quipos()-120;
-            int gioi_han_phai = p_qui->get_x_quipos()+120;
+            int gioi_han_trai = p_qui->get_x_quipos()-100;
+            int gioi_han_phai = p_qui->get_x_quipos()+100;
 
             p_qui->set_gioi_han_dichuyen( gioi_han_trai, gioi_han_phai );
             p_qui->set_trang_thai_trai(1);
@@ -113,7 +114,7 @@ int main(int messi,char*kaka[])
         SDL_SetRenderDrawColor( gRenderer, 255, 255, 255, 255);
         SDL_RenderClear( gRenderer );
         // in anh background
-        gBackground.Render( gRenderer, NULL );
+        gBackground.Render( gRenderer, nullptr );
 
         //xu li di chuyen, va cham map
         MAP map_data=game_map.GetMap();
@@ -139,7 +140,7 @@ int main(int messi,char*kaka[])
         // xu li quai vat
         for(int i=0; i< (int)threats_list.size(); i++)
         {
-            ThreatsObject* p_qui=threats_list.at(i);
+            ThreatsObject* p_qui = threats_list.at(i);
             if(p_qui!=nullptr)
             {
                 p_qui->SetMapXY( map_data.start_x_, map_data.start_y_ );
@@ -187,12 +188,13 @@ int main(int messi,char*kaka[])
     return 0;
 }
 
- void load_tat_ca_qui(SDL_Renderer* des)
- {
-     tat_ca_anh_qui[ditrai].LoadImage("IMG/quai_di_trai.png",des);
-     tat_ca_anh_qui[diphai].LoadImage("IMG/quai_di_phai.png",des);
-
- }
+void load_tat_ca_qui(SDL_Renderer* des)
+{
+    tat_ca_anh_qui[ditrai].LoadImage("IMG/quai_di_trai.png",des);
+    tat_ca_anh_qui[diphai].LoadImage("IMG/quai_di_phai.png",des);
+//    tat_ca_anh_qui[ditrai].LoadImage("IMG/quai_ban_trai.png",des);
+//    tat_ca_anh_qui[diphai].LoadImage("IMG/quai_ban_phai.png",des);
+}
 
 
 bool Init()
@@ -213,7 +215,7 @@ bool Init()
                                  SCREEN_WIDTH,
                                  SCREEN_HEIGHT,
                                  SDL_WINDOW_SHOWN);
-        if(gWindow==NULL)
+        if(gWindow==nullptr)
         {
             cout<<" failed0000 " << SDL_GetError() <<endl;
             success=false;
@@ -221,7 +223,7 @@ bool Init()
         else
         {
             gRenderer=SDL_CreateRenderer(gWindow,-1,SDL_RENDERER_ACCELERATED);
-            if(gRenderer==NULL)
+            if(gRenderer==nullptr)
             {
                 cout<<"-------failed to create RENDERER "<<SDL_GetError()<<endl;
                 success=false;

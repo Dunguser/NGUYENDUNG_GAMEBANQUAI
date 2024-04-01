@@ -4,14 +4,15 @@
 
 #include "commonfunction.h"
 #include "BaseObject.h"
+#include "BulletObject.h"
 
 using namespace std;
 
 #define THREATS_FRAME_NUM 7
 #define O_TRONG 0
-#define TOC_DO_QUI 4
+#define TOC_DO_QUI 3
 
-class ThreatsObject:public BaseObject
+class ThreatsObject : public BaseObject
 {
 public:
     ThreatsObject();
@@ -71,18 +72,17 @@ public:
     //xu li van de di chuyen trong pham vi a,b
     void Di_chuyen_trong_pham_vi( SDL_Renderer* screen, MAP& map_data );
 
-    //===
+    //dam vao map thi quay lai
     int quay_dau_lam_bo( MAP & map_data );
 
-//    enum anh_qui
-//    {
-//        ditrai,
-//        diphai,
-//        dem
-//    };
+    //cac ham set, get cho bang dan
+//    vector<BulletObject*> get_bang_dan_qui() {return bang_dan_qui ;}
+//    void set_bang_dan_qui(const vector<BulletObject*> & bdan) {bang_dan_qui = bdan; }
 //
-//    BaseObject tat_ca_anh_qui[2];
-//    void load_tat_ca_qui(SDL_Renderer* des);
+//    void init_dan_qui (BulletObject* dan_qui, SDL_Renderer* screen);// khoi tao vien dan
+//    void pham_vi_bay_dan_qui (SDL_Renderer* screen, const int& x_limit, const int& y_limit);
+
+
 private:
     int frame_; // so luong hinh anh trong cai anh qui
     int width_frame_; // chieu dai 1 frame
@@ -109,20 +109,9 @@ private:
     TRANG_THAI_NHAN_VAT trang_thai_qui;// ben trai hay ben phai
 
     int va_bando;
+
+    vector<BulletObject*> bang_dan_qui;// xu li qui ban dan
 };
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

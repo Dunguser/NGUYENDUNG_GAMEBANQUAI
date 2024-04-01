@@ -24,7 +24,6 @@ using namespace std;
 
 
 // khoi tao nhan vat chinh // ke thua BaseObject
-
 class MainObject:public BaseObject
 {
 public:
@@ -46,9 +45,9 @@ public:
     void DiChuyenNhanVat ( MAP &map_data );//xu li cho nhan vat di chuyen, va cham coi ban do
     void CheckToMap( MAP&map_data );// kiem tra nhan vat va cham voi ban do
 
-    void SetMapXY ( const int map_x, const int map_y )
     //tao bien theo doi di chyen cua ban do theo nhan vat
     // vi tri cua ban do chay theo nhan vat
+    void SetMapXY ( const int map_x, const int map_y )
     {
         map_x_=map_x;
         map_y_=map_y;
@@ -73,7 +72,6 @@ public:
 
     void KHOI_TAO_DAN_1 (BulletObject*viendan,SDL_Renderer*screen);
     void KHOI_TAO_DAN_2 (BulletObject*viendan,SDL_Renderer*screen);
-    //void XU_LI_BAN_DAN(SDL_Renderer*des,const int&x_gioihan,const int&y_gioihan);// xu li ban dan cho nhan vat
     void XU_LI_BAN_DAN  (SDL_Renderer*des, const int&x_gioihan, const int&y_gioihan, MAP&map_data);// xu li ban dan cho nhan vat
 
     void loaiboviendan( const int& index );// loai bo vien dan ngoai pham vi ban
@@ -112,15 +110,6 @@ private:
 
 };
 
-
-enum anh_qui
-{
-    ditrai,
-    diphai,
-    dem
-};
-
-extern BaseObject tat_ca_anh_qui[2];
 
 #endif // MAIN_OBJECT_H_
 

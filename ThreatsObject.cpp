@@ -2,7 +2,7 @@
 #include "ThreatsObject.h"
 #include "MainObject.h"
 #include <SDL_image.h>
-
+#include "all_anh_qui.h"
 
 using namespace std;
 
@@ -88,8 +88,7 @@ void ThreatsObject::ShowQui(SDL_Renderer*des)// in ra man hinh
 }
 
 
-void ThreatsObject:: DICHUYEN_QUI( MAP& map_data )
-// xu li di chuyen cho qui
+void ThreatsObject:: DICHUYEN_QUI( MAP& map_data )// xu li di chuyen cho qui
 {
     if(come_back_time_==0)
     {
@@ -125,7 +124,7 @@ void ThreatsObject::khoitaoqui()
 {
     x_change=0;
     y_change=0;
-    x_qui_pos-=256;
+    x_qui_pos+=256;
     y_qui_pos=0;
     gioihan_trai-=256;
     gioihan_phai-=256;
@@ -246,14 +245,12 @@ void ThreatsObject::Di_chuyen_trong_pham_vi( SDL_Renderer* screen, MAP&map_data 
             trang_thai_qui.sang_phai=0;
             trang_thai_qui.sang_trai=1;
             set_trang_thai_trai(1);
-            // LoadImage("IMG/quai_di_trai.png",screen);
         }
         if(x_qui_pos < gioihan_trai)
         {
             trang_thai_qui.sang_phai=1;
             trang_thai_qui.sang_trai=0;
             set_trang_thai_trai(0);
-            //LoadImage("IMG/quai_di_phai.png",screen);
         }
 
         if(x_qui_pos <gioihan_phai &&va_bando==cham_phai)
@@ -270,74 +267,22 @@ void ThreatsObject::Di_chuyen_trong_pham_vi( SDL_Renderer* screen, MAP&map_data 
 
         }
     }
-//    else
-//    {
-//        if(trang_thai_qui.sang_trai == 1)
-//        {
-//
-//        }
-//    }
+
 }
 
 
-// void ThreatsObject::load_tat_ca_qui(SDL_Renderer* des)
-// {
-//     tat_ca_anh_qui[ditrai].LoadImage("IMG/quai_di_trai.png",des);
-//     tat_ca_anh_qui[diphai].LoadImage("IMG/quai_di_phai.png",des);
-//
-// }
 
-
-
-//int ThreatsObject::quay_dau_lam_bo( MAP& map_data )
+//void ThreatsObject::init_dan_qui (BulletObject* dan_qui, SDL_Renderer* screen)// khoi tao vien dan
 //{
-//    int x1=0,x2=0; // gioi han kiem tra ngang // theo o vuong
-//    int y1=0,y2=0;                     //doc
-//
-//    // kiem tra theo chieu ngang--------------------------
-//
-//    // chieu cao nho nhat // chieu cao frame hay chieu cao o=64
-//    int height_min=min(height_frame_,TILE_SIZE);
-//
-//    // tim o hien tai dang dung la oo bao nhieu
-//    x1=(x_qui_pos+x_change)/TILE_SIZE;
-//    int sai_so_can_co=1;
-//    x2=(x_qui_pos+x_change+width_frame_ -sai_so_can_co)/TILE_SIZE;
-//
-//    y1=(y_qui_pos+y_change)/TILE_SIZE;
-//    y2=(y_qui_pos+y_change+height_min-sai_so_can_co)/TILE_SIZE;
-//
-//    //kiem tra theo x1,x2,y1,y2 co o trong ban do hay ko
-//    if( x1>=0 && x2<MAX_MAP_X && y1>=0 && y2<MAX_MAP_Y ) // nhan vat o trong ban do
+//    if(dan_qui != nullptr)
 //    {
-//        if(x_change>0)//di sang phai
-//        {
-//            int val1=map_data.tile[y1][x2];
-//            int val2=map_data.tile[y2][x2];
-//
-//            if((val1!=O_TRONG&&val1!=4)||(val2!=O_TRONG&&val2!=4))
-//            {
-//                x_qui_pos=x2*TILE_SIZE-width_frame_-sai_so_can_co;//khi va cham thi phai tra lai vi tri cu
-//                x_change=0;
-//                return true;
-//            }
-//        }
-//        else if( x_change < 0)//sang trai
-//        {
-//            int val1=map_data.tile[y1][x1];
-//            int val2=map_data.tile[y2][x1];
-//
-//            if((val1!=O_TRONG&&val1!=4)||(val2!=O_TRONG&&val2!=4))
-//            {
-//                x_qui_pos=(x1+sai_so_can_co)*TILE_SIZE;
-//                x_change=0;
-//                va_bando=cham_trai;
-//            }
-//        }
+//        dan_qui->set_loai_dan(BaseObject :: DAN_QUI_TRAI );
+//        dan_qui->LoadImage("IMG/quai_ban_trai.png",screen);
+//        dan_qui->settrongmanhinh(true);
+//        dan_qui
 //    }
-//    return va_bando;
+//}
+//void ThreatsObject::pham_vi_bay_dan_qui (SDL_Renderer* screen, const int& x_limit, const int& y_limit)
+//{
 //
 //}
-
-
-

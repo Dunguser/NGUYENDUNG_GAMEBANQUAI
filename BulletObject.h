@@ -29,7 +29,9 @@ public:
         DAN1_TRAI=50,
         DAN1_PHAI=51,
         DAN3=52,
-        DAN4=53
+        DAN4=53,
+        DAN_QUI_TRAI=54,
+        DAN_QUI_PHAI=55
     };
     // cai dat gia tri cho x_bien doi
     void set_x_biendoi(const int&xBiendoi) { x_biendoi = xBiendoi ;}
@@ -48,7 +50,7 @@ public:
     void pham_vi_dan_bay(const int&x_gioihan,const int &y_gioihan,int dotang_x,int dotang_y,MAP&map_data);
 
     // xet huong cho dan
-    void set_huongdan(const unsigned int&huong){huong_cua_dan=huong;}
+    void set_huongdan(const unsigned int&huong){ huong_cua_dan = huong;}
 
     // lay ra huong cua dan
     unsigned int get_huongdan(){ return huong_cua_dan;}
@@ -65,8 +67,8 @@ public:
 
     //phan chinh sua
     //bool check_va_cham_map(MAP&map_data,int map_x_dan,int map_y_dan);// kien tra va cham voi map
-    bool check_va_cham_map(MAP&map_data);// kien tra va cham voi map
-    void DI_CHUYEN_DAN(MAP&map_data);
+    bool check_va_cham_map( MAP& map_data );// kien tra va cham voi map
+    void DI_CHUYEN_DAN( MAP& map_data );
 
 private:
 
@@ -87,13 +89,6 @@ private:
     int map_x_;// mep moi cua ban do khi nhan vat di chuyen
     int map_y_;
 };
-
-
-
-
-
-
-
 
 
 #endif // BULLET_OBJECT_H_

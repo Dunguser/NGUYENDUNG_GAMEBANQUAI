@@ -3,6 +3,7 @@
 #include<iostream>
 #include "ImpTimer.h"
 #include "commonfunction.h"
+#include "all_anh_qui.h"
 
 using namespace std;
 
