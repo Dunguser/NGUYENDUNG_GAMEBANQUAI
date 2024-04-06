@@ -98,8 +98,8 @@ void MainObject::ShowMain(SDL_Renderer*des)
         if(status_==ben_trai_) LoadImage("IMG/DAO_DAM_TRAI.png",des);
         else if(status_==ben_phai_) LoadImage("IMG/DAO_DAM_PHAI.png",des);
     }
-    if(trang_thai_vao.sang_trai==1||trang_thai_vao.sang_phai==1
-        ||trang_thai_vao.can_chien_==1||trang_thai_vao.bay_==1)
+    if(trang_thai_vao.sang_trai==1 || trang_thai_vao.sang_phai==1
+        ||trang_thai_vao.can_chien_==1 || trang_thai_vao.bay_==1 )
 
     {
         frame_++;// neu co bien doi thi frame tang
@@ -108,8 +108,8 @@ void MainObject::ShowMain(SDL_Renderer*des)
 
     if(frame_>=SO_FRAME) frame_=0;
 
-    rect_.x=x_now_pos-map_x_; //vi tri xuat hien
-    rect_.y=y_now_pos-map_y_;
+    rect_.x = x_now_pos - map_x_; //vi tri xuat hien
+    rect_.y = y_now_pos - map_y_;
 
     SDL_Rect*currentclip=&frame_clip_[frame_];//hien tai la dang cai anh nao
     // lay anh nay ma in ra
@@ -127,10 +127,10 @@ void MainObject::Set_Clips_chay()
     {
         for(int i=0; i<SO_FRAME; i++)
         {
-            frame_clip_[i].w=width_frame_;
-            frame_clip_[i].h=height_frame_;
-            frame_clip_[i].y=0;
-            frame_clip_[i].x=i*width_frame_;
+            frame_clip_[i].w= width_frame_;
+            frame_clip_[i].h= height_frame_;
+            frame_clip_[i].y= 0;
+            frame_clip_[i].x= i*width_frame_;
         }
     }
 }
@@ -185,6 +185,7 @@ void MainObject::XuLiXuKienBanPhim(SDL_Event events,SDL_Renderer*screen)
                 trang_thai_vao.sang_trai=0;
                 trang_thai_vao.can_chien_=0;
                 tren_mat_dat=false;
+                LoadMainImg("IMG/bay_trai.png",screen);
             }
             else if((tohop&KMOD_LSHIFT)&&(events.key.keysym.sym==SDLK_z))
             {
@@ -194,6 +195,7 @@ void MainObject::XuLiXuKienBanPhim(SDL_Event events,SDL_Renderer*screen)
                 trang_thai_vao.sang_phai=0;
                 trang_thai_vao.can_chien_=0;
                 tren_mat_dat=false;
+                LoadMainImg("IMG/bay_phai.png",screen);
             }
             else if((tohop&KMOD_LSHIFT)&&(events.key.keysym.sym==SDLK_x))
             {
@@ -386,7 +388,7 @@ void MainObject::DiChuyenNhanVat(MAP &map_data)
                 x_biendoi_-=TOC_DO_BAY;
                 y_biendoi_=-5;
             }
-            trang_thai_vao.bay_=0;
+            //trang_thai_vao.bay_=0;
         }
         CheckToMap(map_data);// kiem tra va cham
         MAP_DI_CHUYEN_THEO_NV(map_data);//tinh toan thong so cua map khi nhan vat di chuyen

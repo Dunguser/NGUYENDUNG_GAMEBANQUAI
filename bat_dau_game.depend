@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1712415868 source:e:\bat_dau_game\main.cpp
+1712425771 source:e:\bat_dau_game\main.cpp
 	<bits/stdc++.h>
 	<windows.h>
 	<SDL.h>
@@ -454,11 +454,11 @@
 	"BaseObject.h"
 	<bits/stdc++.h>
 
-1712412954 source:e:\bat_dau_game\mainobject.cpp
+1712420436 source:e:\bat_dau_game\mainobject.cpp
 	"MainObject.h"
 	"BulletObject.h"
 
-1712406231 e:\bat_dau_game\mainobject.h
+1712419931 e:\bat_dau_game\mainobject.h
 	<bits/stdc++.h>
 	"commonfunction.h"
 	"BaseObject.h"

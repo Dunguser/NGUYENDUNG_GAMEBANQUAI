@@ -20,7 +20,7 @@ using namespace std;
 #define O_TRONG 0
 #define NHAYBTH 20
 #define NHAY_CAO_BAY 10
-#define TOC_DO_BAY 30
+#define TOC_DO_BAY 10
 #define SO_FRAME 8
 
 

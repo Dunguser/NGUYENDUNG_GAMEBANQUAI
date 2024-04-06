@@ -75,29 +75,28 @@ int main(int messi,char* kaka [] )
                 p_qui->pham_vi_bay_dan_qui(gRenderer, SCREEN_WIDTH/3,SCREEN_HEIGHT/3,map_data);
                 p_qui->ShowQui( gRenderer );
 //
-//                SDL_Rect rect_nvc = player_nvc.GetRectFrame();
-//                bool locdan = false;
-//                vector<BulletObject*> qui_dan = p_qui->get_bang_dan_qui();
-//
-//                for( int j = 0; j < (int) qui_dan.size(); j ++ )
-//                {
-//                    BulletObject* dan1 = qui_dan.at(j);
-//                    if(dan1!=nullptr)
-//                    {
-//                        locdan = SDLCommonFunc :: CheckCollision( dan1->GetRect(),rect_nvc );
-//                        if(locdan)
-//                        {
-//                            std::cout << dan1->GetRect().x << ' ' << dan1->GetRect().y << ' ' << dan1->GetRect().x + dan1->GetRect().w << ' ' << dan1->GetRect().y + dan1->GetRect().h << '\n';
-//                            std::cout << rect_nvc.x << ' ' << rect_nvc.y << ' ' << rect_nvc.x + rect_nvc.w << ' ' << rect_nvc.y + dan1->GetRect().h << '\n';
-//                            std::cout << "collision\n";
-//                            p_qui->loaiboviendan(j);
-//                            //break;
-//                        }
-//                    }
-//                }
-
+                SDL_Rect rect_nvc = player_nvc.GetRectFrame();
+                bool locdan = false;
+                vector<BulletObject*> qui_dan = p_qui->get_bang_dan_qui();
+                cout<<"id: " << i << " : has " << qui_dan.size()<<endl;
+                for( int j = 0; j < (int) qui_dan.size(); j ++ )
+                {
+                    BulletObject* dan1 = qui_dan.at(j);
+                    if(dan1!=nullptr)
+                    {
+                        locdan = SDLCommonFunc :: CheckCollision( dan1->GetRect(),rect_nvc );
+                        if(locdan)
+                        {
+                            std::cout <<"dan  "<< dan1->GetRect().x << ' ' << dan1->GetRect().y << ' ' << dan1->GetRect().x + dan1->GetRect().w << ' ' << dan1->GetRect().y + dan1->GetRect().h <<" ha phuong "<< '\n';
+                            std::cout <<"nvc "<< rect_nvc.x << ' ' << rect_nvc.y << ' ' << rect_nvc.x + rect_nvc.w << ' ' << rect_nvc.y + dan1->GetRect().h<<" vu xuan dung " << '\n';
+                            std::cout << "collision\n";
+                            p_qui->loaiboviendan(j);
+                            //break;
+                        }
+                    }
                 }
             }
+        }
 
         // xử lí viên đạn va chạm
         vector<BulletObject*> dan_nvc = player_nvc.get_bang_dan();// lấy ra băng đạn của nhân vật chính
@@ -126,6 +125,14 @@ int main(int messi,char* kaka [] )
                         }
                     }
                 }
+            }
+        }
+        // khởi tạo lại đạn quỉ
+        for (int i = 0; i < (int) threats_list.size(); ++ i) {
+            ThreatsObject* p_qui = threats_list.at(i);
+            if (p_qui->get_bang_dan_qui().empty()) {
+                BulletObject* dan_qui = new BulletObject(); //them dan
+                p_qui->init_dan_qui( dan_qui, gRenderer);
             }
         }
 
@@ -171,7 +178,7 @@ vector<ThreatsObject*> Make_Threat_List()
             p_qui->set_clips();
 
             p_qui->set_x_quipos( 100*i+1200 );  // cai dat vi tri xuat hien
-            p_qui->set_y_quipos( 60);
+            p_qui->set_y_quipos( 360);
 
             int gioi_han_trai = p_qui->get_x_quipos()-100; // gioi han trai,phai
             int gioi_han_phai = p_qui->get_x_quipos()+100;
