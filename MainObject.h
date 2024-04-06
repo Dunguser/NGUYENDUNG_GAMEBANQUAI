@@ -16,14 +16,15 @@ using namespace std;
 
 #define TOCDOROI 0.8
 #define ROITOIDA 40
-#define TOCDOCHAY 8.5
+#define TOCDOCHAY 9
 #define O_TRONG 0
 #define NHAYBTH 20
 #define NHAY_CAO_BAY 10
 #define TOC_DO_BAY 30
+#define SO_FRAME 8
 
 
-// khoi tao nhan vat chinh // ke thua BaseObject
+// khoi tao nhan vat chinh // kế thừa BaseObject
 class MainObject:public BaseObject
 {
 public:
@@ -40,43 +41,39 @@ public:
 
     bool LoadMainImg ( const string&path, SDL_Renderer *screen );//ham load anh cua nhan vat chinh va can them cac thong so cua tam anh
     void ShowMain ( SDL_Renderer*des );// xau frame nhan vat chinh
-    void XuLiXuKienBanPhim (SDL_Event events, SDL_Renderer*screen);// xu li cac phim bam sang trai, sang phai, bay
+    void XuLiXuKienBanPhim (SDL_Event events, SDL_Renderer* screen);// xu li cac phim bam sang trai, sang phai, bay
     void Set_Clips_chay (); // ham tao clip tu nhung hinh anh lien tiep
-    void DiChuyenNhanVat ( MAP &map_data );//xu li cho nhan vat di chuyen, va cham coi ban do
-    void CheckToMap( MAP&map_data );// kiem tra nhan vat va cham voi ban do
-
+    void DiChuyenNhanVat ( MAP & map_data );//xu li cho nhan vat di chuyen, va cham coi ban do
+    void CheckToMap( MAP& map_data );// kiem tra nhan vat va cham voi ban do
+    SDL_Rect GetRectFrame();
     //tao bien theo doi di chyen cua ban do theo nhan vat
     // vi tri cua ban do chay theo nhan vat
     void SetMapXY ( const int map_x, const int map_y )
     {
-        map_x_=map_x;
-        map_y_=map_y;
+        map_x_ = map_x;
+        map_y_ = map_y;
     }
 
-    void MAP_DI_CHUYEN_THEO_NV ( MAP&map_data );//tinh toan thong so cua map khi nhan vat di chuyen
-    void capnhattrenmatdat( SDL_Renderer*des );
+    void MAP_DI_CHUYEN_THEO_NV ( MAP& map_data );//tinh toan thong so cua map khi nhan vat di chuyen
+    void capnhattrenmatdat( SDL_Renderer* des );
 
     bool get_roi_xuong_vuc();// lay roi xuong vuc
 
 
-    //xu li bang dan
-    void set_bang_dan(vector<BulletObject*>bu)// cai dat bang dan
-    {
-        bangdan_nvc=bu;
-    }
+    // cai dat bang dan
+    void set_bang_dan(vector<BulletObject*> bu){ bangdan_nvc = bu; }
     // lay bang dan ra
-    vector<BulletObject*>get_bang_dan()const
-    {
-        return bangdan_nvc;
-    }
+    vector<BulletObject*>get_bang_dan()const { return bangdan_nvc; }
 
-    void KHOI_TAO_DAN_1 (BulletObject*viendan,SDL_Renderer*screen);
-    void KHOI_TAO_DAN_2 (BulletObject*viendan,SDL_Renderer*screen);
-    void XU_LI_BAN_DAN  (SDL_Renderer*des, const int&x_gioihan, const int&y_gioihan, MAP&map_data);// xu li ban dan cho nhan vat
+    void KHOI_TAO_DAN_1 (BulletObject* viendan, SDL_Renderer* screen);
+    void KHOI_TAO_DAN_2 (BulletObject* viendan, SDL_Renderer* screen);
+    void XU_LI_BAN_DAN  (SDL_Renderer* des, const int& x_gioihan, const int& y_gioihan, MAP& map_data);// xu li ban dan cho nhan vat
 
     void loaiboviendan( const int& index );// loai bo vien dan ngoai pham vi ban
     void an_tien();// tinh tien an duoc
 
+    void trungdan() { solantrungdan ++;} // quai bi trung dan
+    int get_solantrungdan()const { return solantrungdan;}
 
 private:
     float x_biendoi_;// khi di chuyen thi tang/giam bao nhieu
@@ -107,7 +104,7 @@ private:
 
     int come_back_time_;// thoi gian sau khi chet nhan vat quay tro lai
 
-
+    int solantrungdan;
 };
 
 

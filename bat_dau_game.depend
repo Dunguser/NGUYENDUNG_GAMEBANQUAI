@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1711986664 source:e:\bat_dau_game\main.cpp
+1712415868 source:e:\bat_dau_game\main.cpp
 	<bits/stdc++.h>
 	<windows.h>
 	<SDL.h>
@@ -413,13 +413,13 @@
 	"begin_code.h"
 	"close_code.h"
 
-1711984320 source:e:\bat_dau_game\baseobject.cpp
+1712368487 source:e:\bat_dau_game\baseobject.cpp
 	"BaseObject.h"
 
-1710264400 source:e:\bat_dau_game\commonfunction.cpp
+1712412058 source:e:\bat_dau_game\commonfunction.cpp
 	"commonfunction.h"
 
-1711910367 e:\bat_dau_game\commonfunction.h
+1712378114 e:\bat_dau_game\commonfunction.h
 	<bits/stdc++.h>
 	<SDL.h>
 	<SDL_image.h>
@@ -442,7 +442,7 @@
 	"begin_code.h"
 	"close_code.h"
 
-1711986066 e:\bat_dau_game\baseobject.h
+1712371538 e:\bat_dau_game\baseobject.h
 	"commonfunction.h"
 	<bits/stdc++.h>
 
@@ -454,11 +454,11 @@
 	"BaseObject.h"
 	<bits/stdc++.h>
 
-1711982390 source:e:\bat_dau_game\mainobject.cpp
+1712412954 source:e:\bat_dau_game\mainobject.cpp
 	"MainObject.h"
 	"BulletObject.h"
 
-1711982390 e:\bat_dau_game\mainobject.h
+1712406231 e:\bat_dau_game\mainobject.h
 	<bits/stdc++.h>
 	"commonfunction.h"
 	"BaseObject.h"
@@ -477,20 +477,20 @@
 
 1710332501 e:\bat_dau_game\imptimer.h
 
-1711627446 source:e:\bat_dau_game\bulletobject.cpp
+1712412058 source:e:\bat_dau_game\bulletobject.cpp
 	"BulletObject.h"
 
-1711986067 e:\bat_dau_game\bulletobject.h
+1712368487 e:\bat_dau_game\bulletobject.h
 	"BaseObject.h"
 	"commonfunction.h"
 
-1711986504 source:e:\bat_dau_game\threatsobject.cpp
+1712416556 source:e:\bat_dau_game\threatsobject.cpp
 	"ThreatsObject.h"
 	"MainObject.h"
 	<SDL_image.h>
 	"all_anh_qui.h"
 
-1711986504 e:\bat_dau_game\threatsobject.h
+1712406231 e:\bat_dau_game\threatsobject.h
 	"commonfunction.h"
 	"BaseObject.h"
 	"BulletObject.h"

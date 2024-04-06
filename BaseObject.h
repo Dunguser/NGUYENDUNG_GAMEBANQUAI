@@ -38,6 +38,4 @@ protected:
     SDL_Texture* mTexture;
     SDL_Rect rect_;
 };
-
-
 #endif // BASE_OBJECT_H_

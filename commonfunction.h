@@ -26,13 +26,12 @@ const int FRAME_PER_SECOND =25;
 // chi so ban do game
 #define TILE_SIZE 64 // kich thuoc cua 1 o
 
-#define MAX_MAP_X 60
+#define MAX_MAP_X 80
 #define MAX_MAP_Y 45
 
 #define MONEY 4
 
 // XAY DUNG BAN DO GAME
-//typedef struct MAP
 struct MAP
 {
     int start_x_;//vi tri , vd dang o o thu 10 thi vi tri la 10*32=320
@@ -49,7 +48,6 @@ struct MAP
 };
 
 // cau truc trang thai di chuyen cua nhan vat
-//typedef struct TRANG_THAI_NHAN_VAT
 struct TRANG_THAI_NHAN_VAT
 {
     int sang_trai;
@@ -61,4 +59,8 @@ struct TRANG_THAI_NHAN_VAT
     int can_chien_;
 };
 
+namespace SDLCommonFunc
+{
+    bool CheckCollision(const SDL_Rect&object1,const SDL_Rect&object2);
+}
 #endif // COMMON_FUNCTION_H_
