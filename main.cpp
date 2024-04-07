@@ -78,7 +78,7 @@ int main(int messi,char* kaka [] )
                 SDL_Rect rect_nvc = player_nvc.GetRectFrame();
                 bool locdan = false;
                 vector<BulletObject*> qui_dan = p_qui->get_bang_dan_qui();
-                cout<<"id: " << i << " : has " << qui_dan.size()<<endl;
+                //cout<<"id: " << i << " : has " << qui_dan.size()<<endl;
                 for( int j = 0; j < (int) qui_dan.size(); j ++ )
                 {
                     BulletObject* dan1 = qui_dan.at(j);
@@ -87,11 +87,22 @@ int main(int messi,char* kaka [] )
                         locdan = SDLCommonFunc :: CheckCollision( dan1->GetRect(),rect_nvc );
                         if(locdan)
                         {
-                            std::cout <<"dan  "<< dan1->GetRect().x << ' ' << dan1->GetRect().y << ' ' << dan1->GetRect().x + dan1->GetRect().w << ' ' << dan1->GetRect().y + dan1->GetRect().h <<" ha phuong "<< '\n';
-                            std::cout <<"nvc "<< rect_nvc.x << ' ' << rect_nvc.y << ' ' << rect_nvc.x + rect_nvc.w << ' ' << rect_nvc.y + dan1->GetRect().h<<" vu xuan dung " << '\n';
-                            std::cout << "collision\n";
                             p_qui->loaiboviendan(j);
-                            //break;
+                            player_nvc.trungdan();
+                            if( player_nvc.get_solantrungdan()== 35 )
+                            {
+                                const wchar_t* wideString = L"   GameOver \n";
+                                int bufferSize = WideCharToMultiByte(CP_UTF8, 0, wideString, -1, NULL, 0, NULL, NULL);
+                                char* buffer = new char[bufferSize];
+                                WideCharToMultiByte(CP_UTF8, 0, wideString, -1, buffer, bufferSize, NULL, NULL);
+                                if (MessageBox(NULL, buffer, "Info", MB_OK | MB_ICONSTOP) == IDOK)
+                                {
+                                   close();
+                                   SDL_Quit();
+                                   delete[] buffer;
+                                   return 0;
+                                }
+                            }
                         }
                     }
                 }
@@ -128,9 +139,11 @@ int main(int messi,char* kaka [] )
             }
         }
         // khởi tạo lại đạn quỉ
-        for (int i = 0; i < (int) threats_list.size(); ++ i) {
+        for (int i = 0; i < (int) threats_list.size(); ++ i)
+        {
             ThreatsObject* p_qui = threats_list.at(i);
-            if (p_qui->get_bang_dan_qui().empty()) {
+            if (p_qui->get_bang_dan_qui().empty())
+            {
                 BulletObject* dan_qui = new BulletObject(); //them dan
                 p_qui->init_dan_qui( dan_qui, gRenderer);
             }
@@ -249,6 +262,9 @@ void close()
 
 
 
+//                            std::cout <<"dan  "<< dan1->GetRect().x << ' ' << dan1->GetRect().y << ' ' << dan1->GetRect().x + dan1->GetRect().w << ' ' << dan1->GetRect().y + dan1->GetRect().h <<" ha phuong "<< '\n';
+//                            std::cout <<"nvc "<< rect_nvc.x << ' ' << rect_nvc.y << ' ' << rect_nvc.x + rect_nvc.w << ' ' << rect_nvc.y + dan1->GetRect().h<<" vu xuan dung " << '\n';
+//                            std::cout << "collision\n";
 
 
 

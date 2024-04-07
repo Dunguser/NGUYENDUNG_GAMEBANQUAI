@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1712425771 source:e:\bat_dau_game\main.cpp
+1712453014 source:e:\bat_dau_game\main.cpp
 	<bits/stdc++.h>
 	<windows.h>
 	<SDL.h>
