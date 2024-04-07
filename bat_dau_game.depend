@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1712453014 source:e:\bat_dau_game\main.cpp
+1712514777 source:e:\bat_dau_game\main.cpp
 	<bits/stdc++.h>
 	<windows.h>
 	<SDL.h>
@@ -13,6 +13,8 @@
 	"ImpTimer.h"
 	"ThreatsObject.h"
 	"all_anh_qui.h"
+	"vuno.h"
+	"TextObject.h"
 
 1709133042 d:\sdl2-devel-2.30.0-mingw\sdl2-2.30.0\x86_64-w64-mingw32\include\sdl2\sdl.h
 	"SDL_main.h"
@@ -416,7 +418,7 @@
 1712368487 source:e:\bat_dau_game\baseobject.cpp
 	"BaseObject.h"
 
-1712412058 source:e:\bat_dau_game\commonfunction.cpp
+1712484172 source:e:\bat_dau_game\commonfunction.cpp
 	"commonfunction.h"
 
 1712378114 e:\bat_dau_game\commonfunction.h
@@ -454,11 +456,11 @@
 	"BaseObject.h"
 	<bits/stdc++.h>
 
-1712420436 source:e:\bat_dau_game\mainobject.cpp
+1712481156 source:e:\bat_dau_game\mainobject.cpp
 	"MainObject.h"
 	"BulletObject.h"
 
-1712419931 e:\bat_dau_game\mainobject.h
+1712496910 e:\bat_dau_game\mainobject.h
 	<bits/stdc++.h>
 	"commonfunction.h"
 	"BaseObject.h"
@@ -484,7 +486,7 @@
 	"BaseObject.h"
 	"commonfunction.h"
 
-1712416556 source:e:\bat_dau_game\threatsobject.cpp
+1712500003 source:e:\bat_dau_game\threatsobject.cpp
 	"ThreatsObject.h"
 	"MainObject.h"
 	<SDL_image.h>
@@ -582,4 +584,19 @@
 	"BaseObject.h"
 	<bits/stdc++.h>
 	"BulletObject.h"
+
+1712482293 source:e:\bat_dau_game\vuno.cpp
+	"vuno.h"
+
+1712482118 e:\bat_dau_game\vuno.h
+	"commonfunction.h"
+	"BaseObject.h"
+
+1712514216 e:\bat_dau_game\textobject.h
+	"commonfunction.h"
+	<bits/stdc++.h>
+	<SDL_ttf.h>
+
+1712514246 source:e:\bat_dau_game\textobject.cpp
+	"TextObject.h"
 

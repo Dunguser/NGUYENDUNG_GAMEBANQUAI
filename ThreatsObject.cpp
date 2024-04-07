@@ -103,7 +103,9 @@ void ThreatsObject::khoitaoqui()
     y_qui_pos = 0;
     gioihan_trai-=256;
     gioihan_phai-=256;
-    trang_thai_qui.sang_trai=1;
+    int huong = rand()%2;
+    trang_thai_qui.sang_trai = huong;;
+    cout<<"huong "<<huong<< endl;
 }
 
 //kiem tra va cham voi ban do
@@ -232,14 +234,14 @@ void ThreatsObject::init_dan_qui (BulletObject* dan_qui, SDL_Renderer* screen)//
         dan_qui->TAI_ANH_DAN(screen);
         if( trang_thai_qui.sang_trai == 1 )
         {
-            cout<<"kaka lua mach--------------\n";
-            //dan_qui->set_huongdan( BulletObject::ban_dan_trai );
+            //cout<<"kaka lua mach--------------\n";
+            dan_qui->set_huongdan( BulletObject :: ban_dan_trai );
             dan_qui->SetRect(rect_.x-20, y_qui_pos+10);
         }
         else if( trang_thai_qui.sang_phai == 1 )
         {
             std::cout << "turn right dkm nha m \n";
-            //dan_qui->set_huongdan(BulletObject::ban_dan_phai);
+            dan_qui->set_huongdan( BulletObject :: ban_dan_phai);
             dan_qui->SetRect(rect_.x+15, y_qui_pos+10);
         }
 

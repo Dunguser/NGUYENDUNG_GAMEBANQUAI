@@ -73,7 +73,10 @@ public:
     void an_tien();// tinh tien an duoc
 
     void trungdan() { solantrungdan ++;} // quai bi trung dan
-    int get_solantrungdan()const { return solantrungdan;}
+    int get_solantrungdan() const { return solantrungdan;}
+
+    int get_width_frame () const { return width_frame_ ; }
+    int get_height_frame () const { return height_frame_ ; }
 
 private:
     float x_biendoi_;// khi di chuyen thi tang/giam bao nhieu

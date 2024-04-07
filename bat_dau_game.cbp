@@ -55,6 +55,8 @@
 		<Unit filename="ImpTimer.h" />
 		<Unit filename="MainObject.cpp" />
 		<Unit filename="MainObject.h" />
+		<Unit filename="TextObject.cpp" />
+		<Unit filename="TextObject.h" />
 		<Unit filename="ThreatsObject.cpp" />
 		<Unit filename="ThreatsObject.h" />
 		<Unit filename="all_anh_qui.cpp" />
@@ -62,6 +64,8 @@
 		<Unit filename="commonfunction.cpp" />
 		<Unit filename="commonfunction.h" />
 		<Unit filename="main.cpp" />
+		<Unit filename="vuno.cpp" />
+		<Unit filename="vuno.h" />
 		<Extensions>
 			<lib_finder disable_auto="1" />
 		</Extensions>
