@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1712514777 source:e:\bat_dau_game\main.cpp
+1712578932 source:e:\bat_dau_game\main.cpp
 	<bits/stdc++.h>
 	<windows.h>
 	<SDL.h>
@@ -15,6 +15,7 @@
 	"all_anh_qui.h"
 	"vuno.h"
 	"TextObject.h"
+	"PlayerPower.h"
 
 1709133042 d:\sdl2-devel-2.30.0-mingw\sdl2-2.30.0\x86_64-w64-mingw32\include\sdl2\sdl.h
 	"SDL_main.h"
@@ -421,7 +422,7 @@
 1712484172 source:e:\bat_dau_game\commonfunction.cpp
 	"commonfunction.h"
 
-1712378114 e:\bat_dau_game\commonfunction.h
+1712580434 e:\bat_dau_game\commonfunction.h
 	<bits/stdc++.h>
 	<SDL.h>
 	<SDL_image.h>
@@ -456,11 +457,11 @@
 	"BaseObject.h"
 	<bits/stdc++.h>
 
-1712481156 source:e:\bat_dau_game\mainobject.cpp
+1712579088 source:e:\bat_dau_game\mainobject.cpp
 	"MainObject.h"
 	"BulletObject.h"
 
-1712496910 e:\bat_dau_game\mainobject.h
+1712579363 e:\bat_dau_game\mainobject.h
 	<bits/stdc++.h>
 	"commonfunction.h"
 	"BaseObject.h"
@@ -486,7 +487,7 @@
 	"BaseObject.h"
 	"commonfunction.h"
 
-1712500003 source:e:\bat_dau_game\threatsobject.cpp
+1712578140 source:e:\bat_dau_game\threatsobject.cpp
 	"ThreatsObject.h"
 	"MainObject.h"
 	<SDL_image.h>
@@ -599,4 +600,11 @@
 
 1712514246 source:e:\bat_dau_game\textobject.cpp
 	"TextObject.h"
+
+1712578775 e:\bat_dau_game\playerpower.h
+	"commonfunction.h"
+	"BaseObject.h"
+
+1712579088 source:e:\bat_dau_game\playerpower.cpp
+	"PlayerPower.h"
 

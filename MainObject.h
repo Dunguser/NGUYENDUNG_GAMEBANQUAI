@@ -20,7 +20,7 @@ using namespace std;
 #define O_TRONG 0
 #define NHAYBTH 20
 #define NHAY_CAO_BAY 10
-#define TOC_DO_BAY 10
+#define TOC_DO_BAY 20
 #define SO_FRAME 8
 
 
@@ -77,6 +77,10 @@ public:
 
     int get_width_frame () const { return width_frame_ ; }
     int get_height_frame () const { return height_frame_ ; }
+
+    int get_tienanduoc() const { return tien_an_duoc ; }
+
+    void set_comebacktime (const int & k){ come_back_time_ = k;}
 
 private:
     float x_biendoi_;// khi di chuyen thi tang/giam bao nhieu

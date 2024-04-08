@@ -96,16 +96,16 @@ void ThreatsObject:: DICHUYEN_QUI( MAP& map_data )// xu li di chuyen cho qui
 void ThreatsObject::khoitaoqui()
 {
     srand((int)time(nullptr));
-    int x=rand()%5120; //cout<<x<<" ";
+    int x=rand() % 5120; //cout<<x<<" ";
     x_change = 0;
     y_change = 0;
     x_qui_pos = x;
     y_qui_pos = 0;
-    gioihan_trai-=256;
-    gioihan_phai-=256;
-    int huong = rand()%2;
+    gioihan_trai -= 256;
+    gioihan_phai -= 256;
+    int huong = rand() % 2;
     trang_thai_qui.sang_trai = huong;;
-    cout<<"huong "<<huong<< endl;
+
 }
 
 //kiem tra va cham voi ban do
@@ -240,7 +240,7 @@ void ThreatsObject::init_dan_qui (BulletObject* dan_qui, SDL_Renderer* screen)//
         }
         else if( trang_thai_qui.sang_phai == 1 )
         {
-            std::cout << "turn right dkm nha m \n";
+            //std::cout << "turn right dkm nha m \n";
             dan_qui->set_huongdan( BulletObject :: ban_dan_phai);
             dan_qui->SetRect(rect_.x+15, y_qui_pos+10);
         }

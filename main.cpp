@@ -13,6 +13,7 @@
 #include "all_anh_qui.h"
 #include "vuno.h"
 #include "TextObject.h"
+#include "PlayerPower.h"
 
 using namespace std;
 
@@ -31,7 +32,7 @@ MainObject player_nvc;//khai bao nhan vat chinh
 void load_tat_ca_qui(SDL_Renderer* des);// load tat ca cac anh cua qui
 vector<ThreatsObject*> Make_Threat_List();//tạo lập lớp threart object // lớp quỉ
 
-void khoitaovuno(VUNO&qui_no);
+void khoitaovuno( VUNO& qui_no);
 void khoitaonhanvatchinh_no( VUNO& nvc_no );
 
 
@@ -55,7 +56,19 @@ int main(int messi,char* kaka [] )
     thoi_gian_choi.setcolor(TextObject :: RED_TEXT );
     TextObject da_giet;
     da_giet.setcolor(TextObject :: RED_TEXT);
-    Uint32 so_qui_bi_giet = 0 ; //
+    UINT so_qui_bi_giet = 0 ;
+    TextObject antien ;
+    antien.setcolor (TextObject :: RED_TEXT );
+    UINT tong_tien = 0;
+
+    PlayerPower so_mang;
+    so_mang.set_chi_so_mang(5);
+    so_mang.Init(gRenderer);
+    int solanchetmax = so_mang.get_chi_so_mang();
+    cout<<"so mang "<<solanchetmax<<endl;
+
+    int solanchet = 0;
+    //
 
     bool quit = false; // vong lap chinh
     while(!quit)
@@ -81,6 +94,7 @@ int main(int messi,char* kaka [] )
         game_map.SetMap( map_data ); // cap nhat vi tri moi cho start_x_, start_y_
         game_map.DrawMap( gRenderer );//ve ban do
 
+        so_mang.Show(gRenderer);
         for(int i=0; i< (int) threats_list.size(); i++)  // xu li quai vat
         {
             ThreatsObject* p_qui = threats_list.at(i);
@@ -117,18 +131,37 @@ int main(int messi,char* kaka [] )
                             }
                             p_qui->loaiboviendan(j);
                             player_nvc.trungdan();
-                            if( player_nvc.get_solantrungdan() == 45 )
+                            if( player_nvc.get_solantrungdan() >= 45 &&player_nvc.get_solantrungdan()%45 ==0 )
                             {
-                                const wchar_t* wideString = L"   GameOver \n";
-                                int bufferSize = WideCharToMultiByte(CP_UTF8, 0, wideString, -1, NULL, 0, NULL, NULL);
-                                char* buffer = new char[bufferSize];
-                                WideCharToMultiByte(CP_UTF8, 0, wideString, -1, buffer, bufferSize, NULL, NULL);
-                                if (MessageBox(NULL, buffer, "Info", MB_OK | MB_ICONSTOP) == IDOK)
+                                solanchet++;
+                                //cout<<"so lan da chet "<<solanchet<<endl;
+                                if(solanchet <= solanchetmax)
                                 {
-                                   close();
-                                   SDL_Quit();
-                                   delete[] buffer;
-                                    return 0;
+                                    player_nvc.SetRect ( 100, 100);
+                                    player_nvc.set_comebacktime(10);
+                                    SDL_Delay( 1000 );
+                                    so_mang.giammang();
+                                    so_mang.Render(gRenderer);
+                                    continue;
+                                }
+                                else
+                                {
+                                    const wchar_t* wideString = L"   GameOver \n";
+                                    int bufferSize = WideCharToMultiByte(CP_UTF8, 0, wideString, -1, NULL, 0, NULL, NULL);
+                                    char* buffer = new char[bufferSize];
+                                    WideCharToMultiByte(CP_UTF8, 0, wideString, -1, buffer, bufferSize, NULL, NULL);
+                                    if (MessageBox(NULL, buffer, "Info", MB_OK | MB_ICONSTOP) == IDOK)
+                                    {
+                                       close();
+                                       delete[] buffer;
+                                       for (auto obj : threats_list) //giai phong bo nho da cap phat
+                                        {
+                                            obj->free();
+                                            obj = nullptr;
+                                        }
+                                        threats_list.clear(); // xóa vector
+                                        return 0;
+                                    }
                                 }
                             }
                         }
@@ -169,15 +202,7 @@ int main(int messi,char* kaka [] )
                             {
                                 qui1->free();
                                 threats_list.erase(threats_list.begin()+j);
-                                so_qui_bi_giet++;
-
-                                string da_diet = "KILLED : ";
-                                Uint32 kill = so_qui_bi_giet;
-                                string showkill = to_string( kill );
-                                da_diet += showkill;
-                                da_giet.SetText (showkill);
-                                da_giet.LoadFromRenderText(gFont, gRenderer );
-                                da_giet.RenderText( gRenderer , SCREEN_WIDTH-400, 20 );
+                                so_qui_bi_giet ++;
                             }
                         }
                     }
@@ -200,13 +225,26 @@ int main(int messi,char* kaka [] )
         string time = " TIME : ";
         Uint32 thoi_gian = SDL_GetTicks()/1000;
         Uint32 time_play = thoi_gian ++;
-        string show_time_play = to_string (time_play);
+        string show_time_play = to_string ( time_play );
         time += show_time_play;
-        thoi_gian_choi.SetText(time);
-        thoi_gian_choi.LoadFromRenderText(gFont, gRenderer);
-        thoi_gian_choi.RenderText(gRenderer, SCREEN_WIDTH - 200 , 20 );
+        thoi_gian_choi.SetText( time );
+        thoi_gian_choi.LoadFromRenderText( gFont, gRenderer);
+        thoi_gian_choi.RenderText( gRenderer, SCREEN_WIDTH - 180 , 20 );
 
+        string da_diet = "KILLED : ";
+        string showkill = to_string( so_qui_bi_giet );
+        da_diet += showkill;
+        da_giet.SetText ( da_diet );
+        da_giet.LoadFromRenderText(gFont, gRenderer );
+        da_giet.RenderText( gRenderer , SCREEN_WIDTH - 180, 50 );
 
+        string tien_hientai = "MONEY : ";
+        tong_tien = player_nvc.get_tienanduoc();
+        string show_tien = to_string (tong_tien);
+        tien_hientai += show_tien;
+        antien.SetText (tien_hientai);
+        antien.LoadFromRenderText (gFont,gRenderer );
+        antien.RenderText (gRenderer , SCREEN_WIDTH-180 , 80);
 
         SDL_RenderPresent(gRenderer);//xuat ra man hinh hien tai
 

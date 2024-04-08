@@ -100,7 +100,7 @@ void MainObject::ShowMain(SDL_Renderer*des)
         }
     }
     if(trang_thai_vao.sang_trai==1 || trang_thai_vao.sang_phai==1
-        ||trang_thai_vao.can_chien_==1 || trang_thai_vao.bay_==1 )
+        ||trang_thai_vao.can_chien_==1  )
 
     {
         frame_++;// neu co bien doi thi frame tang

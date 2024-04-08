@@ -26,7 +26,7 @@ const int FRAME_PER_SECOND =25;
 // chi so ban do game
 #define TILE_SIZE 64 // kich thuoc cua 1 o
 
-#define MAX_MAP_X 80
+#define MAX_MAP_X 100
 #define MAX_MAP_Y 45
 
 #define MONEY 4
