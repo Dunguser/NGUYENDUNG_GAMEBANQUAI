@@ -14,6 +14,7 @@
 #include "vuno.h"
 #include "TextObject.h"
 #include "PlayerPower.h"
+#include "MENU.h"
 
 using namespace std;
 
@@ -24,6 +25,7 @@ SDL_Window* gWindow = nullptr;
 SDL_Renderer* gRenderer = nullptr;
 SDL_Event gEvent;
 TTF_Font * gFont = nullptr ; // phong chu
+TTF_Font * gFont2 = nullptr;
 
 BaseObject gBackground;// khai bao 1 em background
 GAMEMAP game_map;//khai bao 1 em gamemap
@@ -71,6 +73,11 @@ int main(int messi,char* kaka [] )
     //
 
     bool quit = false; // vong lap chinh
+
+    //menu
+    MENU menu_;
+    int ret_menu = menu_.showmenu( gRenderer , gFont2 );
+    if(ret_menu != 1) quit = true;
     while(!quit)
     {
         while( SDL_PollEvent( &gEvent ) != 0 )
@@ -279,8 +286,8 @@ void load_tat_ca_qui(SDL_Renderer* des)
 vector<ThreatsObject*> Make_Threat_List()
 {
     vector<ThreatsObject*> list_threats;
-    ThreatsObject* qui_tuan_tra = new ThreatsObject[30];
-    for(int i=0; i< 30; i++)
+    ThreatsObject* qui_tuan_tra = new ThreatsObject[40];
+    for(int i=0; i< 40; i++)
     {
         ThreatsObject* p_qui = qui_tuan_tra + i ;
         if(p_qui!=nullptr)
@@ -340,8 +347,9 @@ bool Init()
 bool LoadMedia()// tai anh nen
 {
     if(!gBackground.LoadImage("IMG/G_BACK_GROUND_NET.jpg",gRenderer))return 0;
-    gFont = TTF_OpenFont ("FONT/lazy.ttf",24);
-    if( gFont == nullptr )
+    gFont = TTF_OpenFont ("FONT/turok.ttf",24);
+    gFont2 = TTF_OpenFont ("FONT/starcraft.ttf",40);
+    if( gFont == nullptr || gFont2 == nullptr )
     {
         cout<<TTF_GetError();return 0;
     }

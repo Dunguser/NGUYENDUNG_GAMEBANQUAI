@@ -115,8 +115,8 @@ void MainObject::ShowMain(SDL_Renderer*des)
     SDL_Rect*currentclip=&frame_clip_[frame_];//hien tai la dang cai anh nao // lay anh nay ma in ra
 
     // in frame  ra
-    SDL_Rect renderquad= {rect_.x,rect_.y,width_frame_,height_frame_};
-    SDL_RenderCopy(des,mTexture,currentclip,&renderquad);
+    SDL_Rect renderquad = {rect_.x,rect_.y,width_frame_,height_frame_};
+    SDL_RenderCopy( des , mTexture , currentclip , &renderquad);
 }
 
 void MainObject::Set_Clips_chay()

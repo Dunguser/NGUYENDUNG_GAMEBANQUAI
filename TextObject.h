@@ -38,11 +38,13 @@ public:
     void SetText ( const string& text ) { noidung = text ;}
     string gettext() const { return noidung; }
 
+    SDL_Rect text(int x,int y);
 
 private:
     string noidung;
     SDL_Color text_color_;
     SDL_Texture * texture_;
+
     int width_;
     int height_;
 

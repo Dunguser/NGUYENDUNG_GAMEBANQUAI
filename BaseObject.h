@@ -20,17 +20,13 @@ public:
         rect_.x=x;
         rect_.y=y;
     }
-    SDL_Rect GetRect() const // lay ra kich thuoc cua rect_
-    {
-        return rect_;
-    }
-    SDL_Texture* GetTexture() const
-    {
-        return mTexture;
-    }
+    // lay ra kich thuoc cua rect_
+    SDL_Rect GetRect() const { return rect_;  }
+    SDL_Texture* GetTexture() const { return mTexture; }
+
     void free();// giai phong
     virtual bool LoadImage( const string& path, SDL_Renderer*screen);//tai anh
-    void Render(SDL_Renderer*des,SDL_Rect*clip=NULL);// in anh ra o dau, kich thuoc bao nhieu
+    void Render(SDL_Renderer* des,SDL_Rect* clip = nullptr );// in anh ra o dau, kich thuoc bao nhieu
 
 
 

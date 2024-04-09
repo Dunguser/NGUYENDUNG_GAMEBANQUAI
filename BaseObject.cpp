@@ -35,17 +35,17 @@ bool BaseObject :: LoadImage( const string& path, SDL_Renderer* screen )
         return false;
     }
 
-    rect_.w=kaka->w;
-    rect_.h=kaka->h;
+    rect_.w = kaka->w;
+    rect_.h = kaka->h;
 
     SDL_FreeSurface(kaka);
-    mTexture =   cuoicung;
+    mTexture = cuoicung;
     return mTexture!=nullptr;
 }
-void BaseObject::Render(SDL_Renderer* des,SDL_Rect* clip)// in anh ra o dau, kiach thuoc bao nhieu
+void BaseObject::Render(SDL_Renderer* des,SDL_Rect* clip)// in anh ra o dau, kich thuoc bao nhieu
 {
-    SDL_Rect quad= {rect_.x,rect_.y,rect_.w,rect_.h};
-    SDL_RenderCopy(des,mTexture,clip,&quad);
+    SDL_Rect quad = {rect_.x,rect_.y,rect_.w,rect_.h};
+    SDL_RenderCopy( des, mTexture ,clip,&quad);
 }
 
 void BaseObject::free()

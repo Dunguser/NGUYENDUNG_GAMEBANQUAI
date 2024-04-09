@@ -73,7 +73,6 @@ void  GAMEMAP::DrawMap(SDL_Renderer*screen)
     // bat dau fill
 
     int map_x=0,map_y=0; // vi tri cua o
-
     map_y=game_map_.start_y_/TILE_SIZE;
 
     for(int i=y1; i<y2; i+=TILE_SIZE)
@@ -85,23 +84,13 @@ void  GAMEMAP::DrawMap(SDL_Renderer*screen)
             if(val>0)
             {
                 tile_mat[val].SetRect(j,i);// in ra tai vi tri (j,i)
-
                 tile_mat[val].Render(screen,NULL);// in ra
-
             }
             map_x++;
-            // Thêm kiểm tra để tránh vòng lặp vô hạn
-            if (map_x >= MAX_MAP_X || map_y >= MAX_MAP_Y)
-            {
-                break;
-            }
+            if (map_x >= MAX_MAP_X || map_y >= MAX_MAP_Y) break;// Thêm kiểm tra để tránh vòng lặp vô hạn
         }
         map_y++;
-        // Thêm kiểm tra để tránh vòng lặp vô hạn
-        if (map_y >= MAX_MAP_Y)
-        {
-            break;
-        }
+        if (map_y >= MAX_MAP_Y) break;// Thêm kiểm tra để tránh vòng lặp vô hạn
     }
 }
 

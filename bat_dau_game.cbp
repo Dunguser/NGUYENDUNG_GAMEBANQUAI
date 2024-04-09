@@ -53,6 +53,8 @@
 		<Unit filename="GAMEMAP.h" />
 		<Unit filename="ImpTimer.cpp" />
 		<Unit filename="ImpTimer.h" />
+		<Unit filename="MENU.cpp" />
+		<Unit filename="MENU.h" />
 		<Unit filename="MainObject.cpp" />
 		<Unit filename="MainObject.h" />
 		<Unit filename="PlayerPower.cpp" />

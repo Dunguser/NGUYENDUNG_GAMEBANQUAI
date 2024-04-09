@@ -68,7 +68,8 @@ void TextObject :: setcolor(int type)
 
 void TextObject :: RenderText (SDL_Renderer* screen, int xp , int yp,
                                   SDL_Rect* clip , double angle ,
-                                  SDL_Point* center , SDL_RendererFlip flip )
+                                  SDL_Point* center ,
+                                  SDL_RendererFlip flip )
 {
     SDL_Rect quad = { xp, yp , width_ , height_ };
     if(clip != nullptr )
@@ -79,7 +80,11 @@ void TextObject :: RenderText (SDL_Renderer* screen, int xp , int yp,
     SDL_RenderCopyEx( screen, texture_ , clip, &quad ,angle , center , flip);
 }
 
-
+SDL_Rect TextObject::text(int x,int y)
+{
+    SDL_Rect kaka = { x , y, width_ , height_ };
+    return kaka;
+}
 
 
 
