@@ -17,8 +17,8 @@ public:
     void SetRect( const int &x, const int &y)
     // chon vi tri tren man hinh de in  mTexture o protect// toa do(x,y)
     {
-        rect_.x=x;
-        rect_.y=y;
+        rect_.x = x;
+        rect_.y = y;
     }
     // lay ra kich thuoc cua rect_
     SDL_Rect GetRect() const { return rect_;  }

@@ -34,11 +34,11 @@ ThreatsObject::~ThreatsObject()
 
 bool ThreatsObject:: LoadImage(const string& path, SDL_Renderer* screen)
 {
-    bool ret=BaseObject::LoadImage(path,screen);
+    bool ret = BaseObject::LoadImage(path,screen);
     if(ret)
     {
-        width_frame_=rect_.w/THREATS_FRAME_NUM;
-        height_frame_=rect_.h;
+        width_frame_ = rect_.w/THREATS_FRAME_NUM;
+        height_frame_ = rect_.h;
     }
     return ret;
 }
@@ -66,7 +66,7 @@ void ThreatsObject::ShowQui(SDL_Renderer* des)// in ra man hinh
         frame_++;// tang lien tuc
         if( frame_ >= THREATS_FRAME_NUM ) frame_=0;
 
-        SDL_Rect*currentClip = &frame_clips[frame_];
+        SDL_Rect* currentClip = &frame_clips[frame_];
         SDL_Rect quad = {rect_.x, rect_.y, width_frame_, height_frame_};
 
         if(trang_thai_qui.sang_phai==1) SDL_RenderCopy( des, tat_ca_anh_qui[diphai].GetTexture(), currentClip, &quad);
@@ -104,7 +104,7 @@ void ThreatsObject::khoitaoqui()
     gioihan_trai -= 256;
     gioihan_phai -= 256;
     int huong = rand() % 2;
-    trang_thai_qui.sang_trai = huong;;
+    trang_thai_qui.sang_trai = huong;
 
 }
 

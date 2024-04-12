@@ -24,6 +24,8 @@ enum boss_qui
     boss_dam_phai,
     boss_ban_trai,
     boss_ban_phai,
+    boss_lon_trai,
+    boss_lon_phai,
 };
 
 extern BaseObject all_anh_boss [8];

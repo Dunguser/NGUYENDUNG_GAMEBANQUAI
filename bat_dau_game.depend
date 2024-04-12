@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1712917204 source:e:\bat_dau_game\main.cpp
+1712936159 source:e:\bat_dau_game\main.cpp
 	<bits/stdc++.h>
 	<windows.h>
 	<SDL.h>
@@ -18,6 +18,7 @@
 	"PlayerPower.h"
 	"MENU.h"
 	"kiemquay.h"
+	"QUIVUONG.h"
 
 1709133042 d:\sdl2-devel-2.30.0-mingw\sdl2-2.30.0\x86_64-w64-mingw32\include\sdl2\sdl.h
 	"SDL_main.h"
@@ -424,7 +425,7 @@
 1712913796 source:e:\bat_dau_game\commonfunction.cpp
 	"commonfunction.h"
 
-1712908185 e:\bat_dau_game\commonfunction.h
+1712925889 e:\bat_dau_game\commonfunction.h
 	<bits/stdc++.h>
 	<SDL.h>
 	<SDL_image.h>
@@ -447,7 +448,7 @@
 	"begin_code.h"
 	"close_code.h"
 
-1712673750 e:\bat_dau_game\baseobject.h
+1712927414 e:\bat_dau_game\baseobject.h
 	"commonfunction.h"
 	<bits/stdc++.h>
 
@@ -459,11 +460,11 @@
 	"BaseObject.h"
 	<bits/stdc++.h>
 
-1712917558 source:e:\bat_dau_game\mainobject.cpp
+1712936268 source:e:\bat_dau_game\mainobject.cpp
 	"MainObject.h"
 	"BulletObject.h"
 
-1712914329 e:\bat_dau_game\mainobject.h
+1712935453 e:\bat_dau_game\mainobject.h
 	<bits/stdc++.h>
 	"commonfunction.h"
 	"BaseObject.h"
@@ -491,13 +492,13 @@
 	"BaseObject.h"
 	"commonfunction.h"
 
-1712678198 source:e:\bat_dau_game\threatsobject.cpp
+1712924882 source:e:\bat_dau_game\threatsobject.cpp
 	"ThreatsObject.h"
 	"MainObject.h"
 	<SDL_image.h>
 	"all_anh_qui.h"
 
-1712406231 e:\bat_dau_game\threatsobject.h
+1712932356 e:\bat_dau_game\threatsobject.h
 	"commonfunction.h"
 	"BaseObject.h"
 	"BulletObject.h"
@@ -595,7 +596,7 @@
 1712916723 source:e:\bat_dau_game\all_anh_qui.cpp
 	"all_anh_qui.h"
 
-1712916723 e:\bat_dau_game\all_anh_qui.h
+1712929633 e:\bat_dau_game\all_anh_qui.h
 	"BaseObject.h"
 	<bits/stdc++.h>
 
@@ -1399,5 +1400,20 @@
 1712482293 source:e:\bat_dau_game - sao chép\vuno.cpp
 	"vuno.h"
 
-1712915219 source:e:\bat_dau_game\quivuong.cpp
+1712937928 source:e:\bat_dau_game\quivuong.cpp
+	"QUIVUONG.h"
+	"BaseObject.h"
+
+1712932407 e:\bat_dau_game\quivuong.h
+	<bits/stdc++.h>
+	"commonfunction.h"
+	"BaseObject.h"
+	"GAMEMAP.h"
+	<SDL.h>
+	<SDL_image.h>
+	<SDL_mixer.h>
+	<SDL_ttf.h>
+	"BulletObject.h"
+	"MainObject.h"
+	"all_anh_qui.h"
 

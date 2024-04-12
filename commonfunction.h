@@ -55,6 +55,18 @@ struct TRANG_THAI_NHAN_VAT
     int chet_;
 };
 
+struct TRANG_THAI_BOSS
+{
+    int sang_trai;
+    int sang_phai;
+    int lon_trai;
+    int lon_phai;
+    int dam_trai;
+    int dam_phai;
+    int ban_trai;
+    int ban_phai;
+};
+
 namespace SDLCommonFunc
 {
     bool CheckCollision(const SDL_Rect&object1,const SDL_Rect&object2);

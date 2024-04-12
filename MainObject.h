@@ -18,7 +18,7 @@ using namespace std;
 
 #define TOCDOROI 0.8
 #define ROITOIDA 40
-#define TOCDOCHAY 9
+#define TOCDOCHAY 15
 #define O_TRONG 0
 #define NHAYBTH 20
 #define NHAY_CAO_BAY 10
@@ -80,6 +80,9 @@ public:
     int get_width_frame () const { return width_frame_ ; }
     int get_height_frame () const { return height_frame_ ; }
 
+    float get_x_hientai()const {return x_now_pos ;}
+    float get_y_hientai()const {return y_now_pos ;}
+
     int get_tienanduoc() const { return tien_an_duoc ; }
 
     void set_comebacktime (const int & k){ come_back_time_ = k;}
@@ -102,7 +105,11 @@ public:
     Sword getkiem() { return kiem ;}
 
     void loadamthanh_nvc();
-    void playmusic(Mix_Music* kaka){ Mix_PlayMusic(kaka, 1); }
+    void playmusic( Mix_Music* kaka) { Mix_PlayMusic( kaka, 1 ); }
+
+    TRANG_THAI_NHAN_VAT getTRANGTHAI_main()const { return trang_thai_vao;} // lam cho con qui vuong
+    int getstatus()const { return status_ ;}
+    bool get_trenmatdat() const { return tren_mat_dat ;}
 
 private:
     float x_biendoi_;// khi di chuyen thi tang/giam bao nhieu

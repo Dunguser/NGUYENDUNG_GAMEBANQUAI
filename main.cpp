@@ -16,6 +16,7 @@
 #include "PlayerPower.h"
 #include "MENU.h"
 #include "kiemquay.h"
+#include "QUIVUONG.h"
 
 using namespace std;
 
@@ -29,8 +30,9 @@ SDL_Event gEvent;
 BaseObject gBackground;// khai bao 1 em background
 GAMEMAP game_map;//khai bao 1 em gamemap
 MainObject player_nvc;//khai bao nhan vat chinh
-
 Sword kiem;
+
+QUIVUONG quivuong;
 
 void load_tat_ca_qui(SDL_Renderer* des);// load tat ca cac anh cua qui
 vector<ThreatsObject*> Make_Threat_List();//tạo lập lớp threart object // lớp quỉ
@@ -45,11 +47,19 @@ int main(int messi,char* kaka [] )
     Mix_PlayMusic(nhacnen , -1);// nhac nen
     game_map.LoadMap("MAP/map04.dat");//xu li ban do: map
     game_map.LoadTiles( gRenderer );
+
     player_nvc.LoadMainImg("IMG/CHAY_PHAI_SUNG.png",gRenderer); //xu li nhan vat chinh
     player_nvc.Set_Clips_chay();
     player_nvc.loadamthanh_nvc();
+
+    quivuong.LoadImg_boss("IMG/QUAI/qui_chay_trai.png", gRenderer);
+    quivuong.set_clips();
+    quivuong.set_x_bosspos( 8800 );
+    quivuong.set_y_bosspos ( 2500 );
+
     vector<ThreatsObject*> threats_list = Make_Threat_List(); // khai bao 1 dong quai vat
     load_tat_ca_qui ( gRenderer );
+    load_all_boss ( gRenderer );
 
     VUNO qui_no ; // nổ khi bắn quái
     khoitaovuno(qui_no);
@@ -113,17 +123,23 @@ int main(int messi,char* kaka [] )
             kiem.change_gocquay(35);
             int jj = player_nvc.GetRect().x - player_nvc.get_width_frame() ;
             int ii = player_nvc.GetRect().y - player_nvc.get_height_frame()  ;
-            kiem.render_kiem(gRenderer,jj,ii,nullptr,nullptr,SDL_FLIP_NONE);
+            kiem.render_kiem( gRenderer, jj, ii, nullptr, nullptr, SDL_FLIP_NONE );
         }
 
-        player_nvc.XU_LI_BAN_DAN( gRenderer, SCREEN_WIDTH/2.5, SCREEN_HEIGHT/2.5, map_data);// xu li ban dan
-        player_nvc.SetMapXY( map_data.start_x_, map_data.start_y_); //xu li map di chuyen theo nhan vat
-        player_nvc.ShowMain( gRenderer ) ;      //hien nhan vat chinh
+        player_nvc.XU_LI_BAN_DAN ( gRenderer, SCREEN_WIDTH/2.5, SCREEN_HEIGHT/2.5, map_data );// xu li ban dan
+        player_nvc.SetMapXY ( map_data.start_x_, map_data.start_y_ ); //xu li map di chuyen theo nhan vat
+        player_nvc.ShowMain ( gRenderer ) ;      //hien nhan vat chinh
         player_nvc.DiChuyenNhanVat( map_data );
-        game_map.SetMap( map_data );            // cap nhat vi tri moi cho start_x_, start_y_
-        game_map.DrawMap( gRenderer );          //ve ban do
+
+        quivuong.SetMapXY ( map_data.start_x_ , map_data.start_y_ );
+        quivuong.showboss ( gRenderer );
+        quivuong.DICHUYEN_BOSS ( map_data, player_nvc );
+
+        game_map.SetMap ( map_data );            // cap nhat vi tri moi cho start_x_, start_y_
+        game_map.DrawMap ( gRenderer );          //ve ban do
 
         so_mang.Show(gRenderer);
+
         if(player_nvc.getchongchong()) phung.show(gRenderer);
         if(player_nvc.getchobay())duocbay.show(gRenderer);
 
@@ -170,10 +186,9 @@ int main(int messi,char* kaka [] )
                                     so_mang.giammang();
                                     so_mang.Render(gRenderer);
                                     player_nvc.SetRect ( 100 , 100);
-                                    player_nvc.set_comebacktime(20);
-
+                                    player_nvc.set_comebacktime(10);
                                     //SDL_Delay( 1000 );
-                                    continue;
+                                    //continue;
                                 }
                                 else
                                 {
@@ -258,13 +273,13 @@ int main(int messi,char* kaka [] )
                    bool qui_an_kiem = SDLCommonFunc :: CheckCollision( rect_kiem, qui_rect);
                    if(qui_an_kiem)
                    {
-                       Mix_PlayMusic (quaibichem , 1);
+                       Mix_PlayMusic ( quaibichem , 1);
                        for(int no = 0 ; no < num_frame_no ; no ++)// xu li anh no
                        {
                            int x_pos = qui1->GetRect().x ;// vi tri no la vi tri qui
                            int y_pos = qui1->GetRect().y ;
                            qui_no.set_frame( no );
-                           qui_no .SetRect(x_pos , y_pos);
+                           qui_no .SetRect( x_pos , y_pos );
                            qui_no.show(gRenderer);
                        }
                       qui1->trungdan();
@@ -350,6 +365,8 @@ void load_all_boss (SDL_Renderer* des)
     all_anh_boss[boss_dam_trai].LoadImage("IMG/QUAI/qui_dam_trai.png",des);
     all_anh_boss[boss_ban_phai].LoadImage("IMG/QUAI/qui_cung_phai.png",des);
     all_anh_boss[boss_ban_trai].LoadImage("IMG/QUAI/qui_cung_trai.png",des);
+    all_anh_boss[boss_lon_trai].LoadImage("IMG/QUAI/qui_lon_trai.png",des);
+    all_anh_boss[boss_lon_phai].LoadImage("IMG/QUAI/qui_lon_phai.png",des);
 }
 
 vector<ThreatsObject*> Make_Threat_List()
@@ -364,11 +381,11 @@ vector<ThreatsObject*> Make_Threat_List()
             p_qui->LoadImage( "IMG/quai_di_trai.png", gRenderer );
             p_qui->set_clips();
 
-            p_qui->set_x_quipos( 100*i+1200 );  // cai dat vi tri xuat hien
+            p_qui->set_x_quipos( 100*i+200 );  // cai dat vi tri xuat hien
             p_qui->set_y_quipos( 360);
 
-            int gioi_han_trai = p_qui->get_x_quipos()-100; // gioi han trai,phai
-            int gioi_han_phai = p_qui->get_x_quipos()+100;
+            int gioi_han_trai = p_qui->get_x_quipos()-80; // gioi han trai,phai
+            int gioi_han_phai = p_qui->get_x_quipos()+80;
 
             p_qui->set_gioi_han_dichuyen( gioi_han_trai, gioi_han_phai );
             p_qui->set_trang_thai_trai(1);

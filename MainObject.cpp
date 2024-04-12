@@ -8,8 +8,8 @@ MainObject::MainObject()
     x_biendoi_=0;// khi di chuyen thi tang/giam bao nhieu
     y_biendoi_=0; // an trai giam bao nhieu, nhay tang bao nhieu
 
-    x_now_pos = 400;//vi tri x hien tai
-    y_now_pos = 300 ;
+    x_now_pos = 7400;//vi tri x hien tai
+    y_now_pos = 2000 ;
 
     width_frame_ =0; // kich thuoc 1 frame vi 1 anh co 5,7,8 frame
     height_frame_=0;
@@ -18,13 +18,13 @@ MainObject::MainObject()
 
     status_=1; // luu trang thai di chuyen ben trai hay ben phai
 
-    trang_thai_vao.len_=0;// luu trang thai di chuyen cua nhan vat
-    trang_thai_vao.nhay_=0;
-    trang_thai_vao.sang_phai=0;
-    trang_thai_vao.sang_trai=0;
-    trang_thai_vao.xuong_=0;
-    trang_thai_vao.bay_=0;
-    trang_thai_vao.can_chien_=0;
+    trang_thai_vao.len_ =0;// luu trang thai di chuyen cua nhan vat
+    trang_thai_vao.nhay_ =0;
+    trang_thai_vao.sang_phai =0;
+    trang_thai_vao.sang_trai =0;
+    trang_thai_vao.xuong_ =0;
+    trang_thai_vao.bay_ =0;
+    trang_thai_vao.can_chien_ =0;
     trang_thai_vao.chet_ = 0;
 
     tren_mat_dat = false;
@@ -78,10 +78,10 @@ bool MainObject::LoadMainImg(const string&path,SDL_Renderer *screen)
     mTexture = cuoicung;
     if( mTexture == nullptr)
     {
-        cout<<"ngu";
+        cout<< " ngu ";
         return 0;
     }
-    width_frame_ = rect_.w/SO_FRAME;
+    width_frame_ = rect_.w / SO_FRAME;
     height_frame_ = rect_.h;
     return 1;
 }
@@ -106,7 +106,7 @@ void MainObject::ShowMain(SDL_Renderer*des)
     }
     else
     {
-        if(tren_mat_dat==true)
+        if(tren_mat_dat == true)
         {
             if( status_== ben_trai_) LoadMainImg("IMG/CHAY_TRAI_SUNG.png",des);
             else if( status_ == ben_phai_) LoadMainImg("IMG/CHAY_PHAI_SUNG.png",des);
@@ -154,9 +154,9 @@ void MainObject::XuLiXuKienBanPhim(SDL_Event events,SDL_Renderer*screen)
     {
         if(events.key.keysym.sym == SDLK_RIGHT)
         {
-            status_=ben_phai_;
-            trang_thai_vao.sang_phai=1;
-            trang_thai_vao.sang_trai=0;
+            status_ = ben_phai_;
+            trang_thai_vao.sang_phai = 1;
+            trang_thai_vao.sang_trai = 0;
             LoadMainImg("IMG/CHAY_PHAI_SUNG.png",screen);
         }
         else if(events.key.keysym.sym==SDLK_LEFT)
@@ -168,9 +168,9 @@ void MainObject::XuLiXuKienBanPhim(SDL_Event events,SDL_Renderer*screen)
         }
         else if(events.key.keysym.sym==SDLK_UP||events.key.keysym.sym == SDLK_w)
         {
-            trang_thai_vao.nhay_=1;
+            trang_thai_vao.nhay_ = 1 ;
         }
-        else if(events.key.keysym.sym==SDLK_a)
+        else if(events.key.keysym.sym == SDLK_a)
         {
             status_=ben_trai_;
             trang_thai_vao.sang_phai=0;
@@ -178,11 +178,11 @@ void MainObject::XuLiXuKienBanPhim(SDL_Event events,SDL_Renderer*screen)
             if(tren_mat_dat==true) LoadMainImg("IMG/CHAY_TRAI_SUNG.png",screen);
             else LoadMainImg("IMG/LON_TRAI1.png",screen);
         }
-        else if(events.key.keysym.sym==SDLK_d)
+        else if(events.key.keysym.sym == SDLK_d)
         {
             status_=ben_phai_;
-            trang_thai_vao.sang_phai=1;
-            trang_thai_vao.sang_trai=0;
+            trang_thai_vao.sang_phai = 1;
+            trang_thai_vao.sang_trai = 0;
             if(tren_mat_dat==true) LoadMainImg("IMG/CHAY_PHAI_SUNG.png",screen);
             else LoadMainImg("IMG/LON_PHAI1.png",screen);
         }
@@ -196,7 +196,6 @@ void MainObject::XuLiXuKienBanPhim(SDL_Event events,SDL_Renderer*screen)
                 trang_thai_vao.sang_trai=0;
                 trang_thai_vao.can_chien_=0;
                 LoadMainImg("IMG/bay_phai.png",screen);
-
             }
         }
         else if(events.key.keysym.sym == SDLK_z)
@@ -227,7 +226,6 @@ void MainObject::XuLiXuKienBanPhim(SDL_Event events,SDL_Renderer*screen)
                 kichhoathangnong(true);
                 playmusic ( kiem1 );
             }
-
         }
     }
     else if(events.type==SDL_KEYUP)
@@ -242,7 +240,7 @@ void MainObject::XuLiXuKienBanPhim(SDL_Event events,SDL_Renderer*screen)
         }
         else if(events.key.keysym.sym == SDLK_UP || events.key.keysym.sym == SDLK_w)
         {
-            trang_thai_vao.nhay_=0;
+            trang_thai_vao.nhay_ = 0;
         }
         else if(events.key.keysym.sym == SDLK_z)
         {
@@ -330,11 +328,11 @@ void MainObject::DiChuyenNhanVat(MAP &map_data) //xu li cho nhan vat di chuyen, 
         if(trang_thai_vao.sang_trai==1)  x_biendoi_-=TOCDOCHAY;
         else if(trang_thai_vao.sang_phai==1) x_biendoi_+=TOCDOCHAY;
 
-        if(trang_thai_vao.nhay_==1)// nhay binh thuong
+        if( trang_thai_vao.nhay_== 1 )// nhay binh thuong
         {
-            if(tren_mat_dat==true) y_biendoi_=-NHAYBTH;
+            if(tren_mat_dat==true) y_biendoi_= - NHAYBTH;
             tren_mat_dat = false;
-            trang_thai_vao.nhay_=0;
+            trang_thai_vao.nhay_ = 0;
         }
 
         if(trang_thai_vao.bay_ == 1)// trang thai bay

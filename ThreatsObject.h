@@ -10,7 +10,7 @@ using namespace std;
 
 #define THREATS_FRAME_NUM 6
 #define O_TRONG 0
-#define TOC_DO_QUI 3
+#define TOC_DO_QUI 7
 
 class ThreatsObject : public BaseObject
 {
@@ -58,7 +58,6 @@ public:
 
     void DICHUYEN_QUI( MAP& map_data );// xu li di chuyen cho qui
     void checktomap_qui( MAP& map_data );//kiem tra va cham
-
 
     void khoitaoqui();
 
