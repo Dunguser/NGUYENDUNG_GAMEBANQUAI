@@ -455,27 +455,27 @@ void MainObject::CheckToMap(MAP&map_data)// kiem tra nhan vat va cham voi ban do
 
             if(val1==MONEY)
             {
-                map_data.tile[y1][x1]=0;playmusic(andohotro);
+                map_data.tile[y1][x1]=0; playmusic(andohotro);
                 an_tien();
             }
             if(val2==MONEY)
             {
-                map_data.tile[y2][x1]=0;playmusic(andohotro);
+                map_data.tile[y2][x1]=0; playmusic(andohotro);
                 an_tien();
             }
             if( val1==TANG_MANG )
             {
-                map_data.tile[y1][x2]=0;playmusic(andohotro);
+                map_data.tile[y1][x2]=0; playmusic(andohotro);
                 tang_mang(true);
             }
             if(val2==TANG_MANG)
             {
-                map_data.tile[y2][x2]=0;playmusic(andohotro);
+                map_data.tile[y2][x2]=0; playmusic(andohotro);
                 tang_mang(true);
             }
             if( val1==CHO_BAY )
             {
-                map_data.tile[y1][x2]=0;playmusic(andohotro);
+                map_data.tile[y1][x2]=0; playmusic(andohotro);
                 setchobay(true);
                 hanchebay = SOLANBAY;
             }

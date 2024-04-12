@@ -34,6 +34,7 @@ Sword kiem;
 
 void load_tat_ca_qui(SDL_Renderer* des);// load tat ca cac anh cua qui
 vector<ThreatsObject*> Make_Threat_List();//tạo lập lớp threart object // lớp quỉ
+void load_all_boss (SDL_Renderer* des);
 
 void khoitaovuno( VUNO& qui_no);
 void khoitaonhanvatchinh_no( VUNO& nvc_no );
@@ -254,7 +255,7 @@ int main(int messi,char* kaka [] )
                    int jj = player_nvc.GetRect().x - player_nvc.get_width_frame()  ;//cout<<qui_rect.w <<" "<<qui_rect.h<<endl;;
                    int ii = player_nvc.GetRect().y - player_nvc.get_height_frame()  ;
                    SDL_Rect rect_kiem = {jj ,ii , rect_kiem1.w , rect_kiem1.h};
-                   bool qui_an_kiem = SDLCommonFunc::CheckCollision( rect_kiem, qui_rect);
+                   bool qui_an_kiem = SDLCommonFunc :: CheckCollision( rect_kiem, qui_rect);
                    if(qui_an_kiem)
                    {
                        Mix_PlayMusic (quaibichem , 1);
@@ -266,9 +267,13 @@ int main(int messi,char* kaka [] )
                            qui_no .SetRect(x_pos , y_pos);
                            qui_no.show(gRenderer);
                        }
-                       qui1->free();
-                       threats_list.erase(threats_list.begin()+j);
-                       so_qui_bi_giet ++;
+                      qui1->trungdan();
+                      if(qui1->get_solantrungdan() ==  4)
+                      {
+                          qui1->free();
+                          threats_list.erase(threats_list.begin()+j);
+                          so_qui_bi_giet ++;
+                      }
                    }
                 }
            }
@@ -335,6 +340,16 @@ void load_tat_ca_qui(SDL_Renderer* des)
 //    tat_ca_anh_qui[diphai].LoadImage("IMG/quai_di_phai.png",des);
     tat_ca_anh_qui[ditrai].LoadImage("IMG/quai_di_trai2.png",des);
     tat_ca_anh_qui[diphai].LoadImage("IMG/quai_di_phai2.png",des);
+}
+
+void load_all_boss (SDL_Renderer* des)
+{
+    all_anh_boss[boss_run_trai].LoadImage("IMG/QUAI/qui_chay_trai.png",des);
+    all_anh_boss[boss_run_phai].LoadImage("IMG/QUAI/qui_chay_phai.png",des);
+    all_anh_boss[boss_dam_phai].LoadImage("IMG/QUAI/qui_dam_phai.png",des);
+    all_anh_boss[boss_dam_trai].LoadImage("IMG/QUAI/qui_dam_trai.png",des);
+    all_anh_boss[boss_ban_phai].LoadImage("IMG/QUAI/qui_cung_phai.png",des);
+    all_anh_boss[boss_ban_trai].LoadImage("IMG/QUAI/qui_cung_trai.png",des);
 }
 
 vector<ThreatsObject*> Make_Threat_List()

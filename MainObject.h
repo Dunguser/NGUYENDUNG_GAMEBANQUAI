@@ -153,27 +153,3 @@ private:
 #endif // MAIN_OBJECT_H_
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

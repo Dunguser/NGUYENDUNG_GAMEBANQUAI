@@ -45,18 +45,6 @@ Mix_Music* quaibichem = nullptr ;
 
 
 
-//    if( bottomA <= topB ) return false;
-//    if( topA >= bottomB ) return false;
-//    if( rightA <= leftB ) return false;
-//    if( leftA >= rightB ) return false;
-//
-//    return true;
-
-
-
-
-
-
 
 
 

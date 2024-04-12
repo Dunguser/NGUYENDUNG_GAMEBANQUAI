@@ -59,6 +59,8 @@
 		<Unit filename="MainObject.h" />
 		<Unit filename="PlayerPower.cpp" />
 		<Unit filename="PlayerPower.h" />
+		<Unit filename="QUIVUONG.cpp" />
+		<Unit filename="QUIVUONG.h" />
 		<Unit filename="SOUND.cpp" />
 		<Unit filename="SOUND.h" />
 		<Unit filename="TextObject.cpp" />
