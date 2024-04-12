@@ -19,10 +19,10 @@ public:
     // trang thai bay cua dan
     enum HUONG_DAN
     {
-        ban_dan_trai=20,
-        ban_dan_phai=21,
-        ban_duoi_trai=22,
-        ban_duoi_phai=23,
+        ban_dan_trai =20,
+        ban_dan_phai =21,
+        ban_duoi_trai =22,
+        ban_duoi_phai =23,
     };
     enum LOAI_DAN
     {
@@ -45,7 +45,7 @@ public:
     float get_y_biendoi() const { return y_biendoi ;}
 
     // trong man hinh lam tuong tu
-    void settrongmanhinh( const bool& trong) { trong_man_hinh = trong;}
+    void settrongmanhinh( const bool& trong ) { trong_man_hinh = trong;}
     bool gettrongmanhinh( ) { return trong_man_hinh ;}
 
 
@@ -53,7 +53,7 @@ public:
     void pham_vi_dan_bay(const int& x_gioihan ,const int & y_gioihan,int dotang_x, int dotang_y, MAP& map_data);
 
     // xet huong cho dan
-    void set_huongdan(const unsigned int&huong){ huong_cua_dan = huong;}
+    void set_huongdan(const unsigned int& huong){ huong_cua_dan = huong;}
 
     // lay ra huong cua dan
     unsigned int get_huongdan(){ return huong_cua_dan;}
@@ -62,12 +62,12 @@ public:
     void set_loai_dan(const unsigned int&lieu){ loai_dan_ = lieu;}
 
     //lay loai dan ra
-    unsigned int get_loai_dan(){return loai_dan_;}
+    unsigned int get_loai_dan(){ return loai_dan_; }
 
     // tai cac loai dan
     bool TAI_ANH_DAN( SDL_Renderer* des );
 
-
+    void render_kiem(SDL_Renderer* des, int x,int y, SDL_Rect* clip = nullptr ,SDL_Point* center = nullptr);
     //phan chinh sua
 
     bool check_va_cham_map( MAP& map_data );// kien tra va cham voi map
@@ -81,7 +81,6 @@ private:
     float x_biendoi;// dan di chuyen dc bao nhieu// toc do dan
     float y_biendoi;
 
-
     bool trong_man_hinh;// xem no co o trong man hinh ko
     unsigned int huong_cua_dan;// quan li huong di chuyen cua dan
     unsigned int loai_dan_;
@@ -91,7 +90,9 @@ private:
 
     int map_x_;// mep moi cua ban do khi nhan vat di chuyen
     int map_y_;
+
 };
+
 
 
 #endif // BULLET_OBJECT_H_

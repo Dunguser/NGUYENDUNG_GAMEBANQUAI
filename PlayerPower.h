@@ -14,8 +14,9 @@ public :
 
     void SetNum (const int& num){ chi_so_mang = num ;}
     void AddPos (const int& xPos);
+
     void Show(SDL_Renderer* screen);
-    void Init(SDL_Renderer* screen );
+    void Init(SDL_Renderer* screen, const string& path );
     void tangmang();
     void giammang();
 
@@ -25,8 +26,26 @@ public :
 private:
     int chi_so_mang;
     vector<int> vitri_omang;// luu vi tri xuat trai tym
+    int x_pos;
+    int y_pos;
 };
 
+
+
+
+class Hotrobay : public BaseObject
+{
+public:
+    Hotrobay();
+    ~Hotrobay();
+    void init(SDL_Renderer* screen,const string& path);
+    void show(SDL_Renderer* screen);
+    void SetPos(const int& x, const int & y ){ x_pos = x; y_pos = y;}
+
+private:
+    int x_pos;
+    int y_pos;
+};
 
 
 #endif // PLAY_POWER_

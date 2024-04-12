@@ -96,7 +96,7 @@ void ThreatsObject:: DICHUYEN_QUI( MAP& map_data )// xu li di chuyen cho qui
 void ThreatsObject::khoitaoqui()
 {
     srand((int)time(nullptr));
-    int x=rand() % 5120; //cout<<x<<" ";
+    int x = rand() % 5120; //cout<<x<<" ";
     x_change = 0;
     y_change = 0;
     x_qui_pos = x;

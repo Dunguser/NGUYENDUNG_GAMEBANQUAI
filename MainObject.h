@@ -10,6 +10,8 @@
 #include<SDL_mixer.h>
 #include<SDL_ttf.h>
 #include "BulletObject.h"
+#include "kiemquay.h"
+#include "SOUND.h"
 
 
 using namespace std;
@@ -23,6 +25,10 @@ using namespace std;
 #define TOC_DO_BAY 20
 #define SO_FRAME 8
 
+#define TANG_MANG 23
+#define CHO_BAY 24
+#define PHUONG_HOANG 13
+#define SOLANBAY 7
 
 // khoi tao nhan vat chinh // kế thừa BaseObject
 class MainObject:public BaseObject
@@ -46,33 +52,29 @@ public:
     void DiChuyenNhanVat ( MAP & map_data );//xu li cho nhan vat di chuyen, va cham coi ban do
     void CheckToMap( MAP& map_data );// kiem tra nhan vat va cham voi ban do
     SDL_Rect GetRectFrame();
-    //tao bien theo doi di chyen cua ban do theo nhan vat
-    // vi tri cua ban do chay theo nhan vat
+
     void SetMapXY ( const int map_x, const int map_y )
     {
-        map_x_ = map_x;
-        map_y_ = map_y;
+        map_x_ = map_x;//tao bien theo doi di chyen cua ban do theo nhan vat
+        map_y_ = map_y;// vi tri cua ban do chay theo nhan vat
     }
 
     void MAP_DI_CHUYEN_THEO_NV ( MAP& map_data );//tinh toan thong so cua map khi nhan vat di chuyen
     void capnhattrenmatdat( SDL_Renderer* des );
 
     bool get_roi_xuong_vuc();// lay roi xuong vuc
+    void set_bang_dan(vector<BulletObject*> bu){ bangdan_nvc = bu; }// cai dat bang dan
+    vector<BulletObject*>get_bang_dan()const { return bangdan_nvc; }// lay bang dan ra
 
-
-    // cai dat bang dan
-    void set_bang_dan(vector<BulletObject*> bu){ bangdan_nvc = bu; }
-    // lay bang dan ra
-    vector<BulletObject*>get_bang_dan()const { return bangdan_nvc; }
-
-    void KHOI_TAO_DAN_1 (BulletObject* viendan, SDL_Renderer* screen);
-    void KHOI_TAO_DAN_2 (BulletObject* viendan, SDL_Renderer* screen);
-    void XU_LI_BAN_DAN  (SDL_Renderer* des, const int& x_gioihan, const int& y_gioihan, MAP& map_data);// xu li ban dan cho nhan vat
+    void KHOI_TAO_DAN_1 ( BulletObject* viendan, SDL_Renderer* screen );
+    void KHOI_TAO_DAN_2 ( BulletObject* viendan, SDL_Renderer* screen );
+    void XU_LI_BAN_DAN  ( SDL_Renderer* des, const int& x_gioihan, const int& y_gioihan, MAP& map_data);// xu li ban dan cho nhan vat
+    void khoi_tao_kiem (SDL_Renderer* des , Sword kiem );
 
     void loaiboviendan( const int& index );// loai bo vien dan ngoai pham vi ban
-    void an_tien();// tinh tien an duoc
+    void an_tien();     // tinh tien an duoc
 
-    void trungdan() { solantrungdan ++;} // quai bi trung dan
+    void trungdan() { solantrungdan ++;}    //  bi trung dan quai
     int get_solantrungdan() const { return solantrungdan;}
 
     int get_width_frame () const { return width_frame_ ; }
@@ -81,6 +83,26 @@ public:
     int get_tienanduoc() const { return tien_an_duoc ; }
 
     void set_comebacktime (const int & k){ come_back_time_ = k;}
+
+
+    void nhanbietchet ( const int& chet) { trang_thai_vao.chet_ = chet ;}
+
+    void tang_mang(bool kk) { themmang = kk; } // kim cuong do
+    bool get_tangmang () const { return themmang ; }
+
+    void setchobay ( const bool& bay) { chobay = bay ;}// kim cuong xanh
+    bool getchobay () const {return chobay;}
+
+    void kichhoatchongchong( const bool & hh){ chongchong = hh ;}
+    bool getchongchong()const { return chongchong; }
+
+    void kichhoathangnong ( const bool & hh){ hangnong = hh;}
+    bool gethangnong() const {return hangnong;}
+
+    Sword getkiem() { return kiem ;}
+
+    void loadamthanh_nvc();
+    void playmusic(Mix_Music* kaka){ Mix_PlayMusic(kaka, 1); }
 
 private:
     float x_biendoi_;// khi di chuyen thi tang/giam bao nhieu
@@ -112,6 +134,19 @@ private:
     int come_back_time_;// thoi gian sau khi chet nhan vat quay tro lai
 
     int solantrungdan;
+    bool themmang;
+
+    bool chobay;
+    int hanchebay;
+
+    bool chongchong;
+    bool hangnong;
+
+    Sword kiem;
+
+    Mix_Music* sung;
+    Mix_Music* kiem1;
+    Mix_Music* andohotro;
 };
 
 

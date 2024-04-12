@@ -9,6 +9,7 @@ BulletObject::BulletObject()
     x_biendoi=0.0;
     y_biendoi=0.0;
     trong_man_hinh=false;
+
 }
 BulletObject::~BulletObject()
 {
@@ -58,6 +59,7 @@ void BulletObject::pham_vi_dan_bay( const int& x_gioihan, const int& y_gioihan, 
     }
 }
 
+
 bool BulletObject::TAI_ANH_DAN(SDL_Renderer*des)// tai cac loai dan
 {
     bool ret=false;
@@ -66,7 +68,6 @@ bool BulletObject::TAI_ANH_DAN(SDL_Renderer*des)// tai cac loai dan
     else if(loai_dan_ == DAN_QUI_PHAI) ret=LoadImage("IMG/dan_qui_phai.png",des);
     else if(loai_dan_  == DAN_QUI_TRAI)ret=LoadImage("IMG/dan_qui_trai.png",des);
     else if(loai_dan_ == DAN_QUI_THUONG) ret=LoadImage("IMG/dan_qui_thuong.png",des);
-
     return ret;
 }
 

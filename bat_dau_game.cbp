@@ -59,6 +59,8 @@
 		<Unit filename="MainObject.h" />
 		<Unit filename="PlayerPower.cpp" />
 		<Unit filename="PlayerPower.h" />
+		<Unit filename="SOUND.cpp" />
+		<Unit filename="SOUND.h" />
 		<Unit filename="TextObject.cpp" />
 		<Unit filename="TextObject.h" />
 		<Unit filename="ThreatsObject.cpp" />
@@ -67,6 +69,8 @@
 		<Unit filename="all_anh_qui.h" />
 		<Unit filename="commonfunction.cpp" />
 		<Unit filename="commonfunction.h" />
+		<Unit filename="kiemquay.cpp" />
+		<Unit filename="kiemquay.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="vuno.cpp" />
 		<Unit filename="vuno.h" />

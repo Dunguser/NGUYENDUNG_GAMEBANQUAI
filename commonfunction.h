@@ -13,20 +13,15 @@
 
 using namespace std;
 
-//screen//renderer
+//screen
 const int SCREEN_WIDTH=1280 ;
 const int SCREEN_HEIGHT=960;
 
-const int SCREEN_BPP=32;
-
-//thoi gian cham lai
-const int FRAME_PER_SECOND =25;
-
+const int FRAME_PER_SECOND =25;//thoi gian cham lai
 
 // chi so ban do game
 #define TILE_SIZE 64 // kich thuoc cua 1 o
-
-#define MAX_MAP_X 100
+#define MAX_MAP_X 140
 #define MAX_MAP_Y 45
 
 #define MONEY 4
@@ -57,10 +52,20 @@ struct TRANG_THAI_NHAN_VAT
     int xuong_;
     int bay_;
     int can_chien_;
+    int chet_;
 };
 
 namespace SDLCommonFunc
 {
     bool CheckCollision(const SDL_Rect&object1,const SDL_Rect&object2);
 }
+
+
+extern TTF_Font * gFont ; // phong chu
+extern TTF_Font * gFont2 ;
+extern Mix_Music * nhacnen ;//am thanh
+extern Mix_Chunk * bom  ;
+extern Mix_Chunk * danquino  ;
+extern Mix_Music* quaibichem ;
+
 #endif // COMMON_FUNCTION_H_

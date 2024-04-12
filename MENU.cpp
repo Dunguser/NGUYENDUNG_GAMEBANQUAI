@@ -62,7 +62,7 @@ int MENU::showmenu(SDL_Renderer* des, TTF_Font* font)
 
                 xc = chuot.motion.x;
                 yc = chuot.motion.y;
-                cout<< xc <<" ; "<<yc<<endl;
+                //cout<< xc <<" ; "<<yc<<endl;
                 for (int i = 0; i < so_lua_chon; i++)
                 {
                     SDL_Rect kaka = text_menu[i].text(vitriluachon[i].x,vitriluachon[i].y);;

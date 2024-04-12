@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1712676609 source:e:\bat_dau_game\main.cpp
+1712908720 source:e:\bat_dau_game\main.cpp
 	<bits/stdc++.h>
 	<windows.h>
 	<SDL.h>
@@ -17,6 +17,7 @@
 	"TextObject.h"
 	"PlayerPower.h"
 	"MENU.h"
+	"kiemquay.h"
 
 1709133042 d:\sdl2-devel-2.30.0-mingw\sdl2-2.30.0\x86_64-w64-mingw32\include\sdl2\sdl.h
 	"SDL_main.h"
@@ -420,10 +421,10 @@
 1712673750 source:e:\bat_dau_game\baseobject.cpp
 	"BaseObject.h"
 
-1712670862 source:e:\bat_dau_game\commonfunction.cpp
+1712908185 source:e:\bat_dau_game\commonfunction.cpp
 	"commonfunction.h"
 
-1712580434 e:\bat_dau_game\commonfunction.h
+1712908185 e:\bat_dau_game\commonfunction.h
 	<bits/stdc++.h>
 	<SDL.h>
 	<SDL_image.h>
@@ -458,11 +459,11 @@
 	"BaseObject.h"
 	<bits/stdc++.h>
 
-1712673192 source:e:\bat_dau_game\mainobject.cpp
+1712908960 source:e:\bat_dau_game\mainobject.cpp
 	"MainObject.h"
 	"BulletObject.h"
 
-1712579363 e:\bat_dau_game\mainobject.h
+1712908960 e:\bat_dau_game\mainobject.h
 	<bits/stdc++.h>
 	"commonfunction.h"
 	"BaseObject.h"
@@ -472,6 +473,8 @@
 	<SDL_mixer.h>
 	<SDL_ttf.h>
 	"BulletObject.h"
+	"kiemquay.h"
+	"SOUND.h"
 
 1711982714 source:e:\bat_dau_game\imptimer.cpp
 	<iostream>
@@ -481,14 +484,14 @@
 
 1710332501 e:\bat_dau_game\imptimer.h
 
-1712412058 source:e:\bat_dau_game\bulletobject.cpp
+1712737402 source:e:\bat_dau_game\bulletobject.cpp
 	"BulletObject.h"
 
-1712368487 e:\bat_dau_game\bulletobject.h
+1712741012 e:\bat_dau_game\bulletobject.h
 	"BaseObject.h"
 	"commonfunction.h"
 
-1712578140 source:e:\bat_dau_game\threatsobject.cpp
+1712678198 source:e:\bat_dau_game\threatsobject.cpp
 	"ThreatsObject.h"
 	"MainObject.h"
 	<SDL_image.h>
@@ -499,14 +502,14 @@
 	"BaseObject.h"
 	"BulletObject.h"
 
-1711908958 source:e:\bat_dau_game - sao chép (2)\baseobject.cpp
+1712673750 source:e:\bat_dau_game - sao chép (2)\baseobject.cpp
 	"BaseObject.h"
 
-1711910386 e:\bat_dau_game - sao chép (2)\baseobject.h
+1712673750 e:\bat_dau_game - sao chép (2)\baseobject.h
 	"commonfunction.h"
 	<bits/stdc++.h>
 
-1711910367 e:\bat_dau_game - sao chép (2)\commonfunction.h
+1712908185 e:\bat_dau_game - sao chép (2)\commonfunction.h
 	<bits/stdc++.h>
 	<SDL.h>
 	<SDL_image.h>
@@ -515,17 +518,17 @@
 	<SDL_ttf.h>
 	"BaseObject.h"
 
-1711627446 source:e:\bat_dau_game - sao chép (2)\bulletobject.cpp
+1712737402 source:e:\bat_dau_game - sao chép (2)\bulletobject.cpp
 	"BulletObject.h"
 
-1711720881 e:\bat_dau_game - sao chép (2)\bulletobject.h
+1712741012 e:\bat_dau_game - sao chép (2)\bulletobject.h
 	"BaseObject.h"
 	"commonfunction.h"
 
-1710264400 source:e:\bat_dau_game - sao chép (2)\commonfunction.cpp
+1712908185 source:e:\bat_dau_game - sao chép (2)\commonfunction.cpp
 	"commonfunction.h"
 
-1710856714 source:e:\bat_dau_game - sao chép (2)\gamemap.cpp
+1712673750 source:e:\bat_dau_game - sao chép (2)\gamemap.cpp
 	"GAMEMAP.h"
 
 1710391114 e:\bat_dau_game - sao chép (2)\gamemap.h
@@ -533,18 +536,19 @@
 	"BaseObject.h"
 	<bits/stdc++.h>
 
-1710332501 source:e:\bat_dau_game - sao chép (2)\imptimer.cpp
+1711982714 source:e:\bat_dau_game - sao chép (2)\imptimer.cpp
 	<iostream>
 	"ImpTimer.h"
 	"commonfunction.h"
+	"all_anh_qui.h"
 
 1710332501 e:\bat_dau_game - sao chép (2)\imptimer.h
 
-1711910525 source:e:\bat_dau_game - sao chép (2)\mainobject.cpp
+1712908960 source:e:\bat_dau_game - sao chép (2)\mainobject.cpp
 	"MainObject.h"
 	"BulletObject.h"
 
-1711911640 e:\bat_dau_game - sao chép (2)\mainobject.h
+1712908960 e:\bat_dau_game - sao chép (2)\mainobject.h
 	<bits/stdc++.h>
 	"commonfunction.h"
 	"BaseObject.h"
@@ -554,17 +558,21 @@
 	<SDL_mixer.h>
 	<SDL_ttf.h>
 	"BulletObject.h"
+	"kiemquay.h"
+	"SOUND.h"
 
-1711911727 source:e:\bat_dau_game - sao chép (2)\threatsobject.cpp
+1712678198 source:e:\bat_dau_game - sao chép (2)\threatsobject.cpp
 	"ThreatsObject.h"
 	"MainObject.h"
 	<SDL_image.h>
+	"all_anh_qui.h"
 
-1711912181 e:\bat_dau_game - sao chép (2)\threatsobject.h
+1712406231 e:\bat_dau_game - sao chép (2)\threatsobject.h
 	"commonfunction.h"
 	"BaseObject.h"
+	"BulletObject.h"
 
-1711911852 source:e:\bat_dau_game - sao chép (2)\main.cpp
+1712908720 source:e:\bat_dau_game - sao chép (2)\main.cpp
 	<bits/stdc++.h>
 	<windows.h>
 	<SDL.h>
@@ -577,6 +585,12 @@
 	"MainObject.h"
 	"ImpTimer.h"
 	"ThreatsObject.h"
+	"all_anh_qui.h"
+	"vuno.h"
+	"TextObject.h"
+	"PlayerPower.h"
+	"MENU.h"
+	"kiemquay.h"
 
 1711984320 source:e:\bat_dau_game\all_anh_qui.cpp
 	"all_anh_qui.h"
@@ -602,17 +616,504 @@
 1712675716 source:e:\bat_dau_game\textobject.cpp
 	"TextObject.h"
 
-1712578775 e:\bat_dau_game\playerpower.h
+1712850508 e:\bat_dau_game\playerpower.h
 	"commonfunction.h"
 	"BaseObject.h"
 
-1712579088 source:e:\bat_dau_game\playerpower.cpp
+1712850508 source:e:\bat_dau_game\playerpower.cpp
 	"PlayerPower.h"
 
-1712676557 source:e:\bat_dau_game\menu.cpp
+1712718734 source:e:\bat_dau_game\menu.cpp
 	"MENU.h"
 
 1712675643 e:\bat_dau_game\menu.h
 	"commonfunction.h"
 	"TextObject.h"
+
+1711984320 source:e:\bat_dau_game - sao chép (2)\all_anh_qui.cpp
+	"all_anh_qui.h"
+
+1711984320 e:\bat_dau_game - sao chép (2)\all_anh_qui.h
+	"commonfunction.h"
+	"BaseObject.h"
+	<bits/stdc++.h>
+	"BulletObject.h"
+
+1712482118 e:\bat_dau_game - sao chép (2)\vuno.h
+	"commonfunction.h"
+	"BaseObject.h"
+
+1712674107 e:\bat_dau_game - sao chép (2)\textobject.h
+	"commonfunction.h"
+	<bits/stdc++.h>
+	<SDL_ttf.h>
+
+1712850508 e:\bat_dau_game - sao chép (2)\playerpower.h
+	"commonfunction.h"
+	"BaseObject.h"
+
+1712675643 e:\bat_dau_game - sao chép (2)\menu.h
+	"commonfunction.h"
+	"TextObject.h"
+
+1712718734 source:e:\bat_dau_game - sao chép (2)\menu.cpp
+	"MENU.h"
+
+1712850508 source:e:\bat_dau_game - sao chép (2)\playerpower.cpp
+	"PlayerPower.h"
+
+1712675716 source:e:\bat_dau_game - sao chép (2)\textobject.cpp
+	"TextObject.h"
+
+1712482293 source:e:\bat_dau_game - sao chép (2)\vuno.cpp
+	"vuno.h"
+
+1712759605 source:e:\bat_dau_game - sao chép (2)\kiemquay.cpp
+	"kiemquay.h"
+
+1712759145 e:\bat_dau_game - sao chép (2)\kiemquay.h
+	"commonfunction.h"
+
+1712759605 source:e:\bat_dau_game\kiemquay.cpp
+	"kiemquay.h"
+
+1712759145 e:\bat_dau_game\kiemquay.h
+	"commonfunction.h"
+
+1712848084 e:\bat_dau_game\sound.h
+	<SDL_mixer.h>
+	<bits/stdc++.h>
+
+1712848196 source:e:\bat_dau_game\sound.cpp
+	"SOUND.h"
+
+1711984320 source:e:\bat_dau_game - sao chép (3)\all_anh_qui.cpp
+	"all_anh_qui.h"
+
+1711984320 e:\bat_dau_game - sao chép (3)\all_anh_qui.h
+	"commonfunction.h"
+	"BaseObject.h"
+	<bits/stdc++.h>
+	"BulletObject.h"
+
+1712851527 e:\bat_dau_game - sao chép (3)\commonfunction.h
+	<bits/stdc++.h>
+	<SDL.h>
+	<SDL_image.h>
+	<windows.h>
+	<SDL_mixer.h>
+	<SDL_ttf.h>
+	"BaseObject.h"
+
+1712673750 e:\bat_dau_game - sao chép (3)\baseobject.h
+	"commonfunction.h"
+	<bits/stdc++.h>
+
+1712741012 e:\bat_dau_game - sao chép (3)\bulletobject.h
+	"BaseObject.h"
+	"commonfunction.h"
+
+1712673750 source:e:\bat_dau_game - sao chép (3)\baseobject.cpp
+	"BaseObject.h"
+
+1712737402 source:e:\bat_dau_game - sao chép (3)\bulletobject.cpp
+	"BulletObject.h"
+
+1712670862 source:e:\bat_dau_game - sao chép (3)\commonfunction.cpp
+	"commonfunction.h"
+
+1712673750 source:e:\bat_dau_game - sao chép (3)\gamemap.cpp
+	"GAMEMAP.h"
+
+1710391114 e:\bat_dau_game - sao chép (3)\gamemap.h
+	"commonfunction.h"
+	"BaseObject.h"
+	<bits/stdc++.h>
+
+1711982714 source:e:\bat_dau_game - sao chép (3)\imptimer.cpp
+	<iostream>
+	"ImpTimer.h"
+	"commonfunction.h"
+	"all_anh_qui.h"
+
+1710332501 e:\bat_dau_game - sao chép (3)\imptimer.h
+
+1712759605 source:e:\bat_dau_game - sao chép (3)\kiemquay.cpp
+	"kiemquay.h"
+
+1712759145 e:\bat_dau_game - sao chép (3)\kiemquay.h
+	"commonfunction.h"
+
+1712851527 source:e:\bat_dau_game - sao chép (3)\main.cpp
+	<bits/stdc++.h>
+	<windows.h>
+	<SDL.h>
+	<SDL_image.h>
+	<SDL_mixer.h>
+	<SDL_ttf.h>
+	"commonfunction.h"
+	"BaseObject.h"
+	"GAMEMAP.h"
+	"MainObject.h"
+	"ImpTimer.h"
+	"ThreatsObject.h"
+	"all_anh_qui.h"
+	"vuno.h"
+	"TextObject.h"
+	"PlayerPower.h"
+	"MENU.h"
+	"kiemquay.h"
+
+1712849647 e:\bat_dau_game - sao chép (3)\mainobject.h
+	<bits/stdc++.h>
+	"commonfunction.h"
+	"BaseObject.h"
+	"GAMEMAP.h"
+	<SDL.h>
+	<SDL_image.h>
+	<SDL_mixer.h>
+	<SDL_ttf.h>
+	"BulletObject.h"
+	"kiemquay.h"
+	"SOUND.h"
+
+1712848084 e:\bat_dau_game - sao chép (3)\sound.h
+	<SDL_mixer.h>
+	<bits/stdc++.h>
+
+1712406231 e:\bat_dau_game - sao chép (3)\threatsobject.h
+	"commonfunction.h"
+	"BaseObject.h"
+	"BulletObject.h"
+
+1712482118 e:\bat_dau_game - sao chép (3)\vuno.h
+	"commonfunction.h"
+	"BaseObject.h"
+
+1712674107 e:\bat_dau_game - sao chép (3)\textobject.h
+	"commonfunction.h"
+	<bits/stdc++.h>
+	<SDL_ttf.h>
+
+1712850508 e:\bat_dau_game - sao chép (3)\playerpower.h
+	"commonfunction.h"
+	"BaseObject.h"
+
+1712675643 e:\bat_dau_game - sao chép (3)\menu.h
+	"commonfunction.h"
+	"TextObject.h"
+
+1712849675 source:e:\bat_dau_game - sao chép (3)\mainobject.cpp
+	"MainObject.h"
+	"BulletObject.h"
+
+1712718734 source:e:\bat_dau_game - sao chép (3)\menu.cpp
+	"MENU.h"
+
+1712850508 source:e:\bat_dau_game - sao chép (3)\playerpower.cpp
+	"PlayerPower.h"
+
+1712848196 source:e:\bat_dau_game - sao chép (3)\sound.cpp
+	"SOUND.h"
+
+1712675716 source:e:\bat_dau_game - sao chép (3)\textobject.cpp
+	"TextObject.h"
+
+1712678198 source:e:\bat_dau_game - sao chép (3)\threatsobject.cpp
+	"ThreatsObject.h"
+	"MainObject.h"
+	<SDL_image.h>
+	"all_anh_qui.h"
+
+1712482293 source:e:\bat_dau_game - sao chép (3)\vuno.cpp
+	"vuno.h"
+
+1712848084 e:\bat_dau_game - sao chép (2)\sound.h
+	<SDL_mixer.h>
+	<bits/stdc++.h>
+
+1712848196 source:e:\bat_dau_game - sao chép (2)\sound.cpp
+	"SOUND.h"
+
+1711984320 source:e:\bat_dau_game - (3)\all_anh_qui.cpp
+	"all_anh_qui.h"
+
+1711984320 e:\bat_dau_game - (3)\all_anh_qui.h
+	"commonfunction.h"
+	"BaseObject.h"
+	<bits/stdc++.h>
+	"BulletObject.h"
+
+1712908185 e:\bat_dau_game - (3)\commonfunction.h
+	<bits/stdc++.h>
+	<SDL.h>
+	<SDL_image.h>
+	<windows.h>
+	<SDL_mixer.h>
+	<SDL_ttf.h>
+	"BaseObject.h"
+
+1712673750 e:\bat_dau_game - (3)\baseobject.h
+	"commonfunction.h"
+	<bits/stdc++.h>
+
+1712741012 e:\bat_dau_game - (3)\bulletobject.h
+	"BaseObject.h"
+	"commonfunction.h"
+
+1712673750 source:e:\bat_dau_game - (3)\baseobject.cpp
+	"BaseObject.h"
+
+1712737402 source:e:\bat_dau_game - (3)\bulletobject.cpp
+	"BulletObject.h"
+
+1712908185 source:e:\bat_dau_game - (3)\commonfunction.cpp
+	"commonfunction.h"
+
+1712673750 source:e:\bat_dau_game - (3)\gamemap.cpp
+	"GAMEMAP.h"
+
+1710391114 e:\bat_dau_game - (3)\gamemap.h
+	"commonfunction.h"
+	"BaseObject.h"
+	<bits/stdc++.h>
+
+1711982714 source:e:\bat_dau_game - (3)\imptimer.cpp
+	<iostream>
+	"ImpTimer.h"
+	"commonfunction.h"
+	"all_anh_qui.h"
+
+1710332501 e:\bat_dau_game - (3)\imptimer.h
+
+1712759605 source:e:\bat_dau_game - (3)\kiemquay.cpp
+	"kiemquay.h"
+
+1712759145 e:\bat_dau_game - (3)\kiemquay.h
+	"commonfunction.h"
+
+1712908720 source:e:\bat_dau_game - (3)\main.cpp
+	<bits/stdc++.h>
+	<windows.h>
+	<SDL.h>
+	<SDL_image.h>
+	<SDL_mixer.h>
+	<SDL_ttf.h>
+	"commonfunction.h"
+	"BaseObject.h"
+	"GAMEMAP.h"
+	"MainObject.h"
+	"ImpTimer.h"
+	"ThreatsObject.h"
+	"all_anh_qui.h"
+	"vuno.h"
+	"TextObject.h"
+	"PlayerPower.h"
+	"MENU.h"
+	"kiemquay.h"
+
+1712908960 e:\bat_dau_game - (3)\mainobject.h
+	<bits/stdc++.h>
+	"commonfunction.h"
+	"BaseObject.h"
+	"GAMEMAP.h"
+	<SDL.h>
+	<SDL_image.h>
+	<SDL_mixer.h>
+	<SDL_ttf.h>
+	"BulletObject.h"
+	"kiemquay.h"
+	"SOUND.h"
+
+1712848084 e:\bat_dau_game - (3)\sound.h
+	<SDL_mixer.h>
+	<bits/stdc++.h>
+
+1712406231 e:\bat_dau_game - (3)\threatsobject.h
+	"commonfunction.h"
+	"BaseObject.h"
+	"BulletObject.h"
+
+1712482118 e:\bat_dau_game - (3)\vuno.h
+	"commonfunction.h"
+	"BaseObject.h"
+
+1712674107 e:\bat_dau_game - (3)\textobject.h
+	"commonfunction.h"
+	<bits/stdc++.h>
+	<SDL_ttf.h>
+
+1712850508 e:\bat_dau_game - (3)\playerpower.h
+	"commonfunction.h"
+	"BaseObject.h"
+
+1712675643 e:\bat_dau_game - (3)\menu.h
+	"commonfunction.h"
+	"TextObject.h"
+
+1712908960 source:e:\bat_dau_game - (3)\mainobject.cpp
+	"MainObject.h"
+	"BulletObject.h"
+
+1712718734 source:e:\bat_dau_game - (3)\menu.cpp
+	"MENU.h"
+
+1712850508 source:e:\bat_dau_game - (3)\playerpower.cpp
+	"PlayerPower.h"
+
+1712848196 source:e:\bat_dau_game - (3)\sound.cpp
+	"SOUND.h"
+
+1712675716 source:e:\bat_dau_game - (3)\textobject.cpp
+	"TextObject.h"
+
+1712678198 source:e:\bat_dau_game - (3)\threatsobject.cpp
+	"ThreatsObject.h"
+	"MainObject.h"
+	<SDL_image.h>
+	"all_anh_qui.h"
+
+1712482293 source:e:\bat_dau_game - (3)\vuno.cpp
+	"vuno.h"
+
+1711984320 source:e:\game (6)\all_anh_qui.cpp
+	"all_anh_qui.h"
+
+1711984320 e:\game (6)\all_anh_qui.h
+	"commonfunction.h"
+	"BaseObject.h"
+	<bits/stdc++.h>
+	"BulletObject.h"
+
+1712908185 e:\game (6)\commonfunction.h
+	<bits/stdc++.h>
+	<SDL.h>
+	<SDL_image.h>
+	<windows.h>
+	<SDL_mixer.h>
+	<SDL_ttf.h>
+	"BaseObject.h"
+
+1712673750 e:\game (6)\baseobject.h
+	"commonfunction.h"
+	<bits/stdc++.h>
+
+1712741012 e:\game (6)\bulletobject.h
+	"BaseObject.h"
+	"commonfunction.h"
+
+1712673750 source:e:\game (6)\baseobject.cpp
+	"BaseObject.h"
+
+1712737402 source:e:\game (6)\bulletobject.cpp
+	"BulletObject.h"
+
+1712908185 source:e:\game (6)\commonfunction.cpp
+	"commonfunction.h"
+
+1712673750 source:e:\game (6)\gamemap.cpp
+	"GAMEMAP.h"
+
+1710391114 e:\game (6)\gamemap.h
+	"commonfunction.h"
+	"BaseObject.h"
+	<bits/stdc++.h>
+
+1711982714 source:e:\game (6)\imptimer.cpp
+	<iostream>
+	"ImpTimer.h"
+	"commonfunction.h"
+	"all_anh_qui.h"
+
+1710332501 e:\game (6)\imptimer.h
+
+1712759605 source:e:\game (6)\kiemquay.cpp
+	"kiemquay.h"
+
+1712759145 e:\game (6)\kiemquay.h
+	"commonfunction.h"
+
+1712908720 source:e:\game (6)\main.cpp
+	<bits/stdc++.h>
+	<windows.h>
+	<SDL.h>
+	<SDL_image.h>
+	<SDL_mixer.h>
+	<SDL_ttf.h>
+	"commonfunction.h"
+	"BaseObject.h"
+	"GAMEMAP.h"
+	"MainObject.h"
+	"ImpTimer.h"
+	"ThreatsObject.h"
+	"all_anh_qui.h"
+	"vuno.h"
+	"TextObject.h"
+	"PlayerPower.h"
+	"MENU.h"
+	"kiemquay.h"
+
+1712908960 e:\game (6)\mainobject.h
+	<bits/stdc++.h>
+	"commonfunction.h"
+	"BaseObject.h"
+	"GAMEMAP.h"
+	<SDL.h>
+	<SDL_image.h>
+	<SDL_mixer.h>
+	<SDL_ttf.h>
+	"BulletObject.h"
+	"kiemquay.h"
+	"SOUND.h"
+
+1712848084 e:\game (6)\sound.h
+	<SDL_mixer.h>
+	<bits/stdc++.h>
+
+1712406231 e:\game (6)\threatsobject.h
+	"commonfunction.h"
+	"BaseObject.h"
+	"BulletObject.h"
+
+1712482118 e:\game (6)\vuno.h
+	"commonfunction.h"
+	"BaseObject.h"
+
+1712674107 e:\game (6)\textobject.h
+	"commonfunction.h"
+	<bits/stdc++.h>
+	<SDL_ttf.h>
+
+1712850508 e:\game (6)\playerpower.h
+	"commonfunction.h"
+	"BaseObject.h"
+
+1712675643 e:\game (6)\menu.h
+	"commonfunction.h"
+	"TextObject.h"
+
+1712908960 source:e:\game (6)\mainobject.cpp
+	"MainObject.h"
+	"BulletObject.h"
+
+1712718734 source:e:\game (6)\menu.cpp
+	"MENU.h"
+
+1712850508 source:e:\game (6)\playerpower.cpp
+	"PlayerPower.h"
+
+1712848196 source:e:\game (6)\sound.cpp
+	"SOUND.h"
+
+1712675716 source:e:\game (6)\textobject.cpp
+	"TextObject.h"
+
+1712678198 source:e:\game (6)\threatsobject.cpp
+	"ThreatsObject.h"
+	"MainObject.h"
+	<SDL_image.h>
+	"all_anh_qui.h"
+
+1712482293 source:e:\game (6)\vuno.cpp
+	"vuno.h"
 

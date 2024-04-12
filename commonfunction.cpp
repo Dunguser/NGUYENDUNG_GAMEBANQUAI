@@ -29,14 +29,15 @@ bool  SDLCommonFunc::CheckCollision(const SDL_Rect& object1,const SDL_Rect& obje
     if (topA == topB && rightA == rightB && bottomA == bottomB) return true;
 
     return false;
-
-
 }
 
 
-
-
-
+TTF_Font * gFont = nullptr ; // phong chu
+TTF_Font * gFont2 = nullptr;
+Mix_Music * nhacnen = nullptr;//am thanh
+Mix_Chunk * bom = nullptr;
+Mix_Chunk * danquino = nullptr  ;
+Mix_Music* quaibichem = nullptr ;
 
 
 
