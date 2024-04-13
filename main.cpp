@@ -27,6 +27,10 @@ SDL_Window * gWindow = nullptr;
 SDL_Renderer * gRenderer = nullptr;
 SDL_Event gEvent;
 
+BaseObject tamdung;
+BaseObject tamdung2;
+SDL_Rect nutdung = {SCREEN_WIDTH - 80 , 0 , 80 ,78 };
+BaseObject anhdau;// anh dau tien hien len
 BaseObject gBackground;// khai bao 1 em background
 GAMEMAP game_map;//khai bao 1 em gamemap
 MainObject player_nvc;//khai bao nhan vat chinh
@@ -44,6 +48,11 @@ void khoitaonhanvatchinh_no( VUNO& nvc_no );
 int main(int messi,char* kaka [] )
 {
     if(!Init()||!LoadMedia()) return -1000; //kiem tra khoi tao
+
+    anhdau.Render(gRenderer,nullptr);// anh dau
+    tamdung.SetRect(SCREEN_WIDTH - 80 , 0 );
+    tamdung2.SetRect(SCREEN_WIDTH / 2 - 100 , SCREEN_HEIGHT / 3) ;
+
     Mix_PlayMusic(nhacnen , -1);// nhac nen
     game_map.LoadMap("MAP/map04.dat");//xu li ban do: map
     game_map.LoadTiles( gRenderer );
@@ -98,8 +107,10 @@ int main(int messi,char* kaka [] )
     bool quit = false; // vong lap chinh
 
     MENU menu_;//menu
+    menu_.SetRect(SCREEN_WIDTH / 2 - 180 , SCREEN_HEIGHT / 3 - 60 );
     int ret_menu = menu_.showmenu( gRenderer , gFont2 );
     if(ret_menu != 1) quit = true;
+
     while(!quit)
     {
         while( SDL_PollEvent( &gEvent ) != 0 )
@@ -109,11 +120,25 @@ int main(int messi,char* kaka [] )
             {
                 thoigianhientai = SDL_GetTicks(); ho = true;
             }
+            else if( gEvent.type == SDL_MOUSEBUTTONDOWN)
+            {
+                if(gEvent.button.button == SDL_BUTTON_LEFT)
+                {
+                    int xc = gEvent.motion.x, yc = gEvent.motion.y;
+                    if(SDLCommonFunc::check_chuot_chon(xc,yc,nutdung))
+                    {
+                        tamdung2.Render(gRenderer,nullptr); cout<<"kaka";
+                    }
+                }
+            }
             player_nvc.XuLiXuKienBanPhim( gEvent, gRenderer );//nhan vat chinh, ban phim
         }
         SDL_SetRenderDrawColor( gRenderer, 255, 255, 255, 255);// clear renderer
         SDL_RenderClear( gRenderer );
+
         gBackground.Render( gRenderer, nullptr );// in anh background
+        tamdung.Render (gRenderer , nullptr );
+        //tamdung2.Render(gRenderer,nullptr);
         MAP map_data = game_map.GetMap();//xu li di chuyen, va cham map
 
         if(player_nvc.get_tangmang()){ so_mang.tangmang() ; player_nvc.tang_mang(false) ;} // an kim cuong tang mang
@@ -133,7 +158,7 @@ int main(int messi,char* kaka [] )
 
         quivuong.SetMapXY ( map_data.start_x_ , map_data.start_y_ );
         quivuong.showboss ( gRenderer );
-        quivuong.DICHUYEN_BOSS ( map_data, player_nvc );
+        //quivuong.DICHUYEN_BOSS ( map_data, player_nvc );
 
         game_map.SetMap ( map_data );            // cap nhat vi tri moi cho start_x_, start_y_
         game_map.DrawMap ( gRenderer );          //ve ban do
@@ -438,6 +463,9 @@ bool Init()
 bool LoadMedia()// tai anh nen
 {
     if(!gBackground.LoadImage("IMG/G_BACK_GROUND_NET.jpg",gRenderer))return 0;
+    if(!anhdau.LoadImage("IMG/botro/anhdau.png",gRenderer)) { cout<< IMG_GetError(); return 0; }
+    if(!tamdung.LoadImage("IMG/botro/nuttamdung.png",gRenderer)) { cout<< IMG_GetError() ; return 0;}
+    if(!tamdung2.LoadImage("IMG/botro/anh_exit.png",gRenderer)) { cout<< IMG_GetError() ; return 0;}
 
     gFont = TTF_OpenFont ("FONT/turok.ttf",24);
     gFont2 = TTF_OpenFont ("FONT/starcraft.ttf",40);
@@ -479,6 +507,13 @@ void close()
     IMG_Quit();
     TTF_Quit();
     Mix_Quit();
+
+    gBackground.free();
+    anhdau.free();
+    player_nvc.free();
+    quivuong.free();
+    tamdung.free();
+    tamdung2.free();
 }
 
 

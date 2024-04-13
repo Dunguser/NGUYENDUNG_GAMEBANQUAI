@@ -16,7 +16,7 @@
 using namespace std;
 
 //#define TOCDOROI 0.8
-#define TOCDOROI_BOSS 1
+#define TOCDOROI_BOSS 0.8
 #define ROITOIDA_BOSS 40
 #define TOCDOCHAY_BOSS 7
 #define O_TRONG 0

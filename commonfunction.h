@@ -13,6 +13,7 @@
 
 using namespace std;
 
+
 //screen
 const int SCREEN_WIDTH=1280 ;
 const int SCREEN_HEIGHT=960;
@@ -70,6 +71,7 @@ struct TRANG_THAI_BOSS
 namespace SDLCommonFunc
 {
     bool CheckCollision(const SDL_Rect&object1,const SDL_Rect&object2);
+    bool check_chuot_chon (int x,int y, SDL_Rect rect);
 }
 
 
@@ -81,3 +83,5 @@ extern Mix_Chunk * danquino  ;
 extern Mix_Music* quaibichem ;
 
 #endif // COMMON_FUNCTION_H_
+
+

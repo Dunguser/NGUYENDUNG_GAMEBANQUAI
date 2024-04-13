@@ -32,6 +32,16 @@ bool  SDLCommonFunc::CheckCollision(const SDL_Rect& object1,const SDL_Rect& obje
 }
 
 
+bool SDLCommonFunc:: check_chuot_chon (int x,int y, SDL_Rect rect)
+{
+    if(x >= rect.x && x<= rect.x + rect.w &&
+            y >= rect.y && y <= rect.y + rect.h )
+    {
+        return true;
+    }
+    return false;
+}
+
 TTF_Font * gFont = nullptr ; // phong chu
 TTF_Font * gFont2 = nullptr;
 Mix_Music * nhacnen = nullptr;//am thanh

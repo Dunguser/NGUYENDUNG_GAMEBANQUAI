@@ -13,23 +13,20 @@ MENU::~MENU()
 
 int MENU::showmenu(SDL_Renderer* des, TTF_Font* font)
 {
-    bool ret = LoadImage("IMG/menu.jpg", des);
-    if (ret == false)
-    {
-        cout << SDL_GetError();
-        return -3333;
-    }
+    //bool ret = LoadImage("IMG/menu.jpg", des); // load anh menu o day
+    bool ret = LoadImage("IMG/botro/menu.png", des); // load anh menu o day
+    if (ret == false){ cout << SDL_GetError();return -3333; }
 
-    for (int i = 0; i < so_lua_chon; i++)
+    for (int i = 0; i < so_lua_chon; i++) // xuất chữ  ra vi tri nao
     {
         vitriluachon[i].x = SCREEN_WIDTH/2 - 80 ;
         vitriluachon[i].y = 400+ 50 * i;
     }
 
-    text_menu[0].SetText("START");
+    text_menu[0].SetText(" START");
     text_menu[1].SetText("TUTORIAL");
-    text_menu[2].SetText("OPTIONS");
-    text_menu[3].SetText("SHOP");
+    text_menu[2].SetText(" OPTIONS");
+    text_menu[3].SetText(" SHOP");
 
     for (int i = 0; i < so_lua_chon; i++)
     {
@@ -50,7 +47,6 @@ int MENU::showmenu(SDL_Renderer* des, TTF_Font* font)
             text_menu[i].RenderText(des, vitriluachon[i].x, vitriluachon[i].y);
             //cout<<i<<" ";
         }
-
         while (SDL_PollEvent(&chuot))
         {
             switch (chuot.type)

@@ -50,7 +50,7 @@ void QUIVUONG:: showboss( SDL_Renderer* des)
 {
     rect_.x = x_boss_pos - map_x_boss;
     rect_.y = y_boss_pos - map_y_boss;
-    cout<<"rect x"<<rect_.x<<endl;
+    //cout<<"rect x"<<rect_.x<<endl;
     frame_++;// tang lien tuc
     if( frame_ >= SO_FRAME ) frame_=0;
 

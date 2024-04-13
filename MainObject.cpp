@@ -8,8 +8,10 @@ MainObject::MainObject()
     x_biendoi_=0;// khi di chuyen thi tang/giam bao nhieu
     y_biendoi_=0; // an trai giam bao nhieu, nhay tang bao nhieu
 
-    x_now_pos = 7400;//vi tri x hien tai
-    y_now_pos = 2000 ;
+//    x_now_pos = 7400;//vi tri x hien tai
+//    y_now_pos = 2000 ;
+    x_now_pos = 100;//vi tri x hien tai
+    y_now_pos = 500 ;
 
     width_frame_ =0; // kich thuoc 1 frame vi 1 anh co 5,7,8 frame
     height_frame_=0;
@@ -51,9 +53,9 @@ MainObject::~MainObject()
 
 void MainObject::loadamthanh_nvc()
 {
-    sung = Mix_LoadMUS( "sound/lucphat1.mp3");
-    kiem1 = Mix_LoadMUS("sound/kiem.mp3");
-    andohotro = Mix_LoadMUS ( "sound/ando.mp3");
+    sung = Mix_LoadWAV( "sound/lucphat1.mp3");
+    kiem1 = Mix_LoadWAV("sound/kiem.mp3");
+    andohotro = Mix_LoadWAV ( "sound/ando.mp3");
     if(kiem1 == nullptr || sung == nullptr || andohotro == nullptr ) cout<<Mix_GetError();
 }
 bool MainObject::LoadMainImg(const string&path,SDL_Renderer *screen)

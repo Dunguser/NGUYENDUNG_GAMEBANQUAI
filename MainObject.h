@@ -18,7 +18,8 @@ using namespace std;
 
 #define TOCDOROI 0.8
 #define ROITOIDA 40
-#define TOCDOCHAY 15
+//#define TOCDOCHAY 15
+#define TOCDOCHAY 9
 #define O_TRONG 0
 #define NHAYBTH 20
 #define NHAY_CAO_BAY 10
@@ -105,7 +106,7 @@ public:
     Sword getkiem() { return kiem ;}
 
     void loadamthanh_nvc();
-    void playmusic( Mix_Music* kaka) { Mix_PlayMusic( kaka, 1 ); }
+    void playmusic( Mix_Chunk* kaka) { Mix_PlayChannel(-1, kaka , 0); }
 
     TRANG_THAI_NHAN_VAT getTRANGTHAI_main()const { return trang_thai_vao;} // lam cho con qui vuong
     int getstatus()const { return status_ ;}
@@ -151,9 +152,9 @@ private:
 
     Sword kiem;
 
-    Mix_Music* sung;
-    Mix_Music* kiem1;
-    Mix_Music* andohotro;
+    Mix_Chunk* sung;
+    Mix_Chunk* kiem1;
+    Mix_Chunk* andohotro;
 };
 
 
