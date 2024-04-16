@@ -75,6 +75,8 @@ namespace SDLCommonFunc
 }
 
 
+
+
 extern TTF_Font * gFont ; // phong chu
 extern TTF_Font * gFont2 ;
 extern Mix_Music * nhacnen ;//am thanh

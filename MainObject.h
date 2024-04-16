@@ -11,15 +11,15 @@
 #include<SDL_ttf.h>
 #include "BulletObject.h"
 #include "kiemquay.h"
-#include "SOUND.h"
+
 
 
 using namespace std;
 
 #define TOCDOROI 0.8
 #define ROITOIDA 40
-//#define TOCDOCHAY 15
-#define TOCDOCHAY 9
+#define TOCDOCHAY 12
+//#define TOCDOCHAY 9
 #define O_TRONG 0
 #define NHAYBTH 20
 #define NHAY_CAO_BAY 10

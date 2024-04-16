@@ -4,7 +4,6 @@ using namespace std;
 PlayerPower::PlayerPower()
 {
     chi_so_mang = 0;
-
 }
 PlayerPower::~PlayerPower() {}
 void PlayerPower:: AddPos(const int& xp)

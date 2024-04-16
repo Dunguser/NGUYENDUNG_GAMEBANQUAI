@@ -8,10 +8,10 @@ MainObject::MainObject()
     x_biendoi_=0;// khi di chuyen thi tang/giam bao nhieu
     y_biendoi_=0; // an trai giam bao nhieu, nhay tang bao nhieu
 
-//    x_now_pos = 7400;//vi tri x hien tai
-//    y_now_pos = 2000 ;
-    x_now_pos = 100;//vi tri x hien tai
-    y_now_pos = 500 ;
+    x_now_pos = 7500;//vi tri x hien tai
+    y_now_pos = 2000 ;
+//    x_now_pos = 100;//vi tri x hien tai
+//    y_now_pos = 500 ;
 
     width_frame_ =0; // kich thuoc 1 frame vi 1 anh co 5,7,8 frame
     height_frame_=0;
@@ -61,15 +61,15 @@ void MainObject::loadamthanh_nvc()
 bool MainObject::LoadMainImg(const string&path,SDL_Renderer *screen)
 {
     SDL_Texture* cuoicung = nullptr;
-    SDL_Surface* kaka=IMG_Load(path.c_str());
+    SDL_Surface* kaka = IMG_Load(path.c_str());
     if(kaka == nullptr)
     {
         cout<<"failed to load image HINH CHINH "<<path.c_str()<<endl;
         return 0;
     }
-    SDL_SetColorKey(kaka,SDL_TRUE,SDL_MapRGB(kaka->format,255,255,255));
-    cuoicung=SDL_CreateTextureFromSurface(screen,kaka);
-    if(cuoicung==nullptr)
+    SDL_SetColorKey( kaka, SDL_TRUE, SDL_MapRGB ( kaka->format,255,255,255));
+    cuoicung = SDL_CreateTextureFromSurface( screen, kaka);
+    if(cuoicung == nullptr)
     {
         cout<<"failed";
         return 0;
@@ -177,8 +177,11 @@ void MainObject::XuLiXuKienBanPhim(SDL_Event events,SDL_Renderer*screen)
             status_=ben_trai_;
             trang_thai_vao.sang_phai=0;
             trang_thai_vao.sang_trai=1;
+
             if(tren_mat_dat==true) LoadMainImg("IMG/CHAY_TRAI_SUNG.png",screen);
             else LoadMainImg("IMG/LON_TRAI1.png",screen);
+//             if(tren_mat_dat==true) LoadMainImg("IMG/QUAI/quai_lon_trai.png",screen);
+//            else LoadMainImg("IMG/QUAI/qui_lon_trai.png",screen);
         }
         else if(events.key.keysym.sym == SDLK_d)
         {
@@ -379,11 +382,11 @@ void MainObject::CheckToMap(MAP&map_data)// kiem tra nhan vat va cham voi ban do
 
     // tim o hien tai dang dung la oo bao nhieu
     int sai_so_can_co=1;
-    x1=(x_now_pos+x_biendoi_)/TILE_SIZE;
-    x2=( x_now_pos + x_biendoi_ + width_frame_ - sai_so_can_co)/TILE_SIZE;
+    x1 = ( x_now_pos + x_biendoi_ )/TILE_SIZE;
+    x2 = ( x_now_pos + x_biendoi_ + width_frame_ - sai_so_can_co )/TILE_SIZE;
 
-    y1=( y_now_pos + y_biendoi_)/TILE_SIZE;
-    y2=( y_now_pos + y_biendoi_ + height_min - sai_so_can_co)/TILE_SIZE;
+    y1 = ( y_now_pos + y_biendoi_ )/TILE_SIZE;
+    y2 = ( y_now_pos + y_biendoi_ + height_min - sai_so_can_co )/TILE_SIZE;
 
     //kiem tra theo x1,x2,y1,y2 co o trong ban do hay ko
     if( x1 >= 0 && x2 < MAX_MAP_X && y1>=0 && y2 < MAX_MAP_Y ) // nhan vat o trong ban do
@@ -393,44 +396,44 @@ void MainObject::CheckToMap(MAP&map_data)// kiem tra nhan vat va cham voi ban do
             int val1 = map_data.tile[y1][x2]; // an tien / take money
             int val2 = map_data.tile[y2][x2];
 
-            if( val1==MONEY )
+            if( val1 == MONEY )
             {
-                map_data.tile[y1][x2]=0; playmusic(andohotro);
+                map_data.tile[y1][x2] = 0; playmusic(andohotro);
                 an_tien();
             }
-            if(val2==MONEY)
+            if(val2 == MONEY)
             {
-                map_data.tile[y2][x2]=0;playmusic(andohotro);
+                map_data.tile[y2][x2] = 0; playmusic(andohotro);
                 an_tien();
             }
             if( val1 == TANG_MANG )
             {
-                map_data.tile[y1][x2]=0;playmusic(andohotro);
+                map_data.tile[y1][x2] = 0 ;playmusic(andohotro);
                 tang_mang(true);
             }
             if(val2 == TANG_MANG)
             {
-                map_data.tile[y2][x2]=0;playmusic(andohotro);
+                map_data.tile[y2][x2] = 0; playmusic(andohotro);
                 tang_mang(true);
             }
-            if( val1==CHO_BAY )
+            if( val1 == CHO_BAY )
             {
-                map_data.tile[y1][x2]=0;playmusic(andohotro);
+                map_data.tile[y1][x2] = 0 ; playmusic( andohotro );
                 setchobay(true);
                 hanchebay = SOLANBAY;
             }
-            if(val2==CHO_BAY)
+            if(val2 == CHO_BAY)
             {
-                map_data.tile[y2][x2]=0;playmusic(andohotro);
+                map_data.tile[y2][x2] = 0 ;playmusic(andohotro);
                 setchobay(true);
                 hanchebay = SOLANBAY;
             }
-            if( val1==PHUONG_HOANG )
+            if( val1 == PHUONG_HOANG )
             {
                 map_data.tile[y1][x2]=0;playmusic(andohotro);
                 kichhoatchongchong(true);
             }
-            if(val2==PHUONG_HOANG)
+            if(val2 == PHUONG_HOANG)
             {
                 map_data.tile[y2][x2]=0;playmusic(andohotro);
                 kichhoatchongchong(true);
@@ -465,34 +468,34 @@ void MainObject::CheckToMap(MAP&map_data)// kiem tra nhan vat va cham voi ban do
             }
             if( val1==TANG_MANG )
             {
-                map_data.tile[y1][x2]=0; playmusic(andohotro);
+                map_data.tile[y1][x1]=0; playmusic(andohotro);
                 tang_mang(true);
             }
             if(val2==TANG_MANG)
             {
-                map_data.tile[y2][x2]=0; playmusic(andohotro);
+                map_data.tile[y2][x1]=0; playmusic(andohotro);
                 tang_mang(true);
             }
             if( val1==CHO_BAY )
             {
-                map_data.tile[y1][x2]=0; playmusic(andohotro);
+                map_data.tile[y1][x1]=0; playmusic(andohotro);
                 setchobay(true);
                 hanchebay = SOLANBAY;
             }
             if(val2==CHO_BAY)
             {
-                map_data.tile[y2][x2]=0;playmusic(andohotro);
+                map_data.tile[y2][x1]=0;playmusic(andohotro);
                 setchobay(true);
                 hanchebay = SOLANBAY;
             }
             if( val1==PHUONG_HOANG )
             {
-                map_data.tile[y1][x2] = 0;playmusic(andohotro);
+                map_data.tile[y1][x1] = 0;playmusic(andohotro);
                 kichhoatchongchong(true);
             }
             if(val2==PHUONG_HOANG)
             {
-                map_data.tile[y2][x2] = 0;playmusic(andohotro);
+                map_data.tile[y2][x1] = 0;playmusic(andohotro);
                 kichhoatchongchong(true);
             }
 
@@ -508,14 +511,14 @@ void MainObject::CheckToMap(MAP&map_data)// kiem tra nhan vat va cham voi ban do
         }
     }
     // kiem tra theo chieu doc--------------------------------
-    int width_min=min(width_frame_,TILE_SIZE);
+    int width_min = min(width_frame_,TILE_SIZE);
 
     //===// can co de hinh anh uyen chuyen hon
-    x1=(x_now_pos+20)/TILE_SIZE;
-    x2=(x_now_pos+width_min-17)/TILE_SIZE;
+    x1=( x_now_pos + 20 )/TILE_SIZE;
+    x2=( x_now_pos + width_min - 17 )/TILE_SIZE;
 
-    y1=(y_now_pos+y_biendoi_)/TILE_SIZE;
-    y2=(y_now_pos+y_biendoi_+height_frame_-sai_so_can_co)/TILE_SIZE;
+    y1=(y_now_pos + y_biendoi_)/TILE_SIZE;
+    y2=(y_now_pos + y_biendoi_ + height_frame_ - sai_so_can_co )/TILE_SIZE;
 
     if( x1>=0 && x2 < MAX_MAP_X && y1>=0 && y2 < MAX_MAP_Y )
     {
@@ -536,7 +539,7 @@ void MainObject::CheckToMap(MAP&map_data)// kiem tra nhan vat va cham voi ban do
             }
             if( val1==TANG_MANG )
             {
-                map_data.tile[y1][x2]=0;playmusic(andohotro);
+                map_data.tile[y2][x1]=0;playmusic(andohotro);
                 tang_mang(true);
             }
             if(val2==TANG_MANG)
@@ -546,24 +549,24 @@ void MainObject::CheckToMap(MAP&map_data)// kiem tra nhan vat va cham voi ban do
             }
             if( val1==CHO_BAY )
             {
-                map_data.tile[y1][x2]=0;playmusic(andohotro);
+                map_data.tile[y2][x1] = 0; playmusic(andohotro);
                 setchobay(true);
                 hanchebay = SOLANBAY;
             }
             if(val2==CHO_BAY)
             {
-                map_data.tile[y2][x2]=0;playmusic(andohotro);
+                map_data.tile[y2][x2] = 0;playmusic(andohotro);
                 setchobay(true);
                 hanchebay = SOLANBAY;
             }
             if( val1==PHUONG_HOANG )
             {
-                map_data.tile[y1][x2]=0;playmusic(andohotro);
+                map_data.tile[y2][x1] = 0 ; playmusic(andohotro);
                 kichhoatchongchong(true);
             }
             if(val2==PHUONG_HOANG)
             {
-                map_data.tile[y2][x2]=0;playmusic(andohotro);
+                map_data.tile[y2][x2] = 0 ; playmusic(andohotro);
                 kichhoatchongchong(true);
             }
             if( (val1 != O_TRONG || val2 != O_TRONG )
@@ -584,44 +587,44 @@ void MainObject::CheckToMap(MAP&map_data)// kiem tra nhan vat va cham voi ban do
 
             if(val1==MONEY)
             {
-                map_data.tile[y1][x1]=0;playmusic(andohotro);
+                map_data.tile[y1][x1]=0; playmusic(andohotro);
                 an_tien();
             }
             if(val2==MONEY)
             {
-                map_data.tile[y1][x2]=0;playmusic(andohotro);
+                map_data.tile[y1][x2]=0; playmusic(andohotro);
                 an_tien();
             }
             if( val1==TANG_MANG )
             {
-                map_data.tile[y1][x2]=0;playmusic(andohotro);
+                map_data.tile[y1][x1]=0; playmusic(andohotro);
                 tang_mang(true);
             }
             if(val2==TANG_MANG)
             {
-                map_data.tile[y2][x2]=0;playmusic(andohotro);
+                map_data.tile[y1][x2] = 0; playmusic(andohotro);
                 tang_mang(true);
             }
             if( val1==CHO_BAY )
             {
-                map_data.tile[y1][x2]=0;playmusic(andohotro);
+                map_data.tile[y1][x1] = 0; playmusic(andohotro);
                 setchobay(true);
                 hanchebay = SOLANBAY;
             }
             if(val2==CHO_BAY)
             {
-                map_data.tile[y2][x2]=0;playmusic(andohotro);
+                map_data.tile[y1][x2]=0; playmusic(andohotro);
                 setchobay(true);
                 hanchebay = SOLANBAY;
             }
             if( val1 == PHUONG_HOANG )
             {
-                map_data.tile[y1][x2]=0;playmusic(andohotro);
+                map_data.tile[y1][x1] = 0; playmusic(andohotro);
                 kichhoatchongchong(true);
             }
             if(val2 == PHUONG_HOANG)
             {
-                map_data.tile[y2][x2]=0;playmusic(andohotro);
+                map_data.tile[y1][x2] = 0; playmusic(andohotro);
                 kichhoatchongchong(true);
             }
             if( (val1 != O_TRONG || val2 != O_TRONG )
@@ -639,25 +642,25 @@ void MainObject::CheckToMap(MAP&map_data)// kiem tra nhan vat va cham voi ban do
     x_now_pos += x_biendoi_;
     y_now_pos += y_biendoi_;
 
-    if(x_now_pos < 0) x_now_pos=0;
+    if(x_now_pos < 0) x_now_pos = 0;
 
     if(x_now_pos + width_frame_ > map_data.max_x_)
     {
         x_now_pos = map_data.max_x_ - width_frame_ - sai_so_can_co;
     }
 
-    if(y_now_pos>=map_data.max_y_) come_back_time_ = 20; //roi xuong vuc
+    if(y_now_pos >= map_data.max_y_) come_back_time_ = 20; //roi xuong vuc
 }
 
-void MainObject::MAP_DI_CHUYEN_THEO_NV(MAP&map_data)//tinh toan thong so cua map khi nhan vat di chuyen
+void MainObject::MAP_DI_CHUYEN_THEO_NV( MAP& map_data)//tinh toan thong so cua map khi nhan vat di chuyen
 {
     map_data.start_x_= x_now_pos - SCREEN_WIDTH/2;
-    if(map_data.start_x_<0) map_data.start_x_=0;
-    else if(map_data.start_x_+SCREEN_WIDTH>=map_data.max_x_)
+    if( map_data.start_x_<0 ) map_data.start_x_ = 0;
+    else if(map_data.start_x_ + SCREEN_WIDTH >= map_data.max_x_)
     {
-        map_data.start_x_=map_data.max_x_-SCREEN_WIDTH;
+        map_data.start_x_ = map_data.max_x_-SCREEN_WIDTH;
     }
-    map_data.start_y_=y_now_pos-SCREEN_HEIGHT/3;
+    map_data.start_y_ = y_now_pos-SCREEN_HEIGHT/3;
     if(map_data.start_y_<0) map_data.start_y_=0;
     else if(map_data.start_y_+SCREEN_HEIGHT>map_data.max_y_)
     {
@@ -730,7 +733,7 @@ void MainObject::KHOI_TAO_DAN_1(BulletObject* viendan, SDL_Renderer* screen)
             viendan->set_huongdan( BulletObject :: ban_dan_phai );
             viendan->SetRect( this->rect_.x+width_frame_-30, this->rect_.y+height_frame_*0.45); //xet vi tri cua bien dan o dau sung
         }
-        else if(status_==ben_trai_||status_==bay_trai_)
+        else if(status_==ben_trai_||status_ == bay_trai_)
         {
             viendan->LoadImage("IMG/DAN1_TRAI.png",screen);
             viendan->set_huongdan( BulletObject::ban_dan_trai );

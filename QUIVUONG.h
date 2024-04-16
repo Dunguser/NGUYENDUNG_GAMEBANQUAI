@@ -81,7 +81,7 @@ public :
     void set_doithu ( const MainObject kaka1 ){ kaka = kaka1;}
     MainObject get_doithu () const {return kaka;}
 
-    void DICHUYENTHEO_NVC ( MainObject kaka);
+    void DICHUYENTHEO_NVC ( MainObject& kaka);
 
 private:
 

@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1713071649 source:e:\bat_dau_game\main.cpp
+1713282838 source:e:\bat_dau_game\main.cpp
 	<bits/stdc++.h>
 	<windows.h>
 	<SDL.h>
@@ -425,7 +425,7 @@
 1713033325 source:e:\bat_dau_game\commonfunction.cpp
 	"commonfunction.h"
 
-1713033325 e:\bat_dau_game\commonfunction.h
+1713274995 e:\bat_dau_game\commonfunction.h
 	<bits/stdc++.h>
 	<SDL.h>
 	<SDL_image.h>
@@ -460,11 +460,11 @@
 	"BaseObject.h"
 	<bits/stdc++.h>
 
-1712942330 source:e:\bat_dau_game\mainobject.cpp
+1713279465 source:e:\bat_dau_game\mainobject.cpp
 	"MainObject.h"
 	"BulletObject.h"
 
-1712942286 e:\bat_dau_game\mainobject.h
+1713282510 e:\bat_dau_game\mainobject.h
 	<bits/stdc++.h>
 	"commonfunction.h"
 	"BaseObject.h"
@@ -475,7 +475,6 @@
 	<SDL_ttf.h>
 	"BulletObject.h"
 	"kiemquay.h"
-	"SOUND.h"
 
 1711982714 source:e:\bat_dau_game\imptimer.cpp
 	<iostream>
@@ -619,7 +618,7 @@
 	"commonfunction.h"
 	"BaseObject.h"
 
-1712850508 source:e:\bat_dau_game\playerpower.cpp
+1713109432 source:e:\bat_dau_game\playerpower.cpp
 	"PlayerPower.h"
 
 1713029485 source:e:\bat_dau_game\menu.cpp
@@ -1400,11 +1399,11 @@
 1712482293 source:e:\bat_dau_game - sao chép\vuno.cpp
 	"vuno.h"
 
-1713033387 source:e:\bat_dau_game\quivuong.cpp
+1713281669 source:e:\bat_dau_game\quivuong.cpp
 	"QUIVUONG.h"
 	"BaseObject.h"
 
-1712942011 e:\bat_dau_game\quivuong.h
+1713279662 e:\bat_dau_game\quivuong.h
 	<bits/stdc++.h>
 	"commonfunction.h"
 	"BaseObject.h"
