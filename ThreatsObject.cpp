@@ -69,11 +69,10 @@ void ThreatsObject::ShowQui(SDL_Renderer* des)// in ra man hinh
         SDL_Rect* currentClip = &frame_clips[frame_];
         SDL_Rect quad = {rect_.x, rect_.y, width_frame_, height_frame_};
 
-        if(trang_thai_qui.sang_phai==1) SDL_RenderCopy( des, tat_ca_anh_qui[diphai].GetTexture(), currentClip, &quad);
+        if ( trang_thai_qui.sang_phai == 1 ) SDL_RenderCopy( des, tat_ca_anh_qui[diphai].GetTexture(), currentClip, &quad);
         else SDL_RenderCopy( des, tat_ca_anh_qui[ditrai].GetTexture(), currentClip, &quad);
     }
 }
-
 
 void ThreatsObject:: DICHUYEN_QUI( MAP& map_data )// xu li di chuyen cho qui
 {
@@ -82,8 +81,8 @@ void ThreatsObject:: DICHUYEN_QUI( MAP& map_data )// xu li di chuyen cho qui
         x_change=0;
         y_change+=0.8;// toc do roi cua qui
         if( y_change >=30 ) y_change=30;
-        if(trang_thai_qui.sang_trai==1) x_change-= TOC_DO_QUI;
-        else if(trang_thai_qui.sang_phai==1) x_change+= TOC_DO_QUI;
+        if(trang_thai_qui.sang_trai==1) x_change -= TOC_DO_QUI;
+        else if(trang_thai_qui.sang_phai==1) x_change += TOC_DO_QUI;
         checktomap_qui( map_data );
     }
     else if(come_back_time_>0)
@@ -158,71 +157,52 @@ void ThreatsObject::checktomap_qui( MAP&map_data )
     y2=(y_qui_pos+y_change+height_frame_-sai_so_can_co)/TILE_SIZE;
     if( x1>=0 && x2 < MAX_MAP_X && y1>=0 && y2 < MAX_MAP_Y)
     {
-        if(y_change > 0)// di xuong //roi xuong
+        if(y_change > 0)                                            // di xuong //roi xuong
         {
             int val1 = map_data.tile[y2][x1];
             int val2 = map_data.tile[y2][x2];
             if((val1!=O_TRONG&&val1!=4)||(val2!=O_TRONG&&val2!=4))
             {
-                y_qui_pos=y2*TILE_SIZE-height_frame_-sai_so_can_co;
-                y_change=0;
-                tren_mat_dat=true;
+                y_qui_pos = y2*TILE_SIZE-height_frame_-sai_so_can_co;
+                y_change = 0;
+                tren_mat_dat = true;
             }
         }
-        else if(y_change<0)// nhay len
+        else if(y_change < 0)                                         // nhay len
         {
             int val1 = map_data.tile[y1][x1];
             int val2 = map_data.tile[y1][x2];
-            if((val1!=O_TRONG&&val1!=4)||(val2!=O_TRONG&&val2!=4))
+            if((val1 != O_TRONG&&val1!=4)||(val2!=O_TRONG&&val2!=4))
             {
-                y_qui_pos =(y1+sai_so_can_co)*TILE_SIZE;
-                y_change=0;
+                y_qui_pos = ( y1 + sai_so_can_co )*TILE_SIZE;
+                y_change = 0;
             }
         }
     }
     // neu ko xay ra va cham voi cai nao
     x_qui_pos += x_change;
     y_qui_pos += y_change;
-    if(x_qui_pos<0) x_qui_pos=0;
-    if(x_qui_pos+width_frame_>map_data.max_x_)
-    {
-        x_qui_pos=map_data.max_x_-width_frame_-sai_so_can_co;
-    }
-    if(y_qui_pos >= map_data.max_y_) come_back_time_=10;
+    if(x_qui_pos<0) x_qui_pos = 0;
+    if(x_qui_pos + width_frame_ > map_data.max_x_) x_qui_pos = map_data.max_x_ - width_frame_ - sai_so_can_co;
+    if( y_qui_pos >= map_data.max_y_ ) come_back_time_ = 10;
 }
 
 void ThreatsObject::Di_chuyen_trong_pham_vi( SDL_Renderer* screen, MAP& map_data )
 {
-    if(tren_mat_dat==true)
+    if(tren_mat_dat == true)
     {
         //if( x_qui_pos < gioihan_phai && va_bando == cham_phai )
-        if( va_bando == cham_phai )
-        {
-            //cout<<"cham phai"<<endl;
-            set_trang_thai_trai(1);
-            set_trang_thai_phai(0);
-        }
-        else if( va_bando == cham_trai )
-        {
-            //cout<<"cham trai"<<endl;
-            set_trang_thai_trai(0);
-            set_trang_thai_phai(1);
-        }
-        else
-        {
-            if( x_qui_pos > gioihan_phai)
-            {
-                set_trang_thai_trai(1);
-                set_trang_thai_phai(0);
-            }
-            if( x_qui_pos < gioihan_trai)
-            {
-                set_trang_thai_trai(0);
-                set_trang_thai_phai(1);
-            }
-        }
+        if( va_bando == cham_phai ) set_trang_thai_trai(1);
+        else if ( va_bando == cham_trai ) set_trang_thai_phai(1);
+        else if ( x_qui_pos > gioihan_phai) set_trang_thai_trai(1);
+        else if ( x_qui_pos < gioihan_trai) set_trang_thai_phai(1);
     }
-    else set_trang_thai_trai(1);
+    else
+    {
+        int a = rand() % 2 ;
+        if( a == 0) set_trang_thai_phai(1);
+        else set_trang_thai_trai(1);
+    }
 }
 
 
@@ -231,19 +211,23 @@ void ThreatsObject::init_dan_qui (BulletObject* dan_qui, SDL_Renderer* screen)//
     if(dan_qui != nullptr)
     {
         dan_qui->set_loai_dan( BulletObject::DAN_QUI_THUONG );
+        //dan_qui = &dan_[DAN_QUI_THUONG];
         dan_qui->TAI_ANH_DAN(screen);
+//        dan_qui->Render(screen,nullptr);
+//        dan_[DAN_QUI_THUONG].Render(screen,nullptr);
         if( trang_thai_qui.sang_trai == 1 )
         {
-            //cout<<"kaka lua mach--------------\n";
             dan_qui->set_huongdan( BulletObject :: ban_dan_trai );
             dan_qui->SetRect(rect_.x-20, y_qui_pos+10);
         }
         else if( trang_thai_qui.sang_phai == 1 )
         {
-            //std::cout << "turn right dkm nha m \n";
             dan_qui->set_huongdan( BulletObject :: ban_dan_phai);
-            dan_qui->SetRect(rect_.x+15, y_qui_pos+10);
+            dan_qui->SetRect( rect_.x + 15, y_qui_pos + 10 );
         }
+
+        SDL_Rect quad = {dan_qui->GetRect().x, dan_qui->GetRect().y, dan_qui->GetRect().w, dan_qui->GetRect().h};
+        SDL_RenderCopy(screen , dan_[DAN_QUI_THUONG].GetTexture() ,nullptr, &quad );
 
         dan_qui->set_x_biendoi(15);
         bang_dan_qui.push_back(dan_qui);
@@ -260,7 +244,7 @@ void ThreatsObject::pham_vi_bay_dan_qui( SDL_Renderer* des, const int& x_gioihan
         if(danqui!=nullptr)
         {
             int khoang_cach_= abs(rect_.x - danqui->GetRect().x )+ width_frame_+50;
-            if(danqui->gettrongmanhinh()==true)// co trong man hinh, cho phep di chuyen
+            if( danqui->gettrongmanhinh() == true )// co trong man hinh, cho phep di chuyen
             {
                 if(khoang_cach_ < x_gioihan && khoang_cach_ > 0)
                 {
@@ -280,7 +264,7 @@ void ThreatsObject::pham_vi_bay_dan_qui( SDL_Renderer* des, const int& x_gioihan
                 }
                 else if(trang_thai_qui.sang_phai == 1)
                 {
-                    danqui->SetRect(this->rect_.x+width_frame_-30,this->rect_.y+height_frame_*0.3);
+                    danqui->SetRect( this->rect_.x + width_frame_ - 30, this->rect_.y + height_frame_*0.3);
                     danqui->set_huongdan(BulletObject::ban_dan_phai);
                 }
                 danqui->set_x_biendoi(20);

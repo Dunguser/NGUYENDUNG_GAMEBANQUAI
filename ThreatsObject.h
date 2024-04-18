@@ -38,9 +38,6 @@ public:
     float get_x_change () const { return x_change ; }
     float get_y_change () const { return y_change ; }
 
-
-    //tao bien theo doi di chyen cua ban do theo nhan vat
-    // vi tri cua ban do chay theo nhan vat
     void SetMapXY( const int map_x, const int map_y )
     {
         map_x_qui = map_x;
@@ -61,20 +58,18 @@ public:
 
     void khoitaoqui();
 
-    // set gioi han di chuyen
-    void set_gioi_han_dichuyen ( const int& pos_a, const int & pos_b )
+    void set_gioi_han_dichuyen ( const int& pos_a, const int & pos_b )// set gioi han di chuyen
     {
         gioihan_trai = pos_a;
         gioihan_phai = pos_b;
     }
     // khi den gioi han thi no quay lai
-    void set_trang_thai_trai( const int& tttrai) { trang_thai_qui.sang_trai = tttrai ;}
-    void set_trang_thai_phai( const int& ttphai) { trang_thai_qui.sang_phai = ttphai; }
-    //xu li van de di chuyen trong pham vi a,b
-    void Di_chuyen_trong_pham_vi( SDL_Renderer* screen, MAP& map_data );
+    void set_trang_thai_trai( const int& tttrai) { trang_thai_qui.sang_trai = tttrai; trang_thai_qui.sang_phai = 0;}
+    void set_trang_thai_phai( const int& ttphai) { trang_thai_qui.sang_phai = ttphai; trang_thai_qui.sang_trai = 0;}
 
-    //dam vao map thi quay lai
-    int quay_dau_lam_bo( MAP & map_data );
+    void Di_chuyen_trong_pham_vi( SDL_Renderer* screen, MAP& map_data );//xu li van de di chuyen trong pham vi a,b
+
+    int quay_dau_lam_bo( MAP & map_data ); //dam vao map thi quay lai
 
     //cac ham set, get cho bang dan
     vector<BulletObject*> get_bang_dan_qui() { return bang_dan_qui ;}
@@ -87,6 +82,8 @@ public:
     int get_solantrungdan()const { return solantrungdan;}
 
     void loaiboviendan( const int& index );
+
+    void set_va_bando ( const int kk){ va_bando = kk;}
 
 private:
     int frame_; // so luong hinh anh trong cai anh qui

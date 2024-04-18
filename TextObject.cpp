@@ -16,17 +16,20 @@ TextObject:: ~TextObject()
 
 }
 
-bool TextObject :: LoadFromRenderText (TTF_Font * font , SDL_Renderer* screen)
+bool TextObject :: LoadFromRenderText (TTF_Font * font, SDL_Renderer* screen)
 {
     SDL_Surface * text_surface = TTF_RenderText_Solid(font, noidung.c_str(), text_color_ );
-    if(text_surface)
+    if(text_surface != nullptr )
     {
-        texture_ = SDL_CreateTextureFromSurface ( screen , text_surface );
+        texture_ = SDL_CreateTextureFromSurface ( screen, text_surface );
         width_ = text_surface->w;
         height_ = text_surface->h;
     }
-    else cout<<"failed font "<<endl;
-    return 0;
+    else
+    {
+        cout<<"failed font "<<TTF_GetError()<<endl;
+        return 0;
+    }
     SDL_FreeSurface(text_surface);
     return texture_ !=nullptr;
 }
@@ -61,28 +64,28 @@ void TextObject :: setcolor(int type)
     }
     else if(type == BLACK_TEXT )
     {
-        SDL_Color color = { 0 , 0, 0};
+        SDL_Color color = { 0, 0, 0};
         text_color_ = color ;
     }
 }
 
-void TextObject :: RenderText (SDL_Renderer* screen, int xp , int yp,
-                                  SDL_Rect* clip , double angle ,
-                                  SDL_Point* center ,
-                                  SDL_RendererFlip flip )
+void TextObject :: RenderText (SDL_Renderer* screen, int xp, int yp,
+                               SDL_Rect* clip, double angle,
+                               SDL_Point* center,
+                               SDL_RendererFlip flip )
 {
-    SDL_Rect quad = { xp, yp , width_ , height_ };
+    SDL_Rect quad = { xp, yp, width_, height_ };
     if(clip != nullptr )
     {
         quad.w = clip->w;
         quad.h = clip->h;
     }
-    SDL_RenderCopyEx( screen, texture_ , clip, &quad ,angle , center , flip);
+    SDL_RenderCopyEx( screen, texture_, clip, &quad,angle, center, flip);
 }
 
 SDL_Rect TextObject::text(int x,int y)
 {
-    SDL_Rect kaka = { x , y, width_ , height_ };
+    SDL_Rect kaka = { x, y, width_, height_ };
     return kaka;
 }
 

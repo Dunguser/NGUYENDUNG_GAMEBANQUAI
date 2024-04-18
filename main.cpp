@@ -17,6 +17,7 @@
 #include "MENU.h"
 #include "kiemquay.h"
 #include "QUIVUONG.h"
+#include "all_anh_nvc.h"
 
 using namespace std;
 
@@ -31,43 +32,45 @@ BaseObject tamdung;
 BaseObject tamdung2;
 SDL_Rect nutdung = {SCREEN_WIDTH - 80, 0, 80,78 };
 SDL_Rect tieptuc = {625, 435, 115,75};
-SDL_Rect playagain = {463, 826, 120, 71};
+SDL_Rect playagain = {450, 800, 120, 71};
 SDL_Rect restart = {600, 740, 160, 60 };
 
 BaseObject anhdau;
 BaseObject anhcho;
-BaseObject gameover; // anh dau tien hien len
-BaseObject gBackground;// khai bao 1 em background
-GAMEMAP game_map;//khai bao 1 em gamemap
-MainObject player_nvc;//khai bao nhan vat chinh
+BaseObject gameover;        // anh dau tien hien len
+BaseObject gBackground;     // khai bao 1 em background
+GAMEMAP game_map;           //khai bao 1 em gamemap
+MainObject player_nvc;      //khai bao nhan vat chinh
 Sword kiem;
 
 QUIVUONG quivuong;
 
-void load_tat_ca_qui(SDL_Renderer* des);// load tat ca cac anh cua qui
-vector<ThreatsObject*> Make_Threat_List();//tạo lập lớp threart object // lớp quỉ
+void load_tat_ca_qui ( SDL_Renderer* des );         // load tat ca cac anh cua qui
+vector<ThreatsObject*> Make_Threat_List();          //tạo lập lớp threart object // lớp quỉ
 void load_all_boss (SDL_Renderer* des);
+//void load_all_dan_ ( SDL_Renderer* des );
+void load_all_main (SDL_Renderer* des);
 
 void khoitaovuno( VUNO& qui_no);
 void khoitaonhanvatchinh_no( VUNO& nvc_no );
 
-int main(int messi,char* kaka [] )
+int main(int argc,char* argv[] )
 {
-    if(!Init()||!LoadMedia()) return -1000; //kiem tra khoi tao
+    if(!Init()||!LoadMedia()) return -1000;         //kiem tra khoi tao
     anhcho.SetRect(160,50);
     anhcho.Render(gRenderer,nullptr);
     SDL_RenderPresent(gRenderer);
-    SDL_Delay(1000); // ảnh chờ đầu tiên
-    anhdau.Render(gRenderer,nullptr);// anh dau
+    SDL_Delay(1000);                                // ảnh chờ đầu tiên
+    anhdau.Render(gRenderer,nullptr);                // anh dau
     tamdung.SetRect(SCREEN_WIDTH - 80, 0 );
     tamdung2.SetRect(SCREEN_WIDTH / 2 - 100, SCREEN_HEIGHT / 3) ;
     gameover.SetRect ( 240,65 );
 
-    Mix_PlayMusic(nhacnen, -1); // nhac nen
-    game_map.LoadMap("MAP/map04.dat");//xu li ban do: map
+    Mix_PlayMusic(nhacnen, -1);                     // nhac nen
+    game_map.LoadMap("MAP/map04.dat");              //xu li ban do: map
     game_map.LoadTiles( gRenderer );
 
-    player_nvc.LoadMainImg("IMG/CHAY_PHAI_SUNG.png",gRenderer); //xu li nhan vat chinh
+    player_nvc.LoadMainImg("IMG/CHAY_PHAI_SUNG.png",gRenderer);     //xu li nhan vat chinh
     player_nvc.Set_Clips_chay();
     player_nvc.loadamthanh_nvc();
 
@@ -76,28 +79,31 @@ int main(int messi,char* kaka [] )
     quivuong.set_x_bosspos ( 7400 );
     quivuong.set_y_bosspos ( 2500 );
 
-    vector<ThreatsObject*> threats_list = Make_Threat_List(); // khai bao 1 dong quai vat
+    //load_all_dan_(gRenderer);
+    vector<ThreatsObject*> threats_list = Make_Threat_List();       // khai bao 1 dong quai vat
     load_tat_ca_qui ( gRenderer );
     load_all_boss ( gRenderer );
 
-    VUNO qui_no ; // nổ khi bắn quái
+    //load_all_main ( gRenderer );
+
+    VUNO qui_no ;                                       // nổ khi bắn quái
     khoitaovuno(qui_no);
-    VUNO nvc_no; //nổ khi ăn đạn của quỉ
+    VUNO nvc_no;                                        //nổ khi ăn đạn của quỉ
     khoitaonhanvatchinh_no(nvc_no);
 
-    TextObject thoi_gian_choi ; // khai báo phông chữ thời gian chơi gamme
-    thoi_gian_choi.setcolor(TextObject :: RED_TEXT );
+    TextObject thoi_gian_choi ;                         // khai báo phông chữ thời gian chơi gamme
+    thoi_gian_choi.setcolor (TextObject :: RED_TEXT );  //thoi_gian_choi.LoadFromRenderText( gFont, gRenderer);
     TextObject da_giet;
-    da_giet.setcolor(TextObject :: RED_TEXT);
+    da_giet.setcolor (TextObject :: RED_TEXT);           //da_giet.LoadFromRenderText( gFont, gRenderer );
     UINT so_qui_bi_giet = 0 ;
     TextObject antien ;
-    antien.setcolor (TextObject :: RED_TEXT );
+    antien.setcolor (TextObject :: RED_TEXT );          //antien.LoadFromRenderText (gFont,gRenderer );
     UINT tong_tien = 0;
 
-    PlayerPower so_mang; // hien thi so trai tym ung voi so mang
+    PlayerPower so_mang;                                // hien thi so trai tym ung voi so mang
     so_mang.set_chi_so_mang(1);
-    so_mang.Init(gRenderer,"IMG/tym.png");
-    int solanchetmax = so_mang.get_chi_so_mang();// cout<<"so mang "<<solanchetmax<<endl;
+    so_mang.Init( gRenderer , "IMG/tym.png" );
+    int solanchetmax = so_mang.get_chi_so_mang();       // cout<<"so mang "<<solanchetmax<<endl;
 
     Hotrobay phung;
     phung.init(gRenderer,"IMG/phung.png");
@@ -118,17 +124,22 @@ int main(int messi,char* kaka [] )
         return -100000;
     }
 
-    bool quit = false; // vong lap chinh
+    bool quit = false;                          // vong lap chinh
 
-    bool gameOver = false;
-    bool isPaused = false;
-    bool cai_time = false;
+    bool gameOver = false ;
+    bool isPaused = false ;
+    bool cai_time = false ;
 
-    MENU menu_;//menu
-    menu_.SetRect(SCREEN_WIDTH / 2 - 180, SCREEN_HEIGHT / 3 - 60 );
+    MENU menu_;                                  //menu
+    menu_.SetRect ( SCREEN_WIDTH / 2 - 180, SCREEN_HEIGHT / 3 - 60 );
 
-    int ret_menu = menu_.showmenu( gRenderer, gFont2 );
+    player_nvc.load_cucmau ( gRenderer);
+    int maumau = 0;
+
+    int ret_menu = menu_.showmenu ( gRenderer, gFont2 );
     if(ret_menu != 1) quit = true;
+
+    static Uint32 last_time = 0; int dem222 = 0;
 
     while(!quit)
     {
@@ -155,40 +166,18 @@ int main(int messi,char* kaka [] )
                     }
                     else if( SDLCommonFunc :: check_chuot_chon(xc, yc, restart) )
                     {
-                        game_map.LoadMap("MAP/map04.dat");//xu li ban do: map
-                        game_map.LoadTiles( gRenderer );
-                        Mix_PlayMusic(nhacnen, -1); // nhac nen
-                        player_nvc.Set_Clips_chay();
-                        player_nvc.loadamthanh_nvc();
-                        player_nvc.SetRect( 500, 500 );
-
-                        quivuong.set_clips();
-                        quivuong.set_x_bosspos ( 8800 );
-                        quivuong.set_y_bosspos ( 2500 );
-
-                        threats_list = Make_Threat_List(); // khai bao 1 dong quai vat
-                        so_qui_bi_giet = 0 ;
-                        tong_tien = 0;
-                        so_mang.set_chi_so_mang(1);
-                        solanchetmax = so_mang.get_chi_so_mang();// cout<<"so mang "<<solanchetmax<<endl;
-
-                        phung.SetPos(800,10);
-                        duocbay.SetPos(900,10);
-                        cai_time = true;
-                                        cout<<"restart ";
-                    }
-                    if( gameOver )
-                    {
-                        if(SDLCommonFunc::check_chuot_chon(xc,yc,playagain))
-                        {
+                        cout<<"kaka";
                             gameOver = false;
                             game_map.LoadMap("MAP/map04.dat");//xu li ban do: map
                             game_map.LoadTiles( gRenderer );
                             Mix_PlayMusic(nhacnen, -1); // nhac nen
                             player_nvc.Set_Clips_chay();
                             player_nvc.loadamthanh_nvc();
-                            player_nvc.SetRect( 500, 500 );
-
+                            player_nvc.set_solantrungdan(0);
+                            player_nvc.set_vitri_nvc ( 500 , 500);
+                          // player_nvc.SetRect( 100 , 100);
+//                            std::cout << "Reset player position\n";
+//                            std::cout << player_nvc.GetRect().x << ' ' << player_nvc.GetRect().y << '\n';
                             quivuong.set_clips();
                             quivuong.set_x_bosspos ( 8800 );
                             quivuong.set_y_bosspos ( 2500 );
@@ -201,34 +190,66 @@ int main(int messi,char* kaka [] )
 
                             phung.SetPos(800,10);
                             duocbay.SetPos(900,10);
-                            cai_time = true ;
+                            cai_time = true;
+                            maumau = 0;
+                            player_nvc.show_cucmau( gRenderer, maumau);
+                    }
+                    if( gameOver )
+                    {
+                        if(SDLCommonFunc::check_chuot_chon(xc,yc,playagain))
+                        {
+                            cout<<"kaka";
+                            gameOver = false;
+                            game_map.LoadMap("MAP/map04.dat");//xu li ban do: map
+                            game_map.LoadTiles( gRenderer );
+                            Mix_PlayMusic(nhacnen, -1); // nhac nen
+                            player_nvc.Set_Clips_chay();
+                            player_nvc.loadamthanh_nvc();
+                            player_nvc.set_solantrungdan(0);
+                            player_nvc.set_vitri_nvc ( 500 , 500);
+                          // player_nvc.SetRect( 100 , 100);
+//                            std::cout << "Reset player position\n";
+//                            std::cout << player_nvc.GetRect().x << ' ' << player_nvc.GetRect().y << '\n';
+                            quivuong.set_clips();
+                            quivuong.set_x_bosspos ( 8800 );
+                            quivuong.set_y_bosspos ( 2500 );
+
+                            threats_list = Make_Threat_List(); // khai bao 1 dong quai vat
+                            so_qui_bi_giet = 0 ;
+                            tong_tien = 0;
+                            so_mang.set_chi_so_mang(1);
+                            solanchetmax = so_mang.get_chi_so_mang();// cout<<"so mang "<<solanchetmax<<endl;
+
+                            phung.SetPos(800,10);
+                            duocbay.SetPos(900,10);
+                            cai_time = true;
+                            maumau = 0;
+                            player_nvc.show_cucmau( gRenderer, maumau);
                         }
                     }
 
                 }
             }
-            player_nvc.XuLiXuKienBanPhim( gEvent, gRenderer );//nhan vat chinh, ban phim
-            quivuong.DICHUYENTHEO_NVC( player_nvc );
+            player_nvc.XuLiXuKienBanPhim( gEvent, gRenderer );          //nhan vat chinh, ban phim
         }
         if(!isPaused )
         {
             if(!gameOver)
             {
-                SDL_SetRenderDrawColor( gRenderer, 255, 255, 255, 255);// clear renderer
+                SDL_SetRenderDrawColor( gRenderer, 255, 255, 255, 255); // clear renderer
                 SDL_RenderClear( gRenderer );
 
-                gBackground.Render( gRenderer, nullptr );// in anh background
+                gBackground.Render( gRenderer, nullptr );               // in anh background
                 tamdung.Render (gRenderer, nullptr );
-                //tamdung2.Render(gRenderer,nullptr);
-                MAP map_data = game_map.GetMap();//xu li di chuyen, va cham map
+                MAP map_data = game_map.GetMap();                       //xu li di chuyen, va cham map
 
                 if(player_nvc.get_tangmang())
                 {
-                    so_mang.tangmang() ;    // an kim cuong tang mang
-                    player_nvc.tang_mang(false) ;
+                    so_mang.tangmang() ;                                // an kim cuong tang mang
+                    player_nvc.tang_mang ( false ) ;
                 }
 
-                if(player_nvc.gethangnong() == true )   // chong chong
+                if(player_nvc.gethangnong() == true )                   // chong chong
                 {
                     kiem.change_gocquay(35);
                     int jj = player_nvc.GetRect().x - player_nvc.get_width_frame() ;
@@ -236,24 +257,27 @@ int main(int messi,char* kaka [] )
                     kiem.render_kiem( gRenderer, jj, ii, nullptr, nullptr, SDL_FLIP_NONE );
                 }
 
-                player_nvc.XU_LI_BAN_DAN ( gRenderer, SCREEN_WIDTH/2.5, SCREEN_HEIGHT/2.5, map_data );// xu li ban dan
-                player_nvc.SetMapXY ( map_data.start_x_, map_data.start_y_ ); //xu li map di chuyen theo nhan vat
-                player_nvc.ShowMain ( gRenderer ) ;      //hien nhan vat chinh
+                player_nvc.XU_LI_BAN_DAN ( gRenderer, SCREEN_WIDTH/2.5, SCREEN_HEIGHT/2.5, map_data );  // xu li ban dan
+                player_nvc.SetMapXY ( map_data.start_x_, map_data.start_y_ );                           //xu li map di chuyen theo nhan vat
+                player_nvc.ShowMain ( gRenderer ) ;                                                     //hien nhan vat chinh
                 player_nvc.DiChuyenNhanVat( map_data );
+                player_nvc.show_cucmau ( gRenderer, maumau);
 
+                quivuong.xulibossbandan(gRenderer);
                 quivuong.SetMapXY ( map_data.start_x_, map_data.start_y_ );
+                quivuong.DICHUYENTHEO_NVC ( player_nvc ,gRenderer );
                 quivuong.showboss ( gRenderer );
-                quivuong.DICHUYEN_BOSS ( map_data, player_nvc );
+                quivuong.DICHUYEN_BOSS ( map_data );
 
                 game_map.SetMap ( map_data );            // cap nhat vi tri moi cho start_x_, start_y_
                 game_map.DrawMap ( gRenderer );          //ve ban do
 
                 so_mang.Show(gRenderer);
 
-                if(player_nvc.getchongchong()) phung.show(gRenderer);
-                if(player_nvc.getchobay())duocbay.show(gRenderer);
+                if ( player_nvc.getchongchong() ) phung.show(gRenderer);
+                if ( player_nvc.getchobay() ) duocbay.show(gRenderer);
 
-                for(int i=0; i< (int) threats_list.size(); i++)  // xu li quai vat
+                for(int i=0; i< (int) threats_list.size(); i++)             // xu li quai vat
                 {
                     ThreatsObject* p_qui = threats_list.at(i);
                     if(p_qui != nullptr)
@@ -266,16 +290,17 @@ int main(int messi,char* kaka [] )
                         //
                         SDL_Rect rect_nvc = player_nvc.GetRectFrame();
                         bool locdan = false;
-                        vector<BulletObject*> qui_dan = p_qui->get_bang_dan_qui();//cout<<"id: " << i << " : has " << qui_dan.size()<<endl;
+                        vector<BulletObject*> qui_dan = p_qui->get_bang_dan_qui();                  //cout<<"id: " << i << " : has " << qui_dan.size()<<endl;
                         for( int j = 0; j < (int) qui_dan.size(); j ++ )
                         {
                             BulletObject* dan1 = qui_dan.at(j);
-                            if(dan1!=nullptr)
+                            if( dan1!=nullptr )
                             {
                                 locdan = SDLCommonFunc :: CheckCollision( dan1->GetRect(), rect_nvc );
                                 if(locdan)
                                 {
                                     Mix_PlayChannel(-1, danquino, 0);
+                                    player_nvc.setbitrungdan(true);
                                     for(int ex = 0; ex < num_frame_no ; ex++ )
                                     {
                                         int x_no = player_nvc.GetRect().x - player_nvc.get_width_frame() * 0.5;
@@ -287,17 +312,20 @@ int main(int messi,char* kaka [] )
                                         nvc_no.show(gRenderer);
                                     }
                                     p_qui->loaiboviendan(j);
-                                    player_nvc.trungdan();//cout<<player_nvc.get_solantrungdan()<<" ";
-                                    if( player_nvc.get_solantrungdan() >= 10 && player_nvc.get_solantrungdan()%20 == 0) // an bao nhieu vien dan - so quai roi chet
+
+                                    dem222 ++ ;                                                     //cout<<dem222<<endl;
+                                    if(dem222 >= 4){ player_nvc.trungdan(); dem222 = 0;}
+
+                                    if( player_nvc.get_solantrungdan() >= 6 )                       // an bao nhieu vien dan - so quai roi chet
                                     {
-                                        solanchet++;
-                                        cout<<"so lan da chet "<<solanchet<<endl;
+                                        solanchet++; cout<<"so lan da chet "<<solanchet<<endl;
                                         if(solanchet <= solanchetmax)
                                         {
+                                            player_nvc.set_vitri_nvc( player_nvc.get_x_hientai()-100 , player_nvc.get_y_hientai()+500 );
                                             so_mang.giammang();
                                             so_mang.Render(gRenderer);
-                                            player_nvc.SetRect ( 100, 100);
                                             player_nvc.set_comebacktime(10);
+                                            player_nvc.set_solantrungdan (0);
                                         }
                                         else
                                         {
@@ -317,35 +345,37 @@ int main(int messi,char* kaka [] )
                 }
 
                 // xử lí viên đạn va chạm
-                vector<BulletObject*> dan_nvc = player_nvc.get_bang_dan();// lấy ra băng đạn của nhân vật chính
+                vector<BulletObject*> dan_nvc = player_nvc.get_bang_dan();          // lấy ra băng đạn của nhân vật chính
                 for(int i=0; i<(int)dan_nvc.size(); i++)
                 {
                     BulletObject* dan = dan_nvc.at(i);
                     if(dan!=nullptr)
                     {
-                        for(int j = 0; j< (int)threats_list.size(); j++) //kiểm tra từng viên đạn với từng quái
+                        for( int j = 0; j < (int)threats_list.size(); j++ )         //kiểm tra từng viên đạn với từng quái
                         {
                             ThreatsObject* qui1 = threats_list.at(j);
                             if(qui1 != nullptr)
                             {
                                 SDL_Rect qui_rect = qui1->GetRectFrame();
-                                SDL_Rect dan_rect = dan->GetRect(); // dan khong co nhieu frame nen ko can get frame
+                                SDL_Rect dan_rect = dan->GetRect();                 // dan khong co nhieu frame nen ko can get frame
                                 bool qui_an_dan = SDLCommonFunc::CheckCollision( dan_rect, qui_rect);
                                 if(qui_an_dan)
                                 {
-                                    Mix_PlayChannel(-1,bom,0);
-                                    for(int no = 0 ; no < num_frame_no ; no ++)// xu li anh no
+                                    Mix_PlayChannel(-1,bom,0);                      //cout<<"qui "<<qui_rect.x <<" "<< dan_rect.x<<endl;
+                                    if ( player_nvc.get_x_hientai() < qui1->get_x_quipos() ){ threats_list[j]->set_trang_thai_phai(1); threats_list[j]->set_va_bando(ThreatsObject::cham_phai); }
+                                    else { threats_list[j]->set_trang_thai_trai(1); threats_list[j]->set_va_bando(ThreatsObject::cham_trai);}
+                                    for(int no = 0 ; no < num_frame_no ; no ++)     // xu li anh no
                                     {
-                                        int x_pos = qui1->GetRect().x ;// vi tri no la vi tri qui
+                                        int x_pos = qui1->GetRect().x ;             // vi tri no la vi tri qui
                                         int y_pos = qui1->GetRect().y ;
 
                                         qui_no.set_frame( no );
-                                        qui_no .SetRect(x_pos, y_pos);
-                                        qui_no.show(gRenderer);
+                                        qui_no.SetRect ( x_pos, y_pos );
+                                        qui_no.show ( gRenderer );
                                     }
                                     player_nvc.loaiboviendan(i);
                                     qui1->trungdan();
-                                    if(qui1->get_solantrungdan() ==  4)
+                                    if ( qui1->get_solantrungdan() ==  4 )
                                     {
                                         qui1->free();
                                         threats_list.erase(threats_list.begin()+j);
@@ -359,7 +389,7 @@ int main(int messi,char* kaka [] )
                 // xử lí va chạm quỉ với kiếm
                 if((SDL_GetTicks() - thoigianhientai >= 6000) && ho == true )
                 {
-                    player_nvc.kichhoathangnong(false) ;    //cout<<"thoi diem bam x "<<thoigianhientai <<endl;cout<<SDL_GetTicks() - thoigianhientai <<endl;
+                    player_nvc.kichhoathangnong(false) ;        //cout<<"thoi diem bam x "<<thoigianhientai <<endl;cout<<SDL_GetTicks() - thoigianhientai <<endl;
                 }
                 if(player_nvc.gethangnong() == true)
                 {
@@ -370,23 +400,23 @@ int main(int messi,char* kaka [] )
                         if(qui1 != nullptr)
                         {
                             SDL_Rect qui_rect = qui1->GetRectFrame();
-                            int jj = player_nvc.GetRect().x - player_nvc.get_width_frame()  ;//cout<<qui_rect.w <<" "<<qui_rect.h<<endl;;
+                            int jj = player_nvc.GetRect().x - player_nvc.get_width_frame()  ;       //cout<<qui_rect.w <<" "<<qui_rect.h<<endl;;
                             int ii = player_nvc.GetRect().y - player_nvc.get_height_frame()  ;
                             SDL_Rect rect_kiem = {jj,ii, rect_kiem1.w, rect_kiem1.h};
                             bool qui_an_kiem = SDLCommonFunc :: CheckCollision( rect_kiem, qui_rect);
                             if(qui_an_kiem)
                             {
                                 Mix_PlayMusic ( quaibichem, 1);
-                                for(int no = 0 ; no < num_frame_no ; no ++)// xu li anh no
+                                for(int no = 0 ; no < num_frame_no ; no ++)                         // xu li anh no
                                 {
-                                    int x_pos = qui1->GetRect().x ;// vi tri no la vi tri qui
+                                    int x_pos = qui1->GetRect().x ;                                 // vi tri no la vi tri qui
                                     int y_pos = qui1->GetRect().y ;
                                     qui_no.set_frame( no );
                                     qui_no .SetRect( x_pos, y_pos );
                                     qui_no.show(gRenderer);
                                 }
                                 qui1->trungdan();
-                                if(qui1->get_solantrungdan() ==  4)
+                                if( qui1->get_solantrungdan() ==  4 )
                                 {
                                     qui1->free();
                                     threats_list.erase(threats_list.begin()+j);
@@ -396,12 +426,12 @@ int main(int messi,char* kaka [] )
                         }
                     }
                 }
-                for (int i = 0; i < (int) threats_list.size(); ++ i)// khởi tạo lại đạn quỉ
+                for (int i = 0; i < (int) threats_list.size(); ++ i)        // khởi tạo lại đạn quỉ
                 {
                     ThreatsObject* p_qui = threats_list.at(i);
                     if (p_qui->get_bang_dan_qui().empty())
                     {
-                        BulletObject* dan_qui = new BulletObject(); //them dan
+                        BulletObject* dan_qui = new BulletObject();         //them dan
                         p_qui->init_dan_qui( dan_qui, gRenderer);
                     }
                 }
@@ -409,11 +439,12 @@ int main(int messi,char* kaka [] )
                 // phong chu tinh thoi gian choi
                 string time = " TIME : ";
                 Uint32 thoi_gian = SDL_GetTicks()/1000;
-                Uint32 time_play = thoi_gian ++;
-                if(cai_time)
+                Uint32 time_play = thoi_gian - last_time + 1;
+                if(cai_time) //
                 {
-                    thoi_gian = 0;
-                    time_play = 0;
+                    last_time = thoi_gian;
+                    time_play = thoi_gian - last_time + 1;
+                    cai_time = false;
                 }
                 string show_time_play = to_string ( time_play );
                 time += show_time_play;
@@ -432,12 +463,11 @@ int main(int messi,char* kaka [] )
                 tong_tien = player_nvc.get_tienanduoc();
                 string show_tien = to_string (tong_tien);
                 tien_hientai += show_tien;
-                antien.SetText (tien_hientai);
-                antien.LoadFromRenderText (gFont,gRenderer );
-                antien.RenderText (gRenderer, SCREEN_WIDTH - 180, 80);
-                //if(cai_time){ thoi_gian = 0; time_play = 0; tong_tien = 0 ; }
+                antien.SetText ( tien_hientai );
+                antien.LoadFromRenderText ( gFont, gRenderer );
+                antien.RenderText ( gRenderer, SCREEN_WIDTH - 180, 80 );
 
-                SDL_RenderPresent(gRenderer);//xuat ra man hinh hien tai
+                SDL_RenderPresent(gRenderer);                   //xuat ra man hinh hien tai
 
                 // thoi gian cham lai ---------------------------------------------------------
                 ImpTimer fps_timer;
@@ -462,12 +492,12 @@ int main(int messi,char* kaka [] )
             SDL_RenderPresent(gRenderer);
         }
     }
-    for (auto obj : threats_list) //giai phong bo nho da cap phat
+    for (auto obj : threats_list)       //giai phong bo nho da cap phat
     {
         obj->free();
         obj = nullptr;
     }
-    threats_list.clear(); // xóa vector
+    threats_list.clear();               // xóa vector
 
     close();
     return 0;
@@ -476,8 +506,6 @@ int main(int messi,char* kaka [] )
 
 void load_tat_ca_qui(SDL_Renderer* des)
 {
-//    tat_ca_anh_qui[ditrai].LoadImage("IMG/quai_di_trai.png",des);
-//    tat_ca_anh_qui[diphai].LoadImage("IMG/quai_di_phai.png",des);
     tat_ca_anh_qui[ditrai].LoadImage("IMG/quai_di_trai2.png",des);
     tat_ca_anh_qui[diphai].LoadImage("IMG/quai_di_phai2.png",des);
 }
@@ -506,16 +534,24 @@ vector<ThreatsObject*> Make_Threat_List()
             p_qui->LoadImage( "IMG/quai_di_trai.png", gRenderer );
             p_qui->set_clips();
 
-            p_qui->set_x_quipos( 100*i+200 );  // cai dat vi tri xuat hien
-            p_qui->set_y_quipos( 360);
+            if(i > 38)
+            {
+                p_qui->set_x_quipos(7000+i*50);
+                p_qui->set_y_quipos(2500);
+            }
+            else
+            {
+                p_qui->set_x_quipos( 100*(i+2)+200 );            // cai dat vi tri xuat hien
+                p_qui->set_y_quipos( 360);
+            }
 
-            int gioi_han_trai = p_qui->get_x_quipos()-80; // gioi han trai,phai
+            int gioi_han_trai = p_qui->get_x_quipos()-80;        // gioi han trai,phai
             int gioi_han_phai = p_qui->get_x_quipos()+80;
 
             p_qui->set_gioi_han_dichuyen( gioi_han_trai, gioi_han_phai );
             p_qui->set_trang_thai_trai(1);
 
-            BulletObject* dan_qui = new BulletObject(); //them dan
+            BulletObject* dan_qui = new BulletObject();          //them dan
             p_qui->init_dan_qui( dan_qui, gRenderer);
 
             list_threats.push_back( p_qui );
@@ -597,7 +633,7 @@ bool LoadMedia()// tai anh nen
     gFont2 = TTF_OpenFont ("FONT/starcraft.ttf",40);
     if( gFont == nullptr || gFont2 == nullptr )
     {
-        cout<<TTF_GetError();
+        cout<<TTF_GetError();cout<<" ngu nhu bo"<<endl;
         return 0;
     }
 
@@ -614,35 +650,24 @@ bool LoadMedia()// tai anh nen
 }
 void close()
 {
-    SDL_DestroyWindow( gWindow );
-    gWindow = nullptr;
-    SDL_DestroyRenderer( gRenderer );
-    gRenderer = nullptr;
-    TTF_CloseFont(gFont);
-    gFont = nullptr;
+    SDL_DestroyWindow( gWindow ); gWindow = nullptr;
+    SDL_DestroyRenderer( gRenderer ); gRenderer = nullptr;
+    TTF_CloseFont(gFont); gFont = nullptr;
 
-    Mix_FreeMusic(nhacnen);
-    nhacnen = nullptr ;
-    Mix_FreeChunk(bom);
-    bom = nullptr;
-    Mix_FreeChunk(danquino);
-    danquino = nullptr;
-    Mix_FreeMusic(quaibichem);
-    quaibichem = nullptr ;
+    Mix_FreeMusic(nhacnen); nhacnen = nullptr ;
+    Mix_FreeChunk(bom); bom = nullptr;
+    Mix_FreeChunk(danquino); danquino = nullptr;
+    Mix_FreeMusic(quaibichem);quaibichem = nullptr ;
 
     SDL_Quit();
     IMG_Quit();
     TTF_Quit();
     Mix_Quit();
 
-    gBackground.free();
-    anhdau.free();
-    player_nvc.free();
-    quivuong.free();
-    tamdung.free();
-    tamdung2.free();
-    anhcho.free();
-    gameover.free();
+    gBackground.free(); anhdau.free(); player_nvc.free(); quivuong.free(); tamdung.free(); tamdung2.free(); anhcho.free(); gameover.free();
+
+    for ( int i = 0 ; i < 6 ;i++) player_nvc.cucmau[i].free();
+
 }
 void khoitaovuno(VUNO &qui_no)
 {
@@ -656,3 +681,32 @@ void khoitaonhanvatchinh_no( VUNO& nvc_no )
     if(tret == false) cout<<" falied to load explosion nvc"<<endl;
     nvc_no.set_clip();
 }
+//
+//void load_all_dan_(SDL_Renderer* gRenderer)
+//{
+//    //std::cout << "base_load\n";
+//    dan_[LOAI_DAN_BASE::DAN1_TRAI].LoadImage("IMG/DAN1_TRAI.png",gRenderer);
+//    dan_[LOAI_DAN_BASE::DAN1_PHAI].LoadImage("IMG/DAN1_PHAI.png",gRenderer);
+//    dan_[LOAI_DAN_BASE::ten_phai].LoadImage("IMG/QUAI/ten_phai.png",gRenderer);
+//    dan_[LOAI_DAN_BASE::ten_trai].LoadImage("IMG/QUAI/ten_trai.png",gRenderer);
+//    dan_[LOAI_DAN_BASE::DAN_QUI_THUONG].LoadImage("IMG/dan_qui_thuong.png",gRenderer);
+//}
+
+
+//        dan_[LOAI_DAN_BASE::DAN_QUI_THUONG].SetRect(200, 800);
+//        dan_[LOAI_DAN_BASE::DAN_QUI_THUONG].Render(gRenderer, nullptr);
+//        std::cout << "player: " << player_nvc.get_x_hientai() << ' ' << player_nvc.get_y_hientai() << '\n';
+//        std::cout << "dan: " << dan_[LOAI_DAN_BASE::DAN_QUI_THUONG].GetRect().x << ' ' << dan_[LOAI_DAN_BASE::DAN_QUI_THUONG].GetRect().y << '\n';
+
+
+//void load_all_main (SDL_Renderer* des)
+//{
+//    player_main[chaytrai].LoadImage("IMG/CHAY_TRAI_SUNG.png",des);
+//    player_main[chayphai].LoadImage("IMG/CHAY_PHAI_SUNG.png",des);
+//    player_main[bayphai].LoadImage("IMG/bay_phai.png",des);
+//    player_main[baytrai].LoadImage("IMG/bay_trai.png",des);
+//    player_main[damphai].LoadImage("IMG/DAO_DAM_PHAI.png",des);
+//    player_main[damtrai].LoadImage("IMG/DAO_DAM_TRAI.png",des);
+//    player_main[lontrai].LoadImage("IMG/LON_TRAI1.png",des);
+//    player_main[lonphai].LoadImage("IMG/LON_PHAI1.png",des);
+//}

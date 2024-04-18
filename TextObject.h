@@ -43,6 +43,7 @@ public:
 private:
     string noidung;
     SDL_Color text_color_;
+
     SDL_Texture * texture_;
 
     int width_;

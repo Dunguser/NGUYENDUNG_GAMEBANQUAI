@@ -65,6 +65,8 @@
 		<Unit filename="TextObject.h" />
 		<Unit filename="ThreatsObject.cpp" />
 		<Unit filename="ThreatsObject.h" />
+		<Unit filename="all_anh_nvc.cpp" />
+		<Unit filename="all_anh_nvc.h" />
 		<Unit filename="all_anh_qui.cpp" />
 		<Unit filename="all_anh_qui.h" />
 		<Unit filename="commonfunction.cpp" />

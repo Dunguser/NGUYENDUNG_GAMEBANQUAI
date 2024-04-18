@@ -15,8 +15,7 @@
 
 using namespace std;
 
-//#define TOCDOROI 0.8
-#define TOCDOROI_BOSS 0.8
+#define TOCDOROI_BOSS 1
 #define ROITOIDA_BOSS 40
 #define TOCDOCHAY_BOSS 7
 #define O_TRONG 0
@@ -69,7 +68,7 @@ public :
     int get_width_frame () const { return width_frame_ ;}
     int get_height_frame () const { return height_frame_ ;}
 
-    void DICHUYEN_BOSS( MAP& map_data, MainObject kaka );
+    void DICHUYEN_BOSS( MAP& map_data );
     void checktomap_boss( MAP& map_data );
 
     vector <BulletObject*> get_bang_dan_boss() { return bang_dan_boss ;}
@@ -77,11 +76,12 @@ public :
 
     void init_dan_qui ( BulletObject* dan_qui, SDL_Renderer* screen);
     void loaiboviendan( const int& index );
+    void xulibossbandan (SDL_Renderer* screen );
 
     void set_doithu ( const MainObject kaka1 ){ kaka = kaka1;}
-    MainObject get_doithu () const {return kaka;}
+    MainObject get_doithu () const { return kaka;}
 
-    void DICHUYENTHEO_NVC ( MainObject& kaka);
+    void DICHUYENTHEO_NVC ( MainObject& kaka, SDL_Renderer *screen);
 
 private:
 
@@ -107,6 +107,8 @@ private:
     int va_bando;
 
     vector <BulletObject*> bang_dan_boss;// xu li qui ban dan
+
+    int status_boss ;
 
     MainObject kaka;
 };

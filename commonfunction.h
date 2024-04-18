@@ -21,7 +21,7 @@ const int SCREEN_HEIGHT=960;
 const int FRAME_PER_SECOND =25;//thoi gian cham lai
 
 // chi so ban do game
-#define TILE_SIZE 64 // kich thuoc cua 1 o
+#define TILE_SIZE 64    // kich thuoc cua 1 o
 #define MAX_MAP_X 140
 #define MAX_MAP_Y 45
 
@@ -30,17 +30,17 @@ const int FRAME_PER_SECOND =25;//thoi gian cham lai
 // XAY DUNG BAN DO GAME
 struct MAP
 {
-    int start_x_;//vi tri , vd dang o o thu 10 thi vi tri la 10*32=320
-    int start_y_;// vi tri theo chieu dai chu ko theo o// hoac co the la 1201
+    int start_x_;       //vi tri , vd dang o o thu 10 thi vi tri la 10*32=320
+    int start_y_;       // vi tri theo chieu dai chu ko theo o// hoac co the la 1201
 
-    int othu_x_; // chi so cua o do// o thu bao nhieu
-    int othu_y_;   // start_y_=othu_y_*TILE_SIZE
+    int othu_x_;        // chi so cua o do// o thu bao nhieu
+    int othu_y_;        // start_y_=othu_y_*TILE_SIZE
 
-    int max_x_;//vi tr toi da cua chieu dai max
+    int max_x_;         //vi tr toi da cua chieu dai max
     int max_y_;
 
     int tile[MAX_MAP_Y][MAX_MAP_X];
-    string file_name_; //  file txt chua cac so ve map
+    string file_name_;  //  file txt chua cac so ve map
 };
 
 // cau truc trang thai di chuyen cua nhan vat
@@ -53,6 +53,8 @@ struct TRANG_THAI_NHAN_VAT
     int xuong_;
     int bay_;
     int can_chien_;
+    int lon_trai;
+    int lon_phai;
     int chet_;
 };
 

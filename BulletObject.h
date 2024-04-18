@@ -3,6 +3,7 @@
 
 #include "BaseObject.h"
 #include "commonfunction.h"
+#include "all_anh_nvc.h"
 
 using namespace std;
 
@@ -35,6 +36,8 @@ public:
         DAN_QUI_PHAI=55,
 
         DAN_QUI_THUONG=56 ,
+        ten_trai = 57,
+        ten_phai = 58,
     };
     // cai dat gia tri cho x_bien doi
     void set_x_biendoi( const int& xBiendoi) { x_biendoi = xBiendoi ;}
@@ -67,11 +70,12 @@ public:
     // tai cac loai dan
     bool TAI_ANH_DAN( SDL_Renderer* des );
 
-    void render_kiem(SDL_Renderer* des, int x,int y, SDL_Rect* clip = nullptr ,SDL_Point* center = nullptr);
     //phan chinh sua
 
     bool check_va_cham_map( MAP& map_data );// kien tra va cham voi map
     void DI_CHUYEN_DAN( MAP& map_data );
+
+    void phamvidanboss( const int x_gioihan , const int y_gioihan);
 
 private:
 

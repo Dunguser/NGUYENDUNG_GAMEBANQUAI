@@ -22,19 +22,19 @@ void PlayerPower ::Show (SDL_Renderer* screen)
 }
 void PlayerPower :: Init(SDL_Renderer* screen,const string& path)
 {
-    LoadImage(path.c_str(),screen);
-    if((int)vitri_omang.size()>0) vitri_omang.clear();
-    for(int i=0; i< chi_so_mang; i++)
+    LoadImage( path.c_str() , screen );
+    if( (int)vitri_omang.size()>0 ) vitri_omang.clear();
+    for(int i = 0; i < chi_so_mang; i++)
     {
         AddPos(20 + 40*i);
     }
 }
-void PlayerPower ::tangmang()
+void PlayerPower :: tangmang()
 {
-    chi_so_mang ++;
+    chi_so_mang ++ ;
     int cuoi = vitri_omang.back();
     cuoi += 40;
-    vitri_omang.push_back(cuoi);
+    vitri_omang.push_back( cuoi );
 }
 
 void PlayerPower ::giammang()
