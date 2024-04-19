@@ -18,7 +18,7 @@ TextObject:: ~TextObject()
 
 bool TextObject :: LoadFromRenderText (TTF_Font * font, SDL_Renderer* screen)
 {
-    SDL_Surface * text_surface = TTF_RenderText_Solid(font, noidung.c_str(), text_color_ );
+    SDL_Surface * text_surface = TTF_RenderText_Solid( font, noidung.c_str(), text_color_ );
     if(text_surface != nullptr )
     {
         texture_ = SDL_CreateTextureFromSurface ( screen, text_surface );
@@ -31,7 +31,7 @@ bool TextObject :: LoadFromRenderText (TTF_Font * font, SDL_Renderer* screen)
         return 0;
     }
     SDL_FreeSurface(text_surface);
-    return texture_ !=nullptr;
+    return texture_ != nullptr;
 }
 
 void TextObject :: Free()

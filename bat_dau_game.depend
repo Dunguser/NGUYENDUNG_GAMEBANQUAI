@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1713466148 source:e:\bat_dau_game\main.cpp
+1713540095 source:e:\bat_dau_game\main.cpp
 	<bits/stdc++.h>
 	<windows.h>
 	<SDL.h>
@@ -20,6 +20,7 @@
 	"kiemquay.h"
 	"QUIVUONG.h"
 	"all_anh_nvc.h"
+	"toancuc.h"
 
 1709133042 d:\sdl2-devel-2.30.0-mingw\sdl2-2.30.0\x86_64-w64-mingw32\include\sdl2\sdl.h
 	"SDL_main.h"
@@ -420,13 +421,13 @@
 	"begin_code.h"
 	"close_code.h"
 
-1713466066 source:e:\bat_dau_game\baseobject.cpp
+1713528708 source:e:\bat_dau_game\baseobject.cpp
 	"BaseObject.h"
 
-1713033325 source:e:\bat_dau_game\commonfunction.cpp
+1713529560 source:e:\bat_dau_game\commonfunction.cpp
 	"commonfunction.h"
 
-1713460795 e:\bat_dau_game\commonfunction.h
+1713529560 e:\bat_dau_game\commonfunction.h
 	<bits/stdc++.h>
 	<SDL.h>
 	<SDL_image.h>
@@ -461,11 +462,11 @@
 	"BaseObject.h"
 	<bits/stdc++.h>
 
-1713459304 source:e:\bat_dau_game\mainobject.cpp
+1713538675 source:e:\bat_dau_game\mainobject.cpp
 	"MainObject.h"
 	"BulletObject.h"
 
-1713459304 e:\bat_dau_game\mainobject.h
+1713523052 e:\bat_dau_game\mainobject.h
 	<bits/stdc++.h>
 	"commonfunction.h"
 	"BaseObject.h"
@@ -486,10 +487,10 @@
 
 1710332501 e:\bat_dau_game\imptimer.h
 
-1713465903 source:e:\bat_dau_game\bulletobject.cpp
+1713531479 source:e:\bat_dau_game\bulletobject.cpp
 	"BulletObject.h"
 
-1713463726 e:\bat_dau_game\bulletobject.h
+1713502407 e:\bat_dau_game\bulletobject.h
 	"BaseObject.h"
 	"commonfunction.h"
 	"all_anh_nvc.h"
@@ -500,7 +501,7 @@
 	<SDL_image.h>
 	"all_anh_qui.h"
 
-1713454760 e:\bat_dau_game\threatsobject.h
+1713529960 e:\bat_dau_game\threatsobject.h
 	"commonfunction.h"
 	"BaseObject.h"
 	"BulletObject.h"
@@ -614,7 +615,7 @@
 	<bits/stdc++.h>
 	<SDL_ttf.h>
 
-1713455468 source:e:\bat_dau_game\textobject.cpp
+1713502810 source:e:\bat_dau_game\textobject.cpp
 	"TextObject.h"
 
 1712850508 e:\bat_dau_game\playerpower.h
@@ -1402,11 +1403,11 @@
 1712482293 source:e:\bat_dau_game - sao chép\vuno.cpp
 	"vuno.h"
 
-1713364385 source:e:\bat_dau_game\quivuong.cpp
+1713537546 source:e:\bat_dau_game\quivuong.cpp
 	"QUIVUONG.h"
 	"BaseObject.h"
 
-1713322462 e:\bat_dau_game\quivuong.h
+1713537130 e:\bat_dau_game\quivuong.h
 	<bits/stdc++.h>
 	"commonfunction.h"
 	"BaseObject.h"
@@ -1426,4 +1427,13 @@
 	"BaseObject.h"
 	"BulletObject.h"
 	<bits/stdc++.h>
+
+1713529700 source:e:\bat_dau_game\toancuc.cpp
+	"toancuc.h"
+
+1713529700 e:\bat_dau_game\toancuc.h
+	<SDL.h>
+	"BaseObject.h"
+	"GAMEMAP.h"
+	"MainObject.h"
 

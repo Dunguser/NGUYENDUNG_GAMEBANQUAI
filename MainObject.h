@@ -46,26 +46,26 @@ public:
         bay_phai_,
     };
 
-    bool LoadMainImg ( const string&path, SDL_Renderer *screen );       //ham load anh cua nhan vat chinh va can them cac thong so cua tam anh
-    void ShowMain ( SDL_Renderer*des );                                 // xau frame nhan vat chinh
-    void XuLiXuKienBanPhim (SDL_Event events, SDL_Renderer* screen);    // xu li cac phim bam sang trai, sang phai, bay
-    void Set_Clips_chay ();                                             // ham tao clip tu nhung hinh anh lien tiep
-    void DiChuyenNhanVat ( MAP & map_data );                            //xu li cho nhan vat di chuyen, va cham coi ban do
-    void CheckToMap( MAP& map_data );                                   // kiem tra nhan vat va cham voi ban do
+    bool LoadMainImg ( const string&path, SDL_Renderer *screen );           //ham load anh cua nhan vat chinh va can them cac thong so cua tam anh
+    void ShowMain ( SDL_Renderer*des );                                     // xau frame nhan vat chinh
+    void XuLiXuKienBanPhim (SDL_Event events, SDL_Renderer* screen);        // xu li cac phim bam sang trai, sang phai, bay
+    void Set_Clips_chay ();                                                 // ham tao clip tu nhung hinh anh lien tiep
+    void DiChuyenNhanVat ( MAP & map_data );                                //xu li cho nhan vat di chuyen, va cham coi ban do
+    void CheckToMap( MAP& map_data );                                       // kiem tra nhan vat va cham voi ban do
     SDL_Rect GetRectFrame();
 
     void SetMapXY ( const int map_x, const int map_y )
     {
-        map_x_ = map_x;                                                 //tao bien theo doi di chyen cua ban do theo nhan vat
-        map_y_ = map_y;                                                 // vi tri cua ban do chay theo nhan vat
+        map_x_ = map_x;                                                     //tao bien theo doi di chyen cua ban do theo nhan vat
+        map_y_ = map_y;                                                     // vi tri cua ban do chay theo nhan vat
     }
 
-    void MAP_DI_CHUYEN_THEO_NV ( MAP& map_data );                       //tinh toan thong so cua map khi nhan vat di chuyen
+    void MAP_DI_CHUYEN_THEO_NV ( MAP& map_data );                           //tinh toan thong so cua map khi nhan vat di chuyen
     void capnhattrenmatdat( SDL_Renderer* des );
 
-    bool get_roi_xuong_vuc();                                           // lay roi xuong vuc
-    void set_bang_dan(vector<BulletObject*> bu){ bangdan_nvc = bu; }    // cai dat bang dan
-    vector<BulletObject*>get_bang_dan()const { return bangdan_nvc; }    // lay bang dan ra
+    bool get_roi_xuong_vuc();                                               // lay roi xuong vuc
+    void set_bang_dan(vector<BulletObject*> bu){ bangdan_nvc = bu; }        // cai dat bang dan
+    vector<BulletObject*>get_bang_dan()const { return bangdan_nvc; }        // lay bang dan ra
 
     void KHOI_TAO_DAN_1 ( BulletObject* viendan, SDL_Renderer* screen );
     void KHOI_TAO_DAN_2 ( BulletObject* viendan, SDL_Renderer* screen );
@@ -97,17 +97,17 @@ public:
 
     void nhanbietchet ( const int& chet) { trang_thai_vao.chet_ = chet ;}
 
-    void tang_mang( bool kk ) { themmang = kk; }                            // kim cuong do
+    void tang_mang( bool kk ) { themmang = kk; }                                // kim cuong do
     bool get_tangmang () const { return themmang ; }
 
-    void setchobay ( const bool& bay) { chobay = bay ;}                     // kim cuong xanh
+    void setchobay ( const bool& bay) { chobay = bay ;}                         // kim cuong xanh
     bool getchobay () const {return chobay;}
 
     void kichhoatchongchong( const bool & hh){ chongchong = hh ;}
     bool getchongchong()const { return chongchong; }
 
     void kichhoathangnong ( const bool & hh){ hangnong = hh;}
-    bool gethangnong() const {return hangnong;}
+    bool gethangnong() const { return hangnong; }
 
     Sword getkiem() { return kiem ;}
 
@@ -124,33 +124,33 @@ public:
 
 
 private:
-    float x_biendoi_;                           // khi di chuyen thi tang/giam bao nhieu
-    float y_biendoi_;                           // an trai giam bao nhieu, nhay tang bao nhieu
+    float x_biendoi_;                                       // khi di chuyen thi tang/giam bao nhieu
+    float y_biendoi_;                                       // an trai giam bao nhieu, nhay tang bao nhieu
 
-    float x_now_pos;                            //vi tri x hien tai
+    float x_now_pos;                                        //vi tri x hien tai
     float y_now_pos;
 
-    int width_frame_;                           // kich thuoc 1 frame vi 1 anh co 5,7,8 frame
+    int width_frame_;                                       // kich thuoc 1 frame vi 1 anh co 5,7,8 frame
     int height_frame_;
 
-    SDL_Rect frame_clip_[8];                    // luu cac frame
+    SDL_Rect frame_clip_[8];                                // luu cac frame
 
-    TRANG_THAI_NHAN_VAT trang_thai_vao;         // luu trang thai di chuyen cua nhan vat
-    int frame_;                                 //luu chi so cua frame, frame thu may
+    TRANG_THAI_NHAN_VAT trang_thai_vao;                     // luu trang thai di chuyen cua nhan vat
+    int frame_;                                             //luu chi so cua frame, frame thu may
 
-    int status_;                                // luu trang thai di chuyen //enum di_chuyen
-    bool tren_mat_dat;                          // kiem tra co o tren mat dat hay ko
+    int status_;                                            // luu trang thai di chuyen //enum di_chuyen
+    bool tren_mat_dat;                                      // kiem tra co o tren mat dat hay ko
 
-    int map_x_;                                 // mep moi cua ban do khi nhan vat di chuyen
-    int map_y_;                                 // su dung trong ham setmapXY
+    int map_x_;                                             // mep moi cua ban do khi nhan vat di chuyen
+    int map_y_;                                             // su dung trong ham setmapXY
 
     bool roi_xuong_vuc;
 
-    vector<BulletObject*> bangdan_nvc;          // dan la 1 thanh phan cua nhan vat chinh
+    vector<BulletObject*> bangdan_nvc;                      // dan la 1 thanh phan cua nhan vat chinh
 
     int tien_an_duoc;
 
-    int come_back_time_;                        // thoi gian sau khi chet nhan vat quay tro lai
+    int come_back_time_;                                    // thoi gian sau khi chet nhan vat quay tro lai
 
     int solantrungdan;
     int frame_mau;
@@ -160,8 +160,8 @@ private:
     bool chobay;
     int hanchebay;
 
-    bool chongchong;
-    bool hangnong;
+    bool chongchong   ;
+    bool hangnong  ;
 
     Sword kiem;
 

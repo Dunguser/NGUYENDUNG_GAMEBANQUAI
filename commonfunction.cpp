@@ -47,25 +47,16 @@ TTF_Font * gFont2 = nullptr;
 Mix_Music * nhacnen = nullptr;//am thanh
 Mix_Chunk * bom = nullptr;
 Mix_Chunk * danquino = nullptr  ;
-Mix_Music* quaibichem = nullptr ;
+Mix_Chunk* quaibichem = nullptr ;
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+//BaseObject tamdung;
+//BaseObject tamdung2;
+//SDL_Rect nutdung = {SCREEN_WIDTH - 80, 0, 80,78 };
+//SDL_Rect tieptuc = {625 , 460 -32 , 115,40};
+//SDL_Rect playagain = {450, 800, 120, 71};
+//SDL_Rect restart = {600, 740 , 160 -32 , 60 };
+//SDL_Rect cut = { 625 , 670 -32 , 120 , 30};
 
 
 

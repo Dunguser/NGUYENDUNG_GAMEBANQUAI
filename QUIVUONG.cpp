@@ -15,7 +15,7 @@ QUIVUONG::QUIVUONG ()
     y_change = 0.0 ;
 
     frame_ = 0 ;
-    trang_thai_boss.sang_phai = 1;
+    trang_thai_boss.sang_trai = 1;
 }
 QUIVUONG::~QUIVUONG()
 {
@@ -78,28 +78,90 @@ SDL_Rect QUIVUONG::getrectframe()
     return rect;
 }
 
-void QUIVUONG::DICHUYENTHEO_NVC( MainObject &kaka , SDL_Renderer* screen)
+void QUIVUONG::DICHUYENTHEO_NVC( MainObject &kaka, SDL_Renderer* screen)
 {
     if( kaka.get_y_hientai() >= 1800 && kaka.get_x_hientai() >= 6000)
     {
-//        if( kaka.get_trenmatdat() == false )
-//        {
-//            if( kaka.getstatus() == MainObject :: ben_phai_ )
-//            {
-//                trang_thai_boss.lon_phai = 1;
-//                trang_thai_boss.lon_trai = 0;
-//                trang_thai_boss.sang_phai = 0;
-//                trang_thai_boss.sang_trai = 0;
-//            }
-//            else if( kaka.getstatus() == MainObject :: ben_trai_ )
-//            {
-//                trang_thai_boss.lon_trai = 1;//cout<<"lon trai"<<endl;
-//                trang_thai_boss.sang_phai = 0;
-//                trang_thai_boss.sang_trai = 0;
-//                trang_thai_boss.lon_phai = 0;
-//            }
-//        }
-//        else
+        if( abs(kaka.get_y_hientai() - y_boss_pos ) >= 50 )
+        {
+            if(abs(kaka.get_x_hientai() - x_boss_pos ) > 70)
+            {
+                if( kaka.getstatus() == MainObject :: ben_phai_ )
+                {
+                    if(kaka.get_x_hientai() < x_boss_pos)
+                    {
+                        trang_thai_boss.lon_trai = 1;
+                        trang_thai_boss.lon_phai = 0;
+                    }
+                    else
+                    {
+                        trang_thai_boss.lon_phai = 1;
+                        trang_thai_boss.lon_trai = 0;
+                    }
+
+                    trang_thai_boss.sang_phai = 0;
+                    trang_thai_boss.sang_trai = 0;
+                    trang_thai_boss.ban_trai = 0;
+                }
+                else if( kaka.getstatus() == MainObject :: ben_trai_ )
+                {
+                    if( kaka.get_x_hientai() < x_boss_pos)
+                    {
+                        trang_thai_boss.lon_trai = 1;//cout<<"lon trai"<<endl;
+                        trang_thai_boss.lon_phai = 0;
+                    }
+                    else
+                    {
+                        trang_thai_boss.lon_phai = 1;
+                        trang_thai_boss.lon_trai = 0;
+                    }
+
+                    trang_thai_boss.sang_phai = 0;
+                    trang_thai_boss.sang_trai = 0;
+                    trang_thai_boss.ban_phai = 0;
+                }
+
+            }
+            else
+            {
+                if( kaka.getstatus() == MainObject :: ben_phai_ )
+                {
+                    if(kaka.get_x_hientai() < x_boss_pos)
+                    {
+                        trang_thai_boss.dam_trai = 1;
+                        trang_thai_boss.dam_phai = 0;
+                    }
+                    else
+                    {
+                        trang_thai_boss.dam_phai = 1;
+                        trang_thai_boss.dam_trai = 0;
+                    }
+
+                    trang_thai_boss.sang_phai = 0;
+                    trang_thai_boss.sang_trai = 0;
+                    trang_thai_boss.ban_trai = 0;
+                }
+                else if( kaka.getstatus() == MainObject :: ben_trai_ )
+                {
+                    if( kaka.get_x_hientai() < x_boss_pos)
+                    {
+                        trang_thai_boss.dam_trai = 1;//cout<<"lon trai"<<endl;
+                        trang_thai_boss.dam_phai = 0;
+                    }
+                    else
+                    {
+                        trang_thai_boss.dam_phai = 1;
+                        trang_thai_boss.dam_trai = 0;
+                    }
+
+                    trang_thai_boss.sang_phai = 0;
+                    trang_thai_boss.sang_trai = 0;
+                    trang_thai_boss.ban_phai = 0;
+                }
+            }
+
+        }
+        else
         {
             int khoangcach = abs( kaka.get_x_hientai() - x_boss_pos );
             if( khoangcach >= 400 )
@@ -120,7 +182,7 @@ void QUIVUONG::DICHUYENTHEO_NVC( MainObject &kaka , SDL_Renderer* screen)
             else if ( khoangcach >= 100 && khoangcach < 400)
             {
                 int y_distance = abs(kaka.get_y_hientai() - y_boss_pos );
-                if( y_distance <= 120)
+                if( y_distance <= 100)
                 {
                     if(kaka.get_x_hientai() > x_boss_pos )
                     {
@@ -141,14 +203,21 @@ void QUIVUONG::DICHUYENTHEO_NVC( MainObject &kaka , SDL_Renderer* screen)
                         status_boss = trai ;
                     }
                     BulletObject* dan_boss = new BulletObject();
-                    init_dan_qui(dan_boss ,screen );
+                    init_dan_qui(dan_boss,screen );
                 }
-
             }
             else
             {
-               if( kaka.get_x_hientai() > x_boss_pos ) {trang_thai_boss.dam_phai = 1; trang_thai_boss.dam_trai =0  ;}
-               else {trang_thai_boss.dam_trai =1 ; trang_thai_boss.dam_phai = 0;}
+                if( kaka.get_x_hientai() > x_boss_pos )
+                {
+                    trang_thai_boss.dam_phai = 1;
+                    trang_thai_boss.dam_trai = 0 ;
+                }
+                else
+                {
+                    trang_thai_boss.dam_trai = 1;
+                    trang_thai_boss.dam_phai = 0;
+                }
             }
 
         }
@@ -170,7 +239,7 @@ void QUIVUONG::DICHUYEN_BOSS( MAP& map_data )
         if( tren_mat_dat == true)
         {
             x_change += TOCDOCHAY_BOSS ;//cout<< "nhay  mua di "<<endl;
-            y_change = - NHAYBTH_BOSS ;
+            y_change = - NHAYBTH_BOSS /1.2;
         }
         tren_mat_dat = false;
         trang_thai_boss.lon_phai = 0;
@@ -180,7 +249,8 @@ void QUIVUONG::DICHUYEN_BOSS( MAP& map_data )
         if( tren_mat_dat == true)
         {
             x_change -= TOCDOCHAY_BOSS ;
-            y_change = - NHAYBTH_BOSS;
+            y_change = - NHAYBTH_BOSS /1.2;
+           // rect_.y -= 9;
         }
         tren_mat_dat = false;
         trang_thai_boss.lon_trai = 0;
@@ -264,7 +334,7 @@ void QUIVUONG::checktomap_boss( MAP& map_data )
 
     if(x_boss_pos+width_frame_>map_data.max_x_)
     {
-        x_boss_pos=map_data.max_x_-width_frame_-sai_so_can_co;
+        x_boss_pos = map_data.max_x_ - width_frame_ - sai_so_can_co;
     }
 
 }
@@ -275,36 +345,34 @@ void QUIVUONG::init_dan_qui ( BulletObject* dan_qui, SDL_Renderer* screen)
     {
         if(status_boss == phai)
         {
-            dan_qui->set_loai_dan( BulletObject::ten_phai );
-            //dan_qui->set_loai_dan( BulletObject::DAN1_PHAI);
+            dan_qui->set_loai_dan ( BulletObject :: DAN_QUI_PHAI);
             dan_qui->TAI_ANH_DAN(screen);
             dan_qui->set_huongdan( BulletObject :: ban_dan_phai);
-            dan_qui->SetRect( this->rect_.x + 30, this->rect_.y + 36);//cout<<"kaka"<<endl;
+            dan_qui->SetRect( this->rect_.x + 35, this->rect_.y + 36);//cout<<"kaka"<<endl;
         }
         else if( status_boss == trai )
         {
-            dan_qui->set_loai_dan( BulletObject::ten_trai );
-            //dan_qui->set_loai_dan( BulletObject::DAN1_TRAI);
+            dan_qui->set_loai_dan(BulletObject :: DAN_QUI_TRAI);
             dan_qui->TAI_ANH_DAN ( screen );
             dan_qui->set_huongdan( BulletObject :: ban_dan_trai);
-            dan_qui->SetRect( this->rect_.x -15 , this->rect_.y + 36);//cout<<"kaka2"<<endl;
+            dan_qui->SetRect( this->rect_.x, this->rect_.y + 36);  //cout<<"kaka2"<<endl;
         }
         dan_qui->settrongmanhinh(true);
-        dan_qui->set_x_biendoi( 100 );
+        dan_qui->set_x_biendoi( 45 );
         bang_dan_boss.push_back( dan_qui );
     }
     else cout<<"failed to load anh trai qui"<<endl;
 }
 void QUIVUONG::xulibossbandan (SDL_Renderer* screen )
 {
-    for(int i = 0;i< (int)bang_dan_boss.size(); i++)
+    for(int i = 0; i< (int)bang_dan_boss.size(); i++)
     {
         BulletObject * dan = bang_dan_boss.at(i);
         if( dan != nullptr )
         {
             if(dan->gettrongmanhinh())
             {
-                dan->phamvidanboss(SCREEN_WIDTH , SCREEN_HEIGHT);
+                dan->phamvidanboss( SCREEN_WIDTH, SCREEN_HEIGHT );
                 dan->Render(screen);
             }
             else
@@ -322,6 +390,7 @@ void QUIVUONG::loaiboviendan( const int& index )
     {
         BulletObject* viendan = bang_dan_boss.at(index);
         bang_dan_boss.erase( bang_dan_boss.begin() + index);
+        bang_dan_boss[index]->free();
         if( viendan)
         {
             delete viendan;

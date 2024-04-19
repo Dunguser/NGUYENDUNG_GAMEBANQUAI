@@ -46,7 +46,7 @@ bool BaseObject :: LoadImage( const string& path, SDL_Renderer* screen )
 void BaseObject::Render(SDL_Renderer* des,SDL_Rect* clip)// in anh ra o dau, kich thuoc bao nhieu
 {
     SDL_Rect quad = {rect_.x,rect_.y,rect_.w,rect_.h};
-    assert(mTexture != nullptr);
+    //assert(mTexture != nullptr);
     SDL_RenderCopy( des, mTexture ,clip,&quad);
 }
 

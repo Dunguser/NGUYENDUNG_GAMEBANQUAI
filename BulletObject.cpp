@@ -66,8 +66,8 @@ bool BulletObject::TAI_ANH_DAN(SDL_Renderer*des)// tai cac loai dan
 
     if(loai_dan_ == DAN1_TRAI ) ret=LoadImage("IMG/DAN1_TRAI.png", des);
     else if(loai_dan_== DAN1_PHAI ) ret=LoadImage("IMG/DAN1_PHAI.png", des);
-    else if(loai_dan_ == DAN_QUI_PHAI ) ret=LoadImage("IMG/dan_qui_phai.png", des);
-    else if(loai_dan_  == DAN_QUI_TRAI )ret=LoadImage("IMG/dan_qui_trai.png", des);
+    else if(loai_dan_ == DAN_QUI_PHAI ) ret=LoadImage("IMG/QUAI/dan_qui_phai.png", des);
+    else if(loai_dan_  == DAN_QUI_TRAI )ret=LoadImage("IMG/QUAI/dan_qui_trai.png", des);
     else if(loai_dan_ == DAN_QUI_THUONG ) ret=LoadImage("IMG/dan_qui_thuong.png", des);
     else if ( loai_dan_ == ten_trai ) {ret = LoadImage ("IMG/QUAI/ten_trai.png" , des);}//cout<<"trai"<<endl;}
     else if (loai_dan_ == ten_phai ) {ret = LoadImage ( "IMG/QUAI/ten_phai.png" , des);}//cout<<"phai"<<endl;}

@@ -44,21 +44,21 @@ public:
         map_y_qui = map_y;
     }
 
-    void set_clips();// tao clip chuyen dong
+    void set_clips();                                                                   // tao clip chuyen dong
     bool LoadImage( const string &path, SDL_Renderer* screen );
 
-    void ShowQui(SDL_Renderer*des);// in ra man hinh
+    void ShowQui(SDL_Renderer*des);                                                     // in ra man hinh
 
     SDL_Rect GetRectFrame();
     int get_width_frame () const { return width_frame_ ;}
     int get_height_frame () const { return height_frame_ ;}
 
-    void DICHUYEN_QUI( MAP& map_data );// xu li di chuyen cho qui
-    void checktomap_qui( MAP& map_data );//kiem tra va cham
+    void DICHUYEN_QUI( MAP& map_data );                                                 // xu li di chuyen cho qui
+    void checktomap_qui( MAP& map_data );                                               //kiem tra va cham
 
     void khoitaoqui();
 
-    void set_gioi_han_dichuyen ( const int& pos_a, const int & pos_b )// set gioi han di chuyen
+    void set_gioi_han_dichuyen ( const int& pos_a, const int & pos_b )                  // set gioi han di chuyen
     {
         gioihan_trai = pos_a;
         gioihan_phai = pos_b;
@@ -67,41 +67,44 @@ public:
     void set_trang_thai_trai( const int& tttrai) { trang_thai_qui.sang_trai = tttrai; trang_thai_qui.sang_phai = 0;}
     void set_trang_thai_phai( const int& ttphai) { trang_thai_qui.sang_phai = ttphai; trang_thai_qui.sang_trai = 0;}
 
-    void Di_chuyen_trong_pham_vi( SDL_Renderer* screen, MAP& map_data );//xu li van de di chuyen trong pham vi a,b
+    void Di_chuyen_trong_pham_vi( SDL_Renderer* screen, MAP& map_data );                //xu li van de di chuyen trong pham vi a,b
 
-    int quay_dau_lam_bo( MAP & map_data ); //dam vao map thi quay lai
+    int quay_dau_lam_bo( MAP & map_data );                                              //dam vao map thi quay lai
 
     //cac ham set, get cho bang dan
     vector<BulletObject*> get_bang_dan_qui() { return bang_dan_qui ;}
     void set_bang_dan_qui( const vector< BulletObject* > & bdan) { bang_dan_qui = bdan ; }
 
-    void init_dan_qui ( BulletObject* dan_qui, SDL_Renderer* screen);// khoi tao vien dan
+    void init_dan_qui ( BulletObject* dan_qui, SDL_Renderer* screen);                   // khoi tao vien dan
     void pham_vi_bay_dan_qui( SDL_Renderer* des, const int& x_gioihan, const int& y_gioihan ,MAP& map_data);
 
-    void trungdan() { solantrungdan ++;} // quai bi trung dan
+    void trungdan() { solantrungdan ++;}                                                // quai bi trung dan
     int get_solantrungdan()const { return solantrungdan;}
 
     void loaiboviendan( const int& index );
 
     void set_va_bando ( const int kk){ va_bando = kk;}
 
+    //void loadmauqui ( SDL_Renderer* des , int x,int y);
+
+
 private:
-    int frame_; // so luong hinh anh trong cai anh qui
-    int width_frame_; // chieu dai 1 frame
+    int frame_;                                                                         // so luong hinh anh trong cai anh qui
+    int width_frame_;                                                                   // chieu dai 1 frame
     int height_frame_;
 
     SDL_Rect frame_clips[THREATS_FRAME_NUM];
 
-    bool tren_mat_dat;// co tren mat dat ko
+    bool tren_mat_dat;                                                                  // co tren mat dat ko
 
-    float x_qui_pos;//vi tri hien tai
+    float x_qui_pos;                                                                    //vi tri hien tai
     float y_qui_pos;
 
-    float x_change;// bien doi khi di chuyen
+    float x_change;                                                                     // bien doi khi di chuyen
     float y_change;
 
-    int map_x_qui;// 2 bien luu vi tri qui so voi map
-    int map_y_qui;// kiem tra roi xuong vuc
+    int map_x_qui;                                                                      // 2 bien luu vi tri qui so voi map
+    int map_y_qui;                                                                      // kiem tra roi xuong vuc
 
     int come_back_time_;
 

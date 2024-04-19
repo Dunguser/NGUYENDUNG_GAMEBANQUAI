@@ -77,15 +77,20 @@ namespace SDLCommonFunc
 }
 
 
-
-
 extern TTF_Font * gFont ; // phong chu
 extern TTF_Font * gFont2 ;
 extern Mix_Music * nhacnen ;//am thanh
 extern Mix_Chunk * bom  ;
 extern Mix_Chunk * danquino  ;
-extern Mix_Music* quaibichem ;
+extern Mix_Chunk* quaibichem ;
 
 #endif // COMMON_FUNCTION_H_
 
+//extern BaseObject tamdung;
+//extern BaseObject tamdung2;
+//extern SDL_Rect nutdung = { SCREEN_WIDTH - 80, 0, 80,78 };
+//extern SDL_Rect tieptuc = { 625 , 460 -32 , 115,40 };
+//extern SDL_Rect playagain = { 450, 800, 120, 71 };
+//extern SDL_Rect restart = { 600, 740 , 160 -32 , 60 };
+//extern SDL_Rect cut = { 625 , 670 -32 , 120 , 30};
 

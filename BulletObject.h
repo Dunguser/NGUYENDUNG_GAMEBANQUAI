@@ -72,7 +72,7 @@ public:
 
     //phan chinh sua
 
-    bool check_va_cham_map( MAP& map_data );// kien tra va cham voi map
+    bool check_va_cham_map( MAP& map_data );                        // kien tra va cham voi map
     void DI_CHUYEN_DAN( MAP& map_data );
 
     void phamvidanboss( const int x_gioihan , const int y_gioihan);
@@ -82,17 +82,17 @@ private:
     float x_vitri_dan;
     float y_vitri_dan;
 
-    float x_biendoi;// dan di chuyen dc bao nhieu// toc do dan
+    float x_biendoi;                                                // dan di chuyen dc bao nhieu// toc do dan
     float y_biendoi;
 
-    bool trong_man_hinh;// xem no co o trong man hinh ko
-    unsigned int huong_cua_dan;// quan li huong di chuyen cua dan
+    bool trong_man_hinh;                                            // xem no co o trong man hinh ko
+    unsigned int huong_cua_dan;                                     // quan li huong di chuyen cua dan
     unsigned int loai_dan_;
 
-    int width_frame_dan;// kich thuoc frame dan
+    int width_frame_dan;                                            // kich thuoc frame dan
     int height_frame_dan;
 
-    int map_x_;// mep moi cua ban do khi nhan vat di chuyen
+    int map_x_;                                                     // mep moi cua ban do khi nhan vat di chuyen
     int map_y_;
 
 };

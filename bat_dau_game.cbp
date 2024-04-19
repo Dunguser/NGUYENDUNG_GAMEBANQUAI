@@ -74,6 +74,8 @@
 		<Unit filename="kiemquay.cpp" />
 		<Unit filename="kiemquay.h" />
 		<Unit filename="main.cpp" />
+		<Unit filename="toancuc.cpp" />
+		<Unit filename="toancuc.h" />
 		<Unit filename="vuno.cpp" />
 		<Unit filename="vuno.h" />
 		<Extensions>
