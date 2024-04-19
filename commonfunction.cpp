@@ -48,7 +48,8 @@ Mix_Music * nhacnen = nullptr;//am thanh
 Mix_Chunk * bom = nullptr;
 Mix_Chunk * danquino = nullptr  ;
 Mix_Chunk* quaibichem = nullptr ;
-
+Mix_Chunk* tiengdam = nullptr ;
+Mix_Chunk* daulauno = nullptr ;
 
 //BaseObject tamdung;
 //BaseObject tamdung2;

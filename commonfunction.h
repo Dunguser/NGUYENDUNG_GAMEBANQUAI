@@ -83,6 +83,8 @@ extern Mix_Music * nhacnen ;//am thanh
 extern Mix_Chunk * bom  ;
 extern Mix_Chunk * danquino  ;
 extern Mix_Chunk* quaibichem ;
+extern Mix_Chunk* tiengdam ;
+extern Mix_Chunk* daulauno ;
 
 #endif // COMMON_FUNCTION_H_
 

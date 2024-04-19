@@ -83,6 +83,8 @@ public :
 
     void DICHUYENTHEO_NVC ( MainObject& kaka, SDL_Renderer *screen);
 
+    bool trangthaidam();
+
 private:
 
     int frame_; // so luong hinh anh trong cai anh qui

@@ -64,12 +64,12 @@ public:
     void capnhattrenmatdat( SDL_Renderer* des );
 
     bool get_roi_xuong_vuc();                                               // lay roi xuong vuc
-    void set_bang_dan(vector<BulletObject*> bu){ bangdan_nvc = bu; }        // cai dat bang dan
+    void set_bang_dan ( vector<BulletObject*> bu){ bangdan_nvc = bu; }        // cai dat bang dan
     vector<BulletObject*>get_bang_dan()const { return bangdan_nvc; }        // lay bang dan ra
 
     void KHOI_TAO_DAN_1 ( BulletObject* viendan, SDL_Renderer* screen );
     void KHOI_TAO_DAN_2 ( BulletObject* viendan, SDL_Renderer* screen );
-    void XU_LI_BAN_DAN  ( SDL_Renderer* des, const int& x_gioihan, const int& y_gioihan, MAP& map_data);// xu li ban dan cho nhan vat
+    void XU_LI_BAN_DAN  ( SDL_Renderer* des, const int& x_gioihan, const int& y_gioihan, MAP& map_data);    // xu li ban dan cho nhan vat
     void khoi_tao_kiem ( SDL_Renderer* des , Sword kiem );
 
     void loaiboviendan ( const int& index );                                // loai bo vien dan ngoai pham vi ban
@@ -114,7 +114,7 @@ public:
     void loadamthanh_nvc();
     void playmusic( Mix_Chunk* kaka) { Mix_PlayChannel ( -1, kaka , 0 ); }
 
-    TRANG_THAI_NHAN_VAT getTRANGTHAI_main()const { return trang_thai_vao;}      // lam cho con qui vuong
+    //TRANG_THAI_NHAN_VAT getTRANGTHAI_main( ) const { return trang_thai_vao;}      // lam cho con qui vuong
     int getstatus()const { return status_ ;}
     bool get_trenmatdat() const { return tren_mat_dat ;}
 
