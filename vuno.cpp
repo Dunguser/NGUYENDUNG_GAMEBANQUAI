@@ -40,7 +40,7 @@ void VUNO::set_clip()
 void VUNO :: show(SDL_Renderer* screen)
 {
     SDL_Rect* hientai = &frame_clip_[frame_];
-    SDL_Rect quad ={ rect_.x ,rect_.y ,frame_width , frame_height };
+    SDL_Rect quad = { rect_.x ,rect_.y ,frame_width , frame_height };
     if(hientai != nullptr)
     {
         quad.w = hientai->w;

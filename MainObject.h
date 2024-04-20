@@ -92,6 +92,7 @@ public:
     float get_y_hientai()const { return y_now_pos ; }
 
     int get_tienanduoc() const { return tien_an_duoc ; }
+    void set_tienanduoc( int a){ tien_an_duoc = a;}
 
     void set_comebacktime (const int & k){ come_back_time_ = k;}
 

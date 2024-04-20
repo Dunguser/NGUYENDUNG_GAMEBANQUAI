@@ -3,6 +3,7 @@
 // Khởi tạo các biến toàn cục
 BaseObject tamdung;
 BaseObject tamdung2;
+BaseObject anh_win;
 SDL_Rect nutdung = {SCREEN_WIDTH - 80, 0, 80, 78};
 SDL_Rect tieptuc = {625, 460 - 32, 115, 40};
 SDL_Rect playagain = {450, 800, 120, 71};
@@ -18,3 +19,7 @@ Sword kiem;
 SDL_Window * gWindow = nullptr;
 SDL_Renderer * gRenderer = nullptr;
 SDL_Event gEvent;
+VUNO qui_no ;
+VUNO nvc_no;
+VUNO daulau ;
+VUNO boss_tan_xac ;

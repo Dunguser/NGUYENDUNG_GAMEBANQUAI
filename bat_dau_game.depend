@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1713551164 source:e:\bat_dau_game\main.cpp
+1713606876 source:e:\bat_dau_game\main.cpp
 	<bits/stdc++.h>
 	<windows.h>
 	<SDL.h>
@@ -421,7 +421,7 @@
 	"begin_code.h"
 	"close_code.h"
 
-1713528708 source:e:\bat_dau_game\baseobject.cpp
+1713599080 source:e:\bat_dau_game\baseobject.cpp
 	"BaseObject.h"
 
 1713549757 source:e:\bat_dau_game\commonfunction.cpp
@@ -462,11 +462,11 @@
 	"BaseObject.h"
 	<bits/stdc++.h>
 
-1713549783 source:e:\bat_dau_game\mainobject.cpp
+1713606478 source:e:\bat_dau_game\mainobject.cpp
 	"MainObject.h"
 	"BulletObject.h"
 
-1713546457 e:\bat_dau_game\mainobject.h
+1713605229 e:\bat_dau_game\mainobject.h
 	<bits/stdc++.h>
 	"commonfunction.h"
 	"BaseObject.h"
@@ -603,7 +603,7 @@
 	"BaseObject.h"
 	<bits/stdc++.h>
 
-1712482293 source:e:\bat_dau_game\vuno.cpp
+1713602067 source:e:\bat_dau_game\vuno.cpp
 	"vuno.h"
 
 1712482118 e:\bat_dau_game\vuno.h
@@ -1403,11 +1403,11 @@
 1712482293 source:e:\bat_dau_game - sao chép\vuno.cpp
 	"vuno.h"
 
-1713542703 source:e:\bat_dau_game\quivuong.cpp
+1713604658 source:e:\bat_dau_game\quivuong.cpp
 	"QUIVUONG.h"
 	"BaseObject.h"
 
-1713542703 e:\bat_dau_game\quivuong.h
+1713598001 e:\bat_dau_game\quivuong.h
 	<bits/stdc++.h>
 	"commonfunction.h"
 	"BaseObject.h"
@@ -1428,12 +1428,13 @@
 	"BulletObject.h"
 	<bits/stdc++.h>
 
-1713529700 source:e:\bat_dau_game\toancuc.cpp
+1713603140 source:e:\bat_dau_game\toancuc.cpp
 	"toancuc.h"
 
-1713529700 e:\bat_dau_game\toancuc.h
+1713604658 e:\bat_dau_game\toancuc.h
 	<SDL.h>
 	"BaseObject.h"
 	"GAMEMAP.h"
 	"MainObject.h"
+	"vuno.h"
 

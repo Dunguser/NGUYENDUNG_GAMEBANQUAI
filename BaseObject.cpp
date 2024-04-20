@@ -60,5 +60,6 @@ void BaseObject::free()
         rect_.y=0;
         rect_.w=0;
         rect_.h=0;
+        //cout<<"free"<<endl;
     }
 }

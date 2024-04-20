@@ -85,6 +85,10 @@ public :
 
     bool trangthaidam();
 
+    void trungdan () { solantrungdan ++;}
+    void set_solan_boss_andan ( int a){ solantrungdan = a;}
+    int get_solan_boss_andan () const { return solantrungdan ;}
+
 private:
 
     int frame_; // so luong hinh anh trong cai anh qui
@@ -113,6 +117,8 @@ private:
     int status_boss ;
 
     MainObject kaka;
+
+    int solantrungdan;
 };
 
 

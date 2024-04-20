@@ -16,6 +16,8 @@ QUIVUONG::QUIVUONG ()
 
     frame_ = 0 ;
     trang_thai_boss.sang_trai = 1;
+
+    solantrungdan = 0 ;
 }
 QUIVUONG::~QUIVUONG()
 {
@@ -258,11 +260,12 @@ void QUIVUONG::DICHUYENTHEO_NVC( MainObject &kaka, SDL_Renderer* screen)
                 {
                     trang_thai_boss.dam_phai = 1;
                     trang_thai_boss.dam_trai = 0 ;
+                    cout<<"dam trai"<<" ";
                 }
                 else
                 {
                     trang_thai_boss.dam_trai = 1;
-                    trang_thai_boss.dam_phai = 0;
+                    trang_thai_boss.dam_phai = 0;cout<<"dam phai ";
                 }
             }
 
