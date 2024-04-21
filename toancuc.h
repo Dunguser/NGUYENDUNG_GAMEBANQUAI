@@ -6,23 +6,31 @@
 #include "GAMEMAP.h"
 #include "MainObject.h"
 #include "vuno.h"
+#include "QUIVUONG.h"
 //#include "Sword.h"
 
 extern BaseObject tamdung;
 extern BaseObject tamdung2;
 extern BaseObject anh_win;
+extern BaseObject messi;
+
 extern SDL_Rect nutdung;
 extern SDL_Rect tieptuc;
 extern SDL_Rect playagain;
 extern SDL_Rect restart;
 extern SDL_Rect cut;
+
 extern BaseObject anhdau;
 extern BaseObject anhcho;
 extern BaseObject gameover;
 extern BaseObject gBackground;
+
 extern GAMEMAP game_map;
 extern MainObject player_nvc;
+extern QUIVUONG quivuong;
+
 extern Sword kiem;
+extern Sword uatuc;
 
 extern SDL_Window* gWindow;
 extern SDL_Renderer* gRenderer;
@@ -33,5 +41,6 @@ extern VUNO qui_no ;
 extern VUNO nvc_no;
 extern VUNO daulau ;
 extern VUNO boss_tan_xac ;
+extern VUNO no_dam ;
 
 #endif // TOAN_CUC_

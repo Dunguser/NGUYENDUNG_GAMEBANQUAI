@@ -85,6 +85,7 @@ extern Mix_Chunk * danquino  ;
 extern Mix_Chunk* quaibichem ;
 extern Mix_Chunk* tiengdam ;
 extern Mix_Chunk* daulauno ;
+extern Mix_Chunk* vakiem;
 
 #endif // COMMON_FUNCTION_H_
 

@@ -85,9 +85,20 @@ public :
 
     bool trangthaidam();
 
-    void trungdan () { solantrungdan ++;}
-    void set_solan_boss_andan ( int a){ solantrungdan = a;}
-    int get_solan_boss_andan () const { return solantrungdan ;}
+    void trungdan ();
+    void set_solan_boss_andan ( int a ){ solantrungdan = a; }
+    int get_solan_boss_andan () const { return solantrungdan ; }
+
+    BaseObject mau_boss[4];
+    void load_cucmau_boss ( SDL_Renderer * des );
+    void show_mau_boss ( SDL_Renderer* des , int index);
+
+    Sword get_kiemboss () const { return kiem_boss;}
+    void sethanglanh( bool a ){ hanglanh = a;}
+    bool gethanglanh(){ return hanglanh ;}
+
+    void loadamthanh_boss();
+    void playmusic ( Mix_Chunk* tt ){ Mix_PlayChannel( -1 , tt , 0) ;}
 
 private:
 
@@ -119,6 +130,14 @@ private:
     MainObject kaka;
 
     int solantrungdan;
+
+    int frame_mau_boss ;
+
+    Sword kiem_boss;
+    bool hanglanh ;
+
+    Mix_Chunk* cung;
+    Mix_Chunk* dau;
 };
 
 

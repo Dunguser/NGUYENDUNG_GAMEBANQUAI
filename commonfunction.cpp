@@ -50,6 +50,7 @@ Mix_Chunk * danquino = nullptr  ;
 Mix_Chunk* quaibichem = nullptr ;
 Mix_Chunk* tiengdam = nullptr ;
 Mix_Chunk* daulauno = nullptr ;
+Mix_Chunk* vakiem = nullptr;
 
 //BaseObject tamdung;
 //BaseObject tamdung2;

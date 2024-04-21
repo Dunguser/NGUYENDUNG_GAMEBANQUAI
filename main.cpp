@@ -25,8 +25,6 @@ bool Init();
 bool LoadMedia();
 void close();
 
-QUIVUONG quivuong;
-
 void load_tat_ca_qui ( SDL_Renderer* des );         // load tat ca cac anh cua qui
 vector<ThreatsObject*> Make_Threat_List();          //tạo lập lớp threart object // lớp quỉ
 void load_all_boss (SDL_Renderer* des);
@@ -34,11 +32,12 @@ void load_all_boss (SDL_Renderer* des);
 void load_all_main (SDL_Renderer* des);
 
 
-
-void khoitaovuno( VUNO& qui_no);
+void khoitaono_dam (VUNO & nodam);
+void khoitaovuno ( VUNO& qui_no );
 void khoitaonhanvatchinh_no( VUNO& nvc_no );
 void khoitaonodaulau ( VUNO & daulau);
 void khoitaonoboss ( VUNO& boss_die);
+
 
 int main(int argc,char* argv[] )
 {
@@ -46,7 +45,7 @@ int main(int argc,char* argv[] )
     anhcho.SetRect(160,50);
     anhcho.Render(gRenderer,nullptr);
     SDL_RenderPresent(gRenderer);
-    SDL_Delay(1000);                                // ảnh chờ đầu tiên
+    SDL_Delay(1000);                                 // ảnh chờ đầu tiên
     anhdau.Render(gRenderer,nullptr);                // anh dau
     tamdung.SetRect(SCREEN_WIDTH - 80, 0 );
     tamdung2.SetRect(SCREEN_WIDTH / 2 - 100, SCREEN_HEIGHT / 3) ;
@@ -64,6 +63,7 @@ int main(int argc,char* argv[] )
     quivuong.set_clips();
     quivuong.set_x_bosspos ( 7400 );
     quivuong.set_y_bosspos ( 2500 );
+    quivuong.loadamthanh_boss();
 
     //load_all_dan_(gRenderer);
     vector<ThreatsObject*> threats_list = Make_Threat_List();       // khai bao 1 dong quai vat
@@ -77,6 +77,7 @@ int main(int argc,char* argv[] )
     khoitaonhanvatchinh_no(nvc_no);
     khoitaonodaulau (daulau);
     khoitaonoboss ( boss_tan_xac);
+    khoitaono_dam ( no_dam );
 
 
     TextObject thoi_gian_choi ;                                     // khai báo phông chữ thời gian chơi gamme
@@ -105,12 +106,11 @@ int main(int argc,char* argv[] )
     Uint32 thoigianhientai;
     bool ho = false;
     //
-    Sword kiem = player_nvc.getkiem();
-    if(!kiem.Loadkiem("IMG/kiem.png",gRenderer))
-    {
-        cout<< "haphuong" ;
-        return -100000;
-    }
+    kiem = player_nvc.getkiem();
+    if(!kiem.Loadkiem("IMG/kiem.png",gRenderer)) return -100000;
+    uatuc = quivuong.get_kiemboss();
+    if(!uatuc.Loadkiem("IMG/QUAI/kiemquai.png",gRenderer)) return -2000;
+
 
     bool quit = false;                                  // vong lap chinh
 
@@ -123,7 +123,10 @@ int main(int argc,char* argv[] )
     menu_.SetRect ( SCREEN_WIDTH / 2 - 180, SCREEN_HEIGHT / 3 - 60 );
 
     player_nvc.load_cucmau ( gRenderer);
+    quivuong.load_cucmau_boss ( gRenderer );
+
     int maumau = 0;
+    int mauboss = 0;
 
 
     int ret_menu = menu_.showmenu ( gRenderer, gFont2 );
@@ -135,6 +138,9 @@ int main(int argc,char* argv[] )
     int dem222 = 0;             // check bi trung dan quai thuong
     int dem2221 = 0;            // check bi trung dan quivuong
     int dem_dam = 0;            // check bi an dam
+    int bi_uatuc_chem = 0;
+    int qui_vuong_bichem = 0;
+    int boss_andan = 0;
 
     while(!quit)
     {
@@ -186,18 +192,18 @@ int main(int argc,char* argv[] )
                         duocbay.SetPos(900,10);
                         cai_time = true;
                         maumau = 0;
+                        mauboss = 0 ;
                         player_nvc.show_cucmau( gRenderer, maumau);
                         player_nvc.kichhoatchongchong( false );
                         player_nvc.kichhoathangnong( false );
                         quivuong.set_solan_boss_andan(0);
-                        //isPaused = false;
                     }
                     else if (SDLCommonFunc :: check_chuot_chon(xc, yc, cut))quit = true;
                     if( gameOver )
                     {
                         if(SDLCommonFunc::check_chuot_chon(xc,yc,playagain))
                         {
-                            cout<<"loi choi lai 2" <<endl ;
+//                            cout<<"loi choi lai 2" <<endl ;
                             gameOver = false;
                             game_map.LoadMap("MAP/map04.dat");              //xu li ban do: map
                             game_map.LoadTiles( gRenderer );
@@ -215,7 +221,7 @@ int main(int argc,char* argv[] )
                             threats_list = Make_Threat_List();              // khai bao 1 dong quai vat
                             so_qui_bi_giet = 0 ;
                             tong_tien = 0;
-                             player_nvc.set_tienanduoc(0);
+                            player_nvc.set_tienanduoc(0);
                             so_mang.set_chi_so_mang(1);
                             solanchetmax = so_mang.get_chi_so_mang();       // cout<<"so mang "<<solanchetmax<<endl;
                             solanchet = 0;
@@ -223,6 +229,7 @@ int main(int argc,char* argv[] )
                             duocbay.SetPos(900,10);
                             cai_time = true;
                             maumau = 0;
+                            mauboss = 0;
                             player_nvc.show_cucmau( gRenderer, maumau);
                             player_nvc.kichhoatchongchong( false );
                             player_nvc.kichhoathangnong( false );
@@ -261,19 +268,31 @@ int main(int argc,char* argv[] )
                     kiem.render_kiem( gRenderer, jj, ii, nullptr, nullptr, SDL_FLIP_NONE );
                 }
 
+
+                {// player_nvc
+
                 player_nvc.XU_LI_BAN_DAN ( gRenderer, SCREEN_WIDTH/2.5, SCREEN_HEIGHT / 2.5, map_data );   // xu li ban dan
                 player_nvc.SetMapXY ( map_data.start_x_, map_data.start_y_ );                           //xu li map di chuyen theo nhan vat
                 player_nvc.ShowMain ( gRenderer ) ;                                                     //hien nhan vat chinh
                 player_nvc.DiChuyenNhanVat( map_data );
                 player_nvc.show_cucmau ( gRenderer, maumau);
+                }
 
-                if( player_nvc.get_y_hientai() >= 1800 && player_nvc.get_x_hientai() >= 6000 && win_game == false)
+                if( player_nvc.get_y_hientai() >= 1800 && player_nvc.get_x_hientai() >= 6000 && win_game == false )  // qui vuong
                 {
                     quivuong.xulibossbandan(gRenderer);
                     quivuong.SetMapXY ( map_data.start_x_, map_data.start_y_ );
                     quivuong.DICHUYENTHEO_NVC ( player_nvc,gRenderer );
                     quivuong.showboss ( gRenderer );
                     quivuong.DICHUYEN_BOSS ( map_data );
+                    quivuong.show_mau_boss ( gRenderer, mauboss);
+                    if(quivuong.gethanglanh())
+                    {
+                        uatuc.change_gocquay(35);
+                        int jj = quivuong.GetRect().x - quivuong.get_width_frame() ;
+                        int ii = quivuong.GetRect().y - quivuong.get_height_frame() ;
+                        uatuc.render_kiem( gRenderer, jj, ii, nullptr, nullptr, SDL_FLIP_NONE );
+                    }
                 }
 
 
@@ -520,13 +539,30 @@ int main(int argc,char* argv[] )
 
                 // check an dam
                 bool andam = false;
-//                if(quivuong.trang_thai_boss.dam_phai == 1 || quivuong.trang_thai_boss.dam_trai == 1)
                 if(quivuong.trangthaidam())
                 {
                     andam = SDLCommonFunc ::CheckCollision(rect_nvc, quivuong.getrectframe());
                     if(andam)
                     {
-                        Mix_PlayChannel ( -1, tiengdam, 0 ); cout<<" an dam ";
+                        Mix_PlayChannel ( -1, tiengdam, 0 ); //cout<<" an dam ";
+                        for (int ex = 0; ex < num_frame_no; ex++)
+                        {
+                            int x_no,y_no;
+                            if( player_nvc.get_x_hientai()<quivuong.get_x_bosspos())
+                            {
+                                x_no = player_nvc.GetRect().x + player_nvc.get_width_frame() * 0.5;
+                                y_no = player_nvc.GetRect().y ;
+                            }
+                            else
+                            {
+                                x_no = player_nvc.GetRect().x ;
+                                y_no = player_nvc.GetRect().y ;
+                            }
+                            no_dam.set_frame(ex);
+                            no_dam.SetRect(x_no, y_no);
+                            no_dam.set_clip();
+                            no_dam.show( gRenderer );
+                        }
                         if ( player_nvc.get_x_hientai() < quivuong.get_x_bosspos () )
                         {
                             player_nvc.set_vitri_nvc ( player_nvc.get_x_hientai() - 5, player_nvc.get_y_hientai());
@@ -538,7 +574,7 @@ int main(int argc,char* argv[] )
                             dem_dam = 0 ;
                             player_nvc.trungdan();
                         }
-                        if (player_nvc.get_solantrungdan() >= 5)                 // an bao nhieu vien dan - so quai roi chet
+                        if ( player_nvc.get_solantrungdan() >= 5 )                 // an bao nhieu vien dan - so quai roi chet
                         {
                             solanchet++;
                             cout << "so lan da chet " << solanchet << endl;
@@ -565,6 +601,82 @@ int main(int argc,char* argv[] )
                     }
                 }
 
+                if( quivuong.gethanglanh() == true )
+                {
+                    SDL_Rect rect_kiem1 = uatuc.GetRect();
+                    SDL_Rect main_rect = player_nvc.GetRectFrame();
+                    int jj = quivuong.GetRect().x - quivuong.get_width_frame()  ;       //cout<<boss_rect.w <<" "<<boss_rect.h<<endl;;
+                    int ii = quivuong.GetRect().y - quivuong.get_height_frame()  ;
+                    SDL_Rect rect_uatuc = {jj,ii, rect_kiem1.w, rect_kiem1.h };
+                    bool main_an_uatuc = SDLCommonFunc :: CheckCollision( rect_uatuc, main_rect );
+                    if(main_an_uatuc)
+                    {
+                        cout<<"uat uc " <<endl;
+                        Mix_PlayChannel ( -1, quaibichem, 0 );
+                        player_nvc.setbitrungdan( true);
+                        for (int ex = 0; ex < num_frame_no; ex++)
+                        {
+                            int x_no = player_nvc.GetRect().x - player_nvc.get_width_frame() * 0.5;
+                            int y_no = player_nvc.GetRect().y - player_nvc.get_height_frame() * 0.5;
+
+                            daulau.set_frame(ex);
+                            daulau.SetRect(x_no, y_no);
+                            daulau.set_clip();
+                            daulau.show( gRenderer );
+                        }
+                        bi_uatuc_chem ++ ;
+                        if ( bi_uatuc_chem >= 100 )
+                        {
+                            player_nvc.trungdan();
+                            bi_uatuc_chem = 0;
+                        }
+
+                        if (player_nvc.get_solantrungdan() >= 5 )                    // an bao nhieu vien dan - so quai roi chet
+                        {
+                            solanchet ++ ;
+                            cout << "so lan da chet " << solanchet << endl;
+                            if ( solanchet < solanchetmax )
+                            {
+                                player_nvc.set_vitri_nvc( player_nvc.get_x_hientai() - 100, player_nvc.get_y_hientai() + 500 );
+                                so_mang.giammang();
+                                so_mang.Render( gRenderer );
+                                player_nvc.set_comebacktime ( 10 );
+                                player_nvc.set_solantrungdan(0);
+                            }
+                            else
+                            {
+                                for (auto obj : threats_list)                       // giai phong bo nho da cap phat
+                                {
+                                    obj->free();
+                                    obj = nullptr;
+                                }
+                                threats_list.clear();
+                                quivuong.free();
+                                gameOver = true;
+                            }
+                        }
+                    }
+                }
+                // check 2 kiem va nhau
+                if( quivuong.gethanglanh() == true && player_nvc.gethangnong() == true && abs(player_nvc.get_x_hientai()- quivuong.get_x_bosspos()) <= 600)
+                {
+                    SDL_Rect rect_kiem1 = uatuc.GetRect();
+                    int jj = quivuong.GetRect().x - quivuong.get_width_frame()  ;       //cout<<boss_rect.w <<" "<<boss_rect.h<<endl;;
+                    int ii = quivuong.GetRect().y - quivuong.get_height_frame()  ;
+                    SDL_Rect rect_uatuc = {jj,ii, rect_kiem1.w, rect_kiem1.h };
+
+                    SDL_Rect rect2 = kiem.GetRect();
+                    int jj1 = player_nvc.GetRect().x - player_nvc.get_width_frame()  ;       //cout<<boss_rect.w <<" "<<boss_rect.h<<endl;;
+                    int ii1 = player_nvc.GetRect().y - player_nvc.get_height_frame()  ;
+                    SDL_Rect rect_kiem = {jj1,ii1, rect2.w, rect2.h };
+
+                    if(SDLCommonFunc::CheckCollision(rect_uatuc, rect_kiem))
+                    {
+                        Mix_PlayChannel(-1,vakiem,0);
+                        //cout<<"co nhe em oi"<<endl;
+                    }
+
+                }
 
                 // check boss an hanh
                 // vector<BulletObject*> dan_nvc = player_nvc.get_bang_dan();          // lấy ra băng đạn của nhân vật chính
@@ -576,7 +688,7 @@ int main(int argc,char* argv[] )
                         SDL_Rect boss_rect = quivuong.getrectframe();
                         SDL_Rect dan_rect = dan->GetRect();                 // dan khong co nhieu frame nen ko can get frame
                         bool qui_an_dan = SDLCommonFunc::CheckCollision( dan_rect, boss_rect);
-                        if(qui_an_dan)
+                        if( qui_an_dan )
                         {
                             Mix_PlayChannel( -1, bom, 0 );                        //cout<<"qui "<<qui_rect.x <<" "<< dan_rect.x<<endl;
                             for(int no = 0 ; no < num_frame_no ; no ++)     // xu li anh no
@@ -589,8 +701,14 @@ int main(int argc,char* argv[] )
                                 qui_no.show ( gRenderer );
                             }
                             player_nvc.loaiboviendan(i);
-                            quivuong.trungdan();
-                            if ( quivuong.get_solan_boss_andan() ==  40 )
+                            boss_andan++;
+                            if(boss_andan >= 1 )
+                            {
+                                quivuong.trungdan();
+                                boss_andan = 0;
+                            }
+
+                            if ( quivuong.get_solan_boss_andan() ==  3 )
                             {
                                 Uint32 startTime = SDL_GetTicks(); // Thời gian bắt đầu hiển thị boss_tan_xac
                                 Uint32 elapsedTime = 0;
@@ -611,7 +729,8 @@ int main(int argc,char* argv[] )
 
                                 qui_no.free();
                                 quivuong.free();
-                                SDL_Delay(2000);
+                                cout<<"an mup 1"<<endl;
+                                SDL_Delay( 2000 );
                                 SDL_RenderPresent(gRenderer);
                                 win_game = true;
                             }
@@ -631,8 +750,8 @@ int main(int argc,char* argv[] )
                         bool qui_an_kiem = SDLCommonFunc :: CheckCollision( rect_kiem, boss_rect );
                         if(qui_an_kiem)
                         {
-                            cout<<"an kiem"<<endl;
-                            Mix_PlayChannel ( -1, quaibichem, 0);
+                            //cout<<"an kiem"<<endl;
+                            Mix_PlayChannel ( -1, quaibichem, 0 );
                             for(int no = 0 ; no < num_frame_no ; no ++)                         // xu li anh no
                             {
                                 int x_pos = quivuong.GetRect().x ;                                 // vi tri no la vi tri qui
@@ -641,19 +760,24 @@ int main(int argc,char* argv[] )
                                 qui_no .SetRect( x_pos, y_pos );
                                 qui_no.show(gRenderer);
                             }
-                            quivuong.trungdan();
-                            if( quivuong.get_solan_boss_andan() ==  10000 )
+                            qui_vuong_bichem ++;
+                            if ( qui_vuong_bichem >= 10)
+                            {
+                                quivuong.trungdan();
+                                qui_vuong_bichem = 0 ;
+                            }
+                            if( quivuong.get_solan_boss_andan() ==  3 )
                             {
                                 Uint32 startTime = SDL_GetTicks(); // Thời gian bắt đầu hiển thị boss_tan_xac
                                 Uint32 elapsedTime = 0;
-                                while (elapsedTime < 1000)   // Hiển thị boss_tan_xac trong 3 giây
+                                while ( elapsedTime < 3000 )   // Hiển thị boss_tan_xac trong 3 giây
                                 {
                                     for (int no = 0; no < num_frame_no; no++)   // xử lí ảnh nổ
                                     {
                                         int x_pos = quivuong.GetRect().x; // vị trí nổ là vị trí quái
                                         int y_pos = quivuong.GetRect().y;
                                         boss_tan_xac.set_frame(no);
-                                        boss_tan_xac.SetRect(x_pos, y_pos);
+                                        boss_tan_xac.SetRect(x_pos - 80, y_pos - 75 );
                                         boss_tan_xac.show(gRenderer);
                                     }
                                     SDL_RenderPresent(gRenderer);
@@ -672,51 +796,54 @@ int main(int argc,char* argv[] )
                 // phong chu tinh thoi gian choi
                 {
 
-                string time = " TIME : ";
-                Uint32 thoi_gian = SDL_GetTicks()/1000 ;
-                Uint32 time_play = thoi_gian - last_time + 1 ;
-                if(cai_time) //
-                {
-                    last_time = thoi_gian ;
-                    time_play = thoi_gian - last_time + 1 ;
-                    cai_time = false;
+                    string time = " TIME : ";
+                    Uint32 thoi_gian = SDL_GetTicks()/1000 ;
+                    Uint32 time_play = thoi_gian - last_time + 1 ;
+                    if(cai_time) //
+                    {
+                        last_time = thoi_gian ;
+                        time_play = thoi_gian - last_time + 1 ;
+                        cai_time = false;
+                    }
+                    string show_time_play = to_string ( time_play ) ;
+                    time += show_time_play ;
+                    thoi_gian_choi.SetText( time ) ;
+                    thoi_gian_choi.LoadFromRenderText( gFont, gRenderer) ;
+                    thoi_gian_choi.RenderText( gRenderer, SCREEN_WIDTH - 180, 20 ) ;
+
+                    string da_diet = "KILLED : ";
+                    string showkill = to_string( so_qui_bi_giet );
+                    da_diet += showkill;
+                    da_giet.SetText ( da_diet );
+                    da_giet.LoadFromRenderText( gFont, gRenderer );
+                    da_giet.RenderText( gRenderer, SCREEN_WIDTH - 180, 50 );
+
+                    string tien_hientai = "MONEY : ";
+                    tien_hientai = "MONEY : ";
+                    tong_tien = player_nvc.get_tienanduoc();
+                    string show_tien = to_string (tong_tien);
+                    tien_hientai += show_tien;
+                    antien.SetText ( tien_hientai );
+                    antien.LoadFromRenderText ( gFont, gRenderer );
+                    antien.RenderText ( gRenderer, SCREEN_WIDTH - 180, 80 );
+
+                    SDL_RenderPresent(gRenderer);                               //xuat ra man hinh hien tai
+
+                    // thoi gian cham lai ---------------------------------------------------------
+                    {
+
+                    ImpTimer fps_timer;
+                    int real_imp_time = fps_timer.get_ticks();
+                    int time_one_frame = 1000/FRAME_PER_SECOND;
+                    if( real_imp_time < time_one_frame)
+                    {
+                        int delay_time = time_one_frame - real_imp_time;
+                        if(delay_time > 0) SDL_Delay(delay_time);
+                    }
+                    thoi_gian_choi.Free() ;
+                    antien.Free() ;
+                    }
                 }
-                string show_time_play = to_string ( time_play ) ;
-                time += show_time_play ;
-                thoi_gian_choi.SetText( time ) ;
-                thoi_gian_choi.LoadFromRenderText( gFont, gRenderer) ;
-                thoi_gian_choi.RenderText( gRenderer, SCREEN_WIDTH - 180, 20 ) ;
-
-                string da_diet = "KILLED : ";
-                string showkill = to_string( so_qui_bi_giet );
-                da_diet += showkill;
-                da_giet.SetText ( da_diet );
-                da_giet.LoadFromRenderText( gFont, gRenderer );
-                da_giet.RenderText( gRenderer, SCREEN_WIDTH - 180, 50 );
-
-                string tien_hientai = "MONEY : ";
-                tien_hientai = "MONEY : ";
-                tong_tien = player_nvc.get_tienanduoc();
-                string show_tien = to_string (tong_tien);
-                tien_hientai += show_tien;
-                antien.SetText ( tien_hientai );
-                antien.LoadFromRenderText ( gFont, gRenderer );
-                antien.RenderText ( gRenderer, SCREEN_WIDTH - 180, 80 );
-
-                SDL_RenderPresent(gRenderer);                               //xuat ra man hinh hien tai
-
-                // thoi gian cham lai ---------------------------------------------------------
-                ImpTimer fps_timer;
-                int real_imp_time = fps_timer.get_ticks();
-                int time_one_frame = 1000/FRAME_PER_SECOND;
-                if( real_imp_time < time_one_frame)
-                {
-                    int delay_time = time_one_frame - real_imp_time;
-                    if(delay_time > 0) SDL_Delay(delay_time);
-                }
-                thoi_gian_choi.Free() ;
-                antien.Free() ;
-            }
             }
 
             else if( gameOver && !win_game)
@@ -726,25 +853,12 @@ int main(int argc,char* argv[] )
             }
             else if ( win_game && !gameOver)
             {
-//                Mix_PlayChannel ( -1, quaibichem, 0);
-//                Uint32 startTime = SDL_GetTicks(); // Thời gian bắt đầu hiển thị boss_tan_xac
-//                Uint32 elapsedTime = 0;
-//
-//                while (elapsedTime < 1000)   // Hiển thị boss_tan_xac trong 3 giây
-//                {
-//                    for (int no = 0; no < num_frame_no; no++)   // xử lí ảnh nổ
-//                    {
-//                        int x_pos = quivuong.GetRect().x; // vị trí nổ là vị trí quái
-//                        int y_pos = quivuong.GetRect().y;
-//                        boss_tan_xac.set_frame(no);
-//                        boss_tan_xac.SetRect(x_pos, y_pos);
-//                        boss_tan_xac.show(gRenderer);
-//                    }
-//                    SDL_RenderPresent(gRenderer);
-//
-//                    elapsedTime = SDL_GetTicks() - startTime; // Tính thời gian đã trôi qua
-//                }
-                boss_tan_xac.free();
+                //boss_tan_xac.free();
+                messi.SetRect ( 164, 0 );
+                messi.Render( gRenderer );
+                SDL_RenderPresent (gRenderer);
+                SDL_Delay ( 3000 );
+                messi.free();
                 anh_win.Render(gRenderer, nullptr);
                 SDL_RenderPresent(gRenderer);
             }
@@ -899,6 +1013,11 @@ bool LoadMedia()// tai anh nen
         cout<<IMG_GetError();
         return 0;
     }
+    if(!messi.LoadImage("IMG/botro/messi.png",gRenderer))
+    {
+        cout<<IMG_GetError();
+        return 0;
+    }
 
     gFont = TTF_OpenFont ("FONT/turok.ttf",24);
     gFont2 = TTF_OpenFont ("FONT/starcraft.ttf",40);
@@ -919,6 +1038,7 @@ bool LoadMedia()// tai anh nen
     danquino = Mix_LoadWAV("sound/danquino.wav");
     tiengdam = Mix_LoadWAV("sound/tiengandam.mp3");
     daulauno = Mix_LoadWAV("sound/explosion.wav");
+    vakiem = Mix_LoadWAV("sound/vakiem.mp3");
     return 1;
 }
 void close()
@@ -940,6 +1060,8 @@ void close()
     quaibichem = nullptr ;
     Mix_FreeChunk(tiengdam);
     tiengdam = nullptr;
+    Mix_FreeChunk(vakiem);
+    vakiem = nullptr;
 
     SDL_Quit();
     IMG_Quit();
@@ -955,7 +1077,10 @@ void close()
     anhcho.free();
     gameover.free();
 
+    kiem.free();
+
     for ( int i = 0 ; i < 6 ; i++ ) player_nvc.cucmau[i].free();
+    for ( int i = 0; i< 4 ; i++) quivuong.mau_boss[i].free();
 
 }
 void khoitaovuno(VUNO &qui_no)
@@ -982,6 +1107,13 @@ void khoitaonoboss ( VUNO& boss_die)
     bool tret = boss_die.LoadImage ("IMG/QUAI/nguyentu.png",gRenderer);
     if(tret == false) cout<<" falied to load explosion nvc"<<endl;
     boss_die.set_clip();
+}
+
+void khoitaono_dam (VUNO & nodam)
+{
+    bool tret = no_dam.LoadImage ("IMG/QUAI/no_dam.png",gRenderer);
+    if(tret == false) cout<<" falied to load explosion nvc"<<endl;
+    no_dam.set_clip();
 }
 
 //
@@ -1037,3 +1169,23 @@ void khoitaonoboss ( VUNO& boss_die)
 //VUNO nvc_no;
 //VUNO daulau ;
 //VUNO boss_tan_xac ;
+
+
+//                Mix_PlayChannel ( -1, quaibichem, 0);
+//                Uint32 startTime = SDL_GetTicks(); // Thời gian bắt đầu hiển thị boss_tan_xac
+//                Uint32 elapsedTime = 0;
+//
+//                while (elapsedTime < 1000)   // Hiển thị boss_tan_xac trong 3 giây
+//                {
+//                    for (int no = 0; no < num_frame_no; no++)   // xử lí ảnh nổ
+//                    {
+//                        int x_pos = quivuong.GetRect().x; // vị trí nổ là vị trí quái
+//                        int y_pos = quivuong.GetRect().y;
+//                        boss_tan_xac.set_frame(no);
+//                        boss_tan_xac.SetRect(x_pos, y_pos);
+//                        boss_tan_xac.show(gRenderer);
+//                    }
+//                    SDL_RenderPresent(gRenderer);
+//
+//                    elapsedTime = SDL_GetTicks() - startTime; // Tính thời gian đã trôi qua
+//                }

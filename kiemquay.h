@@ -10,8 +10,8 @@ public:
     ~Sword();
     void SetRect( const int &x, const int &y)
     {
-        rect_kiem.x=x;
-        rect_kiem.y=y;
+        rect_kiem.x = x;
+        rect_kiem.y = y;
     }
     SDL_Rect GetRect() const { return rect_kiem;  }
     SDL_Texture* GetTexture() const { return Texture_kiem; }
