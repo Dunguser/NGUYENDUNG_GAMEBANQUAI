@@ -42,6 +42,12 @@ bool SDLCommonFunc:: check_chuot_chon (int x,int y, SDL_Rect rect)
     return false;
 }
 
+
+SDL_Window * gWindow = nullptr;
+SDL_Renderer * gRenderer = nullptr;
+SDL_Event gEvent;
+
+
 TTF_Font * gFont = nullptr ; // phong chu
 TTF_Font * gFont2 = nullptr;
 Mix_Music * nhacnen = nullptr;//am thanh

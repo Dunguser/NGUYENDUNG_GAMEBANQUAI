@@ -22,7 +22,7 @@ void PlayerPower ::Show (SDL_Renderer* screen)
 }
 void PlayerPower :: Init(SDL_Renderer* screen,const string& path)
 {
-    LoadImage( path.c_str() , screen );
+    LoadImage( path.c_str(), screen );
     if( (int)vitri_omang.size()>0 ) vitri_omang.clear();
     for(int i = 0; i < chi_so_mang; i++)
     {

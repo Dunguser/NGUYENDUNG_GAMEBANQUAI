@@ -1,9 +1,6 @@
 #ifndef THREATS_OBJECT_H_
 #define THREATS_OBJECT_H
 
-
-#include "commonfunction.h"
-#include "BaseObject.h"
 #include "BulletObject.h"
 
 using namespace std;

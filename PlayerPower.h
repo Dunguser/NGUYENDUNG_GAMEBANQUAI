@@ -12,7 +12,6 @@ public :
     PlayerPower();
     ~PlayerPower ();
 
-    void SetNum (const int& num){ chi_so_mang = num ;}
     void AddPos (const int& xPos);
 
     void Show(SDL_Renderer* screen);

@@ -49,10 +49,10 @@ void ThreatsObject::set_clips()// tao clip chuyen dong
     {
         for(int i=0; i<THREATS_FRAME_NUM; i++)
         {
-            frame_clips[i].w=width_frame_;
-            frame_clips[i].h=height_frame_;
-            frame_clips[i].y=0;
-            frame_clips[i].x=i*width_frame_;
+            frame_clips[i].w = width_frame_;
+            frame_clips[i].h = height_frame_;
+            frame_clips[i].y = 0;
+            frame_clips[i].x = i*width_frame_;
         }
     }
 }
@@ -172,7 +172,7 @@ void ThreatsObject::checktomap_qui( MAP&map_data )
         {
             int val1 = map_data.tile[y1][x1];
             int val2 = map_data.tile[y1][x2];
-            if((val1 != O_TRONG&&val1!=4)||(val2!=O_TRONG&&val2!=4))
+            if((val1 != O_TRONG && val1!=4)||(val2!=O_TRONG&&val2!=4))
             {
                 y_qui_pos = ( y1 + sai_so_can_co )*TILE_SIZE;
                 y_change = 0;
@@ -182,7 +182,11 @@ void ThreatsObject::checktomap_qui( MAP&map_data )
     // neu ko xay ra va cham voi cai nao
     x_qui_pos += x_change;
     y_qui_pos += y_change;
-    if(x_qui_pos<0) x_qui_pos = 0;
+    if(x_qui_pos<0)
+    {
+        x_qui_pos = 0;
+        va_bando = cham_trai;
+    }
     if(x_qui_pos + width_frame_ > map_data.max_x_) x_qui_pos = map_data.max_x_ - width_frame_ - sai_so_can_co;
     if( y_qui_pos >= map_data.max_y_ ) come_back_time_ = 10;
 }
@@ -211,10 +215,7 @@ void ThreatsObject::init_dan_qui (BulletObject* dan_qui, SDL_Renderer* screen)//
     if(dan_qui != nullptr)
     {
         dan_qui->set_loai_dan( BulletObject::DAN_QUI_THUONG );
-        //dan_qui = &dan_[DAN_QUI_THUONG];
         dan_qui->TAI_ANH_DAN(screen);
-//        dan_qui->Render(screen,nullptr);
-//        dan_[DAN_QUI_THUONG].Render(screen,nullptr);
         if( trang_thai_qui.sang_trai == 1 )
         {
             dan_qui->set_huongdan( BulletObject :: ban_dan_trai );
@@ -227,7 +228,7 @@ void ThreatsObject::init_dan_qui (BulletObject* dan_qui, SDL_Renderer* screen)//
         }
 
         SDL_Rect quad = {dan_qui->GetRect().x, dan_qui->GetRect().y, dan_qui->GetRect().w, dan_qui->GetRect().h};
-        SDL_RenderCopy(screen , dan_[DAN_QUI_THUONG].GetTexture() ,nullptr, &quad );
+        SDL_RenderCopy(screen, dan_[DAN_QUI_THUONG].GetTexture(),nullptr, &quad );
 
         dan_qui->set_x_biendoi(15);
         bang_dan_qui.push_back(dan_qui);

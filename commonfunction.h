@@ -15,6 +15,11 @@ using namespace std;
 
 
 //screen
+extern SDL_Window* gWindow;
+extern SDL_Renderer* gRenderer;
+extern SDL_Event gEvent;
+
+
 const int SCREEN_WIDTH=1280 ;
 const int SCREEN_HEIGHT=960;
 
