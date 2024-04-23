@@ -226,10 +226,6 @@ void ThreatsObject::init_dan_qui (BulletObject* dan_qui, SDL_Renderer* screen)//
             dan_qui->set_huongdan( BulletObject :: ban_dan_phai);
             dan_qui->SetRect( rect_.x + 15, y_qui_pos + 10 );
         }
-
-        SDL_Rect quad = {dan_qui->GetRect().x, dan_qui->GetRect().y, dan_qui->GetRect().w, dan_qui->GetRect().h};
-        SDL_RenderCopy(screen, dan_[DAN_QUI_THUONG].GetTexture(),nullptr, &quad );
-
         dan_qui->set_x_biendoi(15);
         bang_dan_qui.push_back(dan_qui);
     }

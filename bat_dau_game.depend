@@ -450,10 +450,10 @@
 	"BaseObject.h"
 	<bits/stdc++.h>
 
-1713725126 source:e:\bat_dau_game\mainobject.cpp
+1713882929 source:e:\bat_dau_game\mainobject.cpp
 	"MainObject.h"
 
-1713725126 e:\bat_dau_game\mainobject.h
+1713874765 e:\bat_dau_game\mainobject.h
 	<bits/stdc++.h>
 	<SDL.h>
 	<SDL_image.h>
@@ -482,7 +482,7 @@
 	"commonfunction.h"
 	"all_anh_nvc.h"
 
-1713794072 source:e:\bat_dau_game\threatsobject.cpp
+1713881892 source:e:\bat_dau_game\threatsobject.cpp
 	"ThreatsObject.h"
 	"MainObject.h"
 	<SDL_image.h>
@@ -607,17 +607,17 @@
 1713502810 source:e:\bat_dau_game\textobject.cpp
 	"TextObject.h"
 
-1713794644 e:\bat_dau_game\playerpower.h
+1713809445 e:\bat_dau_game\playerpower.h
 	"commonfunction.h"
 	"BaseObject.h"
 
-1713794644 source:e:\bat_dau_game\playerpower.cpp
+1713809573 source:e:\bat_dau_game\playerpower.cpp
 	"PlayerPower.h"
 
-1713029485 source:e:\bat_dau_game\menu.cpp
+1713887715 source:e:\bat_dau_game\menu.cpp
 	"MENU.h"
 
-1712675643 e:\bat_dau_game\menu.h
+1713887665 e:\bat_dau_game\menu.h
 	"commonfunction.h"
 	"TextObject.h"
 
@@ -1305,15 +1305,18 @@
 1713668066 e:\bat_dau_game - sao chép\kiemquay.h
 	"commonfunction.h"
 
-1713729254 source:e:\bat_dau_game - sao chép\main.cpp
+1713791108 source:e:\bat_dau_game - sao chép\main.cpp
 	"toancuc.h"
 	"game_functions.h"
 	"Game_Object.h"
 	"Init_Game.h"
-	"ImpTimer.h"
 	"HandleEvent.h"
+	"Ho_tro.h"
+	"game_render.h"
+	"CHECK_VA_CHAM.h"
+	"CHE_DO_GAME.h"
 
-1713725126 e:\bat_dau_game - sao chép\mainobject.h
+1713874765 e:\bat_dau_game - sao chép\mainobject.h
 	<bits/stdc++.h>
 	<SDL.h>
 	<SDL_image.h>
@@ -1342,24 +1345,24 @@
 	<bits/stdc++.h>
 	<SDL_ttf.h>
 
-1712850508 e:\bat_dau_game - sao chép\playerpower.h
+1713809445 e:\bat_dau_game - sao chép\playerpower.h
 	"commonfunction.h"
 	"BaseObject.h"
 
-1712675643 e:\bat_dau_game - sao chép\menu.h
+1713887665 e:\bat_dau_game - sao chép\menu.h
 	"commonfunction.h"
 	"TextObject.h"
 
-1713725126 source:e:\bat_dau_game - sao chép\mainobject.cpp
+1713882929 source:e:\bat_dau_game - sao chép\mainobject.cpp
 	"MainObject.h"
 
-1713029485 source:e:\bat_dau_game - sao chép\menu.cpp
+1713887715 source:e:\bat_dau_game - sao chép\menu.cpp
 	"MENU.h"
 
-1713459304 source:e:\bat_dau_game - sao chép\playerpower.cpp
+1713809573 source:e:\bat_dau_game - sao chép\playerpower.cpp
 	"PlayerPower.h"
 
-1713672235 source:e:\bat_dau_game - sao chép\quivuong.cpp
+1713882364 source:e:\bat_dau_game - sao chép\quivuong.cpp
 	"QUIVUONG.h"
 	"BaseObject.h"
 
@@ -1369,7 +1372,7 @@
 1713502810 source:e:\bat_dau_game - sao chép\textobject.cpp
 	"TextObject.h"
 
-1713466148 source:e:\bat_dau_game - sao chép\threatsobject.cpp
+1713881892 source:e:\bat_dau_game - sao chép\threatsobject.cpp
 	"ThreatsObject.h"
 	"MainObject.h"
 	<SDL_image.h>
@@ -1378,7 +1381,7 @@
 1713602067 source:e:\bat_dau_game - sao chép\vuno.cpp
 	"vuno.h"
 
-1713789010 source:e:\bat_dau_game\quivuong.cpp
+1713882364 source:e:\bat_dau_game\quivuong.cpp
 	"QUIVUONG.h"
 	"BaseObject.h"
 
@@ -1395,10 +1398,10 @@
 	"MainObject.h"
 	"all_anh_qui.h"
 
-1713463834 source:e:\bat_dau_game\all_anh_nvc.cpp
+1713881605 source:e:\bat_dau_game\all_anh_nvc.cpp
 	"all_anh_nvc.h"
 
-1713464185 e:\bat_dau_game\all_anh_nvc.h
+1713881605 e:\bat_dau_game\all_anh_nvc.h
 	"BaseObject.h"
 	"BulletObject.h"
 	<bits/stdc++.h>
@@ -1635,10 +1638,10 @@
 1713602067 source:e:\bat_dau_game -(2)\vuno.cpp
 	"vuno.h"
 
-1713463834 source:e:\bat_dau_game - sao chép\all_anh_nvc.cpp
+1713881605 source:e:\bat_dau_game - sao chép\all_anh_nvc.cpp
 	"all_anh_nvc.h"
 
-1713464185 e:\bat_dau_game - sao chép\all_anh_nvc.h
+1713881605 e:\bat_dau_game - sao chép\all_anh_nvc.h
 	"BaseObject.h"
 	"BulletObject.h"
 	<bits/stdc++.h>
@@ -1656,7 +1659,7 @@
 	"MainObject.h"
 	"all_anh_qui.h"
 
-1713727169 e:\bat_dau_game - sao chép\toancuc.h
+1713786035 e:\bat_dau_game - sao chép\toancuc.h
 	<bits/stdc++.h>
 	<windows.h>
 	<SDL.h>
@@ -1677,7 +1680,7 @@
 	"kiemquay.h"
 	"all_anh_nvc.h"
 
-1713727169 source:e:\bat_dau_game - sao chép\toancuc.cpp
+1713786461 source:e:\bat_dau_game - sao chép\toancuc.cpp
 	"toancuc.h"
 
 1713728769 source:e:\bat_dau_game - sao chép\game_functions.cpp
@@ -1687,21 +1690,21 @@
 	"toancuc.h"
 	"Game_Object.h"
 
-1713726451 source:e:\bat_dau_game - sao chép\game_object.cpp
+1713877569 source:e:\bat_dau_game - sao chép\game_object.cpp
 	"Game_Object.h"
 
-1713726407 e:\bat_dau_game - sao chép\game_object.h
+1713873792 e:\bat_dau_game - sao chép\game_object.h
 	"toancuc.h"
 	"ThreatsObject.h"
 
-1713728035 source:e:\bat_dau_game - sao chép\init_game.cpp
+1713886943 source:e:\bat_dau_game - sao chép\init_game.cpp
 	"Init_Game.h"
 
 1713728035 e:\bat_dau_game - sao chép\init_game.h
 	"game_functions.h"
 	"Game_Object.h"
 
-1713728748 source:e:\bat_dau_game - sao chép\handleevent.cpp
+1713795375 source:e:\bat_dau_game - sao chép\handleevent.cpp
 	"HandleEvent.h"
 
 1713728747 e:\bat_dau_game - sao chép\handleevent.h
@@ -1717,11 +1720,11 @@
 	"toancuc.h"
 	"Game_Object.h"
 
-1713726407 e:\bat_dau_game\game_object.h
+1713873792 e:\bat_dau_game\game_object.h
 	"toancuc.h"
 	"ThreatsObject.h"
 
-1713726451 source:e:\bat_dau_game\game_object.cpp
+1713877569 source:e:\bat_dau_game\game_object.cpp
 	"Game_Object.h"
 
 1713795375 source:e:\bat_dau_game\handleevent.cpp
@@ -1737,10 +1740,10 @@
 	"game_functions.h"
 	"Game_Object.h"
 
-1713795375 source:e:\bat_dau_game\init_game.cpp
+1713886943 source:e:\bat_dau_game\init_game.cpp
 	"Init_Game.h"
 
-1713784218 source:e:\bat_dau_game\ho_tro.cpp
+1713887868 source:e:\bat_dau_game\ho_tro.cpp
 	"Ho_tro.h"
 
 1713784218 e:\bat_dau_game\ho_tro.h
@@ -1748,7 +1751,7 @@
 	"ImpTimer.h"
 	<string>
 
-1713785422 source:e:\bat_dau_game\game_render.cpp
+1713795902 source:e:\bat_dau_game\game_render.cpp
 	"game_render.h"
 
 1713785462 e:\bat_dau_game\game_render.h
@@ -1780,4 +1783,45 @@
 	"HandleEvent.h"
 	"Ho_tro.h"
 	"game_render.h"
+
+1713792933 source:e:\bat_dau_game - sao chép\che_do_game.cpp
+	"CHE_DO_GAME.h"
+
+1713792933 e:\bat_dau_game - sao chép\che_do_game.h
+	"toancuc.h"
+	"game_functions.h"
+	"Game_Object.h"
+	"Init_Game.h"
+	"HandleEvent.h"
+	"Ho_tro.h"
+	"game_render.h"
+
+1713784218 e:\bat_dau_game - sao chép\ho_tro.h
+	"toancuc.h"
+	"ImpTimer.h"
+	<string>
+
+1713785462 e:\bat_dau_game - sao chép\game_render.h
+	"Game_Object.h"
+	"GAMEMAP.h"
+	"MainObject.h"
+	"QUIVUONG.h"
+	"BulletObject.h"
+	"Ho_tro.h"
+	<vector>
+	"toancuc.h"
+
+1713795039 source:e:\bat_dau_game - sao chép\check_va_cham.cpp
+	"CHECK_VA_CHAM.h"
+
+1713791641 e:\bat_dau_game - sao chép\check_va_cham.h
+	"toancuc.h"
+	"Game_Object.h"
+	"BulletObject.h"
+
+1713795902 source:e:\bat_dau_game - sao chép\game_render.cpp
+	"game_render.h"
+
+1713887868 source:e:\bat_dau_game - sao chép\ho_tro.cpp
+	"Ho_tro.h"
 

@@ -15,12 +15,11 @@ public:
     MENU();
     ~MENU();
 
-    int showmenu ( SDL_Renderer* des, TTF_Font * font);
+    int showmenu ( SDL_Renderer* des );
     bool check_chuot_chon (int x,int y, SDL_Rect rect); //toa do cua chuot co o trong cac lua chon khong
 
 private:
 
-    TextObject text_menu[so_lua_chon];
     SDL_Rect vitriluachon [ so_lua_chon ];
 };
 

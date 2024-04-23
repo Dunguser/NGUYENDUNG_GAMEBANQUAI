@@ -8,8 +8,9 @@ void InitGame()
     anhcho.SetRect(160,50);
     anhcho.Render(gRenderer,nullptr);
     SDL_RenderPresent(gRenderer);
-    SDL_Delay(1000);                                 // ảnh chờ đầu tiên
-    anhdau.Render(gRenderer,nullptr);                // anh dau
+    SDL_Delay(500);                                 // ảnh chờ đầu tiên
+    anhdau.Render(gRenderer,nullptr);               // anh dau
+
     tamdung.SetRect(SCREEN_WIDTH - 80, 0 );
     tamdung2.SetRect(SCREEN_WIDTH / 2 - 100, SCREEN_HEIGHT / 3) ;
     gameover.SetRect ( 240,65 );
@@ -19,6 +20,7 @@ void InitGame()
     game_map.LoadTiles( gRenderer );
 
     player_nvc.LoadMainImg("IMG/CHAY_PHAI_SUNG.png",gRenderer);     //xu li nhan vat chinh
+
     player_nvc.Set_Clips_chay();
     player_nvc.loadamthanh_nvc();
 
@@ -28,12 +30,10 @@ void InitGame()
     quivuong.set_y_bosspos ( 2500 );
     quivuong.loadamthanh_boss();
 
-    //load_all_dan_(gRenderer);
     vector<ThreatsObject*> threats_list = Make_Threat_List();       // khai bao 1 dong quai vat
     load_tat_ca_qui ( gRenderer );
     load_all_boss ( gRenderer );
-
-    //load_all_main ( gRenderer );
+    load_all_main( gRenderer);
 
     khoitaovuno(qui_no);
     khoitaonhanvatchinh_no(nvc_no);
@@ -41,22 +41,18 @@ void InitGame()
     khoitaonoboss ( boss_tan_xac);
     khoitaono_dam ( no_dam );
 
-
     thoi_gian_choi.setcolor (TextObject :: RED_TEXT );              //thoi_gian_choi.LoadFromRenderText( gFont, gRenderer);
     da_giet.setcolor (TextObject :: RED_TEXT);                       //da_giet.LoadFromRenderText( gFont, gRenderer );
     antien.setcolor (TextObject :: RED_TEXT );                      //antien.LoadFromRenderText (gFont,gRenderer );
 
-    so_mang.set_chi_so_mang(1);
+    so_mang.set_chi_so_mang(3);
     so_mang.Init( gRenderer, "IMG/tym.png" );
-    // cout<<"so mang "<<solanchetmax<<endl;
 
     phung.init(gRenderer,"IMG/phung.png");
     phung.SetPos(800,10);
 
     duocbay.init(gRenderer,"IMG/congcubay.png");
     duocbay.SetPos(900,10);
-
-
 
     //
     kiem = player_nvc.getkiem();
@@ -70,7 +66,7 @@ void InitGame()
     player_nvc.load_cucmau ( gRenderer);
     quivuong.load_cucmau_boss ( gRenderer );
 
-    int ret_menu = menu_.showmenu ( gRenderer, gFont2 );
+    int ret_menu = menu_.showmenu ( gRenderer );
     if(ret_menu != 1) quit = true;
 
 }
@@ -97,7 +93,7 @@ void restartGame()
     tong_tien = 0;
 
     player_nvc.set_tienanduoc(0);
-    so_mang.set_chi_so_mang(1);
+    so_mang.set_chi_so_mang(3);
     solanchetmax = so_mang.get_chi_so_mang();               // cout<<"so mang "<<solanchetmax<<endl;
     solanchet = 0;
 
@@ -115,7 +111,7 @@ void restartGame()
 void restartGame2()
 {
     isPaused = false; printf( "restart\n");
-
+//    so_mang.Init( gRenderer, "IMG/tym.png" );
     game_map.LoadMap("MAP/map04.dat");                      //xu li ban do: map
     player_nvc.LoadMainImg("IMG/CHAY_PHAI_SUNG.png",gRenderer);
     game_map.LoadTiles( gRenderer );
@@ -133,9 +129,12 @@ void restartGame2()
     tong_tien = 0;
     player_nvc.set_tienanduoc(0);
 
-    so_mang.set_chi_so_mang(1);
-    cout<<"so mang " << so_mang.get_chi_so_mang() << endl;
-    solanchetmax = so_mang.get_chi_so_mang();
+    so_mang.set_chi_so_mang(3);
+    vector<int> kaka = so_mang.get_o_mang();
+    so_mang.Init( gRenderer, "IMG/tym.png" );
+    cout<<kaka.size()<<endl;
+   // cout<<"so mang " << so_mang.get_chi_so_mang() << endl;
+    solanchetmax = so_mang.get_chi_so_mang();//cout<<"solanchetmax "<<solanchetmax<<endl;
 
     solanchet = 0;
     phung.SetPos(800,10);

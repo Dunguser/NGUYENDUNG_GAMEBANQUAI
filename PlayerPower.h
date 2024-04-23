@@ -21,7 +21,7 @@ public :
 
     void set_chi_so_mang (const int & g) { chi_so_mang = g;}
     int get_chi_so_mang() const { return chi_so_mang;}
-
+    vector<int>get_o_mang(){return vitri_omang;}
 private:
     int chi_so_mang;
     vector<int> vitri_omang;// luu vi tri xuat trai tym

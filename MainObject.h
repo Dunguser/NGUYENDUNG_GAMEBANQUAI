@@ -44,6 +44,8 @@ public:
         ben_phai_,
         bay_trai_,
         bay_phai_,
+        lon_trai_,
+        lon_phai_,
     };
 
     bool LoadMainImg ( const string&path, SDL_Renderer *screen );           //ham load anh cua nhan vat chinh va can them cac thong so cua tam anh
@@ -122,6 +124,8 @@ public:
     BaseObject cucmau[6];
     void load_cucmau ( SDL_Renderer* des );
     void show_cucmau ( SDL_Renderer* des , int index);
+
+
 
 
 private:

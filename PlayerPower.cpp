@@ -24,6 +24,8 @@ void PlayerPower :: Init(SDL_Renderer* screen,const string& path)
 {
     LoadImage( path.c_str(), screen );
     if( (int)vitri_omang.size()>0 ) vitri_omang.clear();
+    //cout<<" so mang "<<chi_so_mang<<endl;
+
     for(int i = 0; i < chi_so_mang; i++)
     {
         AddPos(20 + 40*i);

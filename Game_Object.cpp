@@ -92,3 +92,17 @@ void khoitaono_dam (VUNO & nodam)
 }
 
 vector<ThreatsObject*> threats_list;
+
+
+void load_all_main (SDL_Renderer* des)
+{
+    player_main[chaytrai].LoadImage("IMG/CHAY_TRAI_SUNG.png",des);
+    player_main[chayphai].LoadImage("IMG/CHAY_PHAI_SUNG.png",des);
+    player_main[bayphai].LoadImage("IMG/bay_phai.png",des);
+    player_main[baytrai].LoadImage("IMG/bay_trai.png",des);
+    player_main[damphai].LoadImage("IMG/DAO_DAM_PHAI.png",des);
+    player_main[damtrai].LoadImage("IMG/DAO_DAM_TRAI.png",des);
+    player_main[lontrai].LoadImage("IMG/LON_TRAI1.png",des);
+    player_main[lonphai].LoadImage("IMG/LON_PHAI1.png",des);
+}
+
