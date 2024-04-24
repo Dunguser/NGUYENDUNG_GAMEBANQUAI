@@ -76,3 +76,13 @@ int real_imp_time ;
 int time_one_frame ;
 
 MAP map_data ;
+
+
+SDL_Rect win_nghi = { 105 , 795 , 85 , 80};
+SDL_Rect level2 = { 1133 , 805 , 85 , 80};
+
+bool level_1 = true;
+bool level_2 = false;
+BaseObject gBackground2 ;
+GAMEMAP game_map_2;
+MAP map_data_2;

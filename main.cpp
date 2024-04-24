@@ -20,25 +20,30 @@ int main(int argc,char* argv[] )
         {
             if(!gameOver && !win_game )
             {
-                render_game();
-                check_va_cham1();
-                ho_tro();
+                if( level_1 == true )
+                {
+                    render_game();
+                    check_va_cham1();
+                    ho_tro();
+                }
+                else if ( level_2 == true )
+                {
+                    render_game_2();
+                    check_va_cham2();
+                    ho_tro_2();
+                }
             }
-
             else if( gameOver && !win_game )
             {
                 penaldo.Render( gRenderer, nullptr );
                 SDL_RenderPresent( gRenderer );
                 SDL_Delay ( 2000 );
                 penaldo.free();
-                gameover.Render( gRenderer , nullptr );
+                gameover.Render( gRenderer, nullptr );
                 SDL_RenderPresent( gRenderer );
             }
             else if ( win_game && !gameOver )
             {
-
-                cout<<"an mup "<<endl;
-                //boss_tan_xac.free();
                 messi.SetRect ( 164, 0 );
                 messi.Render( gRenderer );
                 SDL_RenderPresent ( gRenderer );
@@ -54,7 +59,6 @@ int main(int argc,char* argv[] )
             SDL_RenderPresent(gRenderer);
         }
     }
-
     close();
     return 0;
 }

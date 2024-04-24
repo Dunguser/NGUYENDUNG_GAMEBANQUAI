@@ -2,7 +2,7 @@
 using namespace std;
 
 
-BaseObject player_main [10];
+BaseObject player_main [11];
 
 
 

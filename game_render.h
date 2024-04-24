@@ -12,5 +12,6 @@
 #include "toancuc.h"
 
 void render_game();
+void render_game_2();
 
 #endif // GAME_RENDER_H

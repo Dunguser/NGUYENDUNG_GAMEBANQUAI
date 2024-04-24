@@ -46,26 +46,21 @@ void GAMEMAP::LoadMap(const string &name)
 void  GAMEMAP::LoadTiles(SDL_Renderer*screen)
 // load cac hinh anh tile, vi du ngoi o 1.png, co o 2.png
 {
-    string img="E:/bat_dau_game/MAP/";
+    string img="MAP/";
     for(int i=0; i<MAX_TILES; i++)
     {
         string haphuong=img+to_string(i)+".png";
         ifstream file(haphuong);
-        if(!file)
-        {
-            continue;
-        }
-        else
-        {
-            tile_mat[i].LoadImage(haphuong,screen);
-        }
+
+        if(!file) continue;
+        else tile_mat[i].LoadImage(haphuong,screen);
     }
 }
 void  GAMEMAP::DrawMap(SDL_Renderer*screen)
 //fill toan bo hinh anh vao cac vi tri
 {
-    int x1=0,x2=0,y1=0,y2=0;// xac dinh cac diem fill hinh anh
-    x1=(game_map_.start_x_%TILE_SIZE)*-1;// fill tu x1->x2
+    int x1=0,x2=0,y1=0,y2=0;                    // xac dinh cac diem fill hinh anh
+    x1=(game_map_.start_x_%TILE_SIZE)*-1;       // fill tu x1->x2
     x2=x1+SCREEN_WIDTH+(x1==0?0:TILE_SIZE);
 
     y1=(game_map_.start_y_%TILE_SIZE)*-1;
@@ -83,14 +78,14 @@ void  GAMEMAP::DrawMap(SDL_Renderer*screen)
             int val=game_map_.tile[map_y][map_x];
             if(val>0)
             {
-                tile_mat[val].SetRect(j,i);// in ra tai vi tri (j,i)
-                tile_mat[val].Render(screen,NULL);// in ra
+                tile_mat[val].SetRect(j,i);         // in ra tai vi tri (j,i)
+                tile_mat[val].Render(screen,NULL);  // in ra
             }
             map_x++;
-            if (map_x >= MAX_MAP_X || map_y >= MAX_MAP_Y) break;// Thêm kiểm tra để tránh vòng lặp vô hạn
+            if (map_x >= MAX_MAP_X || map_y >= MAX_MAP_Y) break;        // Thêm kiểm tra để tránh vòng lặp vô hạn
         }
         map_y++;
-        if (map_y >= MAX_MAP_Y) break;// Thêm kiểm tra để tránh vòng lặp vô hạn
+        if (map_y >= MAX_MAP_Y) break;              // Thêm kiểm tra để tránh vòng lặp vô hạn
     }
 }
 

@@ -27,19 +27,19 @@ public:
     GAMEMAP(){;}
     ~GAMEMAP(){;}
 
-    void LoadMap( const string& name);//doc thong tin cua file de xay dung ban do
-    void LoadTiles(SDL_Renderer*screen);// load cac hinh anh tile, vi du ngoi o 1.png, co o 2.png
-    void DrawMap(SDL_Renderer*screen);//fill toan bo hinh anh vao cac vi tri
-    MAP GetMap()const {return game_map_;}// lay map ra
+    void LoadMap( const string& name);      //doc thong tin cua file de xay dung ban do
+    void LoadTiles(SDL_Renderer*screen);    // load cac hinh anh tile, vi du ngoi o 1.png, co o 2.png
+    void DrawMap(SDL_Renderer*screen);      //fill toan bo hinh anh vao cac vi tri
+    MAP GetMap()const {return game_map_;}   // lay map ra
 
-    void SetMap(MAP &map_data)// kien thiet map// tao map
+    void SetMap( MAP &map_data )              // kien thiet map// tao map
     {
-        game_map_=map_data;
+        game_map_ = map_data;
     }
 
 private:
-    MAP game_map_; //chua toan bo thong tin cua ban do. trang thai, chi so,vi tri
-    TileMat tile_mat[MAX_TILES]; // doi tuong luu tru hinh anh// vi du cai gach, da cay
+    MAP game_map_;                          //chua toan bo thong tin cua ban do. trang thai, chi so,vi tri
+    TileMat tile_mat[MAX_TILES];            // doi tuong luu tru hinh anh// vi du cai gach, da cay
 
 
 };

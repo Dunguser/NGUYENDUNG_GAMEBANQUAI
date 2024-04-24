@@ -125,9 +125,6 @@ public:
     void load_cucmau ( SDL_Renderer* des );
     void show_cucmau ( SDL_Renderer* des , int index);
 
-
-
-
 private:
     float x_biendoi_;                                       // khi di chuyen thi tang/giam bao nhieu
     float y_biendoi_;                                       // an trai giam bao nhieu, nhay tang bao nhieu

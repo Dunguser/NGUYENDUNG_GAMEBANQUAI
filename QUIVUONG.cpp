@@ -480,7 +480,8 @@ void QUIVUONG::load_cucmau_boss ( SDL_Renderer * des )
     bool ret2 = mau_boss[1].LoadImage( "IMG/mau/mau_qui2.png", des);
     bool ret3 = mau_boss[2].LoadImage( "IMG/mau/mau_qui3.png", des);
     bool ret4 = mau_boss[3].LoadImage( "IMG/mau/mau_qui4.png", des);
-    if( ret1 == 0 || ret2 == 0 || ret3 == 0 || ret4 == 0) cout<<"failed to load mau qui"<<endl;
+    bool ret5 = mau_boss[4].LoadImage( "IMG/mau/mau_qui5.png", des);
+    if( ret1 == 0 || ret2 == 0 || ret3 == 0 || ret4 == 0 || ret5 == 0) cout<<"failed to load mau qui"<<endl;
 }
 void QUIVUONG::show_mau_boss ( SDL_Renderer* des, int index)
 {

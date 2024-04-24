@@ -30,8 +30,21 @@ void handleEvents()
                 {
                     if (SDLCommonFunc::check_chuot_chon(xc, yc, playagain)) restartGame();
                     else if (SDLCommonFunc::check_chuot_chon(xc, yc, not_playagain)) quit = true;
-
                 }
+
+                else if ( win_game )
+                {
+                    if (SDLCommonFunc::check_chuot_chon(xc, yc, win_nghi)) quit = true;
+                    else if (SDLCommonFunc::check_chuot_chon(xc, yc, level2))
+                    {
+                        //cout<<"next "<<endl;
+                        level_2 = true;
+                        level_1 = false;
+                        win_game = false;
+                        anh_win.free();
+                    }
+                }
+
             }
         }
         player_nvc.XuLiXuKienBanPhim(gEvent, gRenderer); // Xử lí sự kiện bàn phím cho nhân vật chính

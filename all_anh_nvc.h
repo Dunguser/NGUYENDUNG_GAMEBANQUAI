@@ -19,8 +19,9 @@ enum trang_thai_main
     damphai,
     nhaytrai,
     nhayphai,
+    chet,
 };
-extern BaseObject player_main [10];
+extern BaseObject player_main [11];
 
 #endif // ALL_ANH_NVC
 

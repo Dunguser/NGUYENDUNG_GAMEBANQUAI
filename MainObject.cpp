@@ -104,7 +104,7 @@ void MainObject::ShowMain(SDL_Renderer* des)
         if(trang_thai_vao.sang_trai==1 || trang_thai_vao.sang_phai==1
                 ||trang_thai_vao.can_chien_==1 || trang_thai_vao.chet_ == 1
                 || trang_thai_vao.lon_phai ==1|| trang_thai_vao.lon_trai == 1
-                ||trang_thai_vao.bay_ == 1)
+                ||trang_thai_vao.bay_ == 1 || trang_thai_vao.chet_ == 1)
 
         {
             frame_++;                                                   // neu co bien doi thi frame tang
@@ -137,6 +137,7 @@ void MainObject::ShowMain(SDL_Renderer* des)
             else if ( status_ == lon_trai_) SDL_RenderCopy(des, player_main[lontrai].GetTexture(), currentclip, &renderquad);
             else if ( status_ == lon_phai_) SDL_RenderCopy(des, player_main[lonphai].GetTexture(), currentclip, &renderquad);
         }
+        else if ( trang_thai_vao.chet_ == 1 ) SDL_RenderCopy( des , player_main[chet].GetTexture(),currentclip , &renderquad);
         else if ( trang_thai_vao.lon_phai == 1 ) SDL_RenderCopy( des, player_main[lonphai].GetTexture(), currentclip, &renderquad );
         else if ( trang_thai_vao.lon_trai == 1 ) SDL_RenderCopy( des, player_main[lontrai].GetTexture(), currentclip, &renderquad );
         else
@@ -845,56 +846,3 @@ void MainObject::KHOI_TAO_DAN_1(BulletObject* viendan, SDL_Renderer* screen)
         bangdan_nvc.push_back(viendan);                                 // gan vao vector dan
     }
 }
-
-//
-//void MainObject::ShowMain(SDL_Renderer*des)
-//// xau frame nhan vat chinh // di chuyen di dau
-//{
-//    if(trang_thai_vao.bay_==1)
-//    {
-//        if(status_ == bay_trai_) LoadMainImg("IMG/bay_trai.png",des);
-//        else if( status_ == bay_phai_ ) LoadMainImg("IMG/bay_phai.png",des);
-//    }
-//    else if(trang_thai_vao.can_chien_==1)
-//    {
-//        if(status_==ben_trai_) LoadImage("IMG/DAO_DAM_TRAI.png",des);
-//        else if(status_==ben_phai_) LoadImage("IMG/DAO_DAM_PHAI.png",des);
-//    }
-//    else if (trang_thai_vao.chet_ == 1)
-//    {
-//        LoadImage("IMG/CHET.png",des);
-//    }
-//    else
-//    {
-//        if(tren_mat_dat == true)
-//        {
-//            if( status_== ben_trai_) LoadMainImg("IMG/CHAY_TRAI_SUNG.png",des);
-//            else if( status_ == ben_phai_) LoadMainImg("IMG/CHAY_PHAI_SUNG.png",des);
-//        }
-//    }
-//    if(trang_thai_vao.sang_trai==1 || trang_thai_vao.sang_phai==1
-//            ||trang_thai_vao.can_chien_==1 || trang_thai_vao.chet_ == 1 )
-//
-//    {
-//        frame_++;                                                   // neu co bien doi thi frame tang
-//    }
-//    else frame_=0;
-//
-//    if(frame_ >= SO_FRAME) frame_=0;
-//
-//    rect_.x = x_now_pos - map_x_;                                   //vi tri xuat hien
-//    rect_.y = y_now_pos - map_y_;
-//
-//    SDL_Rect* currentclip = &frame_clip_[ frame_ ];                 //hien tai la dang cai anh nao // lay anh nay ma in ra
-//
-//    // in frame  ra
-//    SDL_Rect renderquad = { rect_.x, rect_.y, width_frame_, height_frame_};
-//    SDL_RenderCopy( des, mTexture, currentclip, &renderquad);
-//}
-
-
-//    if ( tren_mat_dat == true)
-//    {
-//        if(status_ == ben_trai_ || status_ == bay_trai_ || status_ == lon_trai_) trang_thai_vao.sang_trai = 1;
-//        else if (status_ == ben_phai_ || status_ == bay_phai_ || status_ == lon_phai_ ) trang_thai_vao.sang_phai =1;
-//    }

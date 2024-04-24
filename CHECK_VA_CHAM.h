@@ -24,7 +24,7 @@ void va_nvc_bi_bossdam();
 
 
 void check_va_cham1();
-
+void check_va_cham2();
 
 void qui_con_khonhon();
 

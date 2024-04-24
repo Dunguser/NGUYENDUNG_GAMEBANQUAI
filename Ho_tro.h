@@ -8,6 +8,6 @@
 using namespace std;
 
 void ho_tro();
-
+void ho_tro_2();
 
 #endif // HO_TRO_H

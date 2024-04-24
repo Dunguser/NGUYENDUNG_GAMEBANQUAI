@@ -88,9 +88,13 @@ bool LoadMedia() // Tải tài nguyên game
     {
         cout<<IMG_GetError()<<endl;
     }
+    if( !gBackground2.LoadImage("MAP/G_BACK_GROUND_2.png",gRenderer))
+    {
+        cout<<IMG_GetError()<<endl;
+        return 0;
+    }
     gFont = TTF_OpenFont ("FONT/turok.ttf",24);
-    gFont2 = TTF_OpenFont ("FONT/starcraft.ttf",40);
-    if( gFont == nullptr || gFont2 == nullptr )
+    if( gFont == nullptr )
     {
         cout<<TTF_GetError();
         return 0;

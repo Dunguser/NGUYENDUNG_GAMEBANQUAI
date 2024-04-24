@@ -140,10 +140,10 @@ void va_nvc_voi_danqui()
                         if( player_nvc.get_solantrungdan() >= 5 )                       // an bao nhieu vien dan - so quai roi chet
                         {
                             solanchet ++ ;
-                            cout<< "so lan da chet " << solanchet << endl;
                             if( solanchet < solanchetmax )
                             {
-                                player_nvc.set_vitri_nvc( player_nvc.get_x_hientai() - 100, player_nvc.get_y_hientai()+500 );
+                                if (level_1)player_nvc.set_vitri_nvc ( player_nvc.get_x_hientai() - 100, player_nvc.get_y_hientai() + 500 );
+                                else player_nvc.SetRect (500, 500);
                                 so_mang.giammang();
                                 so_mang.Render ( gRenderer );
                                 player_nvc.set_comebacktime(10);
@@ -203,10 +203,10 @@ void va_nvc_voi_danboss()
                 if (player_nvc.get_solantrungdan() >= 5 )                    // an bao nhieu vien dan - so quai roi chet
                 {
                     solanchet ++ ;
-                    cout << "so lan da chet " << solanchet << endl;
                     if ( solanchet < solanchetmax )
                     {
-                        player_nvc.set_vitri_nvc( player_nvc.get_x_hientai() - 100, player_nvc.get_y_hientai() + 500 );
+                        if (level_1)player_nvc.set_vitri_nvc ( player_nvc.get_x_hientai() - 100, player_nvc.get_y_hientai() + 500 );
+                        else player_nvc.SetRect (500, 500);
                         so_mang.giammang();
                         so_mang.Render( gRenderer );
                         player_nvc.set_comebacktime ( 10 );
@@ -271,10 +271,10 @@ void va_nvc_bi_bossdam()
             if ( player_nvc.get_solantrungdan() >= 5 )                 // an bao nhieu vien dan - so quai roi chet
             {
                 solanchet++;
-                cout << "so lan da chet " << solanchet << endl;
                 if ( solanchet < solanchetmax )
                 {
-                    player_nvc.set_vitri_nvc ( player_nvc.get_x_hientai() - 100, player_nvc.get_y_hientai() + 500 );
+                    if (level_1)player_nvc.set_vitri_nvc ( player_nvc.get_x_hientai() - 100, player_nvc.get_y_hientai() + 500 );
+                    else player_nvc.SetRect (500, 500);
                     so_mang.giammang();
                     so_mang.Render(gRenderer);
                     player_nvc.set_comebacktime(10);
@@ -308,7 +308,6 @@ void va_nvc_voi_kiemboss()
         bool main_an_uatuc = SDLCommonFunc :: CheckCollision( rect_uatuc, main_rect );
         if(main_an_uatuc)
         {
-            cout<<"uat uc " <<endl;
             Mix_PlayChannel ( -1, quaibichem, 0 );
             player_nvc.setbitrungdan( true);
             for (int ex = 0; ex < num_frame_no; ex++)
@@ -331,10 +330,10 @@ void va_nvc_voi_kiemboss()
             if (player_nvc.get_solantrungdan() >= 5 )                    // an bao nhieu vien dan - so quai roi chet
             {
                 solanchet ++ ;
-                cout << "so lan da chet " << solanchet << endl;
                 if ( solanchet < solanchetmax )
                 {
-                    player_nvc.set_vitri_nvc( player_nvc.get_x_hientai() - 100, player_nvc.get_y_hientai() + 500 );
+                    if (level_1)player_nvc.set_vitri_nvc( player_nvc.get_x_hientai() - 100, player_nvc.get_y_hientai() + 500 );
+                    else if ( level_2) player_nvc.SetRect ( 500, 500);
                     so_mang.giammang();
                     so_mang.Render( gRenderer );
                     player_nvc.set_comebacktime ( 10 );
@@ -372,8 +371,7 @@ void va_haikiemvoinhau()
 
         if(SDLCommonFunc::CheckCollision(rect_uatuc, rect_kiem))
         {
-            Mix_PlayChannel( -1, vakiem, 0 );
-            //cout<<"co nhe em oi"<<endl;
+            Mix_PlayChannel( -1, vakiem, 0 );//cout<<"co nhe em oi"<<endl;
         }
 
     }
@@ -392,7 +390,7 @@ void va_boss_voi_dan_nvc()
             if( qui_an_dan )
             {
                 Mix_PlayChannel( -1, bom, 0 );                        //cout<<"qui "<<qui_rect.x <<" "<< dan_rect.x<<endl;
-                for(int no = 0 ; no < num_frame_no ; no ++)     // xu li anh no
+                for(int no = 0 ; no < num_frame_no ; no ++)         // xu li anh no
                 {
                     int x_pos = quivuong.GetRect().x ;             // vi tri no la vi tri qui
                     int y_pos = quivuong.GetRect().y ;
@@ -409,7 +407,7 @@ void va_boss_voi_dan_nvc()
                     boss_andan = 0;
                 }
 
-                if ( quivuong.get_solan_boss_andan() ==  3 )
+                if ( quivuong.get_solan_boss_andan() ==  4 )
                 {
                     Uint32 startTime = SDL_GetTicks(); // Thời gian bắt đầu hiển thị boss_tan_xac
                     Uint32 elapsedTime = 0;
@@ -468,22 +466,22 @@ void va_boss_voi_kiem_nvc()
                 quivuong.trungdan();
                 qui_vuong_bichem = 0 ;
             }
-            if( quivuong.get_solan_boss_andan() ==  3 )
+            if( quivuong.get_solan_boss_andan() ==  4 )
             {
-                Uint32 startTime = SDL_GetTicks(); // Thời gian bắt đầu hiển thị boss_tan_xac
+                Uint32 startTime = SDL_GetTicks();                  // Thời gian bắt đầu hiển thị boss_tan_xac
                 Uint32 elapsedTime = 0;
-                while ( elapsedTime < 1000 )   // Hiển thị boss_tan_xac trong 3 giây
+                while ( elapsedTime < 1000 )                        // Hiển thị boss_tan_xac trong 3 giây
                 {
-                    for (int no = 0; no < num_frame_no; no++)   // xử lí ảnh nổ
+                    for (int no = 0; no < num_frame_no; no++)       // xử lí ảnh nổ
                     {
-                        int x_pos = quivuong.GetRect().x - 55 ; // vị trí nổ là vị trí quái
+                        int x_pos = quivuong.GetRect().x - 55 ;     // vị trí nổ là vị trí quái
                         int y_pos = quivuong.GetRect().y - 40 ;
                         boss_tan_xac.set_frame(no);
                         boss_tan_xac.SetRect(x_pos, y_pos );
                         boss_tan_xac.show(gRenderer);
                     }
                     SDL_RenderPresent(gRenderer);
-                    elapsedTime = SDL_GetTicks() - startTime; // Tính thời gian đã trôi qua
+                    elapsedTime = SDL_GetTicks() - startTime;       // Tính thời gian đã trôi qua
                 }
                 boss_tan_xac.free();
                 quivuong.free();
@@ -501,7 +499,7 @@ void qui_con_khonhon()
     for(int i=0; i<(int)threats_list.size(); i++)
     {
         ThreatsObject* p_qui = threats_list.at(i);
-        if ( abs(player_nvc.get_x_hientai() - p_qui->get_x_quipos()) < 100 && abs( player_nvc.get_y_hientai() - p_qui->get_y_quipos() < 10 ) )
+        if ( abs(player_nvc.get_x_hientai() - p_qui->get_x_quipos()) < 100 && abs( player_nvc.get_y_hientai() - p_qui->get_y_quipos() < 10 ) &&  abs(player_nvc.get_x_hientai() - p_qui->get_x_quipos())> 60 )
         {
             if(!player_nvc.gethangnong())
             {
@@ -537,7 +535,17 @@ void check_va_cham1()
 }
 
 
+void check_va_cham2()
+{
+    va_nvc_voi_kiemboss();
+    va_nvc_bi_bossdam();
+    va_nvc_voi_danboss();
 
+    va_boss_voi_dan_nvc();
+    va_boss_voi_kiem_nvc();
+
+    va_haikiemvoinhau();
+}
 
 
 

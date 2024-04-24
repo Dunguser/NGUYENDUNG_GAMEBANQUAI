@@ -58,14 +58,14 @@ extern VUNO no_dam ;
 extern BaseObject penaldo;
 
 
-extern   TextObject thoi_gian_choi ;                                     // khai báo phông chữ thời gian chơi gamme
-extern   TextObject da_giet;
-extern   TextObject antien ;
+extern  TextObject thoi_gian_choi ;                                     // khai báo phông chữ thời gian chơi gamme
+extern  TextObject da_giet;
+extern  TextObject antien ;
 
 
-extern   PlayerPower so_mang;                                            // hien thi so trai tym ung voi so mang
-extern   Hotrobay phung;
-extern   Hotrobay duocbay;
+extern  PlayerPower so_mang;                                            // hien thi so trai tym ung voi so mang
+extern  Hotrobay phung;
+extern  Hotrobay duocbay;
 
 extern MENU menu_;
 
@@ -76,17 +76,16 @@ extern int solanchet;
 extern Uint32 thoigianhientai;
 extern bool ho;
 
-extern bool quit;            // Main loop control variables
+extern bool quit;
 extern bool gameOver;
 extern bool isPaused;
 extern bool win_game;
 extern bool cai_time;
 
-// Commented out because you can't declare a static variable extern
-// extern static Uint32 last_time;
+
 extern Uint32 last_time;
 
-extern int dem222;           // Variables for various checks
+extern int dem222;
 extern int dem2221;
 extern int dem_dam;
 extern int bi_uatuc_chem;
@@ -105,6 +104,15 @@ extern int real_imp_time ;
 extern int time_one_frame ;
 
 extern MAP map_data ;
+extern MAP map_data_2;
+
+extern SDL_Rect win_nghi;
+extern SDL_Rect level2;
+
+extern bool level_1 ;
+extern bool level_2;
+extern BaseObject gBackground2 ;
+extern GAMEMAP game_map_2;
 
 #endif // TOAN_CUC_
 
@@ -112,30 +120,4 @@ extern MAP map_data ;
 
 
 
-
-
-
-
-
-//extern   UINT so_qui_bi_giet = 0 ;
-//extern   UINT tong_tien = 0;
-//extern   int solanchet = 0;
-//extern   Uint32 thoigianhientai;
-//extern   bool ho = false;
-//
-//extern   bool quit = false;                                  // vong lap chinh
-//extern    bool gameOver = false ;
-//extern   bool isPaused = false ;
-//extern  bool win_game = false ;
-//extern   bool cai_time = false ;
-////extern   static Uint32 last_time = 0;
-//extern   Uint32 last_time = 0;
-//extern int dem222 = 0;             // check bi trung dan quai thuong
-//extern  int dem2221 = 0;            // check bi trung dan quivuong
-//extern  int dem_dam = 0;            // check bi an dam
-//extern  int bi_uatuc_chem = 0;
-//extern int qui_vuong_bichem = 0;
-//extern  int boss_andan = 0;
-//extern int maumau = 0;
-//extern   int mauboss = 0;
 

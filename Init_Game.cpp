@@ -5,6 +5,7 @@ using namespace std;
 void InitGame()
 {
     if(!Init()||!LoadMedia()) cout<<"failed to init or loadmedia";         //kiem tra khoi tao
+    Mix_PlayMusic(nhacnen, -1);  // nhac nen
     anhcho.SetRect(160,50);
     anhcho.Render(gRenderer,nullptr);
     SDL_RenderPresent(gRenderer);
@@ -15,9 +16,12 @@ void InitGame()
     tamdung2.SetRect(SCREEN_WIDTH / 2 - 100, SCREEN_HEIGHT / 3) ;
     gameover.SetRect ( 240,65 );
 
-    Mix_PlayMusic(nhacnen, -1);                     // nhac nen
+
     game_map.LoadMap("MAP/map04.dat");              //xu li ban do: map
+    game_map_2.LoadMap("MAP/map_level2.dat");
+
     game_map.LoadTiles( gRenderer );
+    game_map_2.LoadTiles ( gRenderer );
 
     player_nvc.LoadMainImg("IMG/CHAY_PHAI_SUNG.png",gRenderer);     //xu li nhan vat chinh
 
@@ -30,8 +34,12 @@ void InitGame()
     quivuong.set_y_bosspos ( 2500 );
     quivuong.loadamthanh_boss();
 
-    vector<ThreatsObject*> threats_list = Make_Threat_List();       // khai bao 1 dong quai vat
-    load_tat_ca_qui ( gRenderer );
+    if(level_1)
+    {
+        vector<ThreatsObject*> threats_list = Make_Threat_List();       // khai bao 1 dong quai vat
+        load_tat_ca_qui ( gRenderer );
+    }
+
     load_all_boss ( gRenderer );
     load_all_main( gRenderer);
 
@@ -54,7 +62,6 @@ void InitGame()
     duocbay.init(gRenderer,"IMG/congcubay.png");
     duocbay.SetPos(900,10);
 
-    //
     kiem = player_nvc.getkiem();
     if(!kiem.Loadkiem("IMG/kiem.png",gRenderer)) cout<<"failed to load kiem nvc -100000";
     uatuc = quivuong.get_kiemboss();
@@ -74,7 +81,6 @@ void InitGame()
 
 void restartGame()
 {
-    cout<<"loi choi lai 1"<<endl;
     gameOver = false;
     game_map.LoadMap("MAP/map04.dat");                      //xu li ban do: map
     player_nvc.LoadMainImg("IMG/CHAY_PHAI_SUNG.png",gRenderer);
@@ -83,7 +89,9 @@ void restartGame()
     player_nvc.Set_Clips_chay();
     player_nvc.loadamthanh_nvc();
     player_nvc.set_solantrungdan(0);
-    player_nvc.set_vitri_nvc ( 500, 500);
+
+    if(level_1)player_nvc.set_vitri_nvc ( 500, 500);
+    else if ( level_2)player_nvc.set_vitri_nvc ( 7500, 2000) ;
     quivuong.set_clips();
     quivuong.set_x_bosspos ( 8800 );
     quivuong.set_y_bosspos ( 2500 );
@@ -106,12 +114,13 @@ void restartGame()
     player_nvc.kichhoatchongchong( false );
     player_nvc.kichhoathangnong( false );
     quivuong.set_solan_boss_andan(0);
+    quivuong.set_x_bosspos ( 8000 );
+    quivuong.set_y_bosspos ( 2500);
 }
 
 void restartGame2()
 {
-    isPaused = false; printf( "restart\n");
-//    so_mang.Init( gRenderer, "IMG/tym.png" );
+    isPaused = false;
     game_map.LoadMap("MAP/map04.dat");                      //xu li ban do: map
     player_nvc.LoadMainImg("IMG/CHAY_PHAI_SUNG.png",gRenderer);
     game_map.LoadTiles( gRenderer );
@@ -119,7 +128,8 @@ void restartGame2()
     player_nvc.Set_Clips_chay();
     player_nvc.loadamthanh_nvc();
     player_nvc.set_solantrungdan(0);
-    player_nvc.set_vitri_nvc ( 500, 500);
+    if(level_1 ) player_nvc.set_vitri_nvc ( 500, 500);
+    else if ( level_2)player_nvc.set_vitri_nvc ( 7500, 2000) ;
     quivuong.set_clips();
     quivuong.set_x_bosspos ( 8800 );
     quivuong.set_y_bosspos ( 2500 );
@@ -130,11 +140,8 @@ void restartGame2()
     player_nvc.set_tienanduoc(0);
 
     so_mang.set_chi_so_mang(3);
-    vector<int> kaka = so_mang.get_o_mang();
     so_mang.Init( gRenderer, "IMG/tym.png" );
-    cout<<kaka.size()<<endl;
-   // cout<<"so mang " << so_mang.get_chi_so_mang() << endl;
-    solanchetmax = so_mang.get_chi_so_mang();//cout<<"solanchetmax "<<solanchetmax<<endl;
+    solanchetmax = so_mang.get_chi_so_mang();               //cout<<"solanchetmax "<<solanchetmax<<endl;
 
     solanchet = 0;
     phung.SetPos(800,10);
@@ -146,4 +153,6 @@ void restartGame2()
     player_nvc.kichhoatchongchong( false );
     player_nvc.kichhoathangnong( false );
     quivuong.set_solan_boss_andan(0);
+    quivuong.set_x_bosspos ( 8000 );
+    quivuong.set_y_bosspos ( 2500);
 }

@@ -89,7 +89,7 @@ public :
     void set_solan_boss_andan ( int a ){ solantrungdan = a; }
     int get_solan_boss_andan () const { return solantrungdan ; }
 
-    BaseObject mau_boss[4];
+    BaseObject mau_boss[5];
     void load_cucmau_boss ( SDL_Renderer * des );
     void show_mau_boss ( SDL_Renderer* des , int index);
 

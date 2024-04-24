@@ -104,5 +104,6 @@ void load_all_main (SDL_Renderer* des)
     player_main[damtrai].LoadImage("IMG/DAO_DAM_TRAI.png",des);
     player_main[lontrai].LoadImage("IMG/LON_TRAI1.png",des);
     player_main[lonphai].LoadImage("IMG/LON_PHAI1.png",des);
+    player_main[chet].LoadImage("IMG/CHET.png",des);
 }
 
