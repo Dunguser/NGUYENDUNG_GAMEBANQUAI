@@ -18,15 +18,15 @@ int main(int argc,char* argv[] )
         handleEvents();
         if(!isPaused )
         {
-            if(!gameOver && !win_game )
+            if( !gameOver && !win_game )
             {
-                if( level_1 == true )
+                if( level_1 == true && level_2 == false )
                 {
                     render_game();
                     check_va_cham1();
                     ho_tro();
                 }
-                else if ( level_2 == true )
+                else if ( level_2 == true && level_1 == false )
                 {
                     render_game_2();
                     check_va_cham2();
@@ -37,26 +37,24 @@ int main(int argc,char* argv[] )
             {
                 penaldo.Render( gRenderer, nullptr );
                 SDL_RenderPresent( gRenderer );
-                SDL_Delay ( 2000 );
+                SDL_Delay ( 1000 );
                 penaldo.free();
                 gameover.Render( gRenderer, nullptr );
-                SDL_RenderPresent( gRenderer );
             }
             else if ( win_game && !gameOver )
             {
                 messi.SetRect ( 164, 0 );
                 messi.Render( gRenderer );
                 SDL_RenderPresent ( gRenderer );
-                SDL_Delay ( 2000 );
+                SDL_Delay ( 1000 );
                 messi.free();
                 anh_win.Render(gRenderer, nullptr);
-                SDL_RenderPresent(gRenderer);
             }
         }
         else if( isPaused )
         {
-            tamdung2.Render(gRenderer,nullptr);
-            SDL_RenderPresent(gRenderer);
+            tamdung2.Render ( gRenderer,nullptr );
+            SDL_RenderPresent ( gRenderer );
         }
     }
     close();

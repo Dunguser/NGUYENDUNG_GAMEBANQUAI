@@ -371,24 +371,29 @@ void va_haikiemvoinhau()
 
         if(SDLCommonFunc::CheckCollision(rect_uatuc, rect_kiem))
         {
-            Mix_PlayChannel( -1, vakiem, 0 );//cout<<"co nhe em oi"<<endl;
+            Mix_PlayChannel( -1, vakiem, 0 );
         }
 
     }
 }
+
+
 void va_boss_voi_dan_nvc()
 {
     vector<BulletObject*> dan_nvc = player_nvc.get_bang_dan();
     for(int i=0; i<(int)dan_nvc.size(); i++)
     {
         BulletObject* dan = dan_nvc.at(i);
-        if(dan!=nullptr)
+        if(dan != nullptr)
         {
+
             SDL_Rect boss_rect = quivuong.getrectframe();
             SDL_Rect dan_rect = dan->GetRect();                 // dan khong co nhieu frame nen ko can get frame
             bool qui_an_dan = SDLCommonFunc::CheckCollision( dan_rect, boss_rect);
             if( qui_an_dan )
             {
+                if(level_2)cout<<"dan trung boss "<<endl;
+
                 Mix_PlayChannel( -1, bom, 0 );                        //cout<<"qui "<<qui_rect.x <<" "<< dan_rect.x<<endl;
                 for(int no = 0 ; no < num_frame_no ; no ++)         // xu li anh no
                 {
@@ -409,21 +414,21 @@ void va_boss_voi_dan_nvc()
 
                 if ( quivuong.get_solan_boss_andan() ==  4 )
                 {
-                    Uint32 startTime = SDL_GetTicks(); // Thời gian bắt đầu hiển thị boss_tan_xac
+                    Uint32 startTime = SDL_GetTicks();          // Thời gian bắt đầu hiển thị boss_tan_xac
                     Uint32 elapsedTime = 0;
 
-                    while (elapsedTime < 1000)   // Hiển thị boss_tan_xac trong 3 giây
+                    while (elapsedTime < 1000)                  // Hiển thị boss_tan_xac trong 3 giây
                     {
-                        for (int no = 0; no < num_frame_no; no++)   // xử lí ảnh nổ
+                        for (int no = 0; no < num_frame_no; no++)       // xử lí ảnh nổ
                         {
-                            int x_pos = quivuong.GetRect().x - 55 ; // vị trí nổ là vị trí quái
+                            int x_pos = quivuong.GetRect().x - 55 ;     // vị trí nổ là vị trí quái
                             int y_pos = quivuong.GetRect().y - 40 ;
                             boss_tan_xac.set_frame(no);
                             boss_tan_xac.SetRect(x_pos, y_pos);
                             boss_tan_xac.show(gRenderer);
                         }
                         SDL_RenderPresent(gRenderer);
-                        elapsedTime = SDL_GetTicks() - startTime; // Tính thời gian đã trôi qua
+                        elapsedTime = SDL_GetTicks() - startTime;       // Tính thời gian đã trôi qua
                     }
 
                     qui_no.free();
@@ -435,6 +440,7 @@ void va_boss_voi_dan_nvc()
             }
         }
     }
+
 }
 void va_boss_voi_kiem_nvc()
 {
@@ -451,6 +457,7 @@ void va_boss_voi_kiem_nvc()
         bool qui_an_kiem = SDLCommonFunc :: CheckCollision( rect_kiem, boss_rect );
         if(qui_an_kiem)
         {
+            if(level_2)cout<<"boss an kiem"<<endl;
             Mix_PlayChannel ( -1, quaibichem, 0 );
             for(int no = 0 ; no < num_frame_no ; no ++)                         // xu li anh no
             {
@@ -489,7 +496,6 @@ void va_boss_voi_kiem_nvc()
             }
         }
     }
-
 
 }
 

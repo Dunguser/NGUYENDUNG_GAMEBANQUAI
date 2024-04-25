@@ -6,9 +6,11 @@ void InitGame()
 {
     if(!Init()||!LoadMedia()) cout<<"failed to init or loadmedia";         //kiem tra khoi tao
     Mix_PlayMusic(nhacnen, -1);  // nhac nen
+
     anhcho.SetRect(160,50);
-    anhcho.Render(gRenderer,nullptr);
-    SDL_RenderPresent(gRenderer);
+    anhcho.Render( gRenderer,nullptr );
+    SDL_RenderPresent( gRenderer );
+
     SDL_Delay(500);                                 // ảnh chờ đầu tiên
     anhdau.Render(gRenderer,nullptr);               // anh dau
 
@@ -30,8 +32,17 @@ void InitGame()
 
     quivuong.LoadImg_boss("IMG/QUAI/qui_chay_trai.png", gRenderer);
     quivuong.set_clips();
-    quivuong.set_x_bosspos ( 7400 );
-    quivuong.set_y_bosspos ( 2500 );
+
+    if(level_1)
+    {
+        quivuong.set_x_bosspos ( 7400 );
+        quivuong.set_y_bosspos ( 2500 );
+    }
+    else if ( level_2 )
+    {
+        quivuong.set_x_bosspos ( 8800 );
+        quivuong.set_y_bosspos ( 2500 );
+    }
     quivuong.loadamthanh_boss();
 
     if(level_1)
@@ -82,16 +93,18 @@ void InitGame()
 void restartGame()
 {
     gameOver = false;
+    Mix_PlayMusic(nhacnen, -1);
     game_map.LoadMap("MAP/map04.dat");                      //xu li ban do: map
     player_nvc.LoadMainImg("IMG/CHAY_PHAI_SUNG.png",gRenderer);
     game_map.LoadTiles( gRenderer );
-    Mix_PlayMusic(nhacnen, -1);                             // nhac nen
+    // nhac nen
     player_nvc.Set_Clips_chay();
     player_nvc.loadamthanh_nvc();
     player_nvc.set_solantrungdan(0);
 
     if(level_1)player_nvc.set_vitri_nvc ( 500, 500);
-    else if ( level_2)player_nvc.set_vitri_nvc ( 7500, 2000) ;
+    else if ( level_2) player_nvc.set_vitri_nvc ( 7500, 2000) ;
+
     quivuong.set_clips();
     quivuong.set_x_bosspos ( 8800 );
     quivuong.set_y_bosspos ( 2500 );
@@ -105,54 +118,70 @@ void restartGame()
     solanchetmax = so_mang.get_chi_so_mang();               // cout<<"so mang "<<solanchetmax<<endl;
     solanchet = 0;
 
-    phung.SetPos(800,10);
-    duocbay.SetPos(900,10);
+    phung.SetPos( 800,10 );
+    duocbay.SetPos( 900,10);
     cai_time = true;
+
     maumau = 0;
     mauboss = 0 ;
+
     player_nvc.show_cucmau( gRenderer, maumau);
-    player_nvc.kichhoatchongchong( false );
+    player_nvc.kichhoatchongchong ( false );
     player_nvc.kichhoathangnong( false );
-    quivuong.set_solan_boss_andan(0);
+    player_nvc.setchobay ( false );
+
     quivuong.set_x_bosspos ( 8000 );
-    quivuong.set_y_bosspos ( 2500);
+    quivuong.set_y_bosspos ( 2500 );
+
+    quivuong.set_solan_boss_andan(0);
 }
 
 void restartGame2()
 {
     isPaused = false;
+    Mix_PlayMusic(nhacnen, -1);
     game_map.LoadMap("MAP/map04.dat");                      //xu li ban do: map
     player_nvc.LoadMainImg("IMG/CHAY_PHAI_SUNG.png",gRenderer);
     game_map.LoadTiles( gRenderer );
-    Mix_PlayMusic(nhacnen, -1);                             // nhac nen
+    // nhac nen
     player_nvc.Set_Clips_chay();
     player_nvc.loadamthanh_nvc();
     player_nvc.set_solantrungdan(0);
-    if(level_1 ) player_nvc.set_vitri_nvc ( 500, 500);
-    else if ( level_2)player_nvc.set_vitri_nvc ( 7500, 2000) ;
+
+    if(level_1 ) player_nvc.set_vitri_nvc ( 500, 500 );
+    else if ( level_2 )player_nvc.set_vitri_nvc ( 6800, 2000 ) ;
+
     quivuong.set_clips();
     quivuong.set_x_bosspos ( 8800 );
     quivuong.set_y_bosspos ( 2500 );
 
     threats_list = Make_Threat_List();                      // khai bao 1 dong quai vat
     so_qui_bi_giet = 0 ;
-    tong_tien = 0;
-    player_nvc.set_tienanduoc(0);
+    tong_tien = 0 ;
+    player_nvc.set_tienanduoc(0) ;
 
     so_mang.set_chi_so_mang(3);
-    so_mang.Init( gRenderer, "IMG/tym.png" );
-    solanchetmax = so_mang.get_chi_so_mang();               //cout<<"solanchetmax "<<solanchetmax<<endl;
+    so_mang.Init( gRenderer, "IMG/tym.png" ) ;
+    solanchetmax = so_mang.get_chi_so_mang() ;               //cout<<"solanchetmax "<<solanchetmax<<endl;
 
     solanchet = 0;
     phung.SetPos(800,10);
     duocbay.SetPos(900,10);
     cai_time = true;
+
     maumau = 0;
     mauboss = 0 ;
+
     player_nvc.show_cucmau( gRenderer, maumau);
-    player_nvc.kichhoatchongchong( false );
-    player_nvc.kichhoathangnong( false );
-    quivuong.set_solan_boss_andan(0);
+    if(level_1)
+    {
+        player_nvc.kichhoatchongchong( false );
+        player_nvc.kichhoathangnong( false );
+        player_nvc.setchobay ( false );
+    }
+
+
     quivuong.set_x_bosspos ( 8000 );
     quivuong.set_y_bosspos ( 2500);
+    quivuong.set_solan_boss_andan(0);
 }

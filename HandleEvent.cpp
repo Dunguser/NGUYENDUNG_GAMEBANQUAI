@@ -37,11 +37,20 @@ void handleEvents()
                     if (SDLCommonFunc::check_chuot_chon(xc, yc, win_nghi)) quit = true;
                     else if (SDLCommonFunc::check_chuot_chon(xc, yc, level2))
                     {
-                        //cout<<"next "<<endl;
                         level_2 = true;
                         level_1 = false;
                         win_game = false;
-                        anh_win.free();
+
+                        quivuong.set_solan_boss_andan (0);
+                        quivuong.sethanglanh ( false );
+
+                        player_nvc.kichhoathangnong ( false );
+                        player_nvc.kichhoatchongchong ( true );
+                        player_nvc.setchobay ( true );
+                        player_nvc.set_vitri_nvc ( 6800, 2700 );
+
+                        quivuong.set_x_bosspos ( 7800 );
+                        quivuong.set_y_bosspos ( 2500 );
                     }
                 }
 

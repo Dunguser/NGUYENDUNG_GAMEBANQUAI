@@ -14,7 +14,7 @@ void render_game()
     {
         so_mang.tangmang();                                 // an kim cuong tang mang
         player_nvc.tang_mang(false);
-        solanchetmax++;                                     //cout << "solanchetmax " << solanchetmax << endl;
+        solanchetmax ++;                                     //cout << "solanchetmax " << solanchetmax << endl;
     }
 
     if ( player_nvc.gethangnong() == true)
@@ -40,19 +40,20 @@ void render_game()
         quivuong.showboss(gRenderer);
         quivuong.DICHUYEN_BOSS(map_data);
         quivuong.show_mau_boss(gRenderer, mauboss);
+
         if (quivuong.gethanglanh())
         {
-            uatuc.change_gocquay(35);
+            uatuc.change_gocquay(30);
             int jj = quivuong.GetRect().x - quivuong.get_width_frame();
             int ii = quivuong.GetRect().y - quivuong.get_height_frame();
-            uatuc.render_kiem(gRenderer, jj, ii, nullptr, nullptr, SDL_FLIP_NONE);
+            uatuc.render_kiem( gRenderer, jj, ii, nullptr, nullptr, SDL_FLIP_NONE);
         }
     }
 
     game_map.SetMap( map_data );                                      // cap nhat vi tri moi cho start_x_, start_y_
-    game_map.DrawMap(gRenderer);                                    //ve ban do
+    game_map.DrawMap( gRenderer  );                                    //ve ban do
 
-    so_mang.Show(gRenderer);
+    so_mang.Show( gRenderer );
 
     if (player_nvc.getchongchong()) phung.show(gRenderer);
     if (player_nvc.getchobay()) duocbay.show(gRenderer);
@@ -90,11 +91,13 @@ void render_game_2()
     tamdung.Render( gRenderer, nullptr);
     map_data = game_map_2.GetMap();                           //xu li di chuyen, va cham map
 
-    kiem.change_gocquay( 30 );
-    int jj = player_nvc.GetRect().x - player_nvc.get_width_frame();
-    int ii = player_nvc.GetRect().y - player_nvc.get_height_frame();
-    kiem.render_kiem(gRenderer, jj, ii, nullptr, nullptr, SDL_FLIP_NONE);
-
+    if ( player_nvc.gethangnong() == true )
+    {
+        kiem.change_gocquay( 30 );
+        int jj = player_nvc.GetRect().x - player_nvc.get_width_frame();
+        int ii = player_nvc.GetRect().y - player_nvc.get_height_frame();
+        kiem.render_kiem(gRenderer, jj, ii, nullptr, nullptr, SDL_FLIP_NONE);
+    }
 
     // player_nvc
     player_nvc.XU_LI_BAN_DAN(gRenderer, SCREEN_WIDTH / 2.5, SCREEN_HEIGHT / 2.5, map_data);     // xu li ban dan
@@ -103,7 +106,7 @@ void render_game_2()
     player_nvc.DiChuyenNhanVat(map_data);
     player_nvc.show_cucmau(gRenderer, maumau);
 
-    if (player_nvc.get_y_hientai() >= 1800 && player_nvc.get_x_hientai() >= 6000 && win_game == false)      // qui vuong
+    if ( player_nvc.get_y_hientai() >= 1800 && player_nvc.get_x_hientai() >= 6000 && win_game == false )      // qui vuong
     {
         quivuong.xulibossbandan(gRenderer);
         quivuong.SetMapXY(map_data.start_x_, map_data.start_y_);
@@ -111,7 +114,7 @@ void render_game_2()
         quivuong.showboss(gRenderer);
         quivuong.DICHUYEN_BOSS(map_data);
         quivuong.show_mau_boss(gRenderer, mauboss);
-        quivuong.set_solan_boss_andan (0);
+
         if (quivuong.gethanglanh())
         {
             uatuc.change_gocquay(35);
@@ -119,16 +122,20 @@ void render_game_2()
             int ii = quivuong.GetRect().y - quivuong.get_height_frame();
             uatuc.render_kiem(gRenderer, jj, ii, nullptr, nullptr, SDL_FLIP_NONE);
         }
-
-        cout<<"man 2"<<endl;
     }
 
-    game_map_2.SetMap(map_data);                                      // cap nhat vi tri moi cho start_x_, start_y_
-    game_map_2.DrawMap(gRenderer);                                    //ve ban do
+    game_map_2.SetMap( map_data );                                      // cap nhat vi tri moi cho start_x_, start_y_
+    game_map_2.DrawMap( gRenderer );                                    //ve ban do
 
-    so_mang.Show(gRenderer);
+    if ( player_nvc.get_tangmang() )
+    {
+        so_mang.tangmang();                                 // an kim cuong tang mang
+        player_nvc.tang_mang(false);
+        solanchetmax ++;                                     //cout << "solanchetmax " << solanchetmax << endl;
+    }
+    so_mang.Show( gRenderer );
 
-    if (player_nvc.getchongchong()) phung.show(gRenderer);
-    if (player_nvc.getchobay()) duocbay.show(gRenderer);
+    if ( player_nvc.getchongchong() ) phung.show(gRenderer);
+    if ( player_nvc.getchobay() ) duocbay.show(gRenderer);
 
 }

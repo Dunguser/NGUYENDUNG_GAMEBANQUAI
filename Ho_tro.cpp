@@ -3,11 +3,10 @@
 void ho_tro()
 {
     // phong chu tinh thoi gian cho
-
     string time1 = " TIME : ";
     thoi_gian = SDL_GetTicks()/1000 ;
     time_play = thoi_gian - last_time + 1 ;
-    if(cai_time) //
+    if(cai_time)
     {
         last_time = thoi_gian ;
         time_play = thoi_gian - last_time + 1 ;
@@ -49,10 +48,11 @@ void ho_tro()
             if (delay_time > 0)
                 SDL_Delay(delay_time);
         }
-        thoi_gian_choi.Free();
-        antien.Free();
-        da_giet.Free();
     }
+
+    thoi_gian_choi.Free();
+    antien.Free();
+    da_giet.Free();
 }
 
 
@@ -61,12 +61,13 @@ void ho_tro_2()
     string time1 = " TIME : ";
     thoi_gian = SDL_GetTicks()/1000 ;
     time_play = thoi_gian - last_time + 1 ;
-    if(cai_time) //
+    if(cai_time)
     {
         last_time = thoi_gian ;
         time_play = thoi_gian - last_time + 1 ;
         cai_time = false;
     }
+
     string show_time_play = to_string(time_play);
     time1 += show_time_play;
     thoi_gian_choi.SetText(time1);

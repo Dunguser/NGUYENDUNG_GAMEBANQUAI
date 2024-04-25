@@ -102,28 +102,28 @@ public :
 
 private:
 
-    int frame_; // so luong hinh anh trong cai anh qui
-    int width_frame_; // chieu dai 1 frame
+    int frame_;                 // so luong hinh anh trong cai anh qui
+    int width_frame_;           // chieu dai 1 frame
     int height_frame_;
 
     SDL_Rect frame_clips[SO_FRAME];
 
     bool tren_mat_dat;
 
-    float x_boss_pos;//vi tri hien tai
+    float x_boss_pos;           //vi tri hien tai
     float y_boss_pos;
 
-    float x_change;// bien doi khi di chuyen
+    float x_change;             // bien doi khi di chuyen
     float y_change;
 
-    int map_x_boss;// 2 bien luu vi tri qui so voi map
-    int map_y_boss;// kiem tra roi xuong vuc
+    int map_x_boss;             // 2 bien luu vi tri qui so voi map
+    int map_y_boss;             // kiem tra roi xuong vuc
 
-    TRANG_THAI_BOSS trang_thai_boss;// ben trai hay ben phai
+    TRANG_THAI_BOSS trang_thai_boss;        // ben trai hay ben phai
 
     int va_bando;
 
-    vector <BulletObject*> bang_dan_boss;// xu li qui ban dan
+    vector <BulletObject*> bang_dan_boss;   // xu li qui ban dan
 
     int status_boss ;
 

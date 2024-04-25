@@ -117,7 +117,6 @@ public:
     void loadamthanh_nvc();
     void playmusic( Mix_Chunk* kaka) { Mix_PlayChannel ( -1, kaka , 0 ); }
 
-    //TRANG_THAI_NHAN_VAT getTRANGTHAI_main( ) const { return trang_thai_vao;}      // lam cho con qui vuong
     int getstatus()const { return status_ ;}
     bool get_trenmatdat() const { return tren_mat_dat ;}
 
