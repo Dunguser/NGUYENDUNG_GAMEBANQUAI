@@ -12,17 +12,3 @@ BaseObject player_main [11];
 
 
 
-//BulletObject dan_[9];
-//BaseObject dan_[9];
-
-//enum trang_thai_main
-//{
-//    chaytrai,
-//    chayphai,
-//    lontrai,
-//    lonphai,
-//    baytrai,
-//    bayphai,
-//    damtrai,
-//    damphai,
-//};

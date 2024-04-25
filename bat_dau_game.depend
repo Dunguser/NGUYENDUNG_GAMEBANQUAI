@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1714038167 source:e:\bat_dau_game\main.cpp
+1714048680 source:e:\bat_dau_game\main.cpp
 	"toancuc.h"
 	"game_functions.h"
 	"Game_Object.h"
@@ -559,7 +559,7 @@
 1713725782 e:\bat_dau_game - sao chép (2)\threatsobject.h
 	"BulletObject.h"
 
-1714038167 source:e:\bat_dau_game - sao chép (2)\main.cpp
+1714048680 source:e:\bat_dau_game - sao chép (2)\main.cpp
 	"toancuc.h"
 	"game_functions.h"
 	"Game_Object.h"
@@ -1366,7 +1366,7 @@
 1713602067 source:e:\bat_dau_game - sao chép\vuno.cpp
 	"vuno.h"
 
-1713961351 source:e:\bat_dau_game\quivuong.cpp
+1714051867 source:e:\bat_dau_game\quivuong.cpp
 	"QUIVUONG.h"
 	"BaseObject.h"
 
@@ -1383,7 +1383,7 @@
 	"MainObject.h"
 	"all_anh_qui.h"
 
-1713962321 source:e:\bat_dau_game\all_anh_nvc.cpp
+1714053297 source:e:\bat_dau_game\all_anh_nvc.cpp
 	"all_anh_nvc.h"
 
 1713962321 e:\bat_dau_game\all_anh_nvc.h
@@ -1391,10 +1391,10 @@
 	"BulletObject.h"
 	<bits/stdc++.h>
 
-1713939194 source:e:\bat_dau_game\toancuc.cpp
+1714052707 source:e:\bat_dau_game\toancuc.cpp
 	"toancuc.h"
 
-1713939194 e:\bat_dau_game\toancuc.h
+1714052707 e:\bat_dau_game\toancuc.h
 	<bits/stdc++.h>
 	<windows.h>
 	<SDL.h>
@@ -1415,7 +1415,7 @@
 	"kiemquay.h"
 	"all_anh_nvc.h"
 
-1713962321 source:e:\bat_dau_game - sao chép (2)\all_anh_nvc.cpp
+1714053297 source:e:\bat_dau_game - sao chép (2)\all_anh_nvc.cpp
 	"all_anh_nvc.h"
 
 1713962321 e:\bat_dau_game - sao chép (2)\all_anh_nvc.h
@@ -1436,7 +1436,7 @@
 	"MainObject.h"
 	"all_anh_qui.h"
 
-1713939194 e:\bat_dau_game - sao chép (2)\toancuc.h
+1714052707 e:\bat_dau_game - sao chép (2)\toancuc.h
 	<bits/stdc++.h>
 	<windows.h>
 	<SDL.h>
@@ -1457,11 +1457,11 @@
 	"kiemquay.h"
 	"all_anh_nvc.h"
 
-1713961351 source:e:\bat_dau_game - sao chép (2)\quivuong.cpp
+1714051867 source:e:\bat_dau_game - sao chép (2)\quivuong.cpp
 	"QUIVUONG.h"
 	"BaseObject.h"
 
-1713939194 source:e:\bat_dau_game - sao chép (2)\toancuc.cpp
+1714052707 source:e:\bat_dau_game - sao chép (2)\toancuc.cpp
 	"toancuc.h"
 
 1713463834 source:e:\bat_dau_game -(2)\all_anh_nvc.cpp
@@ -1711,7 +1711,7 @@
 	"Game_Object.h"
 	"Init_Game.h"
 
-1713899454 source:e:\bat_dau_game\game_functions.cpp
+1714053609 source:e:\bat_dau_game\game_functions.cpp
 	"game_functions.h"
 
 1713727279 e:\bat_dau_game\game_functions.h
@@ -1722,13 +1722,13 @@
 	"toancuc.h"
 	"ThreatsObject.h"
 
-1713962321 source:e:\bat_dau_game\game_object.cpp
+1714049182 source:e:\bat_dau_game\game_object.cpp
 	"Game_Object.h"
 
-1713795375 source:e:\bat_dau_game\handleevent.cpp
+1714053296 source:e:\bat_dau_game\handleevent.cpp
 	"HandleEvent.h"
 
-1713728747 e:\bat_dau_game\handleevent.h
+1714050856 e:\bat_dau_game\handleevent.h
 	"toancuc.h"
 	"game_functions.h"
 	"Game_Object.h"
@@ -1738,21 +1738,21 @@
 	"game_functions.h"
 	"Game_Object.h"
 
-1714038822 source:e:\bat_dau_game\init_game.cpp
+1714053420 source:e:\bat_dau_game\init_game.cpp
 	"Init_Game.h"
 
-1714033722 source:e:\bat_dau_game\ho_tro.cpp
+1714052920 source:e:\bat_dau_game\ho_tro.cpp
 	"Ho_tro.h"
 
-1713937571 e:\bat_dau_game\ho_tro.h
+1714048496 e:\bat_dau_game\ho_tro.h
 	"toancuc.h"
 	"ImpTimer.h"
 	<string>
 
-1714038822 source:e:\bat_dau_game\game_render.cpp
+1714048569 source:e:\bat_dau_game\game_render.cpp
 	"game_render.h"
 
-1713898954 e:\bat_dau_game\game_render.h
+1714048496 e:\bat_dau_game\game_render.h
 	"Game_Object.h"
 	"GAMEMAP.h"
 	"MainObject.h"
@@ -1762,12 +1762,12 @@
 	<vector>
 	"toancuc.h"
 
-1713937834 e:\bat_dau_game\check_va_cham.h
+1714048496 e:\bat_dau_game\check_va_cham.h
 	"toancuc.h"
 	"Game_Object.h"
 	"BulletObject.h"
 
-1714035979 source:e:\bat_dau_game\check_va_cham.cpp
+1714053700 source:e:\bat_dau_game\check_va_cham.cpp
 	"CHECK_VA_CHAM.h"
 
 1713792933 source:e:\bat_dau_game\che_do_game.cpp
@@ -1847,18 +1847,18 @@
 	"game_functions.h"
 	"Game_Object.h"
 
-1713728747 e:\bat_dau_game - sao chép (2)\handleevent.h
+1714050856 e:\bat_dau_game - sao chép (2)\handleevent.h
 	"toancuc.h"
 	"game_functions.h"
 	"Game_Object.h"
 	"Init_Game.h"
 
-1713937571 e:\bat_dau_game - sao chép (2)\ho_tro.h
+1714048496 e:\bat_dau_game - sao chép (2)\ho_tro.h
 	"toancuc.h"
 	"ImpTimer.h"
 	<string>
 
-1713898954 e:\bat_dau_game - sao chép (2)\game_render.h
+1714048496 e:\bat_dau_game - sao chép (2)\game_render.h
 	"Game_Object.h"
 	"GAMEMAP.h"
 	"MainObject.h"
@@ -1868,29 +1868,29 @@
 	<vector>
 	"toancuc.h"
 
-1714035979 source:e:\bat_dau_game - sao chép (2)\check_va_cham.cpp
+1714053700 source:e:\bat_dau_game - sao chép (2)\check_va_cham.cpp
 	"CHECK_VA_CHAM.h"
 
-1713937834 e:\bat_dau_game - sao chép (2)\check_va_cham.h
+1714048496 e:\bat_dau_game - sao chép (2)\check_va_cham.h
 	"toancuc.h"
 	"Game_Object.h"
 	"BulletObject.h"
 
-1713899454 source:e:\bat_dau_game - sao chép (2)\game_functions.cpp
+1714053609 source:e:\bat_dau_game - sao chép (2)\game_functions.cpp
 	"game_functions.h"
 
-1713962321 source:e:\bat_dau_game - sao chép (2)\game_object.cpp
+1714049182 source:e:\bat_dau_game - sao chép (2)\game_object.cpp
 	"Game_Object.h"
 
-1714038822 source:e:\bat_dau_game - sao chép (2)\game_render.cpp
+1714048569 source:e:\bat_dau_game - sao chép (2)\game_render.cpp
 	"game_render.h"
 
-1714037282 source:e:\bat_dau_game - sao chép (2)\handleevent.cpp
+1714053296 source:e:\bat_dau_game - sao chép (2)\handleevent.cpp
 	"HandleEvent.h"
 
-1714038822 source:e:\bat_dau_game - sao chép (2)\init_game.cpp
+1714053420 source:e:\bat_dau_game - sao chép (2)\init_game.cpp
 	"Init_Game.h"
 
-1714033722 source:e:\bat_dau_game - sao chép (2)\ho_tro.cpp
+1714052920 source:e:\bat_dau_game - sao chép (2)\ho_tro.cpp
 	"Ho_tro.h"
 

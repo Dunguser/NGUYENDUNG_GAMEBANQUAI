@@ -93,6 +93,12 @@ bool LoadMedia() // Tải tài nguyên game
         cout<<IMG_GetError()<<endl;
         return 0;
     }
+    if( !gBackground3.LoadImage("MAP/G_BACK_GROUND_3.png",gRenderer))
+    {
+        cout<<IMG_GetError()<<endl;
+        return 0;
+    }
+
     gFont = TTF_OpenFont ("FONT/turok.ttf",24);
     if( gFont == nullptr )
     {
@@ -160,6 +166,7 @@ void close() // Đóng game
     so_mang.free();
     phung.free();
     duocbay.free( );
+
     for (auto obj : threats_list)       //giai phong bo nho da cap phat
     {
         obj->free();

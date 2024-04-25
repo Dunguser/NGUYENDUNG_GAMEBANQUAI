@@ -392,17 +392,19 @@ void va_boss_voi_dan_nvc()
             bool qui_an_dan = SDLCommonFunc::CheckCollision( dan_rect, boss_rect);
             if( qui_an_dan )
             {
-                if(level_2)cout<<"dan trung boss "<<endl;
+                //if(level_2)cout<<"dan trung boss "<<endl;
 
                 Mix_PlayChannel( -1, bom, 0 );                        //cout<<"qui "<<qui_rect.x <<" "<< dan_rect.x<<endl;
                 for(int no = 0 ; no < num_frame_no ; no ++)         // xu li anh no
                 {
+
                     int x_pos = quivuong.GetRect().x ;             // vi tri no la vi tri qui
                     int y_pos = quivuong.GetRect().y ;
 
                     qui_no.set_frame( no );
                     qui_no.SetRect ( x_pos, y_pos );
                     qui_no.show ( gRenderer );
+                    if(level_2)cout<<" no boss  "<<endl; cout<<x_pos <<" "<<y_pos <<endl;
                 }
                 player_nvc.loaiboviendan(i);
                 boss_andan++;
@@ -464,7 +466,7 @@ void va_boss_voi_kiem_nvc()
                 int x_pos = quivuong.GetRect().x ;                                 // vi tri no la vi tri qui
                 int y_pos = quivuong.GetRect().y ;
                 qui_no.set_frame( no );
-                qui_no .SetRect( x_pos, y_pos );
+                qui_no .SetRect( x_pos, y_pos );  cout<<x_pos <<" "<<y_pos <<endl;
                 qui_no.show(gRenderer);
             }
             qui_vuong_bichem ++;
@@ -522,6 +524,24 @@ void qui_con_khonhon()
 }
 
 void check_va_cham1()
+{
+    va_qui_voi_dan_nvc();
+    va_qui_voi_kiem_nvc();
+
+    va_nvc_voi_danqui();
+    va_nvc_voi_kiemboss();
+    va_nvc_bi_bossdam();
+    va_nvc_voi_danboss();
+
+    va_boss_voi_dan_nvc();
+    va_boss_voi_kiem_nvc();
+
+    va_haikiemvoinhau();
+
+    qui_con_khonhon();
+
+}
+void check_va_cham3()
 {
     va_qui_voi_dan_nvc();
     va_qui_voi_kiem_nvc();

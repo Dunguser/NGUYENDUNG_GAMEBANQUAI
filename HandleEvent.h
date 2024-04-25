@@ -9,5 +9,6 @@
 
 void handleEvents();
 
+void xulikhi_win();
 
 #endif // HANDLE_EVENT_H

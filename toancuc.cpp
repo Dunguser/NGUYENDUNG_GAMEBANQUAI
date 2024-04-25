@@ -8,10 +8,10 @@ BaseObject messi;
 
 SDL_Rect nutdung = {SCREEN_WIDTH - 80, 0, 80, 78};
 SDL_Rect tieptuc = {625, 460 - 32, 115, 40};
-SDL_Rect playagain = {460 , 800 , 130 , 71};
-SDL_Rect not_playagain = { 700 , 800 , 130 , 70 };
-SDL_Rect restart = {600, 740 -30 , 160 , 60};
-SDL_Rect cut = {625 , 670 - 32, 120, 30};
+SDL_Rect playagain = {460, 800, 130, 71};
+SDL_Rect not_playagain = { 700, 800, 130, 70 };
+SDL_Rect restart = {600, 740 -30, 160, 60};
+SDL_Rect cut = {625, 670 - 32, 120, 30};
 
 BaseObject anhdau;
 BaseObject anhcho;
@@ -78,11 +78,27 @@ int time_one_frame ;
 MAP map_data ;
 
 
-SDL_Rect win_nghi = { 105 , 795 , 85 , 80};
-SDL_Rect level2 = { 1133 , 805 , 85 , 80};
+SDL_Rect win_nghi = { 105, 795, 85, 80};
+SDL_Rect level2 = { 1133, 805, 85, 80};
 
 bool level_1 = true;
 bool level_2 = false;
 BaseObject gBackground2 ;
 GAMEMAP game_map_2;
 MAP map_data_2;
+
+bool level_3 =false ;
+BaseObject gBackground3 ;
+GAMEMAP game_map_3;
+MAP map_data_3;
+
+int xc = gEvent.motion.x;
+int yc = gEvent.motion.y;
+
+int deadline_man2  = 180 ;
+Uint32 starttime;
+
+
+
+
+

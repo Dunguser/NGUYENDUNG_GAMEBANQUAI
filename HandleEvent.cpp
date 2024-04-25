@@ -4,11 +4,11 @@ using namespace std;
 
 void handleEvents()
 {
-    while (SDL_PollEvent(&gEvent) != 0)
+    while ( SDL_PollEvent (&gEvent) != 0)
     {
-        if (gEvent.type == SDL_QUIT) quit = true;
+        if ( gEvent.type == SDL_QUIT ) quit = true;
 
-        else if (gEvent.type == SDL_KEYDOWN && gEvent.key.keysym.sym == SDLK_x)
+        else if ( gEvent.type == SDL_KEYDOWN && gEvent.key.keysym.sym == SDLK_x )
         {
             thoigianhientai = SDL_GetTicks();
             ho = true;
@@ -17,8 +17,8 @@ void handleEvents()
         {
             if ( gEvent.button.button == SDL_BUTTON_LEFT )
             {
-                int xc = gEvent.motion.x, yc = gEvent.motion.y;
-
+                xc = gEvent.motion.x;
+                yc = gEvent.motion.y;
                 if (SDLCommonFunc::check_chuot_chon(xc, yc, nutdung)) isPaused = true;    // tam dung
                 else if (SDLCommonFunc::check_chuot_chon(xc, yc, tieptuc )) isPaused = false; // het tam dung
 
@@ -32,30 +32,64 @@ void handleEvents()
                     else if (SDLCommonFunc::check_chuot_chon(xc, yc, not_playagain)) quit = true;
                 }
 
-                else if ( win_game )
-                {
-                    if (SDLCommonFunc::check_chuot_chon(xc, yc, win_nghi)) quit = true;
-                    else if (SDLCommonFunc::check_chuot_chon(xc, yc, level2))
-                    {
-                        level_2 = true;
-                        level_1 = false;
-                        win_game = false;
-
-                        quivuong.set_solan_boss_andan (0);
-                        quivuong.sethanglanh ( false );
-
-                        player_nvc.kichhoathangnong ( false );
-                        player_nvc.kichhoatchongchong ( true );
-                        player_nvc.setchobay ( true );
-                        player_nvc.set_vitri_nvc ( 6800, 2700 );
-
-                        quivuong.set_x_bosspos ( 7800 );
-                        quivuong.set_y_bosspos ( 2500 );
-                    }
-                }
+                else if ( win_game ) xulikhi_win();
 
             }
         }
-        player_nvc.XuLiXuKienBanPhim(gEvent, gRenderer); // Xử lí sự kiện bàn phím cho nhân vật chính
+        player_nvc.XuLiXuKienBanPhim(gEvent, gRenderer);    // Xử lí sự kiện bàn phím cho nhân vật chính
     }
+}
+
+void xulikhi_win()
+{
+    if ( SDLCommonFunc::check_chuot_chon(xc, yc, win_nghi) ) // quay lai man 1
+    {
+        restartGame2();
+        win_game = false;
+    }
+    else if ( SDLCommonFunc::check_chuot_chon(xc, yc, level2) && level_1 == true ) // man 2
+    {
+        level_2 = true;
+        level_1 = false;
+        win_game = false;
+
+        quivuong.set_solan_boss_andan (0);
+        quivuong.sethanglanh ( false );
+
+        player_nvc.kichhoathangnong ( false );
+        player_nvc.kichhoatchongchong ( true );
+        player_nvc.setchobay ( true );
+        player_nvc.set_vitri_nvc ( 7100, 2700 );
+
+        quivuong.set_x_bosspos ( 7800 );
+        quivuong.set_y_bosspos ( 2500 );
+    }
+    else if ( SDLCommonFunc::check_chuot_chon(xc, yc, win_nghi) && level_2 == true) // quay lai man 1
+    {
+        restartGame2();
+        win_game = false;
+    }
+    else if ( SDLCommonFunc::check_chuot_chon(xc, yc, level2) && level_2 == true ) // man 2
+    {
+        level_2 = false;
+        level_3 = true;
+        win_game = false;
+
+        quivuong.set_solan_boss_andan (0);
+        quivuong.sethanglanh ( false );
+
+        player_nvc.kichhoathangnong ( false );
+        player_nvc.kichhoatchongchong ( false );
+        player_nvc.setchobay ( false );
+        player_nvc.set_vitri_nvc ( 6800, 1500 );
+
+        quivuong.set_x_bosspos ( 7100 );
+        quivuong.set_y_bosspos ( 1500 );
+    }
+    else if ( SDLCommonFunc::check_chuot_chon(xc, yc, win_nghi) && level_3 == true) // quay lai man 1
+    {
+        restartGame2();
+        win_game = false;
+    }
+
 }

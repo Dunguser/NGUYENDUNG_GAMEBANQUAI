@@ -110,9 +110,20 @@ extern SDL_Rect win_nghi;
 extern SDL_Rect level2;
 
 extern bool level_1 ;
-extern bool level_2;
+extern bool level_2 ;
 extern BaseObject gBackground2 ;
 extern GAMEMAP game_map_2;
+
+extern bool level_3 ;
+extern BaseObject gBackground3 ;
+extern GAMEMAP game_map_3;
+extern MAP map_data_3;
+
+extern int xc ;
+extern int yc ;
+
+extern int deadline_man2 ;
+extern Uint32 starttime;
 
 #endif // TOAN_CUC_
 

@@ -20,17 +20,23 @@ int main(int argc,char* argv[] )
         {
             if( !gameOver && !win_game )
             {
-                if( level_1 == true && level_2 == false )
+                if( level_1 == true )
                 {
                     render_game();
                     check_va_cham1();
                     ho_tro();
                 }
-                else if ( level_2 == true && level_1 == false )
+                else if ( level_2 == true )
                 {
                     render_game_2();
                     check_va_cham2();
                     ho_tro_2();
+                }
+                else if ( level_3 == true )
+                {
+                    render_game_3();
+                    check_va_cham3();
+                    ho_tro_3();
                 }
             }
             else if( gameOver && !win_game )

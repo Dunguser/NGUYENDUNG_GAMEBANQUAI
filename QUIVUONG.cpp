@@ -87,8 +87,9 @@ SDL_Rect QUIVUONG::getrectframe()
 
 void QUIVUONG::DICHUYENTHEO_NVC( MainObject &kaka, SDL_Renderer* screen)
 {
-    if( kaka.get_y_hientai() >= 2450 && kaka.get_x_hientai() >= 6000)
+    if(  kaka.get_x_hientai() >= 5000)
     {
+        //if( abs(kaka.get_y_hientai() - y_boss_pos ) >= 50 )
         if( abs(kaka.get_y_hientai() - y_boss_pos ) >= 50 )
         {
             int khoangcach = abs( kaka.get_x_hientai() - x_boss_pos );
@@ -218,29 +219,54 @@ void QUIVUONG::DICHUYENTHEO_NVC( MainObject &kaka, SDL_Renderer* screen)
                     }
                     y_boss_pos = 64*45 - 350;
                 }
-
             }
-
         }
-        else
+        else if ( abs(kaka.get_y_hientai() - y_boss_pos ) < 50  )
         {
             int khoangcach = abs( kaka.get_x_hientai() - x_boss_pos );
             if( khoangcach >= 400 )
             {
-                if( kaka.get_x_hientai() > x_boss_pos )// && tren_mat_dat == true)
+                if( kaka.get_x_hientai() > x_boss_pos )
                 {
                     trang_thai_boss.sang_phai = 1;
                     trang_thai_boss.sang_trai = 0;
                     status_boss = phai;
                 }
-                else if( kaka.get_x_hientai() < x_boss_pos )// && tren_mat_dat == true)
+                else if( kaka.get_x_hientai() < x_boss_pos )
                 {
                     trang_thai_boss.sang_trai = 1 ;
                     trang_thai_boss.sang_phai = 0 ;
                     status_boss = trai ;
                 }
             }
-            else if ( khoangcach >= 100 && khoangcach < 400)
+            else if ( khoangcach >= 300 && khoangcach < 400)
+            {
+                int y_distance = abs(kaka.get_y_hientai() - y_boss_pos );
+                if( y_distance <= 100)
+                {
+                    if(kaka.get_x_hientai() > x_boss_pos )
+                    {
+                        trang_thai_boss.lon_phai = 1;
+                        trang_thai_boss.sang_phai = 0;
+                        trang_thai_boss.ban_trai = 0;
+                        trang_thai_boss.dam_trai = 0;
+                        trang_thai_boss.dam_phai = 0;
+                        status_boss = phai;
+                    }
+                    else if( kaka.get_x_hientai() < x_boss_pos )
+                    {
+                        trang_thai_boss.lon_trai = 1;
+                        trang_thai_boss.sang_trai = 0;
+                        trang_thai_boss.ban_phai = 0;
+                        trang_thai_boss.dam_phai = 0;
+                        trang_thai_boss.dam_trai =0;
+                        status_boss = trai ;
+                    }
+                    BulletObject* dan_boss = new BulletObject();
+                    init_dan_qui(dan_boss,screen );
+                }
+            }
+            else if ( khoangcach >= 100 && khoangcach < 300)
             {
                 int y_distance = abs(kaka.get_y_hientai() - y_boss_pos );
                 if( y_distance <= 100)
@@ -404,6 +430,8 @@ void QUIVUONG::checktomap_boss( MAP& map_data )
     {
         x_boss_pos = map_data.max_x_ - width_frame_ - sai_so_can_co;
     }
+
+
 
 }
 

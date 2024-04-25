@@ -13,5 +13,6 @@
 
 void render_game();
 void render_game_2();
+void render_game_3 ();
 
 #endif // GAME_RENDER_H

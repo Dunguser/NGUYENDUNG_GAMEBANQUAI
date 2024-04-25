@@ -27,7 +27,7 @@ vector<ThreatsObject*> Make_Threat_List()
     for(int i=0; i< 40; i++)
     {
         ThreatsObject* p_qui = qui_tuan_tra + i ;
-        if(p_qui!=nullptr)
+        if(p_qui != nullptr)
         {
             p_qui->LoadImage( "IMG/quai_di_trai.png", gRenderer );
             p_qui->set_clips();
@@ -42,9 +42,18 @@ vector<ThreatsObject*> Make_Threat_List()
                 p_qui->set_x_quipos( 100*(i+2)+500 );            // cai dat vi tri xuat hien
                 p_qui->set_y_quipos( 360);
             }
-
-            int gioi_han_trai = p_qui->get_x_quipos()-80;        // gioi han trai,phai
-            int gioi_han_phai = p_qui->get_x_quipos()+80;
+            int gioi_han_trai;
+            int gioi_han_phai ;
+            if( level_1)
+            {
+                gioi_han_trai = p_qui->get_x_quipos()-80;        // gioi han trai,phai
+                gioi_han_phai = p_qui->get_x_quipos()+80;
+            }
+            if( level_3)
+            {
+                gioi_han_trai = p_qui->get_x_quipos() - 60;        // gioi han trai,phai
+                gioi_han_phai = p_qui->get_x_quipos() + 60;
+            }
 
             p_qui->set_gioi_han_dichuyen( gioi_han_trai, gioi_han_phai );
             p_qui->set_trang_thai_trai(1);

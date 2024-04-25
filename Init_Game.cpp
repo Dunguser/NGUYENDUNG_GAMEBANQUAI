@@ -21,9 +21,12 @@ void InitGame()
 
     game_map.LoadMap("MAP/map04.dat");              //xu li ban do: map
     game_map_2.LoadMap("MAP/map_level2.dat");
+    game_map_3.LoadMap("MAP/map_level3.dat");
 
     game_map.LoadTiles( gRenderer );
     game_map_2.LoadTiles ( gRenderer );
+    game_map_3.LoadTiles ( gRenderer );
+
 
     player_nvc.LoadMainImg("IMG/CHAY_PHAI_SUNG.png",gRenderer);     //xu li nhan vat chinh
 
@@ -43,16 +46,22 @@ void InitGame()
         quivuong.set_x_bosspos ( 8800 );
         quivuong.set_y_bosspos ( 2500 );
     }
+    else if ( level_3 )
+    {
+        quivuong.set_x_bosspos ( 7100 );
+        quivuong.set_y_bosspos ( 1500 );
+    }
+
     quivuong.loadamthanh_boss();
 
-    if(level_1)
+    if( level_1 ||level_3 )
     {
         vector<ThreatsObject*> threats_list = Make_Threat_List();       // khai bao 1 dong quai vat
         load_tat_ca_qui ( gRenderer );
     }
 
     load_all_boss ( gRenderer );
-    load_all_main( gRenderer);
+    load_all_main( gRenderer );
 
     khoitaovuno(qui_no);
     khoitaonhanvatchinh_no(nvc_no);
@@ -109,7 +118,7 @@ void restartGame()
     quivuong.set_x_bosspos ( 8800 );
     quivuong.set_y_bosspos ( 2500 );
 
-    threats_list = Make_Threat_List();                      // khai bao 1 dong quai vat
+    if ( level_1 || level_3 )threats_list = Make_Threat_List();                      // khai bao 1 dong quai vat
     so_qui_bi_giet = 0 ;
     tong_tien = 0;
 
@@ -155,7 +164,7 @@ void restartGame2()
     quivuong.set_x_bosspos ( 8800 );
     quivuong.set_y_bosspos ( 2500 );
 
-    threats_list = Make_Threat_List();                      // khai bao 1 dong quai vat
+    if ( level_1 || level_3 ) threats_list = Make_Threat_List();                      // khai bao 1 dong quai vat
     so_qui_bi_giet = 0 ;
     tong_tien = 0 ;
     player_nvc.set_tienanduoc(0) ;
@@ -173,13 +182,18 @@ void restartGame2()
     mauboss = 0 ;
 
     player_nvc.show_cucmau( gRenderer, maumau);
-    if(level_1)
+    if(level_1 || level_3 )
     {
         player_nvc.kichhoatchongchong( false );
         player_nvc.kichhoathangnong( false );
         player_nvc.setchobay ( false );
     }
-
+    else if ( level_2 )
+    {
+        player_nvc.kichhoatchongchong( true );
+        player_nvc.kichhoathangnong( false );
+        player_nvc.setchobay ( true );
+    }
 
     quivuong.set_x_bosspos ( 8000 );
     quivuong.set_y_bosspos ( 2500);
