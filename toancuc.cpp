@@ -99,6 +99,6 @@ int deadline_man2  = 180 ;
 Uint32 starttime;
 
 
-
+int demdem = 0;
 
 

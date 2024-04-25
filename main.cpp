@@ -7,6 +7,7 @@
 #include "game_render.h"
 #include "CHECK_VA_CHAM.h"
 #include "CHE_DO_GAME.h"
+#include "win_or_lose.h"
 
 using namespace std;
 
@@ -39,23 +40,8 @@ int main(int argc,char* argv[] )
                     ho_tro_3();
                 }
             }
-            else if( gameOver && !win_game )
-            {
-                penaldo.Render( gRenderer, nullptr );
-                SDL_RenderPresent( gRenderer );
-                SDL_Delay ( 1000 );
-                penaldo.free();
-                gameover.Render( gRenderer, nullptr );
-            }
-            else if ( win_game && !gameOver )
-            {
-                messi.SetRect ( 164, 0 );
-                messi.Render( gRenderer );
-                SDL_RenderPresent ( gRenderer );
-                SDL_Delay ( 1000 );
-                messi.free();
-                anh_win.Render(gRenderer, nullptr);
-            }
+            else if( gameOver && !win_game ) lose();
+            else if ( win_game && !gameOver ) win();
         }
         else if( isPaused )
         {

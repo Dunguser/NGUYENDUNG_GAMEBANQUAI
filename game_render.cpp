@@ -197,9 +197,9 @@ void render_game_3 ()
     if (player_nvc.getchongchong()) phung.show(gRenderer);
     if (player_nvc.getchobay()) duocbay.show(gRenderer);
 
-    for (int i = 0; i < (int)threats_list.size(); i++)              // xu li quai vat
+    for (int i = 0; i < (int)threats_list3.size(); i++)              // xu li quai vat
     {
-        ThreatsObject* p_qui = threats_list.at(i);
+        ThreatsObject* p_qui = threats_list3.at(i);
         if (p_qui != nullptr)
         {
             p_qui->SetMapXY( map_data.start_x_, map_data.start_y_ );
@@ -210,9 +210,9 @@ void render_game_3 ()
         }
     }
 
-    for (int i = 0; i < (int)threats_list.size(); ++i)           // khởi tạo lại đạn quỉ
+    for (int i = 0; i < (int)threats_list3.size(); ++i)           // khởi tạo lại đạn quỉ
     {
-        ThreatsObject* p_qui = threats_list.at(i);
+        ThreatsObject* p_qui = threats_list3.at(i);
         if (p_qui->get_bang_dan_qui().empty())
         {
             BulletObject* dan_qui = new BulletObject();          //them dan

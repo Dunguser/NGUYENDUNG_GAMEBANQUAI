@@ -23,8 +23,15 @@ void load_all_boss (SDL_Renderer* des)
 vector<ThreatsObject*> Make_Threat_List()
 {
     vector<ThreatsObject*> list_threats;
-    ThreatsObject* qui_tuan_tra = new ThreatsObject[40];
-    for(int i=0; i< 40; i++)
+    int len ;
+    if ( demdem== 0)
+    {
+        len = 40;
+        demdem++;
+    }
+    else len =60;
+    ThreatsObject* qui_tuan_tra = new ThreatsObject[len];
+    for(int i=0; i< len; i++)
     {
         ThreatsObject* p_qui = qui_tuan_tra + i ;
         if(p_qui != nullptr)
@@ -101,7 +108,7 @@ void khoitaono_dam (VUNO & nodam)
 }
 
 vector<ThreatsObject*> threats_list;
-
+vector<ThreatsObject*> threats_list3;
 
 void load_all_main (SDL_Renderer* des)
 {

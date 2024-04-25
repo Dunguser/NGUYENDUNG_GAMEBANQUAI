@@ -173,6 +173,8 @@ void close() // Đóng game
         obj = nullptr;
     }
     threats_list.clear();               // xóa vector
+
+
 }
 
 

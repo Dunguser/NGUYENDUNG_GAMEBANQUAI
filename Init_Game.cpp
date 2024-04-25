@@ -54,11 +54,10 @@ void InitGame()
 
     quivuong.loadamthanh_boss();
 
-    if( level_1 ||level_3 )
-    {
-        vector<ThreatsObject*> threats_list = Make_Threat_List();       // khai bao 1 dong quai vat
-        load_tat_ca_qui ( gRenderer );
-    }
+    load_tat_ca_qui ( gRenderer );
+
+    threats_list = Make_Threat_List();   // khai bao 1 dong quai vat
+    threats_list3 = Make_Threat_List();
 
     load_all_boss ( gRenderer );
     load_all_main( gRenderer );
@@ -69,9 +68,9 @@ void InitGame()
     khoitaonoboss ( boss_tan_xac);
     khoitaono_dam ( no_dam );
 
-    thoi_gian_choi.setcolor (TextObject :: RED_TEXT );              //thoi_gian_choi.LoadFromRenderText( gFont, gRenderer);
-    da_giet.setcolor (TextObject :: RED_TEXT);                       //da_giet.LoadFromRenderText( gFont, gRenderer );
-    antien.setcolor (TextObject :: RED_TEXT );                      //antien.LoadFromRenderText (gFont,gRenderer );
+    thoi_gian_choi.setcolor (TextObject :: RED_TEXT );
+    da_giet.setcolor (TextObject :: RED_TEXT);
+    antien.setcolor (TextObject :: RED_TEXT );
 
     so_mang.set_chi_so_mang(3);
     so_mang.Init( gRenderer, "IMG/tym.png" );
@@ -118,7 +117,8 @@ void restartGame()
     quivuong.set_x_bosspos ( 8800 );
     quivuong.set_y_bosspos ( 2500 );
 
-    if ( level_1 || level_3 )threats_list = Make_Threat_List();                      // khai bao 1 dong quai vat
+    if ( level_1  )threats_list = Make_Threat_List();                      // khai bao 1 dong quai vat
+    else if ( level_3) threats_list3 = Make_Threat_List();
     so_qui_bi_giet = 0 ;
     tong_tien = 0;
 

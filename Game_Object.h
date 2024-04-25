@@ -19,6 +19,8 @@ void khoitaonodaulau(VUNO& daulau);
 void khoitaonoboss(VUNO& boss_die);
 
 extern vector<ThreatsObject*> threats_list;
+extern vector<ThreatsObject*> threats_list3;
+
 vector<ThreatsObject*> Make_Threat_List();
 
 #endif // GAME_OBJECT_H

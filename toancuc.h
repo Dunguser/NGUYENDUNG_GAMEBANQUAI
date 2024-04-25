@@ -125,6 +125,7 @@ extern int yc ;
 extern int deadline_man2 ;
 extern Uint32 starttime;
 
+extern int demdem ;
 #endif // TOAN_CUC_
 
 

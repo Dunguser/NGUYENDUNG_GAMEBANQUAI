@@ -94,6 +94,8 @@
 		<Unit filename="toancuc.h" />
 		<Unit filename="vuno.cpp" />
 		<Unit filename="vuno.h" />
+		<Unit filename="win_or_lose.cpp" />
+		<Unit filename="win_or_lose.h" />
 		<Extensions>
 			<lib_finder disable_auto="1" />
 		</Extensions>

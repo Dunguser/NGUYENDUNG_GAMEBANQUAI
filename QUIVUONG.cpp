@@ -89,12 +89,9 @@ void QUIVUONG::DICHUYENTHEO_NVC( MainObject &kaka, SDL_Renderer* screen)
 {
     if(  kaka.get_x_hientai() >= 5000)
     {
-        //if( abs(kaka.get_y_hientai() - y_boss_pos ) >= 50 )
         if( abs(kaka.get_y_hientai() - y_boss_pos ) >= 50 )
         {
             int khoangcach = abs( kaka.get_x_hientai() - x_boss_pos );
-//            cout<<"y = "<<abs(kaka.get_y_hientai() - y_boss_pos )<<endl;
-//            cout<<"x = "<<khoangcach <<endl;
             if( khoangcach >= 400 )
             {
                 if( kaka.get_x_hientai() > x_boss_pos )
@@ -137,7 +134,7 @@ void QUIVUONG::DICHUYENTHEO_NVC( MainObject &kaka, SDL_Renderer* screen)
                 {
                     if( kaka.get_x_hientai() < x_boss_pos)
                     {
-                        trang_thai_boss.lon_trai = 1;//cout<<"lon trai"<<endl;
+                        trang_thai_boss.lon_trai = 1;
                         trang_thai_boss.lon_phai = 0;
                         trang_thai_boss.dam_phai = 0;
                     }
@@ -177,8 +174,6 @@ void QUIVUONG::DICHUYENTHEO_NVC( MainObject &kaka, SDL_Renderer* screen)
             }
             else
             {
-//                cout<<"y = " <<abs(kaka.get_y_hientai() - y_boss_pos )<<endl;
-//                cout<<"x = "<<khoangcach << endl;
                 if( kaka.get_y_hientai() - y_boss_pos < 0)
                 {
                     if( kaka.getstatus() == MainObject :: ben_phai_ )
@@ -321,12 +316,12 @@ void QUIVUONG::DICHUYEN_BOSS( MAP& map_data )
     else if ( trang_thai_boss.ban_phai == 1)
     {
         x_change += TOCDOCHAY_BOSS / 2;
-        //playmusic(cung);
+        playmusic(cung);
     }
     else if ( trang_thai_boss.ban_trai == 1)
     {
         x_change -= TOCDOCHAY_BOSS / 2;
-        //playmusic(cung);
+        playmusic(cung);
     }
     else if (trang_thai_boss.lon_phai == 1)
     {
@@ -344,7 +339,6 @@ void QUIVUONG::DICHUYEN_BOSS( MAP& map_data )
         {
             x_change -= TOCDOCHAY_BOSS ;
             y_change = - NHAYBTH_BOSS /1.2;
-            // rect_.y -= 9;
         }
         tren_mat_dat = false;
         trang_thai_boss.lon_trai = 0;
