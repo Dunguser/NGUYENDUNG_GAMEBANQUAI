@@ -9,52 +9,18 @@
 
 Bắn quái là tựa game phiêu lưu , mạo hiểm , gây cảm giác thích thú cho người chơi , hứng phấn cho người . Có tác dụng giải trí cao , xua tan căng thẳng , mệt mỏi sau những giờ làm việc căng thẳng.
 
-- [0. Cách tải game](#0-cách-tải-game)
-    * [a. Cách 1: Không bao gồm code.](#a-cách-1-không-bao-gồm-code)
-    * [b. Cách 2: Bao gồm code và có thể biên dịch.](#b-cách-2-bao-gồm-code-và-có-thể-biên-dịch)
-- [1. Bắt đầu game](#1bắt-đầu-game)
-- [2. level game](#2chọn-level)
-- [3. Các thành phần trong game:](#3-các-thành-phần-trong-game)
-- [4. Cách chơi](#4-cách-chơi)
-    * [a. Các loại cây](#acác-loại-cây)
-    * [b. Các loại zombie](#bcác-loại-zombie)
-- [5. Chiến thắng và thất bại](#5-chiến-thắng-và-thất-bại)
-- [Về đồ họa của game:](#về-đồ-họa-của-game)
-- [Về source code game](#về-source-code-game)
+- 
+- [1. Bắt đầu game]
+- [2. level game]
+- [3. Các thành phần trong game:]
+- [4. Cách chơi]
+    * [a. Các loại hỗ trợ]
+    * [b. Các loại quái]
+- [5. Chiến thắng và thất bại]
+- [Về đồ họa của game:]
+- [Về source code game]
 
-# 0. Cách tải game
 
-## a. Cách 1: Không bao gồm code.
-
-Tải game (được nén thành .zip) tại link
-sau: https://github.com/Dunguser/NGUYENDUNG_GAMEBANQUAI.git<br/>
-Cách này tiết kiệm bộ nhớ và thời gian tải đi rất nhiều (khoảng 103MB).<br/>
-Giải nén game vào một thư mục và bật pvz.exe lên và chơi.<br/>
-
-## b. Cách 2: Bao gồm code và có thể biên dịch.
-
-**Bước 1:** Clone repo này về (Khoảng 800 MB - do có cả lịch sử các phiên bản). <br/>
-Hoặc Chọn Code -> Download Zip (Khoảng 90MB)
-
-![image](resources/preview/download.png)
-
-- Tất cả code đều nằm trong thư mục src.<br/>
-- Có thể nhảy đến bước 5 để chơi luôn.
-
-**Bước 2:** Cài mingw. Ở đây tôi cài đặt phiên bản MinGW-W64
-GCC-8.1.0 [x86_64-posix-seh](https://sourceforge.net/projects/mingw-w64/files/Toolchains%20targetting%20Win64/Personal%20Builds/mingw-builds/8.1.0/threads-posix/seh/x86_64-8.1.0-release-posix-seh-rt_v6-rev0.7z/download).<br/>
-Một số chú ý: <br/>
-
-- Nếu sử dụng trình biên dịch khác thì phải dịch lại icon: vào thư mục icon rồi dùng
-  lệnh `windres main.rc -O coff main.res` trong cmd.<br/>
-- Phải xóa ba dll của c++ trong thư mục chứa pvz.exe: `libgcc_s_seh-1.dll`, `libstdc++-6.dll`, `libwinpthread-1.dll`. Ba
-  dll này chỉ dành cho người chơi không cài sẵn c++ trong máy.
-
-**Bước 3:** Cài GNU make
-
-**Bước 4:** Mở cmd trong thư mục chứa Makefile và gõ lệnh make.
-
-**Bước 5:** Bật pvz.exe và chơi
 
 # 1. Bắt đầu game
 
@@ -113,22 +79,6 @@ Một số chú ý: <br/>
 ![image](HINHANH_GAME/a14.png)
 </div>
 
-
-
-<!-- Khi vào game, có 2 loại level mà mọi người sẽ gặp: buổi sáng (bên trái) và buổi tối (bên phải)
-<div style="text-align: center;">
-
-![image](resources/preview/levels.png)
-</div>
-
-- Buổi sáng thì thi thoảng sẽ có sun (mặt trời) từ trên trời rơi xuống.
-- Còn buổi tối thì không có, vậy nên game sẽ khó hơn một chút.
-
-Trước khi bắt đầu game, bạn sẽ được biết trước có những loại zombie gì sẽ xuất hiện.
-<div style="text-align: center;">
-
-![image](resources/preview/credit.png)
-</div> -->
 
 # 3. Các thành phần trong game:
 
