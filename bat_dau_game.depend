@@ -451,7 +451,7 @@
 	"BaseObject.h"
 	<bits/stdc++.h>
 
-1714116883 source:e:\bat_dau_game\mainobject.cpp
+1714127069 source:e:\bat_dau_game\mainobject.cpp
 	"MainObject.h"
 
 1714034053 e:\bat_dau_game\mainobject.h
@@ -1768,7 +1768,7 @@
 	"Game_Object.h"
 	"BulletObject.h"
 
-1714118738 source:e:\bat_dau_game\check_va_cham.cpp
+1714127069 source:e:\bat_dau_game\check_va_cham.cpp
 	"CHECK_VA_CHAM.h"
 
 1713792933 source:e:\bat_dau_game\che_do_game.cpp
