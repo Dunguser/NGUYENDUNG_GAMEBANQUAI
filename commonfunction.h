@@ -91,14 +91,12 @@ extern Mix_Chunk* quaibichem ;
 extern Mix_Chunk* tiengdam ;
 extern Mix_Chunk* daulauno ;
 extern Mix_Chunk* vakiem;
+extern TTF_Font * font_bao ;
+
+
+
 
 #endif // COMMON_FUNCTION_H_
 
-//extern BaseObject tamdung;
-//extern BaseObject tamdung2;
-//extern SDL_Rect nutdung = { SCREEN_WIDTH - 80, 0, 80,78 };
-//extern SDL_Rect tieptuc = { 625 , 460 -32 , 115,40 };
-//extern SDL_Rect playagain = { 450, 800, 120, 71 };
-//extern SDL_Rect restart = { 600, 740 , 160 -32 , 60 };
-//extern SDL_Rect cut = { 625 , 670 -32 , 120 , 30};
+
 

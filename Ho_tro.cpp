@@ -16,14 +16,14 @@ void ho_tro()
     time1 += show_time_play;
     thoi_gian_choi.SetText(time1);
     thoi_gian_choi.LoadFromRenderText(gFont, gRenderer);
-    thoi_gian_choi.RenderText(gRenderer, SCREEN_WIDTH - 180, 20);
+    thoi_gian_choi.RenderText(gRenderer, SCREEN_WIDTH - 210, 20);
 
     string da_diet = "KILLED : ";
     string showkill = to_string(so_qui_bi_giet);
     da_diet += showkill;
     da_giet.SetText(da_diet);
     da_giet.LoadFromRenderText(gFont, gRenderer);
-    da_giet.RenderText(gRenderer, SCREEN_WIDTH - 180, 50);
+    da_giet.RenderText(gRenderer, SCREEN_WIDTH - 210, 50);
 
     string tien_hientai = "MONEY : ";
     tien_hientai = "MONEY : ";
@@ -32,7 +32,7 @@ void ho_tro()
     tien_hientai += show_tien;
     antien.SetText(tien_hientai);
     antien.LoadFromRenderText(gFont, gRenderer);
-    antien.RenderText(gRenderer, SCREEN_WIDTH - 180, 80);
+    antien.RenderText(gRenderer, SCREEN_WIDTH - 210, 80);
 
     SDL_RenderPresent(gRenderer); //xuat ra man hinh hien tai
 
@@ -74,7 +74,7 @@ void ho_tro_2()
     time1 += show_time_play;
     thoi_gian_choi.SetText(time1);
     thoi_gian_choi.LoadFromRenderText( gFont, gRenderer );
-    thoi_gian_choi.RenderText(gRenderer, SCREEN_WIDTH - 180, 20);
+    thoi_gian_choi.RenderText(gRenderer, SCREEN_WIDTH - 210, 20);
     thoi_gian_choi.Free();
 
     SDL_RenderPresent ( gRenderer );
@@ -108,14 +108,14 @@ void ho_tro_3()
     time1 += show_time_play;
     thoi_gian_choi.SetText(time1);
     thoi_gian_choi.LoadFromRenderText(gFont, gRenderer);
-    thoi_gian_choi.RenderText(gRenderer, SCREEN_WIDTH - 180, 20);
+    thoi_gian_choi.RenderText(gRenderer, SCREEN_WIDTH - 210, 20);
 
     string da_diet = "KILLED : ";
     string showkill = to_string(so_qui_bi_giet);
     da_diet += showkill;
     da_giet.SetText(da_diet);
     da_giet.LoadFromRenderText(gFont, gRenderer);
-    da_giet.RenderText(gRenderer, SCREEN_WIDTH - 180, 50);
+    da_giet.RenderText(gRenderer, SCREEN_WIDTH - 210, 50);
 
     string tien_hientai = "MONEY : ";
     tien_hientai = "MONEY : ";
@@ -124,7 +124,7 @@ void ho_tro_3()
     tien_hientai += show_tien;
     antien.SetText(tien_hientai);
     antien.LoadFromRenderText(gFont, gRenderer);
-    antien.RenderText(gRenderer, SCREEN_WIDTH - 180, 80);
+    antien.RenderText(gRenderer, SCREEN_WIDTH - 210, 80);
 
     SDL_RenderPresent(gRenderer); //xuat ra man hinh hien tai
 

@@ -68,11 +68,13 @@ void InitGame()
     khoitaonoboss ( boss_tan_xac);
     khoitaono_dam ( no_dam );
 
-    thoi_gian_choi.setcolor (TextObject :: RED_TEXT );
-    da_giet.setcolor (TextObject :: RED_TEXT);
-    antien.setcolor (TextObject :: RED_TEXT );
+    thoi_gian_choi.setcolor ( TextObject :: RED_TEXT );
+    da_giet.setcolor ( TextObject :: RED_TEXT );
+    antien.setcolor ( TextObject :: RED_TEXT );
 
     so_mang.set_chi_so_mang(3);
+//    solanchetmax = so_mang.get_chi_so_mang();    //ti phai them cai nay
+
     so_mang.Init( gRenderer, "IMG/tym.png" );
 
     phung.init(gRenderer,"IMG/phung.png");
@@ -93,6 +95,7 @@ void InitGame()
     quivuong.load_cucmau_boss ( gRenderer );
 
     int ret_menu = menu_.showmenu ( gRenderer );
+
     if(ret_menu != 1) quit = true;
 
 }
@@ -105,7 +108,7 @@ void restartGame()
     game_map.LoadMap("MAP/map04.dat");                      //xu li ban do: map
     player_nvc.LoadMainImg("IMG/CHAY_PHAI_SUNG.png",gRenderer);
     game_map.LoadTiles( gRenderer );
-    // nhac nen
+
     player_nvc.Set_Clips_chay();
     player_nvc.loadamthanh_nvc();
     player_nvc.set_solantrungdan(0);
@@ -152,7 +155,7 @@ void restartGame2()
     game_map.LoadMap("MAP/map04.dat");                      //xu li ban do: map
     player_nvc.LoadMainImg("IMG/CHAY_PHAI_SUNG.png",gRenderer);
     game_map.LoadTiles( gRenderer );
-    // nhac nen
+
     player_nvc.Set_Clips_chay();
     player_nvc.loadamthanh_nvc();
     player_nvc.set_solantrungdan(0);
@@ -174,8 +177,8 @@ void restartGame2()
     solanchetmax = so_mang.get_chi_so_mang() ;               //cout<<"solanchetmax "<<solanchetmax<<endl;
 
     solanchet = 0;
-    phung.SetPos(800,10);
-    duocbay.SetPos(900,10);
+    phung.SetPos ( 800 , 10 );
+    duocbay.SetPos ( 900 ,10 );
     cai_time = true;
 
     maumau = 0;

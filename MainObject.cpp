@@ -786,10 +786,8 @@ SDL_Rect MainObject:: GetRectFrame()
 void MainObject::loaiboviendan(const int& index) // loai bo vien dan ngoai pham vi ban
 {
     int size1 = bangdan_nvc.size();
-    //cout<<"MainObject "<< size1 <<endl;
     if( size1 > 0 && index < size1)
     {
-        //cout<<"loai bo vien dan"<<endl;
         BulletObject* viendan = bangdan_nvc.at(index);
         bangdan_nvc.erase( bangdan_nvc.begin() + index);
         bangdan_nvc[index]->free();
@@ -797,7 +795,6 @@ void MainObject::loaiboviendan(const int& index) // loai bo vien dan ngoai pham 
         {
             delete viendan;
             viendan = nullptr;
-            //cout<<"loai bo vien dan"<<endl;
         }
     }
 }

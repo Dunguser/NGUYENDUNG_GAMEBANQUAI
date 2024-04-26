@@ -28,12 +28,26 @@ void handleEvents()
 
                 if ( gameOver )
                 {
-                    if (SDLCommonFunc::check_chuot_chon(xc, yc, playagain)) restartGame();
-                    else if (SDLCommonFunc::check_chuot_chon(xc, yc, not_playagain)) quit = true;
+                    if( giaidoansau_lose ==4 )
+                    {
+                        if (SDLCommonFunc::check_chuot_chon(xc, yc, playagain)) restartGame();
+                        else if (SDLCommonFunc::check_chuot_chon(xc, yc, not_playagain)) quit = true;
+                    }
+                    else if ( giaidoansau_lose == 3 )
+                    {
+                        cout<<giaidoansau_lose <<endl;
+                        if(SDLCommonFunc::check_chuot_chon(xc,yc, bo_bang))
+                        {
+                            sau_lose = 0;
+                            giaidoansau_lose ++;
+                            //cout<<"kaka"<<endl;
+                        }
+                        cout<<giaidoansau_lose<<endl;
+                    }
+
                 }
 
                 else if ( win_game ) xulikhi_win();
-
             }
         }
         player_nvc.XuLiXuKienBanPhim(gEvent, gRenderer);    // Xử lí sự kiện bàn phím cho nhân vật chính
@@ -46,6 +60,8 @@ void xulikhi_win()
     {
         restartGame2();
         win_game = false;
+        giaidoansau_lose = 1 ;
+        sau_lose = 1;
     }
     else if ( SDLCommonFunc::check_chuot_chon(xc, yc, level2) && level_1 == true ) // man 2
     {
@@ -63,11 +79,15 @@ void xulikhi_win()
 
         quivuong.set_x_bosspos ( 7800 );
         quivuong.set_y_bosspos ( 2500 );
+
+        giaidoansau_win = 1;
+        sau_lose = 1;
     }
     else if ( SDLCommonFunc::check_chuot_chon(xc, yc, win_nghi) && level_2 == true) // quay lai man 1
     {
         restartGame2();
         win_game = false;
+        giaidoansau_lose = 1;
     }
     else if ( SDLCommonFunc::check_chuot_chon(xc, yc, level2) && level_2 == true ) // man 2
     {
@@ -85,11 +105,16 @@ void xulikhi_win()
 
         quivuong.set_x_bosspos ( 7100 );
         quivuong.set_y_bosspos ( 1500 );
+
+        giaidoansau_win = 1;
+        sau_lose = 1;
     }
     else if ( SDLCommonFunc::check_chuot_chon(xc, yc, win_nghi) && level_3 == true) // quay lai man 1
     {
         restartGame2();
         win_game = false;
+        giaidoansau_lose = 1;
+        sau_lose = 1;
     }
 
 }

@@ -101,4 +101,22 @@ Uint32 starttime;
 
 int demdem = 0;
 
+BaseObject bangthongbao ;
+
+int giaidoansau_win = 1;
+int giaidoansau_lose = 1;
+
+
+SDL_Rect bo_bang = {756 , 388 , 17 , 20};
+
+int sau_lose = 1;
+
+
+
+
+
+
+
+
+
 

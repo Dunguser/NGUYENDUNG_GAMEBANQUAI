@@ -40,8 +40,8 @@ int main(int argc,char* argv[] )
                     ho_tro_3();
                 }
             }
-            else if( gameOver && !win_game ) lose();
-            else if ( win_game && !gameOver ) win();
+            else if ( win_game ) win();
+            else if ( gameOver ) lose();
         }
         else if( isPaused )
         {

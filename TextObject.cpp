@@ -43,12 +43,6 @@ void TextObject :: Free()
     }
 }
 
-void TextObject :: setcolor(Uint8 red, Uint8 green, Uint8 blue)
-{
-    text_color_.r = red;
-    text_color_.b = blue;
-    text_color_.g = green;
-}
 
 void TextObject :: setcolor(int type)
 {
@@ -89,7 +83,13 @@ SDL_Rect TextObject::text(int x,int y)
     return kaka;
 }
 
-
+//
+//void TextObject :: setcolor(Uint8 red, Uint8 green, Uint8 blue)
+//{
+//    text_color_.r = red;
+//    text_color_.b = blue;
+//    text_color_.g = green;
+//}
 
 
 

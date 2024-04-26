@@ -126,6 +126,17 @@ extern int deadline_man2 ;
 extern Uint32 starttime;
 
 extern int demdem ;
+
+
+extern BaseObject bangthongbao ;
+
+extern int giaidoansau_win;
+extern int giaidoansau_lose;
+
+extern int sau_lose;
+
+extern SDL_Rect bo_bang;
+
 #endif // TOAN_CUC_
 
 

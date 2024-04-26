@@ -425,8 +425,6 @@ void QUIVUONG::checktomap_boss( MAP& map_data )
         x_boss_pos = map_data.max_x_ - width_frame_ - sai_so_can_co;
     }
 
-
-
 }
 
 void QUIVUONG::init_dan_qui ( BulletObject* dan_qui, SDL_Renderer* screen)

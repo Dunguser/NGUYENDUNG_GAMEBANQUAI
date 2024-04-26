@@ -98,8 +98,19 @@ bool LoadMedia() // Tải tài nguyên game
         cout<<IMG_GetError()<<endl;
         return 0;
     }
+    if( !bangthongbao.LoadImage("IMG/botro/bangthongbao.png",gRenderer))
+    {
+        cout<<IMG_GetError()<<endl;
+        return 0;
+    }
 
-    gFont = TTF_OpenFont ("FONT/turok.ttf",24);
+    gFont = TTF_OpenFont ("FONT/turok.ttf",28);
+    font_bao = TTF_OpenFont ("FONT/iCielCadena.otf",34);
+    if(font_bao == nullptr)
+    {
+        cout<<TTF_GetError();
+        return 0;
+    }
     if( gFont == nullptr )
     {
         cout<<TTF_GetError();
