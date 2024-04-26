@@ -1,9 +1,11 @@
 [[English]](README_en.md)
-
+# tác giả:
+    Nguyễn Xuân Dũng
+    MSSV : 23020028
 # Bắn quái
 
-- Thử nghiệm game: [https://youtu.be/EyTwTOWr5zU](https://youtu.be/EziCb7U9UbU)
-- Phá đảo game: https://youtu.be/0RQHeCaz4sg
+- bài nói về game : [google drive]
+https://drive.google.com/drive/folders/12N5IHJHDmyYhFeanBmaGsSfbosfsFQf4?usp=sharing
 
 # Giới thiệu game
 
@@ -252,3 +254,13 @@ Bắn quái là tựa game phiêu lưu , mạo hiểm , gây cảm giác thích 
     * ThreatsObject : xây dựng đội quân quỉ
     * vuno : khỏi tạo hiệu ứng nổ khí đạn và kiếm va chạm với người
     * win_or_lose : xử lí sau khí thắng 1 màn hoặc thua 1 màn 
+
+
+### các nguồn code đã tham khảo
+    @PhatTrienPhanMem123AZ
+    lazyfoo
+    chat GPT
+### các nguồn âm thanh và hình ảnh
+    phttps://www.pinterest.com/
+    https://www.tiengdong.com
+    google
