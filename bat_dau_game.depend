@@ -451,7 +451,7 @@
 	"BaseObject.h"
 	<bits/stdc++.h>
 
-1714087062 source:e:\bat_dau_game\mainobject.cpp
+1714108070 source:e:\bat_dau_game\mainobject.cpp
 	"MainObject.h"
 
 1714034053 e:\bat_dau_game\mainobject.h
@@ -1739,7 +1739,7 @@
 	"game_functions.h"
 	"Game_Object.h"
 
-1714107032 source:e:\bat_dau_game\init_game.cpp
+1714108070 source:e:\bat_dau_game\init_game.cpp
 	"Init_Game.h"
 
 1714089862 source:e:\bat_dau_game\ho_tro.cpp
