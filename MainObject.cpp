@@ -8,10 +8,10 @@ MainObject::MainObject()
     x_biendoi_=0;               // khi di chuyen thi tang/giam bao nhieu
     y_biendoi_=0;               // an trai giam bao nhieu, nhay tang bao nhieu
 
-    x_now_pos = 7500;//vi tri x hien tai
-    y_now_pos = 2000 ;
-//    x_now_pos = 100;            //vi tri x hien tai
-//    y_now_pos = 500 ;
+//    x_now_pos = 7500;//vi tri x hien tai
+//    y_now_pos = 2000 ;
+    x_now_pos = 100;            //vi tri x hien tai
+    y_now_pos = 500 ;
 
     width_frame_ =0;            // kich thuoc 1 frame vi 1 anh co 5,7,8 frame
     height_frame_=0;

@@ -36,6 +36,7 @@ extern SDL_Rect not_playagain ;
 
 extern SDL_Rect restart;
 extern SDL_Rect cut;
+extern SDL_Rect tatam;
 
 extern BaseObject anhdau;
 extern BaseObject anhcho;
@@ -135,7 +136,27 @@ extern int giaidoansau_lose;
 
 extern int sau_lose;
 
+
+
 extern SDL_Rect bo_bang;
+extern BaseObject mo_am;
+extern BaseObject tat_am;
+
+extern bool amthanh ;
+extern int chinham ;
+
+extern int hien_bang_am ;
+extern SDL_Rect loa;
+
+extern int kich_chuot_sound ;
+
+
+
+
+
+
+
+
 
 #endif // TOAN_CUC_
 

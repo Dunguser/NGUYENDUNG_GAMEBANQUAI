@@ -17,6 +17,7 @@ public:
 
     int showmenu ( SDL_Renderer* des );
     bool check_chuot_chon (int x,int y, SDL_Rect rect); //toa do cua chuot co o trong cac lua chon khong
+    void tatamthanh ( int x, int y, SDL_Rect rect );
 
 private:
 

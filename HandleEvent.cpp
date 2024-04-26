@@ -20,29 +20,60 @@ void handleEvents()
                 xc = gEvent.motion.x;
                 yc = gEvent.motion.y;
                 if (SDLCommonFunc::check_chuot_chon(xc, yc, nutdung)) isPaused = true;    // tam dung
-                else if (SDLCommonFunc::check_chuot_chon(xc, yc, tieptuc )) isPaused = false; // het tam dung
+                if (isPaused)
+                {
+                    if(!amthanh)
+                    {
+                        if (SDLCommonFunc::check_chuot_chon(xc, yc, tieptuc )) isPaused = false;    // het tam dung
+                        else if (SDLCommonFunc::check_chuot_chon(xc, yc, restart) ) restartGame2(); // restart game ma khong phai choi lai
+                        else if (SDLCommonFunc::check_chuot_chon(xc, yc, cut)) quit = true;
+                        else if (SDLCommonFunc::check_chuot_chon(xc, yc, tatam))
+                        {
+                            amthanh = true;
+                            hien_bang_am = 2;
+                        }
+                    }
+                    else
+                    {
 
-                else if (SDLCommonFunc::check_chuot_chon(xc, yc, restart) && isPaused == true) restartGame2(); // restart game ma khong phai choi lai
+                        if(SDLCommonFunc::check_chuot_chon(xc,yc, loa))
+                        {
+                            cout<<"kaka"<<endl;
+                            if(hien_bang_am == 2)
+                            {
+                                hien_bang_am =3;
+                                dieuChinhAmLuong(0);
+                            }
+                            else if( hien_bang_am == 3)
+                            {
+                                hien_bang_am =2;
+                                dieuChinhAmLuong(MIX_MAX_VOLUME);
+                            }
+                        }
+                        else if(SDLCommonFunc::check_chuot_chon(xc, yc, nutdung))
+                        {
+                            amthanh = false;
+                            hien_bang_am = 1;
+                        }
+                    }
 
-                else if (SDLCommonFunc::check_chuot_chon(xc, yc, cut)) quit = true;
+
+                }
 
                 if ( gameOver )
                 {
-                    if( giaidoansau_lose ==4 )
+                    if( giaidoansau_lose == 4 )
                     {
                         if (SDLCommonFunc::check_chuot_chon(xc, yc, playagain)) restartGame();
                         else if (SDLCommonFunc::check_chuot_chon(xc, yc, not_playagain)) quit = true;
                     }
                     else if ( giaidoansau_lose == 3 )
                     {
-                        cout<<giaidoansau_lose <<endl;
                         if(SDLCommonFunc::check_chuot_chon(xc,yc, bo_bang))
                         {
                             sau_lose = 0;
                             giaidoansau_lose ++;
-                            //cout<<"kaka"<<endl;
                         }
-                        cout<<giaidoansau_lose<<endl;
                     }
 
                 }
@@ -53,6 +84,7 @@ void handleEvents()
         player_nvc.XuLiXuKienBanPhim(gEvent, gRenderer);    // Xử lí sự kiện bàn phím cho nhân vật chính
     }
 }
+
 
 void xulikhi_win()
 {
@@ -118,3 +150,18 @@ void xulikhi_win()
     }
 
 }
+
+void dieuChinhAmLuong(int volume)
+{
+    // Đặt âm lượng của âm thanh theo giá trị volume
+    Mix_Volume(-1, volume); // -1: Tất cả các kênh
+    Mix_VolumeMusic(volume);
+}
+
+void xulitatam()
+{
+
+}
+
+
+

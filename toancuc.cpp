@@ -12,6 +12,7 @@ SDL_Rect playagain = {460, 800, 130, 71};
 SDL_Rect not_playagain = { 700, 800, 130, 70 };
 SDL_Rect restart = {600, 740 -30, 160, 60};
 SDL_Rect cut = {625, 670 - 32, 120, 30};
+SDL_Rect tatam = {622,571,117,35};
 
 BaseObject anhdau;
 BaseObject anhcho;
@@ -111,12 +112,15 @@ SDL_Rect bo_bang = {756 , 388 , 17 , 20};
 
 int sau_lose = 1;
 
+BaseObject mo_am;
+BaseObject tat_am;
 
 
+bool amthanh = false;
+int chinham = 1;
+int hien_bang_am = 1 ;
+SDL_Rect loa = {614, 451 , 55 , 55 };
 
-
-
-
-
+int kich_chuot_sound = 0;
 
 

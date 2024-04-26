@@ -45,8 +45,24 @@ int main(int argc,char* argv[] )
         }
         else if( isPaused )
         {
-            tamdung2.Render ( gRenderer,nullptr );
-            SDL_RenderPresent ( gRenderer );
+            if( hien_bang_am == 1)
+            {
+                tamdung2.Render ( gRenderer,nullptr );
+                SDL_RenderPresent ( gRenderer );
+            }
+            else if (hien_bang_am == 2)
+            {
+                mo_am.SetRect((SCREEN_WIDTH - 260)/2, (SCREEN_HEIGHT-260)/2);
+                mo_am.Render ( gRenderer);
+                SDL_RenderPresent (gRenderer);
+            }
+            else if (hien_bang_am == 3)
+            {
+                tat_am.SetRect((SCREEN_WIDTH - 260)/2, (SCREEN_HEIGHT-260)/2);
+                tat_am.Render ( gRenderer);
+                SDL_RenderPresent (gRenderer);
+            }
+
         }
     }
     close();

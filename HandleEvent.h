@@ -10,5 +10,9 @@
 void handleEvents();
 
 void xulikhi_win();
+void xulitatam();
+void dieuChinhAmLuong(int volume);
+
+
 
 #endif // HANDLE_EVENT_H

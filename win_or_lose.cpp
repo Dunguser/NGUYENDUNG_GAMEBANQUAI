@@ -16,7 +16,6 @@ void win()
         bangthongbao.SetRect ( 490, 380 );
         bangthongbao.Render( gRenderer, nullptr);
         SDL_RenderPresent ( gRenderer );
-
         giaidoansau_win ++ ;
     }
     if(giaidoansau_win == 3)

@@ -73,7 +73,7 @@ void InitGame()
     antien.setcolor ( TextObject :: RED_TEXT );
 
     so_mang.set_chi_so_mang(3);
-//    solanchetmax = so_mang.get_chi_so_mang();    //ti phai them cai nay
+    solanchetmax = so_mang.get_chi_so_mang();    //ti phai them cai nay
 
     so_mang.Init( gRenderer, "IMG/tym.png" );
 
@@ -96,7 +96,7 @@ void InitGame()
 
     int ret_menu = menu_.showmenu ( gRenderer );
 
-    if(ret_menu != 1) quit = true;
+    if(ret_menu == 4 ) quit = true;
 
 }
 

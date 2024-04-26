@@ -103,6 +103,16 @@ bool LoadMedia() // Tải tài nguyên game
         cout<<IMG_GetError()<<endl;
         return 0;
     }
+    if( !mo_am.LoadImage("IMG/botro/mo_am.png",gRenderer))
+    {
+        cout<<IMG_GetError()<<endl;
+        return 0;
+    }
+    if( !tat_am.LoadImage("IMG/botro/tat_am.png",gRenderer))
+    {
+        cout<<IMG_GetError()<<endl;
+        return 0;
+    }
 
     gFont = TTF_OpenFont ("FONT/turok.ttf",28);
     font_bao = TTF_OpenFont ("FONT/iCielCadena.otf",34);

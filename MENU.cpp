@@ -41,7 +41,7 @@ int MENU::showmenu(SDL_Renderer* des)
     vitriluachon[3].x = 565;
     vitriluachon[3].y = 720;
 
-    for(int i=0;i< so_lua_chon ; i++)
+    for(int i=0; i< so_lua_chon ; i++)
     {
         vitriluachon[i].w = 200;
         vitriluachon[i].h = 75;
@@ -114,7 +114,10 @@ int MENU::showmenu(SDL_Renderer* des)
 }
 
 
-
+//void tatamthanh ( int x, int y, SDL_Rect rect )
+//{
+//
+//}
 
 
 

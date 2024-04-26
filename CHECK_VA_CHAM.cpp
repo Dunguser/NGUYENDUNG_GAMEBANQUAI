@@ -427,7 +427,7 @@ void va_nvc_bi_bossdam()
                     player_nvc.set_vitri_nvc ( player_nvc.get_x_hientai() - 3, player_nvc.get_y_hientai());
                 }
                 else player_nvc.set_vitri_nvc ( player_nvc.get_x_hientai() + 3, player_nvc.get_y_hientai() );
-                cout<<quivuong.get_x_bosspos() <<" "<<quivuong.get_y_bosspos()<<endl;
+                //cout<<quivuong.get_x_bosspos() <<" "<<quivuong.get_y_bosspos()<<endl;
 
                 dem_dam ++ ;
                 if(dem_dam >= 25 )
@@ -489,7 +489,7 @@ void va_nvc_voi_kiemboss()
                     daulau.set_clip();
                     daulau.show( gRenderer );
                 }
-                cout<<quivuong.get_x_bosspos() <<" "<<quivuong.get_y_bosspos()<<endl;
+//                cout<<quivuong.get_x_bosspos() <<" "<<quivuong.get_y_bosspos()<<endl;
                 bi_uatuc_chem ++ ;
                 if ( bi_uatuc_chem >= 100 )
                 {
@@ -540,8 +540,6 @@ void va_haikiemvoinhau()
         SDL_Rect rect_kiem = {jj1,ii1, rect2.w, rect2.h };
 
         if(SDLCommonFunc::CheckCollision(rect_uatuc, rect_kiem)) Mix_PlayChannel( -1, vakiem, 0 );
-
-
     }
 }
 
@@ -575,7 +573,7 @@ void va_boss_voi_dan_nvc()
                 }
                 player_nvc.loaiboviendan(i);
                 boss_andan++;
-                if(boss_andan >= 1 )
+                if(boss_andan >= 20 )
                 {
                     quivuong.trungdan();
                     boss_andan = 0;
@@ -626,11 +624,6 @@ void va_boss_voi_kiem_nvc()
             bool qui_an_kiem = SDLCommonFunc :: CheckCollision( rect_kiem, boss_rect );
             if(qui_an_kiem)
             {
-                //cout<<"loi o day nha"<<endl;
-//                cout<<"qui vuong "<<quivuong.get_x_bosspos()<<" "<<quivuong.get_y_bosspos()<<endl;
-//                cout<<"main "<<player_nvc.get_x_hientai()<<" "<<player_nvc.get_y_hientai()<<endl;
-                cout<<"qui "<<quivuong.get_x_bosspos()<<" //   main "<<player_nvc.get_x_hientai()<<endl;
-                cout<<abs(player_nvc.get_x_hientai() - quivuong.get_x_bosspos() <= 300)<<endl;
 
                 Mix_PlayChannel ( -1, quaibichem, 0 );
                 for(int no = 0 ; no < num_frame_no ; no ++)                         // xu li anh no
