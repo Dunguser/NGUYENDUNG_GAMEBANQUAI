@@ -43,13 +43,13 @@ void InitGame()
     }
     else if ( level_2 )
     {
-        quivuong.set_x_bosspos ( 8800 );
+        quivuong.set_x_bosspos ( 8000 );
         quivuong.set_y_bosspos ( 2500 );
     }
     else if ( level_3 )
     {
-        quivuong.set_x_bosspos ( 7100 );
-        quivuong.set_y_bosspos ( 1500 );
+        quivuong.set_x_bosspos ( 7500 );
+        quivuong.set_y_bosspos ( 2500 );
     }
 
     quivuong.loadamthanh_boss();
@@ -114,7 +114,7 @@ void restartGame()
     player_nvc.set_solantrungdan(0);
 
     if(level_1)player_nvc.set_vitri_nvc ( 500, 500);
-    else if ( level_2) player_nvc.set_vitri_nvc ( 7500, 2000) ;
+    else if ( level_2) player_nvc.set_vitri_nvc ( 7000, 1800) ;
 
     quivuong.set_clips();
     quivuong.set_x_bosspos ( 8800 );

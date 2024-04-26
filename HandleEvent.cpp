@@ -94,6 +94,7 @@ void xulikhi_win()
         win_game = false;
         giaidoansau_lose = 1 ;
         sau_lose = 1;
+        cai_time = true;
     }
     else if ( SDLCommonFunc::check_chuot_chon(xc, yc, level2) && level_1 == true ) // man 2
     {
@@ -114,12 +115,14 @@ void xulikhi_win()
 
         giaidoansau_win = 1;
         sau_lose = 1;
+        cai_time = true;
     }
     else if ( SDLCommonFunc::check_chuot_chon(xc, yc, win_nghi) && level_2 == true) // quay lai man 1
     {
         restartGame2();
         win_game = false;
         giaidoansau_lose = 1;
+        cai_time = true;
     }
     else if ( SDLCommonFunc::check_chuot_chon(xc, yc, level2) && level_2 == true ) // man 2
     {
@@ -133,13 +136,14 @@ void xulikhi_win()
         player_nvc.kichhoathangnong ( false );
         player_nvc.kichhoatchongchong ( false );
         player_nvc.setchobay ( false );
-        player_nvc.set_vitri_nvc ( 6800, 1500 );
+        player_nvc.set_vitri_nvc ( 500, 500 );
 
         quivuong.set_x_bosspos ( 7100 );
         quivuong.set_y_bosspos ( 1500 );
 
         giaidoansau_win = 1;
         sau_lose = 1;
+        cai_time = true;
     }
     else if ( SDLCommonFunc::check_chuot_chon(xc, yc, win_nghi) && level_3 == true) // quay lai man 1
     {
@@ -147,14 +151,15 @@ void xulikhi_win()
         win_game = false;
         giaidoansau_lose = 1;
         sau_lose = 1;
+        cai_time = true;
     }
 
 }
 
 void dieuChinhAmLuong(int volume)
 {
-    // Đặt âm lượng của âm thanh theo giá trị volume
-    Mix_Volume(-1, volume); // -1: Tất cả các kênh
+    // Đặt âm lượng
+    Mix_Volume(-1, volume);
     Mix_VolumeMusic(volume);
 }
 

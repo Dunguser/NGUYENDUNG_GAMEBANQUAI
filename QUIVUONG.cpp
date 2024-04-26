@@ -316,12 +316,12 @@ void QUIVUONG::DICHUYEN_BOSS( MAP& map_data )
     else if ( trang_thai_boss.ban_phai == 1)
     {
         x_change += TOCDOCHAY_BOSS / 2;
-        playmusic(cung);
+        //playmusic(cung);
     }
     else if ( trang_thai_boss.ban_trai == 1)
     {
         x_change -= TOCDOCHAY_BOSS / 2;
-        playmusic(cung);
+        //playmusic(cung);
     }
     else if (trang_thai_boss.lon_phai == 1)
     {
@@ -519,7 +519,7 @@ void QUIVUONG::trungdan ()
 
 void QUIVUONG:: loadamthanh_boss()
 {
-    //cung = Mix_LoadWAV("sound/cung.mp3");
+    cung = Mix_LoadWAV("sound/cung.mp3");
     dau = Mix_LoadWAV("sound/dau.mp3");
     if(cung == nullptr || dau == nullptr )cout<< Mix_GetError();
     if(dau == nullptr){ cout<<"dau ";}

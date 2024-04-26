@@ -392,10 +392,8 @@ void va_nvc_voi_danboss()
 }
 void va_nvc_bi_bossdam()
 {
-    if(abs(player_nvc.get_x_hientai() -quivuong.get_x_bosspos()) <= 300 )
+    if(abs(player_nvc.get_x_hientai() - quivuong.get_x_bosspos()) <= 300 )
     {
-
-
         bool andam = false;
         SDL_Rect rect_nvc = player_nvc.GetRectFrame();
         if(quivuong.trangthaidam())
@@ -489,7 +487,6 @@ void va_nvc_voi_kiemboss()
                     daulau.set_clip();
                     daulau.show( gRenderer );
                 }
-//                cout<<quivuong.get_x_bosspos() <<" "<<quivuong.get_y_bosspos()<<endl;
                 bi_uatuc_chem ++ ;
                 if ( bi_uatuc_chem >= 100 )
                 {
@@ -573,7 +570,7 @@ void va_boss_voi_dan_nvc()
                 }
                 player_nvc.loaiboviendan(i);
                 boss_andan++;
-                if(boss_andan >= 20 )
+                if(boss_andan >= 15 )
                 {
                     quivuong.trungdan();
                     boss_andan = 0;
