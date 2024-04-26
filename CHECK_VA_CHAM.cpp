@@ -570,7 +570,7 @@ void va_boss_voi_dan_nvc()
                 }
                 player_nvc.loaiboviendan(i);
                 boss_andan++;
-                if(boss_andan >= 1 )
+                if(boss_andan >= 15 )
                 {
                     quivuong.trungdan();
                     boss_andan = 0;

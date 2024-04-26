@@ -8,7 +8,7 @@ void win()
         messi.SetRect ( 164, 0 );
         messi.Render( gRenderer );
         SDL_RenderPresent ( gRenderer );
-        SDL_Delay ( 500 );
+        SDL_Delay ( 2000 );
         giaidoansau_win++;
     }
     if ( giaidoansau_win == 2 )
@@ -41,7 +41,7 @@ void win()
             tongthoigianchoi.render(520,410);
         }
         SDL_RenderPresent(gRenderer);
-        SDL_Delay ( 1000);
+        SDL_Delay ( 2000);
         giaidoansau_win ++ ;
 
     }
@@ -59,7 +59,7 @@ void lose()
         penaldo.SetRect(0,0);
         penaldo.Render( gRenderer, nullptr );
         SDL_RenderPresent( gRenderer );
-        SDL_Delay ( 500 );
+        SDL_Delay ( 2000 );
         giaidoansau_lose ++;
     }
     if ( giaidoansau_lose == 2 )
@@ -93,7 +93,7 @@ void lose()
             tongthoigianchoi.render(520,410);
         }
         SDL_RenderPresent(gRenderer);
-        SDL_Delay ( 1000);
+        SDL_Delay ( 3000);
     }
     if(giaidoansau_lose == 4)
     {

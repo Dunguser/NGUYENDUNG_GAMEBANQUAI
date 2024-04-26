@@ -1768,7 +1768,7 @@
 	"Game_Object.h"
 	"BulletObject.h"
 
-1714127069 source:e:\bat_dau_game\check_va_cham.cpp
+1714130116 source:e:\bat_dau_game\check_va_cham.cpp
 	"CHECK_VA_CHAM.h"
 
 1713792933 source:e:\bat_dau_game\che_do_game.cpp
@@ -1901,7 +1901,7 @@
 	"Text.h"
 	<bits/stdc++.h>
 
-1714107032 source:e:\bat_dau_game\win_or_lose.cpp
+1714139366 source:e:\bat_dau_game\win_or_lose.cpp
 	"win_or_lose.h"
 
 1714072924 e:\bat_dau_game\text.h
